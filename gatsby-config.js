@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Rosewood Chronicles`,
     description: `Fan site for the Rosewood Chronicles books.`,
-    author: `@lukeBrobbin`,
+    author: `@LukeBrobbin`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

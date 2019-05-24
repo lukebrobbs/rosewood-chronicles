@@ -1,13 +1,13 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useContext } from "react"
 
+import { AuthContext } from "../components/AuthProvider"
 import Image from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import useAuth from "../components/useAuth"
 
 const IndexPage = () => {
-  const { login } = useAuth()
+  const { login } = useContext(AuthContext)
 
   return (
     <Layout>
