@@ -80,9 +80,9 @@ function SEO({ description, lang, meta, title }: ISeoProps) {
 }
 
 SEO.defaultProps = {
+  description: ``,
   lang: `en`,
   meta: [],
-  description: ``,
 }
 
 SEO.propTypes = {
