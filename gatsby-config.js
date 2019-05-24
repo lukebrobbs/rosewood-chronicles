@@ -1,11 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Rosewood Chronicles`,
+    description: `Fan site for the Rosewood Chronicles books.`,
+    author: `@lukeBrobbin`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-tslint`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
