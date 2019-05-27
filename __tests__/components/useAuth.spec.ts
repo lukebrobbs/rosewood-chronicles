@@ -1,8 +1,15 @@
-import useAuth from "../../src/components/useAuth"
+import useAuth, { IAuth } from "../../src/components/useAuth"
 
 describe("useAuth", () => {
-  it("Should work", () => {
-    useAuth()
-    expect(true).toBe(true)
+  let mockAuth: IAuth
+  beforeAll(() => {
+    mockAuth = useAuth()
+  })
+  it("Should return an object with the correct keys", () => {
+    const expectedKeys = ["login"]
+    const returnedKeys = Object.keys(mockAuth)
+    expectedKeys.forEach(key => {
+      expect(returnedKeys.includes(key)).toBe(true)
+    })
   })
 })

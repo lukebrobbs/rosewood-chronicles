@@ -1,6 +1,10 @@
 import auth0 from "auth0-js"
 
-const useAuth = () => {
+export interface IAuth {
+  login: () => void
+}
+
+const useAuth = (): IAuth => {
   const Auth0 = new auth0.WebAuth({
     clientID: process.env.CLIENT_ID || "",
     domain: process.env.AUTH_DOMAIN || "",
