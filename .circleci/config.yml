@@ -8,8 +8,16 @@ jobs:
       - checkout
       - run: npm ci
       - run: npm test
+  lint:
+    docker:
+      - image: node:latest
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm run lint
 
 workflows:
   build:
     jobs:
       - test
+      - lint
