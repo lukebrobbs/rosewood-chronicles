@@ -5,9 +5,11 @@ interface IAuth {
   login?: (
     event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => void | CallableFunction
+  authenticate?: () => void
+  isAuthenticated: () => boolean
 }
 
-const AUTH_DEFAULTS: IAuth = {}
+const AUTH_DEFAULTS: IAuth = { isAuthenticated: () => false }
 
 interface IProps {
   children: JSX.Element | JSX.Element[]

@@ -1,13 +1,11 @@
-import useAuth, { IAuth } from "../../src/components/useAuth"
+import { renderHook } from "react-hooks-testing-library"
+import useAuth from "../../src/components/useAuth"
 
 describe("useAuth", () => {
-  let mockAuth: IAuth
-  beforeAll(() => {
-    mockAuth = useAuth()
-  })
   it("Should return an object with the correct keys", () => {
-    const expectedKeys = ["login"]
-    const returnedKeys = Object.keys(mockAuth)
+    const { result } = renderHook(() => useAuth())
+    const expectedKeys = ["login", "logout", "isAuthenticated", "authenticate"]
+    const returnedKeys = Object.keys(result.current)
     expectedKeys.forEach(key => {
       expect(returnedKeys.includes(key)).toBe(true)
     })

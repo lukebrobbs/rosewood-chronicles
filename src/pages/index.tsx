@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
-  const { login } = useContext(AuthContext)
+  const { login, authenticate } = useContext(AuthContext)
 
   return (
     <Layout>
@@ -16,6 +16,7 @@ const IndexPage = () => {
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
       <button onClick={login}>LOGIN</button>
+      <button onClick={authenticate}>AUTHENTICATE</button>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />
       </div>
