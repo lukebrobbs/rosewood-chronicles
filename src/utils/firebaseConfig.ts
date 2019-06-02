@@ -1,26 +1,7 @@
 import firebase from "firebase"
-import { navigate } from "gatsby"
 
 export const uiConfig: firebaseui.auth.Config = {
-  // Popup signin flow rather than redirect flow.
-  callbacks: {
-    // Avoid redirects after sign-in.
-    signInSuccessWithAuthResult: (user: any) => {
-      const db = firebase.firestore()
-      //   const fireStoreUser = await db
-      //     .collection("users")
-      //     .doc(user.user.uid)
-      //     .get()
-      //   if (fireStoreUser.exists) {
-      //     navigate("/")
-      //   }
-      navigate("/sortingQuiz")
-      return false
-    },
-  },
   signInFlow: "popup",
-  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  // We will display Google and Facebook as auth providers.
   signInOptions: [
     {
       // Required to enable this provider in one-tap sign-up.
@@ -36,4 +17,5 @@ export const uiConfig: firebaseui.auth.Config = {
     firebase.auth.EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
   ],
+  signInSuccessUrl: "/callback",
 }

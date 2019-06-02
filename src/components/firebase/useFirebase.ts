@@ -1,12 +1,16 @@
 import firebase from "firebase"
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 const useFirebase = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const unregisterAuthObserver = useCallback(
-    firebase.auth().onAuthStateChanged(user => setIsAuthenticated(!!user)),
-    []
-  )
+  const [userId, setUserID] = useState("")
+
+  const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      setUserID(user.uid)
+    }
+    setIsAuthenticated(!!user)
+  })
 
   useEffect(() => {
     return () => {
@@ -16,6 +20,7 @@ const useFirebase = () => {
 
   return {
     isAuthenticated,
+    userId,
   }
 }
 

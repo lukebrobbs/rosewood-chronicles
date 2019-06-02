@@ -1,11 +1,12 @@
 import React from "react"
-import useAuth from "./useFirebase"
+import useFirebase from "./useFirebase"
 
 interface IFirebase {
   isAuthenticated: boolean
+  userId: string
 }
 
-const AUTH_DEFAULTS: IFirebase = { isAuthenticated: false }
+const AUTH_DEFAULTS: IFirebase = { isAuthenticated: false, userId: "" }
 
 interface IProps {
   children: JSX.Element | JSX.Element[]
@@ -13,8 +14,10 @@ interface IProps {
 export const FirebaseContext = React.createContext(AUTH_DEFAULTS)
 
 export const FirebaseProvider = ({ children }: IProps) => {
-  const auth = useAuth()
+  const firebase = useFirebase()
   return (
-    <FirebaseContext.Provider value={auth}>{children}</FirebaseContext.Provider>
+    <FirebaseContext.Provider value={firebase}>
+      {children}
+    </FirebaseContext.Provider>
   )
 }
