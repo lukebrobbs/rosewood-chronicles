@@ -1,20 +1,18 @@
-import firebase from "firebase"
 import { navigate } from "gatsby"
 import React, { useContext, useEffect } from "react"
 import { FirebaseContext } from "../components/firebase/FirebaseProvider"
+import fireStoreMethods from "../utils/fireStoreMethods"
 
 const Callback = () => {
   const { userId } = useContext(FirebaseContext)
 
   const queryFireStore = async () => {
-    const db = firebase.firestore()
-    const userDoc = db.collection("users").doc(userId)
-
-    const fireStoreUser = await userDoc.get()
+    const fireStoreUser = await fireStoreMethods.getFireStoreUser(userId)
     if (fireStoreUser.exists) {
       navigate("/home")
     } else {
-      await userDoc.set({})
+      await fireStoreMethods.setFireStoreUser(userId)
+      await fireStoreMethods.sendEmailVerification()
       navigate("/sortingQuiz")
     }
   }

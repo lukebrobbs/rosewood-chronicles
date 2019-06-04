@@ -1,6 +1,5 @@
 const React = require("react")
 const firebase = require("firebase")
-const { AuthProvider } = require("./src/components/AuthProvider.tsx")
 const {
   FirebaseProvider,
 } = require("./src/components/firebase/FirebaseProvider")
@@ -17,9 +16,5 @@ exports.wrapRootElement = ({ element }) => {
   }
 
   firebase.initializeApp(firebaseConfig)
-  return (
-    <FirebaseProvider>
-      <AuthProvider>{element}</AuthProvider>
-    </FirebaseProvider>
-  )
+  return <FirebaseProvider>{element}</FirebaseProvider>
 }
