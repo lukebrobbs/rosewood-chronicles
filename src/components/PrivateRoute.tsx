@@ -6,7 +6,7 @@ import { FirebaseContext } from "../components/firebase/FirebaseProvider"
 
 interface IPrivateRouteInterface {
   component: React.FunctionComponent
-  location: WindowLocation
+  location?: WindowLocation
   path: string
 }
 

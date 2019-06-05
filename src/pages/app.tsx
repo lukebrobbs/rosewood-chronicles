@@ -9,9 +9,7 @@ import SortingQuiz from "../components/SortingQuiz"
 const App = () => (
   <Layout>
     <Router>
-      // @ts-ignore
       <PrivateRoute path="/app/home" component={Home} />
-      // @ts-ignore
       <PrivateRoute path="/app/sortingQuiz" component={SortingQuiz} />
     </Router>
   </Layout>
