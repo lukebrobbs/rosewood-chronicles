@@ -1,6 +1,6 @@
 import React from "react"
 
-const Home = () => {
+const Home = (_: any) => {
   return <p>Home</p>
 }
 

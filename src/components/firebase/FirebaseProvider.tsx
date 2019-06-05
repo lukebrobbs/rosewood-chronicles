@@ -4,9 +4,14 @@ import useFirebase from "./useFirebase"
 interface IFirebase {
   isAuthenticated: boolean
   userId: string
+  initialized: boolean
 }
 
-const AUTH_DEFAULTS: IFirebase = { isAuthenticated: false, userId: "" }
+const AUTH_DEFAULTS: IFirebase = {
+  initialized: false,
+  isAuthenticated: false,
+  userId: "",
+}
 
 interface IProps {
   children: JSX.Element | JSX.Element[]

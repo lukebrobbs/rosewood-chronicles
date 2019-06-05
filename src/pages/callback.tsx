@@ -9,11 +9,11 @@ const Callback = () => {
   const queryFireStore = async () => {
     const fireStoreUser = await fireStoreMethods.getFireStoreUser(userId)
     if (fireStoreUser.exists) {
-      navigate("/home")
+      navigate("/app/home")
     } else {
       await fireStoreMethods.setFireStoreUser(userId)
       await fireStoreMethods.sendEmailVerification()
-      navigate("/sortingQuiz")
+      navigate("/app/sortingQuiz")
     }
   }
 

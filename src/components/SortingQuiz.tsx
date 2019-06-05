@@ -1,6 +1,6 @@
 import React from "react"
 
-const SortingQuiz = () => {
+const SortingQuiz = (_: any) => {
   return <p>Sorting Quiz</p>
 }
 

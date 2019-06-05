@@ -29,25 +29,47 @@ describe("handleOnAuthStateChange", () => {
   it("if the user is truthy, should call setUserId", () => {
     const mockSetUserId = jest.fn()
     const mockSetIsAuthenticated = jest.fn()
+    const mocksetInitialized = jest.fn()
     handleOnAuthStateChange(
       // @ts-ignore
       { uid: "testId" },
       mockSetUserId,
-      mockSetIsAuthenticated
+      mockSetIsAuthenticated,
+      mocksetInitialized,
+      false
     )
     expect(mockSetUserId.mock.calls.length).toBe(1)
   })
   it("if the user is falsey, should call setIsAuthenticated", () => {
     const mockSetUserId = jest.fn()
     const mockSetIsAuthenticated = jest.fn()
+    const mocksetInitialized = jest.fn()
+
     handleOnAuthStateChange(
       // @ts-ignore
       null,
       mockSetUserId,
-      mockSetIsAuthenticated
+      mockSetIsAuthenticated,
+      mocksetInitialized,
+      false
     )
 
     expect(mockSetUserId.mock.calls.length).toBe(0)
     expect(mockSetIsAuthenticated.mock.calls.length).toBe(1)
+  })
+  it("initialized is false, should call setInitialized", () => {
+    const mockSetUserId = jest.fn()
+    const mockSetIsAuthenticated = jest.fn()
+    const mocksetInitialized = jest.fn()
+
+    handleOnAuthStateChange(
+      // @ts-ignore
+      null,
+      mockSetUserId,
+      mockSetIsAuthenticated,
+      mocksetInitialized,
+      false
+    )
+    expect(mocksetInitialized.mock.calls.length).toBe(1)
   })
 })
