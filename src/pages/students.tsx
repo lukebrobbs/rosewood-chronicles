@@ -1,7 +1,12 @@
 import React from "react"
+import Layout from "../components/layout"
 
 const Students = () => {
-  return <h1>Students</h1>
+  return (
+    <Layout>
+      <h1>Students</h1>
+    </Layout>
+  )
 }
 
 export default Students
