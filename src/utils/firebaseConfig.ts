@@ -1,6 +1,19 @@
 import firebase from "firebase"
+import mailChimpMethods from "./mailChimpMethods"
+
+export interface IAuthResult {
+  isNewUser: boolean
+}
 
 export const uiConfig: firebaseui.auth.Config = {
+  callbacks: {
+    signInSuccessWithAuthResult: (authResult: IAuthResult) => {
+      if (authResult.isNewUser) {
+        mailChimpMethods.createUserInMailChimp(authResult)
+      }
+      return true
+    },
+  },
   signInFlow: "popup",
   signInOptions: [
     {
