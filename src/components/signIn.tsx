@@ -1,10 +1,19 @@
 import firebase from "firebase"
-import React, { useState } from "react"
+import { Link, navigate } from "gatsby"
+import * as React from "react"
+import { FirebaseContext } from "./firebase/FirebaseProvider"
 
 const SignIn = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
+  const { isAuthenticated } = React.useContext(FirebaseContext)
+  const [email, setEmail] = React.useState("")
+  const [password, setPassword] = React.useState("")
+  const [error, setError] = React.useState(null)
+
+  React.useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/app/home")
+    }
+  }, [])
 
   const handleSignIn = async () => {
     try {
@@ -15,7 +24,7 @@ const SignIn = () => {
   }
 
   return (
-    <>
+    <div>
       <h1> Sign In</h1>
       <input
         type="email"
@@ -29,7 +38,8 @@ const SignIn = () => {
       />
       <button onClick={handleSignIn}>Sign In</button>
       {error && <p>{error}</p>}
-    </>
+      <Link to="/signUp">Sign up here</Link>
+    </div>
     // <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
   )
 }

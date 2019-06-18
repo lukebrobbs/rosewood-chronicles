@@ -1,4 +1,4 @@
-import React from "react"
+import React, { createContext } from "react"
 import useFirebase from "./useFirebase"
 
 interface IFirebase {
@@ -16,7 +16,8 @@ const AUTH_DEFAULTS: IFirebase = {
 interface IProps {
   children: JSX.Element | JSX.Element[]
 }
-export const FirebaseContext = React.createContext(AUTH_DEFAULTS)
+
+export const FirebaseContext = createContext(AUTH_DEFAULTS)
 
 export const FirebaseProvider = ({ children }: IProps) => {
   const firebase = useFirebase()
