@@ -20,6 +20,9 @@ export const FirebaseContext = React.createContext(AUTH_DEFAULTS)
 
 export const FirebaseProvider = ({ children }: IProps) => {
   const firebase = useFirebase()
+  if (!firebase.initialized) {
+    return null
+  }
   return (
     <FirebaseContext.Provider value={firebase}>
       {children}
