@@ -25,7 +25,7 @@ export const signInReducer = (
   }
 }
 
-const SignIn = () => {
+const useSignIn = () => {
   const { isAuthenticated } = React.useContext(FirebaseContext)
   const [signIn, dispatch] = React.useReducer(signInReducer, {
     email: "",
@@ -69,4 +69,4 @@ const SignIn = () => {
   }
 }
 
-export default SignIn
+export default useSignIn
