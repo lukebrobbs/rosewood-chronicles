@@ -1,8 +1,8 @@
 import * as Gatsby from "gatsby"
 import * as React from "react"
 import { cleanup, render } from "react-testing-library"
-import { FirebaseContext } from "../../src/components/firebase/FirebaseProvider"
-import SignIn from "../../src/components/SignIn"
+import { FirebaseContext } from "../../../src/components/firebase/FirebaseProvider"
+import SignIn from "../../../src/components/signIn/SignIn"
 
 afterEach(cleanup)
 

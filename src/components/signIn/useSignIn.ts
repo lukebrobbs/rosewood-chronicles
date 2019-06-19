@@ -1,7 +1,7 @@
 import firebase from "firebase"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
 import * as React from "react"
-import { FirebaseContext } from "./firebase/FirebaseProvider"
+import { FirebaseContext } from "../firebase/FirebaseProvider"
 
 interface ISignIn {
   email: string
@@ -9,7 +9,7 @@ interface ISignIn {
   error: string
 }
 
-const signInReducer = (
+export const signInReducer = (
   state: ISignIn,
   action: { type: string; value: string }
 ) => {
@@ -49,27 +49,24 @@ const SignIn = () => {
     }
   }
 
-  return (
-    <div>
-      <h1> Sign In</h1>
-      <input
-        type="email"
-        value={signIn.email}
-        onChange={e => dispatch({ type: "SET_EMAIL", value: e.target.value })}
-      />
-      <input
-        type="password"
-        value={signIn.password}
-        onChange={e =>
-          dispatch({ type: "SET_PASSWORD", value: e.target.value })
-        }
-      />
-      <button onClick={handleSignIn}>Sign In</button>
-      {signIn.error && <p>{signIn.error}</p>}
-      <Link to="/signUp">Sign up here</Link>
-    </div>
-    // <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-  )
+  return {
+    email: {
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+        dispatch({ type: "SET_EMAIL", value: e.target.value }),
+      type: "email",
+      value: signIn.email,
+    },
+    error: signIn.error,
+    password: {
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+        dispatch({ type: "SET_PASSWORD", value: e.target.value }),
+      type: "password",
+      value: signIn.password,
+    },
+    submit: {
+      onClick: handleSignIn,
+    },
+  }
 }
 
 export default SignIn
