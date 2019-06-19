@@ -2,8 +2,8 @@ import firebase from "firebase"
 import * as React from "react"
 import {
   cleanup,
-  render,
   fireEvent,
+  render,
   waitForElementToBeRemoved,
 } from "react-testing-library"
 import { FirebaseContext } from "../../../src/components/firebase/FirebaseProvider"
