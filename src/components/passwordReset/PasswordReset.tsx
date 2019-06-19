@@ -1,21 +1,26 @@
-import React from "react"
+import * as React from "react"
 import usePasswordReset from "./usePasswordReset"
 
-const ForgotPassword = () => {
+const PasswordReset = () => {
   const passwordReset = usePasswordReset()
 
   if (passwordReset.emailSent) {
-    return <p>Email sent</p>
+    return <p data-testid="email-sent">Email sent</p>
   }
 
   return (
-    <>
+    <div data-testid="reset-password-wrapper">
       <h1>Forgot password</h1>
-      <input {...passwordReset.email} />
+      <input
+        {...passwordReset.email}
+        data-testid="reset-password-email-input"
+      />
       {passwordReset.error && <p>{passwordReset.error}</p>}
-      <button {...passwordReset.submit}>Send Verification</button>
-    </>
+      <button {...passwordReset.submit} data-testid="reset-password">
+        Reset Password
+      </button>
+    </div>
   )
 }
 
-export default ForgotPassword
+export default PasswordReset

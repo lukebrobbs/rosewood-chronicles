@@ -52,6 +52,7 @@ const usePasswordReset = () => {
     emailSent,
     error,
     submit: {
+      disabled: !email,
       onClick: handleReset,
     },
   }
