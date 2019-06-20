@@ -15,7 +15,9 @@ const PasswordReset = () => {
         {...passwordReset.email}
         data-testid="reset-password-email-input"
       />
-      {passwordReset.error && <p>{passwordReset.error}</p>}
+      {passwordReset.error && (
+        <p data-testid="password-reset-error">{passwordReset.error}</p>
+      )}
       <button {...passwordReset.submit} data-testid="reset-password">
         Reset Password
       </button>

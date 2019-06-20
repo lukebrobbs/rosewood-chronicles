@@ -8,11 +8,13 @@ const SignIn = () => {
   return (
     <div>
       <h1> Sign In</h1>
-      <input {...signIn.email} />
-      <input {...signIn.password} />
+      <input {...signIn.email} data-testid="sign-in-email-input" />
+      <input {...signIn.password} data-testid="sign-in-password-input" />
       <Link to="/passwordReset">Forgot Password?</Link>
-      <button {...signIn.submit}>Sign In</button>
-      {signIn.error && <p>{signIn.error}</p>}
+      <button {...signIn.submit} data-testid="sign-in-button">
+        Sign In
+      </button>
+      {signIn.error && <p data-testid="sign-in-error">{signIn.error}</p>}
       <Link to="/signUp">Sign up here</Link>
     </div>
   )

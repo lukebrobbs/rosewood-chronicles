@@ -64,6 +64,7 @@ const useSignIn = () => {
       value: signIn.password,
     },
     submit: {
+      disabled: !signIn.email && !signIn.password,
       onClick: handleSignIn,
     },
   }

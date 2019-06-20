@@ -1,9 +1,9 @@
-import { IAuthResult } from "./firebaseConfig"
+// import { IAuthResult } from "./firebaseConfig"
 
-const mailChimpUtils = {
-  createUserInMailChimp(authResult: IAuthResult) {
-    return
-  },
-}
+// const mailChimpUtils = {
+//   createUserInMailChimp(authResult: IAuthResult) {
+//     return
+//   },
+// }
 
-export default mailChimpUtils
+// export default mailChimpUtils
