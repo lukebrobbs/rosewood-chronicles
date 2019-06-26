@@ -2,7 +2,14 @@ import * as React from "react"
 import useSignUp from "./useSignUp"
 
 const SignUp = () => {
-  const { email, password, passwordConfirm, form } = useSignUp()
+  const {
+    email,
+    password,
+    passwordConfirm,
+    form,
+    subscribeForMail,
+    error,
+  } = useSignUp()
   return (
     <div>
       <h1>Sign Up</h1>
@@ -10,8 +17,10 @@ const SignUp = () => {
         <input {...email} />
         <input {...password} />
         <input {...passwordConfirm} />
-        <input type="checkbox" />
-        <button>SIGN UP</button>
+        <label htmlFor="subscribeForMail">Subscribe for mail</label>
+        <input {...subscribeForMail} />
+        <button data-testid="signUp_submit_button">SIGN UP</button>
+        {error && <p data-testid="signUp_error_message">{error}</p>}
       </form>
     </div>
   )
