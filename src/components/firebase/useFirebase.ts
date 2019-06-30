@@ -10,6 +10,8 @@ export const handleOnAuthStateChange = (
 ) => {
   if (user) {
     setUserId(user.uid)
+  } else {
+    setUserId("")
   }
   setIsAuthenticated(!!user)
   if (!initialized) {

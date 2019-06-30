@@ -17,3 +17,11 @@ export const HeaderItem = styled(Link)`
   text-decoration: none;
   margin: 2rem;
 `
+
+export const SignOutButton = styled.button`
+  color: white;
+  background: none;
+  border: none;
+  margin: 2em;
+  cursor: pointer;
+`

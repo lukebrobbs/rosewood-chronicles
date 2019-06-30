@@ -44,6 +44,7 @@ const useSignIn = () => {
       await firebase
         .auth()
         .signInWithEmailAndPassword(signIn.email, signIn.password)
+      navigate("/app/home")
     } catch (error) {
       dispatch({ type: "SET_ERROR", value: error.message })
     }

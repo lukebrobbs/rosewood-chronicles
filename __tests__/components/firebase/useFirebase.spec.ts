@@ -54,7 +54,7 @@ describe("handleOnAuthStateChange", () => {
       false
     )
 
-    expect(mockSetUserId.mock.calls.length).toBe(0)
+    expect(mockSetUserId.mock.calls.length).toBe(1)
     expect(mockSetIsAuthenticated.mock.calls.length).toBe(1)
   })
   it("initialized is false, should call setInitialized", () => {
