@@ -15,15 +15,19 @@ const fireStoreUtils = {
     password: string
     subscribeForMail: boolean
   }) {
-    const newUser = await firebase
-      .auth()
-      .createUserWithEmailAndPassword(userDetails.email, userDetails.password)
-    if (newUser.user) {
-      await this.setFireStoreUser(
-        newUser.user.uid,
-        userDetails.subscribeForMail
-      )
-      await this.sendEmailVerification()
+    try {
+      const newUser = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(userDetails.email, userDetails.password)
+      if (newUser.user) {
+        await this.setFireStoreUser(
+          newUser.user.uid,
+          userDetails.subscribeForMail
+        )
+        await this.sendEmailVerification()
+      }
+    } catch (error) {
+      throw new Error(error)
     }
   },
   async setFireStoreUser(userId: string, subscribed: boolean) {

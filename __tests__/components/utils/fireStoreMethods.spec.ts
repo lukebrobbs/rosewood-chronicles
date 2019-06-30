@@ -106,5 +106,21 @@ describe("fireStoreMethods", () => {
       // @ts-ignore
       expect(fireStoreMethods.sendEmailVerification.mock.calls.length).toBe(1)
     })
+    it("Should throw any errors that occur", async () => {
+      mockCreateUserWithEmailAndPassword = jest.fn().mockReturnValue(
+        new Promise((_, reject) => {
+          reject(new Error("test error"))
+        })
+      )
+      try {
+        await fireStoreMethods.createNewUser({
+          email: "test@email.com",
+          password: "testPassword",
+          subscribeForMail: true,
+        })
+      } catch (error) {
+        expect(error.message).toBe("Error: test error")
+      }
+    })
   })
 })
