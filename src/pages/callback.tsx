@@ -11,7 +11,7 @@ const Callback = () => {
     if (fireStoreUser.exists) {
       navigate("/app/home")
     } else {
-      await fireStoreMethods.setFireStoreUser(userId)
+      // await fireStoreMethods.setFireStoreUser(userId)
       await fireStoreMethods.sendEmailVerification()
       navigate("/app/sortingQuiz")
     }

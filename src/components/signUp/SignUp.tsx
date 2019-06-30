@@ -9,7 +9,11 @@ const SignUp = () => {
     form,
     subscribeForMail,
     error,
+    loading,
   } = useSignUp()
+  if (loading) {
+    return <p>Loading...</p>
+  }
   return (
     <div>
       <h1>Sign Up</h1>
@@ -19,7 +23,10 @@ const SignUp = () => {
         <input {...passwordConfirm} />
         <label htmlFor="subscribeForMail">Subscribe for mail</label>
         <input {...subscribeForMail} />
-        <button data-testid="signUp_submit_button">SIGN UP</button>
+        <label htmlFor="signUpSubmitButton" />
+        <button data-testid="signUp_submit_button" id="signUpSubmitButton">
+          SIGN UP
+        </button>
         {error && <p data-testid="signUp_error_message">{error}</p>}
       </form>
     </div>

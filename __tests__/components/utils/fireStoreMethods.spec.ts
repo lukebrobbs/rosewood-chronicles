@@ -5,6 +5,7 @@ describe("fireStoreMethods", () => {
   let mockGet: jest.Mock
   let mockSet: jest.Mock
   let mockSendEmailVerification: jest.Mock
+  let mockCreateUserWithEmailAndPassword: jest.Mock
 
   beforeEach(() => {
     mockGet = jest.fn().mockReturnValue({ exists: true })
@@ -14,8 +15,15 @@ describe("fireStoreMethods", () => {
         resolve()
       })
     )
+    mockCreateUserWithEmailAndPassword = jest.fn().mockReturnValue(
+      new Promise(resolve => {
+        resolve({ user: { uid: "mockUid" } })
+      })
+    )
+
     firebase.initializeApp = jest.fn()
     firebase.auth = () => ({
+      createUserWithEmailAndPassword: mockCreateUserWithEmailAndPassword,
       // @ts-ignore
       currentUser: {
         sendEmailVerification: mockSendEmailVerification,
@@ -43,8 +51,12 @@ describe("fireStoreMethods", () => {
   })
   describe("setFireStoreUser", () => {
     it("Should call the fireStore set() method", async () => {
-      await fireStoreMethods.setFireStoreUser("testUserId")
+      await fireStoreMethods.setFireStoreUser("testUserId", false)
       expect(mockSet.mock.calls.length).toBe(1)
+    })
+    it("Should add the subscribed arg to the call to set()", async () => {
+      await fireStoreMethods.setFireStoreUser("testUserId", true)
+      expect(mockSet.mock.calls[0][0].subscribed).toBe(true)
     })
   })
   describe("sendEmailVerification", () => {
@@ -63,6 +75,36 @@ describe("fireStoreMethods", () => {
       } catch (error) {
         expect(error.message).toBe("mock error")
       }
+    })
+  })
+  describe("createNewUser()", () => {
+    beforeEach(() => {
+      fireStoreMethods.setFireStoreUser = jest.fn()
+      fireStoreMethods.sendEmailVerification = jest.fn()
+    })
+    it("Should call createUserWithEmailAndPassword with the email and password args", async () => {
+      await fireStoreMethods.createNewUser({
+        email: "test@email.com",
+        password: "testPassword",
+        subscribeForMail: true,
+      })
+      expect(mockCreateUserWithEmailAndPassword.mock.calls[0][0]).toEqual(
+        "test@email.com"
+      )
+      expect(mockCreateUserWithEmailAndPassword.mock.calls[0][1]).toEqual(
+        "testPassword"
+      )
+    })
+    it("Should call setFireStoreUser and sendEmailVerification if a new user is successfully created", async () => {
+      await fireStoreMethods.createNewUser({
+        email: "test@email.com",
+        password: "testPassword",
+        subscribeForMail: true,
+      })
+      // @ts-ignore
+      expect(fireStoreMethods.setFireStoreUser.mock.calls[0][0]).toBe("mockUid")
+      // @ts-ignore
+      expect(fireStoreMethods.sendEmailVerification.mock.calls.length).toBe(1)
     })
   })
 })

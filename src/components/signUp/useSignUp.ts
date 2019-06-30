@@ -1,7 +1,6 @@
-import firebase from "firebase"
 import { navigate } from "gatsby"
 import { useReducer } from "react"
-import fireStoreUtils from "../../utils/fireStoreMethods"
+import fireStoreMethods from "../../utils/fireStoreMethods"
 
 interface ISignUp {
   email: string
@@ -9,6 +8,7 @@ interface ISignUp {
   passwordConfirm: string
   error: string
   subscribeForMail: any
+  loading: any
 }
 
 export const signUpReducer = (
@@ -26,6 +26,8 @@ export const signUpReducer = (
       return { ...state, error: action.value }
     case "SET_SUBSCRIBE_FOR_MAIL":
       return { ...state, subscribeForMail: !state.subscribeForMail }
+    case "SET_LOADING":
+      return { ...state, loading: !state.loading }
     default:
       throw new Error()
   }
@@ -34,29 +36,34 @@ const useSignUp = () => {
   const [signUp, dispatch] = useReducer(signUpReducer, {
     email: "",
     error: "",
+    loading: false,
     password: "",
     passwordConfirm: "",
     subscribeForMail: false,
   })
 
+  const handleSubscription = async () => {
+    if (signUp.subscribeForMail) {
+      // handle mail chimp sign up for mail
+    }
+  }
+
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     if (signUp.password === signUp.passwordConfirm) {
+      dispatch({ type: "SET_LOADING" })
       try {
-        await firebase
-          .auth()
-          .createUserWithEmailAndPassword(signUp.email, signUp.password)
-        await fireStoreUtils.sendEmailVerification()
-        if (signUp.subscribeForMail) {
-          // handle mail chimp sign up for mail
-        }
-        navigate("/callback")
+        await fireStoreMethods.createNewUser(signUp)
+        await handleSubscription()
+        dispatch({ type: "SET_LOADING" })
+        navigate("/app/sortingQuiz")
       } catch (error) {
         dispatch({ type: "SET_ERROR", value: error.message })
-        return
       }
+      dispatch({ type: "SET_LOADING" })
+    } else {
+      dispatch({ type: "SET_ERROR", value: "Passwords do not match" })
     }
-    dispatch({ type: "SET_ERROR", value: "Passwords do not match" })
   }
 
   return {
@@ -72,6 +79,7 @@ const useSignUp = () => {
     form: {
       onSubmit: handleSubmit,
     },
+    loading: signUp.loading,
     password: {
       "data-testid": "password_input",
       onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -93,7 +101,7 @@ const useSignUp = () => {
     subscribeForMail: {
       checked: signUp.subscribeForMail,
       id: "subscribeForMail",
-      onClick: () => dispatch({ type: "SET_SUBSCRIBE_FOR_MAIL" }),
+      onChange: () => dispatch({ type: "SET_SUBSCRIBE_FOR_MAIL" }),
       type: "checkbox",
     },
   }
