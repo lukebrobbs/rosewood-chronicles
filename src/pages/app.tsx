@@ -7,14 +7,19 @@ import Layout from "../components/layout/layout"
 import MyAccount from "../components/MyAccount"
 import PrivateRoute from "../components/PrivateRoute"
 import ShortStories from "../components/ShortStories"
-import SortingQuiz from "../components/SortingQuiz"
+import { questionMocks } from "../components/SortingQuiz/questionMocks"
+import SortingQuiz from "../components/SortingQuiz/SortingQuiz"
 import UploadFanArt from "../components/UploadFanArt"
 
 const App = () => (
   <Layout>
     <Router>
       <PrivateRoute path="/app/home" component={Home} />
-      <PrivateRoute path="/app/sortingQuiz" component={SortingQuiz} />
+      <PrivateRoute
+        path="/app/sortingQuiz"
+        component={SortingQuiz}
+        questions={questionMocks}
+      />
       <PrivateRoute path="/app/short-stories" component={ShortStories} />
       <PrivateRoute path="/app/fan-art" component={FanArt} />
       <PrivateRoute path="/app/fan-art/upload" component={UploadFanArt} />

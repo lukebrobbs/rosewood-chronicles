@@ -5,9 +5,10 @@ import React, { useContext } from "react"
 import { FirebaseContext } from "../components/firebase/FirebaseProvider"
 
 interface IPrivateRouteInterface {
-  component: React.FunctionComponent
+  component: any
   location?: WindowLocation
   path: string
+  [other: string]: any
 }
 
 const PrivateRoute = ({
