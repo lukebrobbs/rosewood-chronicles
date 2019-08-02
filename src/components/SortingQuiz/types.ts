@@ -16,15 +16,12 @@ export interface ISortingQuizProps {
 }
 
 export interface IAction {
-  type:
-    | "INCREMENT_QUESTION_INDEX"
-    | "DECREMENT_QUESTION_INDEX"
-    | "ADD_QUIZ_ANSWER"
-    | "REMOVE_QUIZ_ANSWER"
+  type: "HANDLE_NEXT" | "HANDLE_BACK" | "ADD_CURRENT_SELECTION"
   value?: string
 }
 
 export interface IState {
   questionIndex: number
   quizAnswers: string[]
+  currentSelection: string
 }

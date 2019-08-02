@@ -3,29 +3,35 @@ import Answers from "./Answers"
 import { IAction, ISortingQuizProps, IState } from "./types"
 
 const initialState = {
+  currentSelection: "",
   questionIndex: 0,
   quizAnswers: [],
 }
 
 export const sortingQuizReducer = (state: IState, action: IAction): IState => {
+  const newQuizAnswers = [...state.quizAnswers]
   switch (action.type) {
-    case "INCREMENT_QUESTION_INDEX":
+    case "HANDLE_NEXT":
+      newQuizAnswers.push(state.currentSelection)
       return {
+        currentSelection: state.currentSelection,
         questionIndex: state.questionIndex + 1,
-        quizAnswers: [...state.quizAnswers],
+        quizAnswers: newQuizAnswers,
       }
-    case "DECREMENT_QUESTION_INDEX":
+    case "HANDLE_BACK":
+      newQuizAnswers.pop()
       return {
+        currentSelection: state.quizAnswers[state.questionIndex - 1],
         questionIndex: state.questionIndex - 1,
-        quizAnswers: [...state.quizAnswers],
+        quizAnswers: newQuizAnswers,
       }
-    case "ADD_QUIZ_ANSWER":
+    case "ADD_CURRENT_SELECTION":
       if (!action.value) {
         return { ...state }
       }
       return {
         ...state,
-        quizAnswers: [...state.quizAnswers, action.value],
+        currentSelection: action.value,
       }
     default:
       throw new Error()
@@ -46,18 +52,14 @@ const SortingQuiz = (props: ISortingQuizProps) => {
           state.questionIndex === index && (
             <div key={question.id}>
               <p>{question.question}</p>
-              <Answers answers={question.answers} />
+              <Answers answers={question.answers} dispatch={dispatch} />
               {shouldBackButtonRender && (
-                <button
-                  onClick={() => dispatch({ type: "DECREMENT_QUESTION_INDEX" })}
-                >
+                <button onClick={() => dispatch({ type: "HANDLE_BACK" })}>
                   BACK
                 </button>
               )}
               {shouldNextButtonRender ? (
-                <button
-                  onClick={() => dispatch({ type: "INCREMENT_QUESTION_INDEX" })}
-                >
+                <button onClick={() => dispatch({ type: "HANDLE_NEXT" })}>
                   NEXT
                 </button>
               ) : (
