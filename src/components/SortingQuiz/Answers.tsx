@@ -1,6 +1,6 @@
 import React from "react"
 import Answer from "./Answer"
-import { IAnswer } from "./SortingQuiz"
+import { IAnswer } from "./types"
 
 interface IAnswersProps {
   answers: [IAnswer, IAnswer, IAnswer]
@@ -8,11 +8,11 @@ interface IAnswersProps {
 
 const Answers = (props: IAnswersProps) => {
   return (
-    <ul>
+    <>
       {props.answers.map(answer => (
-        <Answer key={answer.text}>{answer.text}</Answer>
+        <Answer key={answer.text} value={answer.house} label={answer.text} />
       ))}
-    </ul>
+    </>
   )
 }
 

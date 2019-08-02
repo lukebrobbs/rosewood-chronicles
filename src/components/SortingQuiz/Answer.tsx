@@ -1,7 +1,12 @@
 import React from "react"
 
 const Answer = (props: any) => {
-  return <li {...props} />
+  return (
+    <div>
+      <input type="radio" {...props} />
+      <label htmlFor={props.id}>{props.label}</label>
+    </div>
+  )
 }
 
 export default Answer
