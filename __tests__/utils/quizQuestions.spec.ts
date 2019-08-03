@@ -1,5 +1,4 @@
 import { formatQuizQuestions } from "../../src/utils/quizQuestions"
-import { IQuestion } from "../../src/components/SortingQuiz/types"
 
 describe("Quiz questions", () => {
   let mockGraphQLReturn: any
@@ -59,15 +58,5 @@ describe("Quiz questions", () => {
     )
 
     expect(expected[0].house).toBe("STRATUS")
-  })
-  it("Should shuffle the answers", () => {
-    const firstReturnValue = formatQuizQuestions(mockGraphQLReturn)
-    const secondReturnValue = formatQuizQuestions(mockGraphQLReturn)
-
-    const firstAnswer = (questions: IQuestion[]) => questions[0].answers
-
-    expect(firstAnswer(firstReturnValue)).not.toEqual(
-      firstAnswer(secondReturnValue)
-    )
   })
 })

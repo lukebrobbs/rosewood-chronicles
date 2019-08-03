@@ -26,16 +26,17 @@ export const formatQuizQuestions = (
   ): [IAnswer, IAnswer, IAnswer] => {
     return array.sort(() => Math.random() - 0.5)
   }
-  return questions.allContentfulSortingQuizQuestion.edges.map(question => {
-    const { id, conchAnswer, stratusAnswer, ivyAnswer } = question.node
+  return questions.allContentfulSortingQuizQuestion.edges.map(edge => {
+    const { id, conchAnswer, stratusAnswer, ivyAnswer, question } = edge.node
+    const answers = shuffle([
+      { text: conchAnswer, house: "CONCH" },
+      { text: stratusAnswer, house: "STRATUS" },
+      { text: ivyAnswer, house: "IVY" },
+    ])
     return {
-      answers: shuffle([
-        { text: conchAnswer, house: "CONCH" },
-        { text: stratusAnswer, house: "STRATUS" },
-        { text: ivyAnswer, house: "IVY" },
-      ]),
+      answers,
       id,
-      question: question.node.question,
+      question,
     }
   })
 }
