@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, render } from "@testing-library/react"
-import * as React from "react"
+import React from "react"
 import SignUp from "../../../src/components/signUp/SignUp"
 
 afterEach(cleanup)
@@ -17,7 +17,6 @@ describe("SignUp Component", () => {
       target: { value: "nonMatchingPassword" },
     })
     fireEvent.click(submitButton)
-    // @ts-ignore
     expect(getByTestId("signUp_error_message")).toHaveTextContent(
       "Passwords do not match"
     )

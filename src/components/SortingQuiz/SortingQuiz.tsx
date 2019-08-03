@@ -12,14 +12,17 @@ export const sortingQuizReducer = (state: IState, action: IAction): IState => {
   const newQuizAnswers = [...state.quizAnswers]
   switch (action.type) {
     case "HANDLE_NEXT":
-      newQuizAnswers.push(state.currentSelection)
+      newQuizAnswers.splice(state.questionIndex, 1, state.currentSelection)
       return {
-        currentSelection: state.currentSelection,
+        currentSelection: state.quizAnswers[state.questionIndex + 1] || "",
         questionIndex: state.questionIndex + 1,
         quizAnswers: newQuizAnswers,
       }
     case "HANDLE_BACK":
-      newQuizAnswers.pop()
+      if (state.questionIndex <= 0) {
+        return { ...state }
+      }
+      newQuizAnswers.splice(state.questionIndex, 1, state.currentSelection)
       return {
         currentSelection: state.quizAnswers[state.questionIndex - 1],
         questionIndex: state.questionIndex - 1,
@@ -52,18 +55,28 @@ const SortingQuiz = (props: ISortingQuizProps) => {
           state.questionIndex === index && (
             <div key={question.id} data-testid="sortingQuizQuestion">
               <p>{question.question}</p>
-              <Answers answers={question.answers} dispatch={dispatch} />
+              <Answers
+                answers={question.answers}
+                dispatch={dispatch}
+                currentSelection={state.currentSelection}
+              />
               {shouldBackButtonRender && (
-                <button onClick={() => dispatch({ type: "HANDLE_BACK" })}>
+                <button
+                  data-testid="sortingQuizBackButton"
+                  onClick={() => dispatch({ type: "HANDLE_BACK" })}
+                >
                   BACK
                 </button>
               )}
               {shouldNextButtonRender ? (
-                <button onClick={() => dispatch({ type: "HANDLE_NEXT" })}>
+                <button
+                  data-testid="sortingQuizNextButton"
+                  onClick={() => dispatch({ type: "HANDLE_NEXT" })}
+                >
                   NEXT
                 </button>
               ) : (
-                <button>SUBMIT</button>
+                <button data-testid="sortingQuizSubmitButton">SUBMIT</button>
               )}
             </div>
           )

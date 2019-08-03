@@ -5,6 +5,7 @@ import { IAction, IAnswer } from "./types"
 interface IAnswersProps {
   answers: [IAnswer, IAnswer, IAnswer]
   dispatch: React.Dispatch<IAction>
+  currentSelection: string
 }
 
 const Answers = (props: IAnswersProps) => {
@@ -17,6 +18,7 @@ const Answers = (props: IAnswersProps) => {
           value={answer.house}
           label={answer.text}
           dispatch={props.dispatch}
+          checked={props.currentSelection === answer.house}
         />
       ))}
     </>

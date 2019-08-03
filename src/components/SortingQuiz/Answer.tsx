@@ -7,15 +7,18 @@ interface IAnswerProps {
   label: string
   dispatch: React.Dispatch<IAction>
   value: House
+  checked: boolean
 }
 
 const Answer = (props: IAnswerProps) => {
   return (
     <div>
       <input
+        data-testid={`sortingQuizAnswer-${props.value}`}
         id={props.id}
         type="radio"
         value={props.value}
+        checked={props.checked}
         name="sortingQuizAnswer"
         onChange={e =>
           props.dispatch({
