@@ -1,4 +1,4 @@
-import { House } from "../../utils/sharedTypes"
+import { House } from "../src/utils/sharedTypes"
 
 export interface IAnswer {
   text: string

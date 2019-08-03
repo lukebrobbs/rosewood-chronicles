@@ -50,7 +50,7 @@ const SortingQuiz = (props: ISortingQuizProps) => {
       {props.questions.map(
         (question, index) =>
           state.questionIndex === index && (
-            <div key={question.id}>
+            <div key={question.id} data-testid="sortingQuizQuestion">
               <p>{question.question}</p>
               <Answers answers={question.answers} dispatch={dispatch} />
               {shouldBackButtonRender && (

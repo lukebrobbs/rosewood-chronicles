@@ -1,5 +1,5 @@
 import firebase from "firebase"
-import * as React from "react"
+import React from "react"
 
 interface IResetPassword {
   email: string

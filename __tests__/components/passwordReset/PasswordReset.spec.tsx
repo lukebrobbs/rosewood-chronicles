@@ -1,12 +1,12 @@
-import firebase from "firebase"
-import * as React from "react"
 import {
   cleanup,
   fireEvent,
   render,
   waitForElement,
   waitForElementToBeRemoved,
-} from "react-testing-library"
+} from "@testing-library/react"
+import firebase from "firebase"
+import * as React from "react"
 import { FirebaseContext } from "../../../src/components/firebase/FirebaseProvider"
 import PasswordReset from "../../../src/components/passwordReset/PasswordReset"
 

@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import usePasswordReset from "./usePasswordReset"
 
 const PasswordReset = () => {

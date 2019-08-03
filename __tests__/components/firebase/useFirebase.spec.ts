@@ -1,5 +1,5 @@
+import { renderHook } from "@testing-library/react-hooks"
 import firebase from "firebase"
-import { renderHook } from "react-hooks-testing-library"
 import useFirebase, {
   handleOnAuthStateChange,
 } from "../../../src/components/firebase/useFirebase"

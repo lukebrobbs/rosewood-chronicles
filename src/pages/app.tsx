@@ -1,13 +1,13 @@
 // tslint:disable-next-line: no-implicit-dependencies
 import { Router } from "@reach/router"
 import React from "react"
+import { questionMocks } from "../../__mocks__/questionMocks"
 import FanArt from "../components/FanArt"
 import Home from "../components/Home"
 import Layout from "../components/layout/layout"
 import MyAccount from "../components/MyAccount"
 import PrivateRoute from "../components/PrivateRoute"
 import ShortStories from "../components/ShortStories"
-import { questionMocks } from "../components/SortingQuiz/questionMocks"
 import SortingQuiz from "../components/SortingQuiz/SortingQuiz"
 import UploadFanArt from "../components/UploadFanArt"
 

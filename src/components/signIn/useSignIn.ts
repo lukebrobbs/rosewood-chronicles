@@ -1,6 +1,6 @@
 import firebase from "firebase"
 import { navigate } from "gatsby"
-import * as React from "react"
+import React from "react"
 import { FirebaseContext } from "../firebase/FirebaseProvider"
 
 interface ISignIn {

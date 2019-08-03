@@ -2,8 +2,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
-    "lib": ["dom", "es2015", "es2017"],
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
     "jsx": "react",
     "sourceMap": true,
     "strict": true,
@@ -11,7 +11,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./jest-dom.d.ts"],
+  "exclude": ["node_modules"]
 }

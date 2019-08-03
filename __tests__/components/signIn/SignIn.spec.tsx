@@ -1,12 +1,12 @@
-import firebase from "firebase"
-import * as Gatsby from "gatsby"
-import * as React from "react"
 import {
   cleanup,
   fireEvent,
   render,
   waitForElement,
-} from "react-testing-library"
+} from "@testing-library/react"
+import firebase from "firebase"
+import * as Gatsby from "gatsby"
+import * as React from "react"
 import { FirebaseContext } from "../../../src/components/firebase/FirebaseProvider"
 import SignIn from "../../../src/components/signIn/SignIn"
 
