@@ -1,5 +1,6 @@
 // tslint:disable-next-line: no-implicit-dependencies
 import { Router } from "@reach/router"
+import { graphql } from "gatsby"
 import React from "react"
 import { questionMocks } from "../../__mocks__/questionMocks"
 import FanArt from "../components/FanArt"
@@ -10,15 +11,16 @@ import PrivateRoute from "../components/PrivateRoute"
 import ShortStories from "../components/ShortStories"
 import SortingQuiz from "../components/SortingQuiz/SortingQuiz"
 import UploadFanArt from "../components/UploadFanArt"
+import { formatQuizQuestions, IRawQuestionData } from "../utils/quizQuestions"
 
-const App = () => (
+const App = ({ data }: { data: IRawQuestionData }) => (
   <Layout>
     <Router>
       <PrivateRoute path="/app/home" component={Home} />
       <PrivateRoute
         path="/app/sortingQuiz"
         component={SortingQuiz}
-        questions={questionMocks}
+        questions={formatQuizQuestions(data)}
       />
       <PrivateRoute path="/app/short-stories" component={ShortStories} />
       <PrivateRoute path="/app/fan-art" component={FanArt} />
@@ -27,5 +29,21 @@ const App = () => (
     </Router>
   </Layout>
 )
+
+export const query = graphql`
+  query SortingQuizQuestionsQuery {
+    allContentfulSortingQuizQuestion {
+      edges {
+        node {
+          id
+          question
+          conchAnswer
+          ivyAnswer
+          stratusAnswer
+        }
+      }
+    }
+  }
+`
 
 export default App
