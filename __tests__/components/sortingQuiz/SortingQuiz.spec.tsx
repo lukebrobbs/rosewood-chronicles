@@ -4,13 +4,16 @@ import {
   Matcher,
   MatcherOptions,
   render,
+  wait,
 } from "@testing-library/react"
+import { navigate } from "gatsby"
 import React from "react"
 import { questionMocks } from "../../../__mocks__/questionMocks"
 import SortingQuiz, {
   sortingQuizReducer,
 } from "../../../src/components/SortingQuiz/SortingQuiz"
 import { IAction, IState } from "../../../src/components/SortingQuiz/types"
+import firestoreMethods from "../../../src/utils/fireStoreMethods"
 import { House } from "../../../src/utils/sharedTypes"
 
 afterEach(cleanup)
@@ -19,6 +22,7 @@ describe("Sorting Quiz", () => {
   let navigateToNextQuestion: CallableFunction
 
   beforeAll(() => {
+    firestoreMethods.setUserHouse = jest.fn()
     navigateToNextQuestion = (
       getByTestId: (text: Matcher, options?: MatcherOptions) => HTMLElement
     ) => {
@@ -28,6 +32,7 @@ describe("Sorting Quiz", () => {
       fireEvent.click(getByTestId("sortingQuizNextButton"))
     }
   })
+  afterAll(jest.resetAllMocks)
   it("Should only render one question at a time", () => {
     const { getAllByTestId } = render(<SortingQuiz questions={questionMocks} />)
     expect(getAllByTestId("sortingQuizQuestion").length).toBe(1)
@@ -79,6 +84,36 @@ describe("Sorting Quiz", () => {
 
     // @ts-ignore
     expect(itemToClick().checked).toBe(true)
+  })
+  describe("quiz submission", () => {
+    it("Should navigate the user to the appropriate house page", async () => {
+      // @ts-ignore
+      navigate = jest.fn()
+      const { getByTestId } = render(<SortingQuiz questions={questionMocks} />)
+      navigateToNextQuestion(getByTestId)
+      fireEvent.click(
+        getByTestId(`sortingQuizAnswer-${questionMocks[1].answers[0].house}`)
+      )
+      fireEvent.click(getByTestId("sortingQuizSubmitButton"))
+      await wait(() => {}, { timeout: 1 })
+      // @ts-ignore
+      expect(navigate.mock.calls[0][0]).toBe("/app/stratus")
+    })
+    it("Should call setHouseUser with the correct house", () => {
+      // @ts-ignore
+      navigate = jest.fn()
+      const { getByTestId } = render(<SortingQuiz questions={questionMocks} />)
+      navigateToNextQuestion(getByTestId)
+      fireEvent.click(
+        getByTestId(`sortingQuizAnswer-${questionMocks[1].answers[0].house}`)
+      )
+      fireEvent.click(getByTestId("sortingQuizSubmitButton"))
+      // @ts-ignore
+      expect(firestoreMethods.setUserHouse.mock.calls[0]).toEqual([
+        "",
+        "stratus",
+      ])
+    })
   })
 })
 
@@ -141,15 +176,15 @@ describe("reducer", () => {
       }
       expect(sortingQuizReducer(mockState, mockAction)).toEqual(expected)
     })
-  })
-  it("Should return the state passed in if the index is 0 or less", () => {
-    const mockState: IState = {
-      currentSelection: "STRATUS",
-      questionIndex: 0,
-      quizAnswers: ["CONCH"],
-    }
-    const mockAction = handleBackAction()
+    it("Should return the state passed in if the index is 0 or less", () => {
+      const mockState: IState = {
+        currentSelection: "STRATUS",
+        questionIndex: 0,
+        quizAnswers: ["CONCH"],
+      }
+      const mockAction = handleBackAction()
 
-    expect(sortingQuizReducer(mockState, mockAction)).toEqual(mockState)
+      expect(sortingQuizReducer(mockState, mockAction)).toEqual(mockState)
+    })
   })
 })

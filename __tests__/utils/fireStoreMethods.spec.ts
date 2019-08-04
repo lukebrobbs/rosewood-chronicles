@@ -1,5 +1,5 @@
 import firebase from "firebase"
-import fireStoreMethods from "../../../src/utils/fireStoreMethods"
+import fireStoreMethods from "../../src/utils/fireStoreMethods"
 
 describe("fireStoreMethods", () => {
   let mockGet: jest.Mock
@@ -57,6 +57,20 @@ describe("fireStoreMethods", () => {
     it("Should add the subscribed arg to the call to set()", async () => {
       await fireStoreMethods.setFireStoreUser("testUserId", true)
       expect(mockSet.mock.calls[0][0].subscribed).toBe(true)
+    })
+  })
+  describe("setUserHouse", () => {
+    it("Should call the fireStore set() method", async () => {
+      await fireStoreMethods.setUserHouse("testUserId", "conch")
+      expect(mockSet.mock.calls.length).toBe(1)
+    })
+    it("Should add the house arg to the call to set()", async () => {
+      await fireStoreMethods.setUserHouse("testUserId", "stratus")
+      expect(mockSet.mock.calls[0][0].house).toBe("stratus")
+    })
+    it("Should set merge to true in the set method call", async () => {
+      await fireStoreMethods.setUserHouse("testUserId", "conch")
+      expect(mockSet.mock.calls[0][1].merge).toBe(true)
     })
   })
   describe("sendEmailVerification", () => {

@@ -5,8 +5,8 @@ import {
   waitForElement,
 } from "@testing-library/react"
 import firebase from "firebase"
-import * as Gatsby from "gatsby"
-import * as React from "react"
+import { navigate } from "gatsby"
+import React from "react"
 import { FirebaseContext } from "../../../src/components/firebase/FirebaseProvider"
 import SignIn from "../../../src/components/signIn/SignIn"
 
@@ -32,10 +32,10 @@ describe("SignIn component", () => {
   })
   it("When the user is already signed in, should redirect to the logged in home page", () => {
     // @ts-ignore
-    Gatsby.navigate = jest.fn()
+    navigate = jest.fn()
     render(mockComponent)
     // @ts-ignore
-    expect(Gatsby.navigate.mock.calls[0][0]).toBe("/app/home")
+    expect(navigate.mock.calls[0][0]).toBe("/app/home")
   })
   it("If the username and password is not filled in, the login button should be disabled", () => {
     const { getByTestId } = render(mockComponent)

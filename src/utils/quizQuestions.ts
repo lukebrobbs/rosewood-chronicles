@@ -42,7 +42,9 @@ export const formatQuizQuestions = (
   })
 }
 
-export const calculateHouse = (scores: Array<House | "">): string => {
+export const calculateHouse = (
+  scores: Array<House | "">
+): "conch" | "ivy" | "stratus" => {
   const houseTotals = { conch: 0, ivy: 0, stratus: 0 }
 
   // @ts-ignore

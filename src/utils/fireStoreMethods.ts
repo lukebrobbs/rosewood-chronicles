@@ -34,6 +34,10 @@ const fireStoreUtils = {
     const userDoc = this.getDocSnapshot(userId)
     await userDoc.set({ subscribed })
   },
+  async setUserHouse(userId: string, house: "conch" | "ivy" | "stratus") {
+    const userDoc = this.getDocSnapshot(userId)
+    await userDoc.set({ house }, { merge: true })
+  },
   async sendEmailVerification() {
     const currentUser = firebase.auth().currentUser
     if (currentUser) {

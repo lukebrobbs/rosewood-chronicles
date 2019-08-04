@@ -1,6 +1,8 @@
 import { navigate } from "gatsby"
-import React, { useReducer } from "react"
+import React, { useContext, useReducer } from "react"
+import fireStoreMethods from "../../utils/fireStoreMethods"
 import { calculateHouse } from "../../utils/quizQuestions"
+import { FirebaseContext } from "../firebase/FirebaseProvider"
 import Answers from "./Answers"
 import { IAction, ISortingQuizProps, IState } from "./types"
 
@@ -44,15 +46,17 @@ export const sortingQuizReducer = (state: IState, action: IAction): IState => {
 }
 
 const SortingQuiz = (props: ISortingQuizProps) => {
+  const { userId } = useContext(FirebaseContext)
+
   const [state, dispatch] = useReducer(sortingQuizReducer, initialState)
 
   const shouldBackButtonRender = state.questionIndex > 0
   const shouldNextButtonRender =
     state.questionIndex < props.questions.length - 1
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const sortedHouse = calculateHouse(state.quizAnswers)
-    // Add this house to users profile in fireBase
+    await fireStoreMethods.setUserHouse(userId, sortedHouse)
     navigate(`/app/${sortedHouse}`)
   }
 
