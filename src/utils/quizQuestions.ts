@@ -43,7 +43,7 @@ export const formatQuizQuestions = (
 }
 
 export const calculateHouse = (
-  scores: Array<House | "">
+  scores: Array<House | string>
 ): "conch" | "ivy" | "stratus" => {
   const houseTotals = { conch: 0, ivy: 0, stratus: 0 }
 

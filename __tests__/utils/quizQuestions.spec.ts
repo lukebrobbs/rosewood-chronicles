@@ -67,7 +67,7 @@ describe("Quiz questions", () => {
 
 describe("calculateHouse()", () => {
   it("Should return the house which occurs the most in the users selections", () => {
-    const conchArgs: Array<House | ""> = [
+    const conchArgs: Array<House | string> = [
       "CONCH",
       "IVY",
       "CONCH",
@@ -79,7 +79,7 @@ describe("calculateHouse()", () => {
       "CONCH",
       "CONCH",
     ]
-    const ivyArgs: Array<House | ""> = [
+    const ivyArgs: Array<House | string> = [
       "CONCH",
       "IVY",
       "IVY",

@@ -22,6 +22,6 @@ export interface IAction {
 
 export interface IState {
   questionIndex: number
-  quizAnswers: Array<House | "">
-  currentSelection: House | ""
+  quizAnswers: Array<House | string>
+  currentSelection: House | string
 }
