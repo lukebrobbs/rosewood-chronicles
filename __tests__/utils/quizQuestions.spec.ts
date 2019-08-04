@@ -1,6 +1,6 @@
 import {
-  formatQuizQuestions,
   calculateHouse,
+  formatQuizQuestions,
 } from "../../src/utils/quizQuestions"
 import { House } from "../../src/utils/sharedTypes"
 
