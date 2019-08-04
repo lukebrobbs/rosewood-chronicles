@@ -17,8 +17,12 @@ const Conch = () => {
   return (
     <>
       <h1>CONCH</h1>
-      <p>House colour: {data.contentfulHouseDescription.houseColour}</p>
-      <p>{data.contentfulHouseDescription.description.description}</p>
+      <p data-testid="houseColour">
+        House colour: {data.contentfulHouseDescription.houseColour}
+      </p>
+      <p data-testid="houseDescription">
+        {data.contentfulHouseDescription.description.description}
+      </p>
     </>
   )
 }

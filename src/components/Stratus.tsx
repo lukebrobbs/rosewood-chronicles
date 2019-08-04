@@ -17,8 +17,12 @@ const Stratus = () => {
   return (
     <>
       <h1>STRATUS</h1>
-      <p>House colour: {data.contentfulHouseDescription.houseColour}</p>
-      <p>{data.contentfulHouseDescription.description.description}</p>
+      <p data-testid="houseColour">
+        House colour: {data.contentfulHouseDescription.houseColour}
+      </p>
+      <p data-testid="houseDescription">
+        {data.contentfulHouseDescription.description.description}
+      </p>
     </>
   )
 }
