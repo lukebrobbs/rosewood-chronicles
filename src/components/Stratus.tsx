@@ -1,7 +1,26 @@
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
+export const query = graphql`
+  query stratusDescription {
+    contentfulHouseDescription(house: { eq: "stratus" }) {
+      houseColour
+      description {
+        description
+      }
+    }
+  }
+`
+
 const Stratus = () => {
-  return <h1>Stratus</h1>
+  const data = useStaticQuery(query)
+  return (
+    <>
+      <h1>STRATUS</h1>
+      <p>House colour: {data.contentfulHouseDescription.houseColour}</p>
+      <p>{data.contentfulHouseDescription.description.description}</p>
+    </>
+  )
 }
 
 export default Stratus
