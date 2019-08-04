@@ -1,4 +1,5 @@
-import { IQuestion, IAnswer } from "../components/SortingQuiz/types"
+import { IAnswer, IQuestion } from "../components/SortingQuiz/types"
+import { House } from "./sharedTypes"
 
 interface IEdges {
   node: {
@@ -39,4 +40,21 @@ export const formatQuizQuestions = (
       question,
     }
   })
+}
+
+export const calculateHouse = (scores: Array<House | "">): string => {
+  const houseTotals = { conch: 0, ivy: 0, stratus: 0 }
+
+  // @ts-ignore
+  return scores.reduce((_, current) => {
+    // @ts-ignore
+    houseTotals[current.toLowerCase()]++
+
+    return Object.keys(houseTotals).reduce(
+      (accum, curr) =>
+        // @ts-ignore
+        houseTotals[curr] > houseTotals[accum] ? curr : accum,
+      "conch"
+    )
+  }, "")
 }

@@ -1,4 +1,8 @@
-import { formatQuizQuestions } from "../../src/utils/quizQuestions"
+import {
+  formatQuizQuestions,
+  calculateHouse,
+} from "../../src/utils/quizQuestions"
+import { House } from "../../src/utils/sharedTypes"
 
 describe("Quiz questions", () => {
   let mockGraphQLReturn: any
@@ -58,5 +62,43 @@ describe("Quiz questions", () => {
     )
 
     expect(expected[0].house).toBe("STRATUS")
+  })
+})
+
+describe("calculateHouse()", () => {
+  it("Should return the house which occurs the most in the users selections", () => {
+    const conchArgs: Array<House | ""> = [
+      "CONCH",
+      "IVY",
+      "CONCH",
+      "STRATUS",
+      "IVY",
+      "CONCH",
+      "STRATUS",
+      "IVY",
+      "CONCH",
+      "CONCH",
+    ]
+    const ivyArgs: Array<House | ""> = [
+      "CONCH",
+      "IVY",
+      "IVY",
+      "STRATUS",
+      "IVY",
+      "IVY",
+      "STRATUS",
+      "IVY",
+      "CONCH",
+      "CONCH",
+    ]
+
+    const conchExpected = "conch"
+    const conchActual = calculateHouse(conchArgs)
+
+    const ivyExpected = "ivy"
+    const ivyActual = calculateHouse(ivyArgs)
+
+    expect(conchActual).toBe(conchExpected)
+    expect(ivyActual).toBe(ivyExpected)
   })
 })

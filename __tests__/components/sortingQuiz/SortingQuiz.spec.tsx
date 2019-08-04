@@ -10,7 +10,8 @@ import { questionMocks } from "../../../__mocks__/questionMocks"
 import SortingQuiz, {
   sortingQuizReducer,
 } from "../../../src/components/SortingQuiz/SortingQuiz"
-import { IAction } from "../../../src/components/SortingQuiz/types"
+import { IAction, IState } from "../../../src/components/SortingQuiz/types"
+import { House } from "../../../src/utils/sharedTypes"
 
 afterEach(cleanup)
 
@@ -82,8 +83,8 @@ describe("Sorting Quiz", () => {
 })
 
 describe("reducer", () => {
-  let handleNextAction: (value?: string) => IAction
-  let handleBackAction: (value?: string) => IAction
+  let handleNextAction: (value?: House) => IAction
+  let handleBackAction: (value?: House) => IAction
 
   beforeAll(() => {
     handleNextAction = (value): IAction => ({
@@ -97,7 +98,7 @@ describe("reducer", () => {
   })
   describe("HANDLE_NEXT", () => {
     it("Should increment the current index, and add current selection to quizAnswers array", () => {
-      const mockState = {
+      const mockState: IState = {
         currentSelection: "IVY",
         questionIndex: 0,
         quizAnswers: [],
@@ -112,7 +113,7 @@ describe("reducer", () => {
       expect(sortingQuizReducer(mockState, mockAction)).toEqual(expected)
     })
     it("Should set currentSection to the next answer if it exists", () => {
-      const mockState = {
+      const mockState: IState = {
         currentSelection: "IVY",
         questionIndex: 0,
         quizAnswers: ["", "CONCH"],
@@ -126,7 +127,7 @@ describe("reducer", () => {
   })
   describe("HANDLE_BACK", () => {
     it("Should decrement the current index, add current selection to quizAnswers array, and set the currentSelection to the previous answer", () => {
-      const mockState = {
+      const mockState: IState = {
         currentSelection: "STRATUS",
         questionIndex: 1,
         quizAnswers: ["CONCH"],
@@ -142,7 +143,7 @@ describe("reducer", () => {
     })
   })
   it("Should return the state passed in if the index is 0 or less", () => {
-    const mockState = {
+    const mockState: IState = {
       currentSelection: "STRATUS",
       questionIndex: 0,
       quizAnswers: ["CONCH"],

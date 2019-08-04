@@ -1,8 +1,10 @@
+import { navigate } from "gatsby"
 import React, { useReducer } from "react"
+import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
 import { IAction, ISortingQuizProps, IState } from "./types"
 
-const initialState = {
+const initialState: IState = {
   currentSelection: "",
   questionIndex: 0,
   quizAnswers: [],
@@ -48,6 +50,12 @@ const SortingQuiz = (props: ISortingQuizProps) => {
   const shouldNextButtonRender =
     state.questionIndex < props.questions.length - 1
 
+  const handleSubmit = () => {
+    const sortedHouse = calculateHouse(state.quizAnswers)
+    // Add this house to users profile in fireBase
+    navigate(`/app/${sortedHouse}`)
+  }
+
   return (
     <>
       {props.questions.map(
@@ -76,7 +84,12 @@ const SortingQuiz = (props: ISortingQuizProps) => {
                   NEXT
                 </button>
               ) : (
-                <button data-testid="sortingQuizSubmitButton">SUBMIT</button>
+                <button
+                  data-testid="sortingQuizSubmitButton"
+                  onClick={handleSubmit}
+                >
+                  SUBMIT
+                </button>
               )}
             </div>
           )

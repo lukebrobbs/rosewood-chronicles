@@ -17,11 +17,11 @@ export interface ISortingQuizProps {
 
 export interface IAction {
   type: "HANDLE_NEXT" | "HANDLE_BACK" | "ADD_CURRENT_SELECTION"
-  value?: string
+  value?: House
 }
 
 export interface IState {
   questionIndex: number
-  quizAnswers: string[]
-  currentSelection: string
+  quizAnswers: Array<House | "">
+  currentSelection: House | ""
 }
