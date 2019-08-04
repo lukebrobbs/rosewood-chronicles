@@ -186,5 +186,32 @@ describe("reducer", () => {
 
       expect(sortingQuizReducer(mockState, mockAction)).toEqual(mockState)
     })
+    describe("ADD_CURRENT_SELECTION", () => {
+      it("If no action value is passed in, should return the state passed in", () => {
+        const mockState: IState = {
+          currentSelection: "STRATUS",
+          questionIndex: 0,
+          quizAnswers: ["CONCH"],
+        }
+
+        const mockAction: IAction = { type: "ADD_CURRENT_SELECTION" }
+        expect(sortingQuizReducer(mockState, mockAction)).toEqual(mockState)
+      })
+    })
+    describe("default", () => {
+      it("Should throw an error", () => {
+        const mockState: IState = {
+          currentSelection: "STRATUS",
+          questionIndex: 0,
+          quizAnswers: ["CONCH"],
+        }
+        try {
+          // @ts-ignore
+          sortingQuizReducer(mockState, { type: "sdf" })
+        } catch (error) {
+          expect(error.message).toBe("Reducer error")
+        }
+      })
+    })
   })
 })

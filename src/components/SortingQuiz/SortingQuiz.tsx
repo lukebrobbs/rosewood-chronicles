@@ -41,7 +41,7 @@ export const sortingQuizReducer = (state: IState, action: IAction): IState => {
         currentSelection: action.value,
       }
     default:
-      throw new Error()
+      throw new Error("Reducer error")
   }
 }
 
