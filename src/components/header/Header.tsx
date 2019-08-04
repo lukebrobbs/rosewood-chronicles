@@ -27,6 +27,7 @@ const Header = ({ siteTitle }: IProps) => {
         <HeaderItem to="/">{siteTitle}</HeaderItem>
         <HeaderItem to="/about">About the books</HeaderItem>
         <HeaderItem to="/students">Meet The Students</HeaderItem>
+        <HeaderItem to="/preSorting">Sorting Quiz</HeaderItem>
         {userId ? (
           <SignOutButton onClick={handleSignOut}>Sign Out</SignOutButton>
         ) : (
