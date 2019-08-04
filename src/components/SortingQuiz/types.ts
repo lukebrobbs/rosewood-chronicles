@@ -17,7 +17,7 @@ export interface ISortingQuizProps {
 
 export interface IAction {
   type: "HANDLE_NEXT" | "HANDLE_BACK" | "ADD_CURRENT_SELECTION"
-  value?: House
+  value?: House | string
 }
 
 export interface IState {
