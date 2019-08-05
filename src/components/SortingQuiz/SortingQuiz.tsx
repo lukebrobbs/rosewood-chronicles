@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
-import "./SortingQuiz.css"
+import "./sortingQuiz.css"
 import { IAction, ISortingQuizProps, IState } from "./types"
 
 const initialState: IState = {
