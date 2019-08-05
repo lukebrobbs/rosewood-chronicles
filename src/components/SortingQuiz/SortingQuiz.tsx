@@ -1,7 +1,10 @@
 import { navigate } from "gatsby"
 import React, { useReducer } from "react"
+import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
+import "./SortingQuiz.css"
 import { IAction, ISortingQuizProps, IState } from "./types"
 
 const initialState: IState = {
@@ -56,44 +59,55 @@ const SortingQuiz = (props: ISortingQuizProps) => {
   }
 
   return (
-    <>
+    <div className="sortingQuiz__wrapper">
       {props.questions.map(
         (question, index) =>
           state.questionIndex === index && (
-            <div key={question.id} data-testid="sortingQuizQuestion">
-              <p data-testid="sortingQuizQuestionText">{question.question}</p>
-              <Answers
-                answers={question.answers}
-                dispatch={dispatch}
-                currentSelection={state.currentSelection}
-              />
-              {shouldBackButtonRender && (
-                <button
-                  data-testid="sortingQuizBackButton"
-                  onClick={() => dispatch({ type: "HANDLE_BACK" })}
-                >
-                  BACK
-                </button>
-              )}
-              {shouldNextButtonRender ? (
-                <button
-                  data-testid="sortingQuizNextButton"
-                  onClick={() => dispatch({ type: "HANDLE_NEXT" })}
-                >
-                  NEXT
-                </button>
-              ) : (
-                <button
-                  data-testid="sortingQuizSubmitButton"
-                  onClick={handleSubmit}
-                >
-                  SUBMIT
-                </button>
-              )}
-            </div>
+            <Card
+              border="light"
+              key={question.id}
+              data-testid="sortingQuizQuestion"
+              className="sortingQuiz__question"
+            >
+              <Card.Body className="text-center">
+                <Card.Title data-testid="sortingQuizQuestionText">
+                  {question.question}
+                </Card.Title>
+
+                <Answers
+                  answers={question.answers}
+                  dispatch={dispatch}
+                  currentSelection={state.currentSelection}
+                />
+
+                {shouldBackButtonRender && (
+                  <Button
+                    data-testid="sortingQuizBackButton"
+                    onClick={() => dispatch({ type: "HANDLE_BACK" })}
+                  >
+                    BACK
+                  </Button>
+                )}
+                {shouldNextButtonRender ? (
+                  <Button
+                    data-testid="sortingQuizNextButton"
+                    onClick={() => dispatch({ type: "HANDLE_NEXT" })}
+                  >
+                    NEXT
+                  </Button>
+                ) : (
+                  <Button
+                    data-testid="sortingQuizSubmitButton"
+                    onClick={handleSubmit}
+                  >
+                    SUBMIT
+                  </Button>
+                )}
+              </Card.Body>
+            </Card>
           )
       )}
-    </>
+    </div>
   )
 }
 

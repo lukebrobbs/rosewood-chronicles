@@ -1,0 +1,8 @@
+.sortingQuiz__question {
+  text-transform: uppercase;
+}
+
+.sortingQuiz__wrapper {
+  max-width: 800px;
+  margin: auto;
+}

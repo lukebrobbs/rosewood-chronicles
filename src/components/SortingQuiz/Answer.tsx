@@ -1,4 +1,5 @@
 import React from "react"
+import ListGroup from "react-bootstrap/ListGroup"
 import { House } from "../../utils/sharedTypes"
 import { IAction } from "./types"
 
@@ -12,23 +13,24 @@ interface IAnswerProps {
 
 const Answer = (props: IAnswerProps) => {
   return (
-    <div>
-      <input
+    <>
+      <ListGroup.Item
+        className="m-1"
         data-testid={`sortingQuizAnswer-${props.value}`}
+        action={true}
         id={props.id}
-        type="radio"
-        value={props.value}
-        checked={props.checked}
-        name="sortingQuizAnswer"
-        onChange={e =>
+        active={props.checked}
+        aria-selected={props.checked}
+        onClick={() =>
           props.dispatch({
             type: "ADD_CURRENT_SELECTION",
-            value: e.target.value,
+            value: props.value,
           })
         }
-      />
-      <label htmlFor={props.id}>{props.label}</label>
-    </div>
+      >
+        {props.label}
+      </ListGroup.Item>
+    </>
   )
 }
 
