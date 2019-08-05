@@ -9,8 +9,15 @@ const EmailCapture = () => {
     navigate("/sortingQuiz")
   }
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form
+      onSubmit={handleSubmit}
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      name="email"
+    >
       <Form.Group controlId="formBasicEmail">
+        <input type="hidden" name="form-name" value="email" />
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" required={true} />
         <Form.Text className="text-muted">
