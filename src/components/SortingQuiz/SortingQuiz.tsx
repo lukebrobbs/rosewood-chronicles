@@ -1,8 +1,6 @@
 import { navigate } from "gatsby"
-import React, { useContext, useReducer } from "react"
-import fireStoreMethods from "../../utils/fireStoreMethods"
+import React, { useReducer } from "react"
 import { calculateHouse } from "../../utils/quizQuestions"
-import { FirebaseContext } from "../firebase/FirebaseProvider"
 import Answers from "./Answers"
 import { IAction, ISortingQuizProps, IState } from "./types"
 
@@ -46,8 +44,6 @@ export const sortingQuizReducer = (state: IState, action: IAction): IState => {
 }
 
 const SortingQuiz = (props: ISortingQuizProps) => {
-  const { userId } = useContext(FirebaseContext)
-
   const [state, dispatch] = useReducer(sortingQuizReducer, initialState)
 
   const shouldBackButtonRender = state.questionIndex > 0
@@ -56,8 +52,7 @@ const SortingQuiz = (props: ISortingQuizProps) => {
 
   const handleSubmit = async () => {
     const sortedHouse = calculateHouse(state.quizAnswers)
-    await fireStoreMethods.setUserHouse(userId, sortedHouse)
-    navigate(`/app/${sortedHouse}`)
+    navigate(`/${sortedHouse}`)
   }
 
   return (
@@ -66,7 +61,7 @@ const SortingQuiz = (props: ISortingQuizProps) => {
         (question, index) =>
           state.questionIndex === index && (
             <div key={question.id} data-testid="sortingQuizQuestion">
-              <p>{question.question}</p>
+              <p data-testid="sortingQuizQuestionText">{question.question}</p>
               <Answers
                 answers={question.answers}
                 dispatch={dispatch}

@@ -97,22 +97,7 @@ describe("Sorting Quiz", () => {
       fireEvent.click(getByTestId("sortingQuizSubmitButton"))
       await wait(() => {}, { timeout: 1 })
       // @ts-ignore
-      expect(navigate.mock.calls[0][0]).toBe("/app/stratus")
-    })
-    it("Should call setHouseUser with the correct house", () => {
-      // @ts-ignore
-      navigate = jest.fn()
-      const { getByTestId } = render(<SortingQuiz questions={questionMocks} />)
-      navigateToNextQuestion(getByTestId)
-      fireEvent.click(
-        getByTestId(`sortingQuizAnswer-${questionMocks[1].answers[0].house}`)
-      )
-      fireEvent.click(getByTestId("sortingQuizSubmitButton"))
-      // @ts-ignore
-      expect(firestoreMethods.setUserHouse.mock.calls[0]).toEqual([
-        "",
-        "stratus",
-      ])
+      expect(navigate.mock.calls[0][0]).toBe("/stratus")
     })
   })
 })

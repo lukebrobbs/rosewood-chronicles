@@ -1,6 +1,6 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
-
+import EmailCapture from "../components/EmailCapture"
 interface IEdges {
   edges: Array<{ node: { text: string } }>
 }
@@ -19,7 +19,7 @@ const PreSortingPage = ({ data }: IProps) => {
     <>
       <h1>House Sorting Quiz</h1>
       <p data-testid="preSortingDescription">{edges[0].node.text}</p>
-      <Link to="/signUp">SIGN UP</Link>
+      <EmailCapture />
     </>
   )
 }
