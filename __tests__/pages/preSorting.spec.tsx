@@ -12,12 +12,15 @@ describe("PreSorting page", () => {
       render({
         site: {
           siteMetadata: {
+            author: "Luke Brobbin",
+            description: "test description",
             title: `Default Starter`,
           },
         },
       })
     )
   })
+
   it("Should render the correct text returned in graphQL query", () => {
     const mockData = {
       allContentfulSortingQuizIntroTextTextTextNode: {

@@ -1,6 +1,5 @@
 import { graphql, Link } from "gatsby"
 import React from "react"
-import Layout from "../components/layout/layout"
 
 interface IEdges {
   edges: Array<{ node: { text: string } }>
@@ -17,11 +16,11 @@ const PreSortingPage = ({ data }: IProps) => {
     allContentfulSortingQuizIntroTextTextTextNode: { edges },
   } = data
   return (
-    <Layout>
+    <>
       <h1>House Sorting Quiz</h1>
       <p data-testid="preSortingDescription">{edges[0].node.text}</p>
       <Link to="/signUp">SIGN UP</Link>
-    </Layout>
+    </>
   )
 }
 

@@ -3,6 +3,8 @@ const firebase = require("firebase")
 const {
   FirebaseProvider,
 } = require("./src/components/firebase/FirebaseProvider")
+const { Helmet } = require("react-helmet")
+const { Layout } = require("./src/components/layout/layout")
 
 exports.wrapRootElement = ({ element }) => {
   const firebaseConfig = {
@@ -16,5 +18,21 @@ exports.wrapRootElement = ({ element }) => {
   }
 
   firebase.initializeApp(firebaseConfig)
-  return <FirebaseProvider>{element}</FirebaseProvider>
+  return (
+    <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossOrigin="anonymous"
+        />
+      </Helmet>
+      <FirebaseProvider>{element}</FirebaseProvider>
+    </>
+  )
+}
+
+exports.wrapPageElement = ({ element }) => {
+  return <Layout>{element}</Layout>
 }

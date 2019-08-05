@@ -1,11 +1,12 @@
 import React from "react"
-import Layout from "../components/layout/layout"
+import SEO from "../components/seo"
 
 const Students = () => {
   return (
-    <Layout>
+    <>
+      <SEO title="Students" />
       <h1>Students</h1>
-    </Layout>
+    </>
   )
 }
 

@@ -7,6 +7,7 @@
   "dependencies": {
     "auth0-js": "^9.11.2",
     "babel-plugin-styled-components": "^1.10.6",
+    "bootstrap": "^4.3.1",
     "firebase": "^6.3.4",
     "gatsby": "^2.13.50",
     "gatsby-image": "^2.2.8",
@@ -22,6 +23,7 @@
     "gatsby-transformer-sharp": "^2.2.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.10",
     "react-dom": "^16.8.6",
     "react-firebaseui": "^3.1.2",
     "react-helmet": "^5.2.1",
