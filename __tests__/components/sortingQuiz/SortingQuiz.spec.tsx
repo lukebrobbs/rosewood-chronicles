@@ -13,7 +13,6 @@ import SortingQuiz, {
   sortingQuizReducer,
 } from "../../../src/components/SortingQuiz/SortingQuiz"
 import { IAction, IState } from "../../../src/components/SortingQuiz/types"
-import firestoreMethods from "../../../src/utils/fireStoreMethods"
 import { House } from "../../../src/utils/sharedTypes"
 
 afterEach(cleanup)
@@ -22,7 +21,6 @@ describe("Sorting Quiz", () => {
   let navigateToNextQuestion: CallableFunction
 
   beforeAll(() => {
-    firestoreMethods.setUserHouse = jest.fn()
     navigateToNextQuestion = (
       getByTestId: (text: Matcher, options?: MatcherOptions) => HTMLElement
     ) => {

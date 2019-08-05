@@ -1,14 +1,12 @@
-import React from "react"
 import { cleanup, render } from "@testing-library/react"
 import * as Gatsby from "gatsby"
+import React from "react"
 import Conch from "../../src/components/Conch"
 
 afterEach(() => {
   cleanup()
   jest.clearAllMocks()
 })
-
-beforeEach(() => {})
 
 describe("Conch", () => {
   it("Should render the correct house color and description as returned from GraphQL query", () => {
