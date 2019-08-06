@@ -68,7 +68,7 @@ describe("Sorting Quiz", () => {
       `sortingQuizAnswer-${questionMocks[0].answers[0].house}`
     )
     // @ts-ignore
-    expect(answer.className.includes("active")).toBe(true)
+    expect(answer.checked).toBe(true)
   })
   it("Should remember users selection if they go back then next", () => {
     const { getByTestId } = render(<SortingQuiz questions={questionMocks} />)
@@ -81,7 +81,7 @@ describe("Sorting Quiz", () => {
     fireEvent.click(getByTestId("sortingQuizNextButton"))
 
     // @ts-ignore
-    expect(itemToClick().className.includes("active")).toBe(true)
+    expect(itemToClick().checked).toBe(true)
   })
   describe("quiz submission", () => {
     it("Should navigate the user to the appropriate house page", async () => {

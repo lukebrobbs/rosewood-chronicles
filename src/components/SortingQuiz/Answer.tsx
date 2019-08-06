@@ -13,20 +13,26 @@ interface IAnswerProps {
 const Answer = (props: IAnswerProps) => {
   return (
     <>
-      <button
-        className={`m-2 btn-tertiary ${props.checked ? "active" : ""}`}
+      <input
         data-testid={`sortingQuizAnswer-${props.value}`}
         id={props.id}
-        aria-selected={props.checked}
-        onClick={() =>
+        type="radio"
+        aria-checked={props.checked}
+        value={props.value}
+        checked={props.checked}
+        onChange={(event: any) =>
           props.dispatch({
             type: "ADD_CURRENT_SELECTION",
-            value: props.value,
+            value: event.target.value,
           })
         }
+      />
+      <label
+        className={`m-2 radio-tertiary ${props.checked ? "active" : ""}`}
+        htmlFor={props.id}
       >
         {props.text}
-      </button>
+      </label>
     </>
   )
 }
