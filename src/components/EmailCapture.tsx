@@ -6,35 +6,13 @@ import Form from "react-bootstrap/Form"
 const EmailCapture = () => {
   const [email, setEmail] = useState("")
 
-  const encode = (data: { "form-name": string; email: string }) => {
-    return Object.keys(data)
-      .map(
-        // @ts-ignore
-        key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&")
-  }
-
   const handleSubmit = (e: React.FormEvent) => {
-    fetch("/", {
-      body: encode({ "form-name": "email", email }),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      method: "POST",
-    }).catch(error => alert(error))
-
     e.preventDefault()
     navigate("/sortingQuiz")
   }
   return (
-    <Form
-      onSubmit={handleSubmit}
-      method="post"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      name="email"
-    >
+    <Form onSubmit={handleSubmit} method="post" name="email">
       <Form.Group controlId="formBasicEmail">
-        <input type="hidden" name="form-name" value="email" />
         <Form.Label>Email address</Form.Label>
         <Form.Control
           type="email"
