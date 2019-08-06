@@ -8,8 +8,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 import Nav from "../Nav"
-import "./layout.css"
-import { LayoutWrapper } from "./layoutStyles"
+import "./layout.scss"
 
 interface IProps {
   children: JSX.Element | JSX.Element[]
@@ -18,9 +17,9 @@ interface IProps {
 export const Layout = ({ children }: IProps) => (
   <>
     <Nav />
-    <LayoutWrapper className={`layout__container`}>
+    <div className={`layout__wrapper`}>
       <main>{children}</main>
-    </LayoutWrapper>
+    </div>
   </>
 )
 

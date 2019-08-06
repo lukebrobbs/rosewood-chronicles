@@ -11,13 +11,14 @@ interface IAnswersProps {
 
 const Answers = (props: IAnswersProps) => {
   return (
-    <ListGroup className="m-3">
-      {props.answers.map(answer => (
+    <ListGroup className="m-4" aria-labelledby="quiz-question-label">
+      {props.answers.map((answer, index) => (
         <Answer
-          id={answer.text}
+          id={`answer-${index + 1}`}
+          aria-role="option"
           key={answer.text}
           value={answer.house}
-          label={answer.text}
+          text={answer.text}
           dispatch={props.dispatch}
           checked={props.currentSelection === answer.house}
         />

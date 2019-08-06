@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
-import "./sortingQuiz.css"
+import "./sortingQuiz.scss"
 import { IAction, ISortingQuizProps, IState } from "./types"
 
 const initialState: IState = {
@@ -70,10 +70,14 @@ const SortingQuiz = (props: ISortingQuizProps) => {
               className="sortingQuiz__question"
             >
               <Card.Body className="text-center">
-                <Card.Title data-testid="sortingQuizQuestionText">
+                <div
+                  className="sortingQuiz__question"
+                  data-testid="sortingQuizQuestionText"
+                  role="label"
+                  id="quiz-question-label"
+                >
                   {question.question}
-                </Card.Title>
-
+                </div>
                 <Answers
                   answers={question.answers}
                   dispatch={dispatch}

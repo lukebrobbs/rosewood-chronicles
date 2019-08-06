@@ -1,11 +1,10 @@
 import React from "react"
-import ListGroup from "react-bootstrap/ListGroup"
 import { House } from "../../utils/sharedTypes"
 import { IAction } from "./types"
 
 interface IAnswerProps {
   id: string
-  label: string
+  text: string
   dispatch: React.Dispatch<IAction>
   value: House
   checked: boolean
@@ -14,12 +13,10 @@ interface IAnswerProps {
 const Answer = (props: IAnswerProps) => {
   return (
     <>
-      <ListGroup.Item
-        className="m-1"
+      <button
+        className={`m-2 btn-tertiary ${props.checked ? "active" : ""}`}
         data-testid={`sortingQuizAnswer-${props.value}`}
-        action={true}
         id={props.id}
-        active={props.checked}
         aria-selected={props.checked}
         onClick={() =>
           props.dispatch({
@@ -28,8 +25,8 @@ const Answer = (props: IAnswerProps) => {
           })
         }
       >
-        {props.label}
-      </ListGroup.Item>
+        {props.text}
+      </button>
     </>
   )
 }
