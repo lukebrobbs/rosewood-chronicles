@@ -73,7 +73,6 @@ const SortingQuiz = (props: ISortingQuizProps) => {
                 <div
                   className="sortingQuiz__question"
                   data-testid="sortingQuizQuestionText"
-                  role="label"
                   id="quiz-question-label"
                 >
                   {question.question}
