@@ -2,14 +2,14 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  background: url("../../images/D_Site_Background.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
 }
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("../../images/D_Site_Background.jpg") no-repeat center center
-    fixed;
-  background-size: cover;
 }
 article,
 aside,
@@ -634,6 +634,7 @@ pre tt:after {
     background: url("../../images/M_Site_Roses.png") no-repeat center center
       fixed;
     background-size: cover;
+    // background-position: cover;
   }
 }
 
