@@ -8,13 +8,43 @@ afterEach(cleanup)
 describe("PreSorting page", () => {
   beforeEach(() => {
     // @ts-ignore
-    StaticQuery.mockImplementationOnce(({ render }) =>
+    StaticQuery.mockImplementation(({ render }) =>
       render({
         site: {
           siteMetadata: {
             author: "Luke Brobbin",
             description: "test description",
             title: `Default Starter`,
+          },
+        },
+        mobileImage: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 4,
+              src: "",
+              srcSet: "",
+              sizes: "",
+              base64: "",
+              tracedSVG: "",
+              srcWebp: "",
+              srcSetWebp: "",
+              media: "",
+            },
+          },
+        },
+        desktopImage: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 4,
+              src: "test",
+              srcSet: "test",
+              sizes: "test",
+              base64: "test",
+              tracedSVG: "test",
+              srcWebp: "test",
+              srcSetWebp: "test",
+              media: "test",
+            },
           },
         },
       })
