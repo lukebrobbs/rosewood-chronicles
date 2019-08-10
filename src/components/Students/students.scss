@@ -9,12 +9,18 @@
   color: #9e8838;
 }
 
+$break-large: 769px;
+
 .students__Image__wrapper {
   align-items: center;
-  margin: 3em 2em 0 2em;
+  margin: 3em 2em 1em 2em;
   display: grid;
+  z-index: 2;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 30px;
+  @media screen and (max-width: $break-large) {
+    margin: 1em 1em 1em 0;
+  }
 }
 
 .students__house__insignia {

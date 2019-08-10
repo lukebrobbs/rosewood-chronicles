@@ -680,3 +680,18 @@ pre tt:after {
 .navbar {
   padding: 1.1em 1em !important;
 }
+
+.background__image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../images/D_Site_SmRoses.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  z-index: 1;
+  @media only screen and (max-width: 1200px) {
+    display: none;
+  }
+}

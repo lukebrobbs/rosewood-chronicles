@@ -16,7 +16,7 @@ const NavComponent = () => {
         />
 
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav className="ml-auto mr-5">
             <Nav.Link
               to="/preSorting"
               as={Link}
