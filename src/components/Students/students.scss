@@ -1,0 +1,23 @@
+.students__wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1em 0 0 0;
+}
+
+.students__header {
+  color: #9e8838;
+}
+
+.students__Image__wrapper {
+  align-items: center;
+  margin: 3em 2em 0 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 30px;
+}
+
+.students__house__insignia {
+  width: 90%;
+  justify-self: center;
+}

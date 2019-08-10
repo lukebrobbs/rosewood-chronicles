@@ -7,6 +7,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("../../images/D_Site_Background.jpg");
 }
 article,
 aside,
@@ -631,7 +632,7 @@ pre tt:after {
   cursor: pointer;
   display: inline-block;
   font-weight: 400;
-  color: #212529;
+  color: #9e8838;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -646,9 +647,36 @@ pre tt:after {
   border-radius: 0.25rem;
   transition: color 0.15s;
   &:hover {
-    background-color: #f9f4f4;
+    background-color: #9e8838;
+    color: white;
   }
   &.active {
-    background-color: pink;
+    background-color: #9e8838;
+    color: white;
   }
+}
+
+.navbar__brand {
+  min-width: 200px;
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+}
+
+#navbar {
+  background-color: #f8eaed !important;
+}
+
+.nav-link {
+  color: #9e8838 !important;
+  cursor: pointer !important;
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+.navbar {
+  padding: 1.1em 1em !important;
 }

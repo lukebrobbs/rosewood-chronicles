@@ -17,8 +17,10 @@ interface IProps {
 export const Layout = ({ children }: IProps) => (
   <>
     <Nav />
-    <div className={`layout__wrapper`}>
-      <main>{children}</main>
+    <div className="background__image">
+      <div className={`layout__wrapper`}>
+        <main>{children}</main>
+      </div>
     </div>
   </>
 )
