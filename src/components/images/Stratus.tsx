@@ -17,16 +17,32 @@ const Image = () => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "D_MTS_StratusLogo.png" }) {
+        mobileImage: file(relativePath: { eq: "M_MTS_Stratus_LogoM.png" }) {
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        desktopImage: file(relativePath: { eq: "D_MTS_StratusLogo.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 2000, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
       }
     `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+    render={data => {
+      const sources = [
+        data.mobileImage.childImageSharp.fluid,
+        {
+          ...data.desktopImage.childImageSharp.fluid,
+          media: `(min-width: 768px)`,
+        },
+      ]
+      return <Img fluid={sources} loading="eager" />
+    }}
   />
 )
 export default Image
