@@ -68,6 +68,7 @@ const SortingQuiz = (props: ISortingQuizProps) => {
               key={question.id}
               data-testid="sortingQuizQuestion"
               className="sortingQuiz__question"
+              id="sortingQuiz__card"
             >
               <Card.Body className="text-center">
                 <div

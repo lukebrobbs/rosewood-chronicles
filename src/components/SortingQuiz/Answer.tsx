@@ -28,7 +28,7 @@ const Answer = (props: IAnswerProps) => {
         }
       />
       <label
-        className={`m-2 radio-tertiary ${props.checked ? "active" : ""}`}
+        className={`radio-tertiary ${props.checked ? "active" : ""}`}
         htmlFor={props.id}
       >
         {props.text}

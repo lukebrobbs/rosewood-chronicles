@@ -11,9 +11,9 @@ interface IAnswersProps {
 const Answers = (props: IAnswersProps) => {
   return (
     <div
-      className="m-4"
       aria-labelledby="quiz-question-label"
       role="radiogroup"
+      className="questions__wrapper"
     >
       {props.answers.map((answer, index) => (
         <Answer

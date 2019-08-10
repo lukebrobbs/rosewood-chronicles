@@ -11,7 +11,12 @@ const EmailCapture = () => {
     navigate("/sortingQuiz")
   }
   return (
-    <Form onSubmit={handleSubmit} method="post" name="email">
+    <Form
+      onSubmit={handleSubmit}
+      method="post"
+      name="email"
+      id="emailCapture__form"
+    >
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
