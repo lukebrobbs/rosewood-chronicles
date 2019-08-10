@@ -29,13 +29,13 @@ const NavComponent = () => {
               className="mr-auto"
               eventKey="1"
             >
-              Sorting Quiz
+              SORTING QUIZ
             </Nav.Link>
             <Nav.Link to="/students" as={Link} className="mr-auto" eventKey="2">
-              Students
+              STUDENTS
             </Nav.Link>
             <Nav.Link to="/shop" as={Link} className="mr-auto" eventKey="3">
-              Shop
+              SHOP
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

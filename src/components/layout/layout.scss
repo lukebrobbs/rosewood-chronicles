@@ -626,6 +626,12 @@ pre tt:after {
   margin: 0 auto;
   max-width: 960;
   padding-top: 0;
+  @media only screen and (max-width: 1200px) {
+    background-image: url("../../images/M_Site_Roses.png");
+    background-repeat: no-repeat;
+    background-size: 100% calc(100% + 30px);
+    background-position: 0px -20px;
+  }
 }
 
 .radio-tertiary {
@@ -697,3 +703,18 @@ pre tt:after {
     display: none;
   }
 }
+
+// .background__image__mobile {
+//   position: absolute;
+//   left: 0;
+//   top: 65px;
+//   width: 100%;
+//   min-height: 100vh;
+//   z-index: -1;
+//   background-image: url("../../images/M_Site_Roses.png");
+//   background-repeat: no-repeat;
+//   background-size: 100% 100vh;
+//   @media only screen and (min-width: 1200px) {
+//     display: none;
+//   }
+// }

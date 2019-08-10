@@ -18,6 +18,7 @@ export const Layout = ({ children }: IProps) => (
   <>
     <div className="background__image" />
     <Nav />
+    <div className="background__image__mobile" />
     <div className={`layout__wrapper`}>
       <main>{children}</main>
     </div>
