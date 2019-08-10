@@ -6,7 +6,13 @@ import Image from "./images/RosewoodLogo"
 const NavComponent = () => {
   return (
     <>
-      <Navbar expand="xl" bg="primary" variant="dark" id="navbar">
+      <Navbar
+        expand="xl"
+        bg="primary"
+        variant="dark"
+        id="navbar"
+        collapseOnSelect={true}
+      >
         <Navbar.Brand to="/" className="navbar__brand" as={Link}>
           <Image />
         </Navbar.Brand>
@@ -21,19 +27,14 @@ const NavComponent = () => {
               to="/preSorting"
               as={Link}
               className="mr-auto"
-              id="navbar__link"
+              eventKey="1"
             >
               Sorting Quiz
             </Nav.Link>
-            <Nav.Link
-              to="/students"
-              as={Link}
-              className="mr-auto"
-              id="navbar__link"
-            >
+            <Nav.Link to="/students" as={Link} className="mr-auto" eventKey="2">
               Students
             </Nav.Link>
-            <Nav.Link to="/shop" as={Link} className="mr-auto">
+            <Nav.Link to="/shop" as={Link} className="mr-auto" eventKey="3">
               Shop
             </Nav.Link>
           </Nav>

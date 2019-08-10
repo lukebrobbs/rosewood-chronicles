@@ -663,6 +663,7 @@ pre tt:after {
   top: 40px;
   transform: translate(-50%, -50%);
   overflow: visible;
+  z-index: 2 !important;
 }
 
 #navbar {
@@ -672,6 +673,7 @@ pre tt:after {
 .nav-link {
   color: #9e8838 !important;
   cursor: pointer !important;
+  z-index: 2 !important;
   &:hover {
     text-decoration: underline !important;
   }
