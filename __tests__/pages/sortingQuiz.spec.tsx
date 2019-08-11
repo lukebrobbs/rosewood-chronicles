@@ -1,10 +1,80 @@
 import { cleanup, render } from "@testing-library/react"
 import React from "react"
+import { useStaticQuery, StaticQuery } from "gatsby"
 import SortingQuizPage from "../../src/pages/sortingQuiz"
 
 afterEach(cleanup)
 
 describe("sortingQuiz page", () => {
+  beforeEach(() => {
+    // @ts-ignore
+    useStaticQuery.mockReturnValue({
+      site: {
+        siteMetadata: {
+          author: "Luke Brobbin",
+          description: "test description",
+          title: `Default Starter`,
+        },
+      },
+    })
+    // @ts-ignore
+    StaticQuery.mockImplementation(({ render }) =>
+      render({
+        site: {
+          siteMetadata: {
+            author: "Luke Brobbin",
+            description: "test description",
+            title: `Default Starter`,
+          },
+        },
+        placeholderImage: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 4,
+              src: "",
+              srcSet: "",
+              sizes: "",
+              base64: "",
+              tracedSVG: "",
+              srcWebp: "",
+              srcSetWebp: "",
+              media: "",
+            },
+          },
+        },
+        mobileImage: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 4,
+              src: "",
+              srcSet: "",
+              sizes: "",
+              base64: "",
+              tracedSVG: "",
+              srcWebp: "",
+              srcSetWebp: "",
+              media: "",
+            },
+          },
+        },
+        desktopImage: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 4,
+              src: "test",
+              srcSet: "test",
+              sizes: "test",
+              base64: "test",
+              tracedSVG: "test",
+              srcWebp: "test",
+              srcSetWebp: "test",
+              media: "test",
+            },
+          },
+        },
+      })
+    )
+  })
   it("Should render the correct text returned in graphQL query", () => {
     const mockData = {
       allContentfulSortingQuizQuestion: {

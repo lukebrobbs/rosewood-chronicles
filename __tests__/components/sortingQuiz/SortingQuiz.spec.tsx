@@ -6,7 +6,7 @@ import {
   render,
   wait,
 } from "@testing-library/react"
-import { navigate } from "gatsby"
+import { navigate, StaticQuery, useStaticQuery } from "gatsby"
 import React from "react"
 import { questionMocks } from "../../../__mocks__/questionMocks"
 import SortingQuiz, {
@@ -19,6 +19,76 @@ afterEach(cleanup)
 
 describe("Sorting Quiz", () => {
   let navigateToNextQuestion: CallableFunction
+
+  beforeEach(() => {
+    // @ts-ignore
+    useStaticQuery.mockReturnValue({
+      site: {
+        siteMetadata: {
+          author: "Luke Brobbin",
+          description: "test description",
+          title: `Default Starter`,
+        },
+      },
+    })
+    // @ts-ignore
+    StaticQuery.mockImplementation(({ render }) =>
+      render({
+        site: {
+          siteMetadata: {
+            author: "Luke Brobbin",
+            description: "test description",
+            title: `Default Starter`,
+          },
+        },
+        placeholderImage: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 4,
+              src: "",
+              srcSet: "",
+              sizes: "",
+              base64: "",
+              tracedSVG: "",
+              srcWebp: "",
+              srcSetWebp: "",
+              media: "",
+            },
+          },
+        },
+        mobileImage: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 4,
+              src: "",
+              srcSet: "",
+              sizes: "",
+              base64: "",
+              tracedSVG: "",
+              srcWebp: "",
+              srcSetWebp: "",
+              media: "",
+            },
+          },
+        },
+        desktopImage: {
+          childImageSharp: {
+            fluid: {
+              aspectRatio: 4,
+              src: "test",
+              srcSet: "test",
+              sizes: "test",
+              base64: "test",
+              tracedSVG: "test",
+              srcWebp: "test",
+              srcSetWebp: "test",
+              media: "test",
+            },
+          },
+        },
+      })
+    )
+  })
 
   beforeAll(() => {
     navigateToNextQuestion = (
@@ -43,14 +113,6 @@ describe("Sorting Quiz", () => {
     navigateToNextQuestion(getByTestId)
     expect(queryByTestId("sortingQuizNextButton")).toBeNull()
   })
-  it("Should only render a back button if the user is not on the first question", () => {
-    const { getByTestId, queryByTestId } = render(
-      <SortingQuiz questions={questionMocks} />
-    )
-    expect(queryByTestId("sortingQuizBackButton")).toBeNull()
-    navigateToNextQuestion(getByTestId)
-    expect(getByTestId("sortingQuizBackButton")).toBeInTheDocument()
-  })
   it("Should render a submit button if the user is on the last question", () => {
     const { getByTestId, queryByTestId } = render(
       <SortingQuiz questions={questionMocks} />
@@ -60,29 +122,7 @@ describe("Sorting Quiz", () => {
     navigateToNextQuestion(getByTestId)
     expect(getByTestId("sortingQuizSubmitButton")).toBeInTheDocument()
   })
-  it("Users previous answers should be stored if they move to a previous question", () => {
-    const { getByTestId } = render(<SortingQuiz questions={questionMocks} />)
-    navigateToNextQuestion(getByTestId)
-    fireEvent.click(getByTestId("sortingQuizBackButton"))
-    const answer = getByTestId(
-      `sortingQuizAnswer-${questionMocks[0].answers[0].house}`
-    )
-    // @ts-ignore
-    expect(answer.checked).toBe(true)
-  })
-  it("Should remember users selection if they go back then next", () => {
-    const { getByTestId } = render(<SortingQuiz questions={questionMocks} />)
-    navigateToNextQuestion(getByTestId)
-    const itemToClick = () =>
-      getByTestId(`sortingQuizAnswer-${questionMocks[1].answers[0].house}`)
 
-    fireEvent.click(itemToClick())
-    fireEvent.click(getByTestId("sortingQuizBackButton"))
-    fireEvent.click(getByTestId("sortingQuizNextButton"))
-
-    // @ts-ignore
-    expect(itemToClick().checked).toBe(true)
-  })
   describe("quiz submission", () => {
     it("Should navigate the user to the appropriate house page", async () => {
       // @ts-ignore
@@ -102,15 +142,10 @@ describe("Sorting Quiz", () => {
 
 describe("reducer", () => {
   let handleNextAction: (value?: House) => IAction
-  let handleBackAction: (value?: House) => IAction
 
   beforeAll(() => {
     handleNextAction = (value): IAction => ({
       type: "HANDLE_NEXT",
-      value,
-    })
-    handleBackAction = (value): IAction => ({
-      type: "HANDLE_BACK",
       value,
     })
   })
@@ -143,58 +178,31 @@ describe("reducer", () => {
       )
     })
   })
-  describe("HANDLE_BACK", () => {
-    it("Should decrement the current index, add current selection to quizAnswers array, and set the currentSelection to the previous answer", () => {
-      const mockState: IState = {
-        currentSelection: "STRATUS",
-        questionIndex: 1,
-        quizAnswers: ["CONCH"],
-      }
-      const mockAction = handleBackAction()
-
-      const expected = {
-        currentSelection: "CONCH",
-        questionIndex: 0,
-        quizAnswers: ["CONCH", "STRATUS"],
-      }
-      expect(sortingQuizReducer(mockState, mockAction)).toEqual(expected)
-    })
-    it("Should return the state passed in if the index is 0 or less", () => {
+  describe("ADD_CURRENT_SELECTION", () => {
+    it("If no action value is passed in, should return the state passed in", () => {
       const mockState: IState = {
         currentSelection: "STRATUS",
         questionIndex: 0,
         quizAnswers: ["CONCH"],
       }
-      const mockAction = handleBackAction()
 
+      const mockAction: IAction = { type: "ADD_CURRENT_SELECTION" }
       expect(sortingQuizReducer(mockState, mockAction)).toEqual(mockState)
     })
-    describe("ADD_CURRENT_SELECTION", () => {
-      it("If no action value is passed in, should return the state passed in", () => {
-        const mockState: IState = {
-          currentSelection: "STRATUS",
-          questionIndex: 0,
-          quizAnswers: ["CONCH"],
-        }
-
-        const mockAction: IAction = { type: "ADD_CURRENT_SELECTION" }
-        expect(sortingQuizReducer(mockState, mockAction)).toEqual(mockState)
-      })
-    })
-    describe("default", () => {
-      it("Should throw an error", () => {
-        const mockState: IState = {
-          currentSelection: "STRATUS",
-          questionIndex: 0,
-          quizAnswers: ["CONCH"],
-        }
-        try {
-          // @ts-ignore
-          sortingQuizReducer(mockState, { type: "sdf" })
-        } catch (error) {
-          expect(error.message).toBe("Reducer error")
-        }
-      })
+  })
+  describe("default", () => {
+    it("Should throw an error", () => {
+      const mockState: IState = {
+        currentSelection: "STRATUS",
+        questionIndex: 0,
+        quizAnswers: ["CONCH"],
+      }
+      try {
+        // @ts-ignore
+        sortingQuizReducer(mockState, { type: "sdf" })
+      } catch (error) {
+        expect(error.message).toBe("Reducer error")
+      }
     })
   })
 })

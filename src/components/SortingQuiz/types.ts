@@ -11,8 +11,15 @@ export interface IQuestion {
   answers: [IAnswer, IAnswer, IAnswer]
 }
 
-export interface ISortingQuizProps {
+interface ISortingQuizProps {
   questions: IQuestion[]
+}
+
+export interface IQuizProps extends ISortingQuizProps {
+  questionIndex: number
+  quizAnswers: Array<House | string>
+  currentSelection: House | string
+  dispatch: React.Dispatch<IAction>
 }
 
 export interface IAction {

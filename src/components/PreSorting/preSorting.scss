@@ -65,7 +65,7 @@
   }
 }
 
-.preSorting__signUp__button {
+.button {
   font-family: Garamond;
   display: inline-block;
   font-weight: 600;
@@ -85,11 +85,15 @@
   transition: color 0.15s;
   background-color: #f69ab9;
   color: white;
-  margin: 1.5em 0;
   align-self: center;
   &:hover {
     background-color: #f180a5;
   }
+}
+
+.preSorting__signUp__button {
+  @extend .button;
+  margin: 1.5em 0;
 }
 
 .preSorting__emailSignup__wrapper {

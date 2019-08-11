@@ -7,6 +7,7 @@
 
 import PropTypes from "prop-types"
 import React from "react"
+import Roses from "../images/Roses"
 import Nav from "../Nav"
 import "./layout.scss"
 
@@ -16,9 +17,10 @@ interface IProps {
 
 export const Layout = ({ children }: IProps) => (
   <>
-    <div className="background__image" />
+    <div className="background__image">
+      <Roses />
+    </div>
     <Nav />
-    <div className="background__image__mobile" />
     <div className={`layout__wrapper`}>
       <main>{children}</main>
     </div>

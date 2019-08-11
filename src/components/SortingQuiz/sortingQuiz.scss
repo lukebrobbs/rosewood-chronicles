@@ -1,20 +1,31 @@
+@import "../PreSorting/preSorting.scss";
+
+.sortingQuiz__container {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 0.8fr;
+}
+
 .sortingQuiz__question {
+  font-family: Garamond;
   text-transform: uppercase;
   border-radius: 0.25rem;
-  color: white;
+  color: #f8eaed;
   background-color: #f69ab9;
-  padding: 0.5rem;
-  font-weight: 600;
+  padding: 1.2rem;
+  font-weight: bolder;
+  font-size: 1.2em;
   border-radius: 0.5em;
+  text-align: left;
 }
 
 .sortingQuiz__wrapper {
-  margin: auto;
   max-width: 600px;
+  justify-self: start;
+  margin-top: 10%;
 }
 
 .questions__wrapper {
-  margin: 2em auto;
+  margin: 1.5em auto;
 }
 
 input[type="radio"] {
@@ -33,4 +44,34 @@ input[type="radio"]:focus + label {
 #sortingQuiz__card {
   background: none !important;
   border: none !important;
+  padding: 0 !important;
+}
+
+.sortingQuiz__bannerImages {
+  margin-left: 1em;
+  .banner__wrapper {
+    width: 95%;
+  }
+}
+
+.sortingQuiz__saskia {
+  width: 95%;
+  overflow: hidden;
+  margin-top: 1em;
+  justify-self: end;
+}
+
+.sortingQuiz__questionNumber__wrapper {
+  width: 40%;
+  text-align: center;
+  background-color: #f8eaed;
+  color: #9e8838;
+  margin: 3em auto;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+.sortingQuiz__questionNumber__header {
+  font-weight: bolder;
+  margin: auto;
 }
