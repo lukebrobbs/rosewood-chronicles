@@ -12,6 +12,7 @@ const NavComponent = () => {
         variant="dark"
         id="navbar"
         collapseOnSelect={true}
+        sticky="top"
       >
         <Navbar.Brand to="/" className="navbar__brand" as={Link}>
           <Image />

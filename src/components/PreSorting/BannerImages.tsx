@@ -6,9 +6,15 @@ import StratusBanner from "../images/StratusBanner"
 const BannerImages = () => {
   return (
     <div className="banner__wrapper">
-      <IvyBanner />
-      <ConchBanner />
-      <StratusBanner />
+      <div className="banner__img">
+        <IvyBanner />
+      </div>
+      <div className="banner__img">
+        <ConchBanner />
+      </div>
+      <div className="banner__img">
+        <StratusBanner />
+      </div>
     </div>
   )
 }
