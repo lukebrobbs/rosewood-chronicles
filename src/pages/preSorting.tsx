@@ -1,7 +1,6 @@
 import { graphql } from "gatsby"
 import React from "react"
-// import EmailCapture from "../components/EmailCapture"
-import PreSortingText from "../components/PreSorting/PreSortingText"
+import PreSorting from "../components/PreSorting/PreSorting"
 import SEO from "../components/seo"
 
 interface IEdges {
@@ -21,8 +20,7 @@ const PreSortingPage = ({ data }: IProps) => {
   return (
     <>
       <SEO title="Sorting Quiz" />
-      <PreSortingText text={edges[0].node.text} />
-      {/* <EmailCapture /> */}
+      <PreSorting text={edges[0].node.text} />
     </>
   )
 }
