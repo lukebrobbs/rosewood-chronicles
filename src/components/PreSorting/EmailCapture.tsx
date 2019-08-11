@@ -7,9 +7,8 @@ const EmailCapture = () => {
   return (
     <div className="preSorting__emailSignup__wrapper">
       <Form.Group controlId="formBasicEmail">
-        <Form.Label htmlFor="email">Email address</Form.Label>
+        <Form.Label>Email address</Form.Label>
         <Form.Control
-          id="email"
           type="email"
           placeholder="Enter email"
           required={true}

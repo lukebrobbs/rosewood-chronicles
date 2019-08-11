@@ -1,6 +1,6 @@
 import { cleanup, render } from "@testing-library/react"
+import { StaticQuery, useStaticQuery } from "gatsby"
 import React from "react"
-import { useStaticQuery, StaticQuery } from "gatsby"
 import SortingQuizPage from "../../src/pages/sortingQuiz"
 
 afterEach(cleanup)

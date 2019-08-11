@@ -11,7 +11,7 @@ export interface IQuestion {
   answers: [IAnswer, IAnswer, IAnswer]
 }
 
-interface ISortingQuizProps {
+export interface ISortingQuizProps {
   questions: IQuestion[]
 }
 
