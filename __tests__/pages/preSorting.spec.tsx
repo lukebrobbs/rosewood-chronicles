@@ -1,5 +1,5 @@
 import { cleanup, render } from "@testing-library/react"
-import { StaticQuery } from "gatsby"
+import { StaticQuery, useStaticQuery } from "gatsby"
 import React from "react"
 import PreSortingPage from "../../src/pages/preSorting"
 
@@ -7,6 +7,16 @@ afterEach(cleanup)
 
 describe("PreSorting page", () => {
   beforeEach(() => {
+    // @ts-ignore
+    useStaticQuery.mockReturnValue({
+      site: {
+        siteMetadata: {
+          author: "Luke Brobbin",
+          description: "test description",
+          title: `Default Starter`,
+        },
+      },
+    })
     // @ts-ignore
     StaticQuery.mockImplementation(({ render }) =>
       render({
