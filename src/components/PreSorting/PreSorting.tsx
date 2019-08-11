@@ -1,5 +1,5 @@
 import { navigate } from "gatsby"
-import React, { useState, FormEvent } from "react"
+import React, { FormEvent, useState } from "react"
 import Form from "react-bootstrap/Form"
 import BannerImages from "./BannerImages"
 import EmailCapture from "./EmailCapture"
