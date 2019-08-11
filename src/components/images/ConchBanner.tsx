@@ -41,7 +41,7 @@ const Image = () => (
           media: `(min-width: 768px)`,
         },
       ]
-      return <Img fluid={sources} loading="eager" />
+      return <Img fluid={sources} loading="eager" alt="Conch House banner" />
     }}
   />
 )
