@@ -1,11 +1,12 @@
 import React from "react"
 import SEO from "../../components/seo"
+import Ivy from "../../components/Students/Ivy"
 
 const IvyStudents = () => {
   return (
     <>
       <SEO title="Students | Ivy" />
-      <h1>Ivy</h1>
+      <Ivy />
     </>
   )
 }
