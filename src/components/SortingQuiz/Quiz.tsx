@@ -1,6 +1,5 @@
 import { navigate } from "gatsby"
 import React from "react"
-import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
@@ -49,12 +48,13 @@ const Quiz = (props: IQuizProps) => {
                     NEXT
                   </button>
                 ) : (
-                  <Button
+                  <button
+                    className="button"
                     data-testid="sortingQuizSubmitButton"
                     onClick={handleSubmit}
                   >
                     SUBMIT
-                  </Button>
+                  </button>
                 )}
               </Card.Body>
             </Card>
