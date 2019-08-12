@@ -688,11 +688,14 @@ pre tt:after {
 }
 
 .background__image {
+  background: url("../../images/D_Site_SmRoses.png") no-repeat center center
+    fixed;
+  background-size: cover;
   position: absolute;
   pointer-events: none;
   left: 0;
   top: 0;
-  min-width: 100vw;
+  min-width: 100%;
   min-height: 100%;
   overflow: hidden;
   z-index: 1021;
