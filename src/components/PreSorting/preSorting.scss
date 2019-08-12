@@ -28,7 +28,7 @@
 .preSorting__header {
   text-transform: uppercase;
   background-color: #f69ab9;
-  color: white;
+  color: #f8eaed;
   margin-bottom: 0;
   padding: 0.4em 0.7em;
   border-radius: 0.5rem 0.5rem 0 0;
@@ -69,7 +69,6 @@
   font-family: Garamond;
   display: inline-block;
   font-weight: 600;
-  color: #212529;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -84,7 +83,7 @@
   border-radius: 10px;
   transition: color 0.15s;
   background-color: #f69ab9;
-  color: white;
+  color: #f8eaed;
   align-self: center;
   &:hover {
     background-color: #f180a5;

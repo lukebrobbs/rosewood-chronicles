@@ -1,0 +1,17 @@
+@import "../PreSorting/preSorting.scss";
+
+.shop__wrapper {
+  text-align: center;
+}
+
+.shop__header {
+  font-family: Garamond;
+  color: #9e8838;
+}
+
+.shop__link {
+  &:hover {
+    color: #f8eaed;
+    text-decoration: none;
+  }
+}

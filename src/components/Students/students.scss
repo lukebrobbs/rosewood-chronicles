@@ -5,6 +5,7 @@
 }
 
 .students__header {
+  font-family: Garamond;
   color: #9e8838;
   margin: 1em 0 0 0;
 }
@@ -13,8 +14,9 @@ $break-large: 769px;
 
 .students__Image__wrapper {
   align-items: center;
-  margin: 3em 2em 1em 2em;
+  margin: 3em auto 1em auto;
   display: grid;
+  max-width: 1200px;
   z-index: 2;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 30px;
