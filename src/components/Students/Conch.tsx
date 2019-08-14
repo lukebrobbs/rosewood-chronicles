@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import ConchInsignia from "../images/Conch"
+import MeetTheStudentsConch from "../images/MeetTheStudentsConch"
 import "./students.scss"
 
 export const query = graphql`
@@ -16,13 +17,24 @@ export const query = graphql`
 const Conch = () => {
   const data = useStaticQuery(query)
   return (
-    <>
-      <h1 className="students__header">MEET THE STUDENTS</h1>
-      <ConchInsignia />
-      <p data-testid="houseDescription">
-        {data.contentfulHouseDescription.description.description}
-      </p>
-    </>
+    <div>
+      <h1 className="students__header">Meet The Students</h1>
+      <div className="studets__house__wrapper">
+        <div className="students__house__insignia">
+          <ConchInsignia />
+          <p
+            data-testid="houseDescription"
+            className="student__house__description"
+          >
+            {data.contentfulHouseDescription.description.description}
+          </p>
+        </div>
+        <div className="student__house__students__wrapper">
+          <MeetTheStudentsConch />
+        </div>
+        <div />
+      </div>
+    </div>
   )
 }
 

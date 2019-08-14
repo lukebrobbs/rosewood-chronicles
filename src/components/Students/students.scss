@@ -7,7 +7,17 @@
 .students__header {
   font-family: Garamond;
   color: #9e8838;
-  margin: 1em 0 0 0;
+  margin: 0.3em 0 0 0;
+  text-align: center;
+  padding-bottom: 0.5em;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.students__insignia {
+  width: 90%;
+  justify-self: center;
 }
 
 $break-large: 769px;
@@ -25,7 +35,44 @@ $break-large: 769px;
   }
 }
 
+.studets__house__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .students__house__insignia {
-  width: 90%;
+  width: 70%;
   justify-self: center;
+  @media screen and (max-width: 1024px) {
+    margin-top: 1em;
+    width: 50%;
+  }
+}
+
+.student__house__description {
+  font-family: Garamond;
+  color: #3c1116;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1.5em;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.student__house__students__wrapper {
+  padding-top: 2.5em;
+  @media screen and (max-width: $break-large) {
+    width: 90%;
+    justify-self: center;
+    padding-top: 1em;
+  }
+  @media screen and (max-width: 1024px) and (min-width: 764px) {
+    width: 60%;
+    justify-self: center;
+    padding-top: 1em;
+  }
 }
