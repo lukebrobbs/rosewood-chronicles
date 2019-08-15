@@ -33,8 +33,19 @@ const Conch = () => {
         <div className="student__house__students__wrapper">
           <MeetTheStudentsConch />
         </div>
-        <Description />
-
+        <Description
+          house="conch"
+          student={{
+            description:
+              "Anastasia Alcroft is of Conch house and a first year in the first book 'Undercover Princess', and as of the second book, a second year. Her father is also the French ambassador",
+            extraInfo:
+              "Slight French accent, Barbie-like, Bloodshot eyes, wears sunglasses",
+            hair: "Blonde",
+            name: "Anastasia Alcroft",
+            nickname: "Tague",
+            occupation: "Student",
+          }}
+        />
         <div />
       </div>
     </div>

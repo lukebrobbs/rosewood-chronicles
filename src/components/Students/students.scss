@@ -78,6 +78,7 @@ $break-large: 769px;
 }
 
 .student__house__student__description {
+  position: relative;
   border-radius: 0.5em;
   height: 90%;
   width: 70%;
@@ -89,8 +90,27 @@ $break-large: 769px;
   color: white;
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
-  text-align: center;
-  padding: 0.2em;
+  padding: 0.4em;
+  display: flex;
+  justify-content: center;
+  & h3 {
+    margin: 0;
+  }
+}
+
+.student__house__student__insignia__wrapper {
+  position: absolute;
+  top: 0%;
+  right: -10%;
+  width: 20%;
+}
+
+.student__house__student__body {
+  font-family: Garamond;
+  color: #9e8838;
+  line-height: 1.4em;
+  padding: 1em 1.5em;
+  font-weight: 600;
 }
 
 .conch {
