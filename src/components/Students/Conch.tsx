@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import ConchInsignia from "../images/Conch"
 import MeetTheStudentsConch from "../images/MeetTheStudentsConch"
+import Description from "./StudentDescription"
 import "./students.scss"
 
 export const query = graphql`
@@ -32,6 +33,8 @@ const Conch = () => {
         <div className="student__house__students__wrapper">
           <MeetTheStudentsConch />
         </div>
+        <Description />
+
         <div />
       </div>
     </div>
