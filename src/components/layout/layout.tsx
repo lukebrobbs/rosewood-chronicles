@@ -14,12 +14,12 @@ interface IProps {
   children: JSX.Element | JSX.Element[]
 }
 
-export const Layout = ({ children }: IProps) => (
+export const Layout = (props: IProps) => (
   <>
     <Nav />
     <div className="background__image" />
     <div className={`layout__wrapper`}>
-      <main>{children}</main>
+      <main>{props.children}</main>
     </div>
   </>
 )

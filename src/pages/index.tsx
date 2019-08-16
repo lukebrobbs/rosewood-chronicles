@@ -1,13 +1,12 @@
 import React from "react"
-
-import Image from "../components/image"
+import Home from "../components/Home/Home"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <h1>Home Page</h1>
+      <Home />
     </>
   )
 }
