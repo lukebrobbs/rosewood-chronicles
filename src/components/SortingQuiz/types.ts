@@ -1,4 +1,5 @@
 import { House } from "../../utils/sharedTypes"
+import { FluidObject } from "gatsby-image"
 
 export interface IAnswer {
   text: string
@@ -13,9 +14,13 @@ export interface IQuestion {
 
 export interface ISortingQuizProps {
   questions: IQuestion[]
+  image: {
+    fluid: FluidObject
+  }
 }
 
-export interface IQuizProps extends ISortingQuizProps {
+export interface IQuizProps {
+  questions: IQuestion[]
   questionIndex: number
   quizAnswers: Array<House | string>
   currentSelection: House | string

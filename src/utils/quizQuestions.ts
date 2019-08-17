@@ -1,8 +1,12 @@
+import { FluidObject } from "gatsby-image"
 import { IAnswer, IQuestion } from "../components/SortingQuiz/types"
 import { House } from "./sharedTypes"
 
 interface IEdges {
   node: {
+    studentImage: {
+      fluid: FluidObject
+    }
     questions: Array<{
       id: string
       question: string

@@ -2,11 +2,26 @@ import { cleanup, render } from "@testing-library/react"
 import { StaticQuery, useStaticQuery } from "gatsby"
 import React from "react"
 import SortingQuizPage from "../../src/pages/sortingQuiz"
+import { FluidObject } from "gatsby-image"
 
 afterEach(cleanup)
 
 describe("sortingQuiz page", () => {
+  let mockImage: { fluid: FluidObject }
   beforeEach(() => {
+    mockImage = {
+      fluid: {
+        aspectRatio: 4,
+        src: "",
+        srcSet: "",
+        sizes: "",
+        base64: "",
+        tracedSVG: "",
+        srcWebp: "",
+        srcSetWebp: "",
+        media: "",
+      },
+    }
     // @ts-ignore
     useStaticQuery.mockReturnValue({
       site: {
@@ -90,6 +105,7 @@ describe("sortingQuiz page", () => {
                   stratusAnswer: "Wisdom, creativity, and freedom",
                 },
               ],
+              studentImage: mockImage,
             },
           },
         ],

@@ -1,5 +1,5 @@
+import Img from "gatsby-image"
 import React, { useReducer } from "react"
-import Saskia from "../images/Saskia"
 import BannerImages from "../PreSorting/BannerImages"
 import QuestionNumber from "./QuestionNumber"
 import Quiz from "./Quiz"
@@ -49,7 +49,7 @@ const SortingQuiz = (props: ISortingQuizProps) => {
       </div>
       <Quiz questions={props.questions} {...state} dispatch={dispatch} />
       <div className="sortingQuiz__saskia">
-        <Saskia />
+        <Img fluid={props.image.fluid} />
       </div>
     </div>
   )

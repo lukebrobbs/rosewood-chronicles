@@ -14,13 +14,28 @@ import SortingQuiz, {
 } from "../../../src/components/SortingQuiz/SortingQuiz"
 import { IAction, IState } from "../../../src/components/SortingQuiz/types"
 import { House } from "../../../src/utils/sharedTypes"
+import { FluidObject } from "gatsby-image"
 
 afterEach(cleanup)
 
 describe("Sorting Quiz", () => {
   let navigateToNextQuestion: CallableFunction
+  let mockImage: { fluid: FluidObject }
 
   beforeEach(() => {
+    mockImage = {
+      fluid: {
+        aspectRatio: 4,
+        src: "",
+        srcSet: "",
+        sizes: "",
+        base64: "",
+        tracedSVG: "",
+        srcWebp: "",
+        srcSetWebp: "",
+        media: "",
+      },
+    }
     // @ts-ignore
     useStaticQuery.mockReturnValue({
       site: {
@@ -102,12 +117,14 @@ describe("Sorting Quiz", () => {
   })
   afterAll(jest.resetAllMocks)
   it("Should only render one question at a time", () => {
-    const { getAllByTestId } = render(<SortingQuiz questions={questionMocks} />)
+    const { getAllByTestId } = render(
+      <SortingQuiz questions={questionMocks} image={mockImage} />
+    )
     expect(getAllByTestId("sortingQuizQuestion").length).toBe(1)
   })
   it("Should only render a next button if the user is not on the last question", () => {
     const { getByTestId, queryByTestId } = render(
-      <SortingQuiz questions={questionMocks} />
+      <SortingQuiz questions={questionMocks} image={mockImage} />
     )
     expect(getByTestId("sortingQuizNextButton")).toBeInTheDocument()
     navigateToNextQuestion(getByTestId)
@@ -115,7 +132,7 @@ describe("Sorting Quiz", () => {
   })
   it("Should render a submit button if the user is on the last question", () => {
     const { getByTestId, queryByTestId } = render(
-      <SortingQuiz questions={questionMocks} />
+      <SortingQuiz questions={questionMocks} image={mockImage} />
     )
 
     expect(queryByTestId("sortingQuizSubmitButton")).toBeNull()
@@ -127,7 +144,9 @@ describe("Sorting Quiz", () => {
     it("Should navigate the user to the appropriate house page", async () => {
       // @ts-ignore
       navigate = jest.fn()
-      const { getByTestId } = render(<SortingQuiz questions={questionMocks} />)
+      const { getByTestId } = render(
+        <SortingQuiz questions={questionMocks} image={mockImage} />
+      )
       navigateToNextQuestion(getByTestId)
       fireEvent.click(
         getByTestId(`sortingQuizAnswer-${questionMocks[1].answers[0].house}`)
