@@ -77,15 +77,19 @@ describe("sortingQuiz page", () => {
   })
   it("Should render the correct text returned in graphQL query", () => {
     const mockData = {
-      allContentfulSortingQuizQuestion: {
+      allContentfulSortingQuiz: {
         edges: [
           {
             node: {
-              conchAnswer: "Honesty, dependability, and confidence",
-              id: "87d84857-5987-5164-9c1f-8300c5c4c750",
-              ivyAnswer: "Originality, bravery, and passion",
-              question: "What do you value above all else?",
-              stratusAnswer: "Wisdom, creativity, and freedom",
+              questions: [
+                {
+                  conchAnswer: "Honesty, dependability, and confidence",
+                  id: "87d84857-5987-5164-9c1f-8300c5c4c750",
+                  ivyAnswer: "Originality, bravery, and passion",
+                  question: "What do you value above all else?",
+                  stratusAnswer: "Wisdom, creativity, and freedom",
+                },
+              ],
             },
           },
         ],
@@ -94,7 +98,7 @@ describe("sortingQuiz page", () => {
     const { getByTestId } = render(<SortingQuizPage data={mockData} />)
 
     expect(getByTestId("sortingQuizQuestionText").textContent).toBe(
-      mockData.allContentfulSortingQuizQuestion.edges[0].node.question
+      mockData.allContentfulSortingQuiz.edges[0].node.questions[0].question
     )
   })
 })

@@ -9,15 +9,19 @@ describe("Quiz questions", () => {
 
   beforeAll(() => {
     mockGraphQLReturn = {
-      allContentfulSortingQuizQuestion: {
+      allContentfulSortingQuiz: {
         edges: [
           {
             node: {
-              conchAnswer: "Honesty, dependability, and confidence",
-              id: "87d84857-5987-5164-9c1f-8300c5c4c750",
-              ivyAnswer: "Originality, bravery, and passion",
-              question: "What do you value above all else?",
-              stratusAnswer: "Wisdom, creativity, and freedom",
+              questions: [
+                {
+                  conchAnswer: "Honesty, dependability, and confidence",
+                  id: "87d84857-5987-5164-9c1f-8300c5c4c750",
+                  ivyAnswer: "Originality, bravery, and passion",
+                  question: "What do you value above all else?",
+                  stratusAnswer: "Wisdom, creativity, and freedom",
+                },
+              ],
             },
           },
         ],
@@ -29,7 +33,7 @@ describe("Quiz questions", () => {
     const returnValue = formatQuizQuestions(mockGraphQLReturn)
 
     const expectedConchText =
-      mockGraphQLReturn.allContentfulSortingQuizQuestion.edges[0].node
+      mockGraphQLReturn.allContentfulSortingQuiz.edges[0].node.questions[0]
         .conchAnswer
 
     const expected = returnValue[0].answers.filter(
@@ -42,7 +46,8 @@ describe("Quiz questions", () => {
     const returnValue = formatQuizQuestions(mockGraphQLReturn)
 
     const expectedIvyText =
-      mockGraphQLReturn.allContentfulSortingQuizQuestion.edges[0].node.ivyAnswer
+      mockGraphQLReturn.allContentfulSortingQuiz.edges[0].node.questions[0]
+        .ivyAnswer
 
     const expected = returnValue[0].answers.filter(
       x => x.text === expectedIvyText
@@ -54,7 +59,7 @@ describe("Quiz questions", () => {
     const returnValue = formatQuizQuestions(mockGraphQLReturn)
 
     const expectedStratusText =
-      mockGraphQLReturn.allContentfulSortingQuizQuestion.edges[0].node
+      mockGraphQLReturn.allContentfulSortingQuiz.edges[0].node.questions[0]
         .stratusAnswer
 
     const expected = returnValue[0].answers.filter(

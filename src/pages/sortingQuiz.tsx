@@ -9,14 +9,16 @@ const SortingQuizPage = ({ data }: { data: IRawQuestionData }) => {
 
 export const query = graphql`
   query SortingQuizQuestionsQuery {
-    allContentfulSortingQuizQuestion {
+    allContentfulSortingQuiz(limit: 1) {
       edges {
         node {
-          id
-          question
-          conchAnswer
-          ivyAnswer
-          stratusAnswer
+          questions {
+            question
+            id
+            ivyAnswer
+            conchAnswer
+            stratusAnswer
+          }
         }
       }
     }

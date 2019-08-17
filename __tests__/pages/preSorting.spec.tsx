@@ -63,12 +63,14 @@ describe("PreSorting page", () => {
 
   it("Should render the correct text returned in graphQL query", () => {
     const mockData = {
-      allContentfulSortingQuizIntroTextTextTextNode: {
+      allContentfulSortingQuiz: {
         edges: [
           {
             node: {
-              text:
-                "Welcome to Rosewood Hall! Each new pupil who attends Rosewood Hall is allocated a house - Ivy, Stratus or Conch. Find out which house you belong in by signing up to take part in our house sorting quiz and to recieve exclusive content from author Connie Glynn!",
+              introductionText: {
+                introductionText:
+                  "Welcome to Rosewood Hall! Each new pupil who attends Rosewood Hall is allocated a house - Ivy, Stratus or Conch. Find out which house you belong in by signing up to take part in our house sorting quiz and to recieve exclusive content from author Connie Glynn!",
+              },
             },
           },
         ],
@@ -77,7 +79,8 @@ describe("PreSorting page", () => {
     const { getByTestId } = render(<PreSortingPage data={mockData} />)
 
     expect(getByTestId("preSortingDescription").textContent).toBe(
-      mockData.allContentfulSortingQuizIntroTextTextTextNode.edges[0].node.text
+      mockData.allContentfulSortingQuiz.edges[0].node.introductionText
+        .introductionText
     )
   })
 })

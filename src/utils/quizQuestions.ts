@@ -3,11 +3,13 @@ import { House } from "./sharedTypes"
 
 interface IEdges {
   node: {
-    id: string
-    question: string
-    conchAnswer: string
-    ivyAnswer: string
-    stratusAnswer: string
+    questions: Array<{
+      id: string
+      question: string
+      conchAnswer: string
+      ivyAnswer: string
+      stratusAnswer: string
+    }>
   }
 }
 
@@ -16,7 +18,7 @@ interface IContentfulQuizQuestions {
 }
 
 export interface IRawQuestionData {
-  allContentfulSortingQuizQuestion: IContentfulQuizQuestions
+  allContentfulSortingQuiz: IContentfulQuizQuestions
 }
 
 export const formatQuizQuestions = (
@@ -27,19 +29,21 @@ export const formatQuizQuestions = (
   ): [IAnswer, IAnswer, IAnswer] => {
     return array.sort(() => Math.random() - 0.5)
   }
-  return questions.allContentfulSortingQuizQuestion.edges.map(edge => {
-    const { id, conchAnswer, stratusAnswer, ivyAnswer, question } = edge.node
-    const answers = shuffle([
-      { text: conchAnswer, house: "CONCH" },
-      { text: stratusAnswer, house: "STRATUS" },
-      { text: ivyAnswer, house: "IVY" },
-    ])
-    return {
-      answers,
-      id,
-      question,
+  return questions.allContentfulSortingQuiz.edges[0].node.questions.map(
+    edge => {
+      const { id, conchAnswer, stratusAnswer, ivyAnswer, question } = edge
+      const answers = shuffle([
+        { text: conchAnswer, house: "CONCH" },
+        { text: stratusAnswer, house: "STRATUS" },
+        { text: ivyAnswer, house: "IVY" },
+      ])
+      return {
+        answers,
+        id,
+        question,
+      }
     }
-  })
+  )
 }
 
 export const calculateHouse = (

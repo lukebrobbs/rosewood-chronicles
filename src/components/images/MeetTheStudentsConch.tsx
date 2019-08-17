@@ -17,23 +17,16 @@ const Image = () => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImage: file(
-          relativePath: { eq: "D_MTS_ConchStudents.png" }
-        ) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+        contentfulAsset(title: { eq: "Desktop Meet the students" }) {
+          fluid {
+            ...GatsbyContentfulFluid
           }
         }
       }
     `}
     render={data => (
       <>
-        <Img
-          fluid={data.placeholderImage.childImageSharp.fluid}
-          alt="Conch Students"
-        />
+        <Img fluid={data.contentfulAsset.fluid} alt="Conch Students" />
       </>
     )}
   />

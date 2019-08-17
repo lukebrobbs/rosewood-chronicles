@@ -4,33 +4,35 @@ import PreSorting from "../components/PreSorting/PreSorting"
 import SEO from "../components/seo"
 
 interface IEdges {
-  edges: Array<{ node: { text: string } }>
+  edges: Array<{ node: { introductionText: { introductionText: string } } }>
 }
 
 interface IProps {
   data: {
-    allContentfulSortingQuizIntroTextTextTextNode: IEdges
+    allContentfulSortingQuiz: IEdges
   }
 }
 
 const PreSortingPage = ({ data }: IProps) => {
   const {
-    allContentfulSortingQuizIntroTextTextTextNode: { edges },
+    allContentfulSortingQuiz: { edges },
   } = data
   return (
     <>
       <SEO title="Sorting Quiz" />
-      <PreSorting text={edges[0].node.text} />
+      <PreSorting text={edges[0].node.introductionText.introductionText} />
     </>
   )
 }
 
 export const query = graphql`
   query quizIntroTextQuery {
-    allContentfulSortingQuizIntroTextTextTextNode {
+    allContentfulSortingQuiz(limit: 1) {
       edges {
         node {
-          text
+          introductionText {
+            introductionText
+          }
         }
       }
     }
