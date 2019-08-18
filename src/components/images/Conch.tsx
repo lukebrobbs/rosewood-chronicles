@@ -17,11 +17,11 @@ const Image = () => (
   <StaticQuery
     query={graphql`
       query {
-        mobileImage: contentfulAsset(
-          title: { eq: "Desktop Meet The Students Conch Logo" }
-        ) {
-          fluid(maxWidth: 1000, quality: 100) {
-            ...GatsbyContentfulFluid
+        mobileImage: file(relativePath: { eq: "M_MTS_Conch_LogoM.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 2000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
 
@@ -36,7 +36,7 @@ const Image = () => (
     `}
     render={data => {
       const sources = [
-        data.mobileImage.fluid,
+        data.mobileImage.childImageSharp.fluid,
         {
           ...data.desktopImage.childImageSharp.fluid,
           media: `(min-width: 768px)`,

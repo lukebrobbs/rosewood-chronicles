@@ -41,7 +41,7 @@ const SortingQuiz = (props: ISortingQuizProps) => {
   return (
     <div className="sortingQuiz__container">
       <div className="sortingQuiz__bannerImages">
-        <BannerImages />
+        <BannerImages banners={props.banners} />
         <QuestionNumber
           totalQuestions={props.questions.length}
           currentQuestion={state.questionIndex + 1}

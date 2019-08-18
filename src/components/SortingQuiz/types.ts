@@ -1,5 +1,6 @@
 import { House } from "../../utils/sharedTypes"
 import { FluidObject } from "gatsby-image"
+import { IBanners } from "../PreSorting/types"
 
 export interface IAnswer {
   text: string
@@ -17,6 +18,7 @@ export interface ISortingQuizProps {
   image: {
     fluid: FluidObject
   }
+  banners: IBanners
 }
 
 export interface IQuizProps {

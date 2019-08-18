@@ -1,4 +1,5 @@
 import { FluidObject } from "gatsby-image"
+import { IBanners } from "../components/PreSorting/types"
 import { IAnswer, IQuestion } from "../components/SortingQuiz/types"
 import { House } from "./sharedTypes"
 
@@ -14,6 +15,7 @@ interface IEdges {
       ivyAnswer: string
       stratusAnswer: string
     }>
+    houseBanners: IBanners
   }
 }
 

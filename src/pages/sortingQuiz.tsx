@@ -8,6 +8,7 @@ const SortingQuizPage = ({ data }: { data: IRawQuestionData }) => {
     <SortingQuiz
       questions={formatQuizQuestions(data)}
       image={data.allContentfulSortingQuiz.edges[0].node.studentImage}
+      banners={data.allContentfulSortingQuiz.edges[0].node.houseBanners}
     />
   )
 }
@@ -27,6 +28,38 @@ export const query = graphql`
           studentImage {
             fluid {
               ...GatsbyContentfulFluid
+            }
+          }
+          houseBanners {
+            conchDesktop {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            conchMobile {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            ivyDesktop {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            ivyMobile {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            stratusDesktop {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            stratusMobile {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
             }
           }
         }

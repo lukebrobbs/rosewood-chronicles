@@ -5,12 +5,9 @@ import BannerImages from "./BannerImages"
 import EmailCapture from "./EmailCapture"
 import "./preSorting.scss"
 import PreSortingText from "./PreSortingText"
+import { IPreSortingProps } from "./types"
 
-interface IProps {
-  text: string
-}
-
-const PreSorting = (props: IProps) => {
+const PreSorting = (props: IPreSortingProps) => {
   const [isAddingEmail, setIsAddingEmail] = useState(false)
 
   const handleSubmit = (e: FormEvent) => {
@@ -20,7 +17,7 @@ const PreSorting = (props: IProps) => {
 
   return (
     <div className="preSorting__wrapper">
-      <BannerImages />
+      <BannerImages banners={props.banners} />
       <div className="preSorting__info">
         <Form className="preSorting__form" onSubmit={handleSubmit}>
           <PreSortingText header="House Sorting Quiz">

@@ -1,26 +1,20 @@
 import { graphql } from "gatsby"
 import React from "react"
 import PreSorting from "../components/PreSorting/PreSorting"
+import { IPreSortingPageProps } from "../components/PreSorting/types"
 import SEO from "../components/seo"
 
-interface IEdges {
-  edges: Array<{ node: { introductionText: { introductionText: string } } }>
-}
-
-interface IProps {
-  data: {
-    allContentfulSortingQuiz: IEdges
-  }
-}
-
-const PreSortingPage = ({ data }: IProps) => {
+const PreSortingPage = ({ data }: IPreSortingPageProps) => {
   const {
     allContentfulSortingQuiz: { edges },
   } = data
   return (
     <>
       <SEO title="Sorting Quiz" />
-      <PreSorting text={edges[0].node.introductionText.introductionText} />
+      <PreSorting
+        text={edges[0].node.introductionText.introductionText}
+        banners={edges[0].node.houseBanners}
+      />
     </>
   )
 }
@@ -32,6 +26,38 @@ export const query = graphql`
         node {
           introductionText {
             introductionText
+          }
+          houseBanners {
+            conchDesktop {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            conchMobile {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            ivyDesktop {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            ivyMobile {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            stratusDesktop {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            stratusMobile {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
           }
         }
       }

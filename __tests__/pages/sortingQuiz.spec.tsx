@@ -1,25 +1,39 @@
 import { cleanup, render } from "@testing-library/react"
 import { StaticQuery, useStaticQuery } from "gatsby"
+import { FluidObject } from "gatsby-image"
 import React from "react"
 import SortingQuizPage from "../../src/pages/sortingQuiz"
-import { FluidObject } from "gatsby-image"
 
 afterEach(cleanup)
 
 describe("sortingQuiz page", () => {
   let mockImage: { fluid: FluidObject }
+  let mockMobileImage: { fluid: FluidObject }
   beforeEach(() => {
     mockImage = {
       fluid: {
         aspectRatio: 4,
-        src: "",
-        srcSet: "",
-        sizes: "",
-        base64: "",
-        tracedSVG: "",
-        srcWebp: "",
-        srcSetWebp: "",
-        media: "",
+        src: "zxczxc",
+        srcSet: "fd;ovkdfv",
+        sizes: "wedcasc",
+        base64: "weljkfh8",
+        tracedSVG: "xcvkjnsodijv",
+        srcWebp: "sdjfnwef89",
+        srcSetWebp: "sd,mcnsd8",
+        media: "sdvjknlkw",
+      },
+    }
+    mockMobileImage = {
+      fluid: {
+        aspectRatio: 4,
+        src: "zxcdfzxc",
+        srcSet: "fd;osdvvkdfv",
+        sizes: "wedcadsvsc",
+        base64: "weljsvkfh8",
+        tracedSVG: "xcvkjnsodijv",
+        srcWebp: "sdjfnwef89",
+        srcSetWebp: "sd,mcnsd8",
+        media: "sdvjknlkw",
       },
     }
     // @ts-ignore
@@ -46,14 +60,14 @@ describe("sortingQuiz page", () => {
           childImageSharp: {
             fluid: {
               aspectRatio: 4,
-              src: "",
-              srcSet: "",
-              sizes: "",
-              base64: "",
-              tracedSVG: "",
-              srcWebp: "",
-              srcSetWebp: "",
-              media: "",
+              src: "vvv",
+              srcSet: "dds",
+              sizes: "wwerf",
+              base64: "tgtg",
+              tracedSVG: "byhyj",
+              srcWebp: "ujuj",
+              srcSetWebp: "wswswsw",
+              media: "zdfsdfsfds",
             },
           },
         },
@@ -61,14 +75,14 @@ describe("sortingQuiz page", () => {
           childImageSharp: {
             fluid: {
               aspectRatio: 4,
-              src: "",
-              srcSet: "",
-              sizes: "",
-              base64: "",
-              tracedSVG: "",
-              srcWebp: "",
-              srcSetWebp: "",
-              media: "",
+              src: "234",
+              srcSet: "2525",
+              sizes: "3747",
+              base64: "hyjejh",
+              tracedSVG: "fsgnsjs",
+              srcWebp: "ajjwwj",
+              srcSetWebp: "6446hy4e",
+              media: "cvbnrs",
             },
           },
         },
@@ -76,14 +90,14 @@ describe("sortingQuiz page", () => {
           childImageSharp: {
             fluid: {
               aspectRatio: 4,
-              src: "test",
-              srcSet: "test",
-              sizes: "test",
-              base64: "test",
-              tracedSVG: "test",
-              srcWebp: "test",
-              srcSetWebp: "test",
-              media: "test",
+              src: "test1",
+              srcSet: "test2",
+              sizes: "test3",
+              base64: "test4",
+              tracedSVG: "test5",
+              srcWebp: "test6",
+              srcSetWebp: "test7",
+              media: "test8",
             },
           },
         },
@@ -106,6 +120,14 @@ describe("sortingQuiz page", () => {
                 },
               ],
               studentImage: mockImage,
+              houseBanners: {
+                conchDesktop: mockImage,
+                conchMobile: mockMobileImage,
+                ivyDesktop: mockImage,
+                ivyMobile: mockMobileImage,
+                stratusDesktop: mockImage,
+                stratusMobile: mockMobileImage,
+              },
             },
           },
         ],

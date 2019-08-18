@@ -7,34 +7,58 @@ import {
   wait,
 } from "@testing-library/react"
 import { navigate, StaticQuery, useStaticQuery } from "gatsby"
+import { FluidObject } from "gatsby-image"
 import React from "react"
 import { questionMocks } from "../../../__mocks__/questionMocks"
+import { IBanners } from "../../../src/components/PreSorting/types"
 import SortingQuiz, {
   sortingQuizReducer,
 } from "../../../src/components/SortingQuiz/SortingQuiz"
 import { IAction, IState } from "../../../src/components/SortingQuiz/types"
 import { House } from "../../../src/utils/sharedTypes"
-import { FluidObject } from "gatsby-image"
 
 afterEach(cleanup)
 
 describe("Sorting Quiz", () => {
+  let mockBanners: IBanners
   let navigateToNextQuestion: CallableFunction
   let mockImage: { fluid: FluidObject }
+  let mockMobileImage: { fluid: FluidObject }
 
   beforeEach(() => {
     mockImage = {
       fluid: {
         aspectRatio: 4,
-        src: "",
-        srcSet: "",
-        sizes: "",
-        base64: "",
-        tracedSVG: "",
-        srcWebp: "",
-        srcSetWebp: "",
-        media: "",
+        src: "2345",
+        srcSet: "sdg",
+        sizes: "sdg",
+        base64: "bbdbdbd",
+        tracedSVG: "hhhfh",
+        srcWebp: "jjrjr",
+        srcSetWebp: "ry22",
+        media: "4f4fd",
       },
+    }
+    mockMobileImage = {
+      fluid: {
+        aspectRatio: 4,
+        src: "234fdsf5",
+        srcSet: "sdwgvwg",
+        sizes: "sdbvresag",
+        base64: "<bbdbdV>V</bbdbdV>ERbd",
+        tracedSVG: "hhERTGHRTEHhfh",
+        srcWebp: "jjrTRH45jr",
+        srcSetWebp: "ryEWR22",
+        media: "4f4CCCfd",
+      },
+    }
+    mockBanners = {
+      conchDesktop: mockImage,
+      conchMobile: mockMobileImage,
+      ivyDesktop: mockImage,
+      ivyMobile: mockMobileImage,
+      stratusDesktop: mockImage,
+      stratusMobile: mockMobileImage,
     }
     // @ts-ignore
     useStaticQuery.mockReturnValue({
@@ -60,14 +84,14 @@ describe("Sorting Quiz", () => {
           childImageSharp: {
             fluid: {
               aspectRatio: 4,
-              src: "",
-              srcSet: "",
-              sizes: "",
-              base64: "",
-              tracedSVG: "",
-              srcWebp: "",
-              srcSetWebp: "",
-              media: "",
+              src: "23rgf",
+              srcSet: "sdv",
+              sizes: "svd",
+              base64: "sadfgf",
+              tracedSVG: "dsafg",
+              srcWebp: "dsfag",
+              srcSetWebp: "aga",
+              media: "ahahah",
             },
           },
         },
@@ -75,14 +99,14 @@ describe("Sorting Quiz", () => {
           childImageSharp: {
             fluid: {
               aspectRatio: 4,
-              src: "",
-              srcSet: "",
-              sizes: "",
-              base64: "",
-              tracedSVG: "",
-              srcWebp: "",
-              srcSetWebp: "",
-              media: "",
+              src: "h45he",
+              srcSet: "4enbqwna`",
+              sizes: "anetrq4hjq42",
+              base64: "45h4qw",
+              tracedSVG: "dfbdf",
+              srcWebp: "dsfb",
+              srcSetWebp: "sdfhjsdjt",
+              media: "yik,tuik",
             },
           },
         },
@@ -90,14 +114,14 @@ describe("Sorting Quiz", () => {
           childImageSharp: {
             fluid: {
               aspectRatio: 4,
-              src: "test",
-              srcSet: "test",
-              sizes: "test",
-              base64: "test",
-              tracedSVG: "test",
-              srcWebp: "test",
-              srcSetWebp: "test",
-              media: "test",
+              src: "test1",
+              srcSet: "test2",
+              sizes: "test3",
+              base64: "test4",
+              tracedSVG: "test5",
+              srcWebp: "test6",
+              srcSetWebp: "test7",
+              media: "test8",
             },
           },
         },
@@ -118,13 +142,21 @@ describe("Sorting Quiz", () => {
   afterAll(jest.resetAllMocks)
   it("Should only render one question at a time", () => {
     const { getAllByTestId } = render(
-      <SortingQuiz questions={questionMocks} image={mockImage} />
+      <SortingQuiz
+        questions={questionMocks}
+        image={mockImage}
+        banners={mockBanners}
+      />
     )
     expect(getAllByTestId("sortingQuizQuestion").length).toBe(1)
   })
   it("Should only render a next button if the user is not on the last question", () => {
     const { getByTestId, queryByTestId } = render(
-      <SortingQuiz questions={questionMocks} image={mockImage} />
+      <SortingQuiz
+        questions={questionMocks}
+        image={mockImage}
+        banners={mockBanners}
+      />
     )
     expect(getByTestId("sortingQuizNextButton")).toBeInTheDocument()
     navigateToNextQuestion(getByTestId)
@@ -132,7 +164,11 @@ describe("Sorting Quiz", () => {
   })
   it("Should render a submit button if the user is on the last question", () => {
     const { getByTestId, queryByTestId } = render(
-      <SortingQuiz questions={questionMocks} image={mockImage} />
+      <SortingQuiz
+        questions={questionMocks}
+        image={mockImage}
+        banners={mockBanners}
+      />
     )
 
     expect(queryByTestId("sortingQuizSubmitButton")).toBeNull()
@@ -145,7 +181,11 @@ describe("Sorting Quiz", () => {
       // @ts-ignore
       navigate = jest.fn()
       const { getByTestId } = render(
-        <SortingQuiz questions={questionMocks} image={mockImage} />
+        <SortingQuiz
+          questions={questionMocks}
+          image={mockImage}
+          banners={mockBanners}
+        />
       )
       navigateToNextQuestion(getByTestId)
       fireEvent.click(
