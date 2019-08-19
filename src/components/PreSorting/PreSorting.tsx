@@ -9,8 +9,9 @@ import { IPreSortingProps } from "./types"
 
 const PreSorting = (props: IPreSortingProps) => {
   const [isAddingEmail, setIsAddingEmail] = useState(false)
+  const [email, setEmail] = useState("")
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     navigate("/sortingQuiz")
   }
@@ -22,7 +23,7 @@ const PreSorting = (props: IPreSortingProps) => {
         <Form className="preSorting__form" onSubmit={handleSubmit}>
           <PreSortingText header="House Sorting Quiz">
             {isAddingEmail ? (
-              <EmailCapture />
+              <EmailCapture setEmail={setEmail} email={email} />
             ) : (
               <p
                 data-testid="preSortingDescription"

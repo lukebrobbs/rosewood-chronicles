@@ -1,9 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import Form from "react-bootstrap/Form"
 
-const EmailCapture = () => {
-  const [email, setEmail] = useState("")
+interface IEmailCaptureProps {
+  email: string
+  setEmail: (value: React.SetStateAction<string>) => void
+}
 
+const EmailCapture = (props: IEmailCaptureProps) => {
   return (
     <div className="preSorting__emailSignup__wrapper">
       <Form.Group controlId="formBasicEmail">
@@ -12,8 +15,8 @@ const EmailCapture = () => {
           type="email"
           placeholder="Enter email"
           required={true}
-          value={email}
-          onChange={(event: any) => setEmail(event.target.value)}
+          value={props.email}
+          onChange={(event: any) => props.setEmail(event.target.value)}
         />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
