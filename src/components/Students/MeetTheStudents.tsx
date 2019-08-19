@@ -6,45 +6,42 @@ import "./students.scss"
 
 const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
   const sources = [
-    props.contentfulMeetTheStudents.houseDetails.mobileInsignia.fluid,
+    props.pageContext.houseDetails.mobileInsignia.fluid,
     {
-      ...props.contentfulMeetTheStudents.houseDetails.desktopInsignia.fluid,
+      ...props.pageContext.houseDetails.desktopInsignia.fluid,
       media: `(min-width: 768px)`,
     },
   ]
 
   const [currentlySelectedStudent, setCurrentlySelectedStudent] = useState(
-    props.contentfulMeetTheStudents.studentDescriptions[0]
+    props.pageContext.studentDescriptions[0]
   )
 
   return (
     <div>
-      <h1 className="students__header">Meet The Students</h1>
+      <h1 className={`students__header`}>Meet The Students</h1>
       <div className="studets__house__wrapper">
         <div className="students__house__insignia">
           <Img
             fluid={sources}
             loading="eager"
-            alt={`${props.house} insignia`}
+            alt={`${props.pageContext.house} insignia`}
           />
           <p
             data-testid="houseDescription"
             className="student__house__description"
           >
-            {
-              props.contentfulMeetTheStudents.houseDetails.description
-                .description
-            }
+            {props.pageContext.houseDetails.description.description}
           </p>
         </div>
         <div className="student__house__students__wrapper">
           <Img
-            fluid={props.contentfulMeetTheStudents.studentsImage.fluid}
-            alt={`${props.house} students`}
+            fluid={props.pageContext.studentsImage.fluid}
+            alt={`${props.pageContext.house} students`}
           />
         </div>
         <Description
-          house={props.house}
+          house={props.pageContext.house}
           student={{
             description: currentlySelectedStudent.description.description,
             extraInfo: currentlySelectedStudent.extraInfo.extraInfo,

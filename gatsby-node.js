@@ -6,6 +6,9 @@ exports.createPages = ({ graphql, actions }) => {
     const studentsComponent = path.resolve(
       "./src/components/Students/Students.tsx"
     )
+    const meetTheStudentsComponent = path.resolve(
+      "./src/components/Students/MeetTheStudents.tsx"
+    )
     resolve(
       graphql(`
         {
@@ -13,6 +16,59 @@ exports.createPages = ({ graphql, actions }) => {
             edges {
               node {
                 house
+                houseDetails {
+                  description {
+                    description
+                  }
+                  desktopInsignia {
+                    fluid {
+                      aspectRatio
+                      base64
+                      sizes
+                      src
+                      srcSet
+                      srcSetWebp
+                      srcWebp
+                      tracedSVG
+                    }
+                  }
+                  mobileInsignia {
+                    fluid {
+                      aspectRatio
+                      base64
+                      sizes
+                      src
+                      srcSet
+                      srcSetWebp
+                      srcWebp
+                      tracedSVG
+                    }
+                  }
+                }
+                studentDescriptions {
+                  description {
+                    description
+                  }
+                  extraInfo {
+                    extraInfo
+                  }
+                  hair
+                  name
+                  nickname
+                  occupation
+                }
+                studentsImage {
+                  fluid {
+                    aspectRatio
+                    base64
+                    sizes
+                    src
+                    srcSet
+                    srcSetWebp
+                    srcWebp
+                    tracedSVG
+                  }
+                }
               }
             }
           }
@@ -28,15 +84,25 @@ exports.createPages = ({ graphql, actions }) => {
             slug: "students",
           },
         })
-        // result.data.allContentfulMeetTheStudents.edges.forEach(edge => {
-        //   createPage({
-        //     path: edge.node.house,
-        //     component: conchTemplate,
-        //     context: {
-        //       slug: edge.node.house,
-        //     },
-        //   })
-        // })
+        result.data.allContentfulMeetTheStudents.edges.forEach(edge => {
+          const {
+            house,
+            houseDetails,
+            studentDescriptions,
+            studentsImage,
+          } = edge.node
+          createPage({
+            path: `/students/${edge.node.house.toLowerCase()}`,
+            component: meetTheStudentsComponent,
+            context: {
+              house,
+              houseDetails,
+              studentDescriptions,
+              studentsImage,
+              slug: edge.node.house.toLowerCase(),
+            },
+          })
+        })
         return
       })
     )

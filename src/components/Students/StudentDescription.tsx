@@ -25,7 +25,9 @@ const StudentDiscription = (props: IProps) => {
   } = props.student
   return (
     <div className="student__house__student__description">
-      <div className={`student__house__student__header ${props.house}`}>
+      <div
+        className={`student__house__student__header ${props.house.toLowerCase()}`}
+      >
         <h3>{name}</h3>
         <div className="student__house__student__insignia__wrapper" />
       </div>

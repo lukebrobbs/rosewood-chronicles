@@ -1,8 +1,8 @@
 import { FluidObject } from "gatsby-image"
 
 export interface IMeetTheStudentsProps {
-  house: House
-  contentfulMeetTheStudents: {
+  pageContext: {
+    house: House
     houseDetails: IHouseDetails
     studentDescriptions: IStudentDescription[]
     studentsImage: IFluid
