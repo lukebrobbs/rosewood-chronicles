@@ -14,7 +14,7 @@ interface IProps {
   student: IStudent
 }
 
-const StudentDiscription = (props: IProps) => {
+const StudentDescription = (props: IProps) => {
   const {
     description,
     extraInfo,
@@ -42,4 +42,4 @@ const StudentDiscription = (props: IProps) => {
   )
 }
 
-export default StudentDiscription
+export default StudentDescription
