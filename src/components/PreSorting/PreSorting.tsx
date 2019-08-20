@@ -15,7 +15,7 @@ const PreSorting = (props: IPreSortingProps) => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     fetch(
-      `${props.origin}/.netlify/functions/mailChimp?email=${email}&subscribed=${subscribed}`
+      `${props.origin}/.netlify/functions/mailchimp?email=${email}&subscribed=${subscribed}`
     )
     navigate("/sortingQuiz")
   }
