@@ -1,6 +1,7 @@
 import { FluidObject } from "gatsby-image"
 
 export interface IPreSortingProps {
+  origin: string
   text: string
   banners: IBanners
 }
@@ -8,6 +9,9 @@ export interface IPreSortingTextProps {
   header: string
 }
 export interface IPreSortingPageProps {
+  location: {
+    origin: string
+  }
   data: {
     allContentfulSortingQuiz: IEdges
   }

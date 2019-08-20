@@ -10,9 +10,13 @@ import { IPreSortingProps } from "./types"
 const PreSorting = (props: IPreSortingProps) => {
   const [isAddingEmail, setIsAddingEmail] = useState(false)
   const [email, setEmail] = useState("")
+  const [subscribed, setSubscribed] = useState(false)
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    fetch(
+      `${props.origin}/.netlify/functions/mailchimp?email=${email}&subscribed=${subscribed}`
+    )
     navigate("/sortingQuiz")
   }
 
@@ -23,7 +27,12 @@ const PreSorting = (props: IPreSortingProps) => {
         <Form className="preSorting__form" onSubmit={handleSubmit}>
           <PreSortingText header="House Sorting Quiz">
             {isAddingEmail ? (
-              <EmailCapture setEmail={setEmail} email={email} />
+              <EmailCapture
+                setEmail={setEmail}
+                email={email}
+                subscribed={subscribed}
+                setSubscribed={setSubscribed}
+              />
             ) : (
               <p
                 data-testid="preSortingDescription"

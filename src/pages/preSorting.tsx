@@ -4,14 +4,15 @@ import PreSorting from "../components/PreSorting/PreSorting"
 import { IPreSortingPageProps } from "../components/PreSorting/types"
 import SEO from "../components/seo"
 
-const PreSortingPage = ({ data }: IPreSortingPageProps) => {
+const PreSortingPage = (props: IPreSortingPageProps) => {
   const {
     allContentfulSortingQuiz: { edges },
-  } = data
+  } = props.data
   return (
     <>
       <SEO title="Sorting Quiz" />
       <PreSorting
+        origin={props.location.origin}
         text={edges[0].node.introductionText.introductionText}
         banners={edges[0].node.houseBanners}
       />
