@@ -1,7 +1,6 @@
 import { FluidObject } from "gatsby-image"
 
 export interface IPreSortingProps {
-  origin: string
   text: string
   banners: IBanners
 }
@@ -9,13 +8,16 @@ export interface IPreSortingTextProps {
   header: string
 }
 export interface IPreSortingPageProps {
-  location: {
-    origin: string
-  }
   data: {
     allContentfulSortingQuiz: IEdges
   }
 }
+
+export interface IEmailCaptureProps {
+  banners: IBanners
+  origin: string
+}
+
 export interface IBannerImagesProps {
   banners: IBanners
 }
@@ -31,6 +33,20 @@ export interface IBanners {
   ivyMobile: IFluid
   stratusDesktop: IFluid
   stratusMobile: IFluid
+}
+
+export interface IHandleSubmit {
+  email: string
+  subscribed: boolean
+}
+
+export interface ISignUpProps {
+  location: {
+    origin: string
+  }
+  data: {
+    allContentfulSortingQuiz: IEdges
+  }
 }
 
 interface IEdges {

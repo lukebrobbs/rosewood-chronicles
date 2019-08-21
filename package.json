@@ -6,6 +6,7 @@
   "author": "Luke Brobbin <luke@lukebrobb.in>",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "formik": "^1.5.8",
     "gatsby": "^2.13.50",
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-manifest": "^2.2.4",
@@ -30,7 +31,8 @@
     "tslint-loader": "^3.5.4",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^4.0.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
@@ -43,6 +45,7 @@
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
     "@types/react-helmet": "^5.0.8",
+    "@types/yup": "^0.26.23",
     "babel-jest": "^24.8.0",
     "babel-preset-gatsby": "^0.1.11",
     "husky": "^2.7.0",

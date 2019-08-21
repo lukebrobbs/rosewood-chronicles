@@ -1,32 +1,25 @@
 import { graphql } from "gatsby"
 import React from "react"
-import PreSorting from "../components/PreSorting/PreSorting"
-import { IPreSortingPageProps } from "../components/PreSorting/types"
-import SEO from "../components/seo"
+import EmailCapture from "../components/PreSorting/EmailCapture"
+import { ISignUpProps } from "../components/PreSorting/types"
 
-const PreSortingPage = (props: IPreSortingPageProps) => {
+const SignUp = ({ data, location }: ISignUpProps) => {
   const {
     allContentfulSortingQuiz: { edges },
-  } = props.data
+  } = data
   return (
-    <>
-      <SEO title="Sorting Quiz" />
-      <PreSorting
-        text={edges[0].node.introductionText.introductionText}
-        banners={edges[0].node.houseBanners}
-      />
-    </>
+    <EmailCapture
+      banners={edges[0].node.houseBanners}
+      origin={location.origin}
+    />
   )
 }
 
 export const query = graphql`
-  query quizIntroTextQuery {
+  query signUpQuery {
     allContentfulSortingQuiz(limit: 1) {
       edges {
         node {
-          introductionText {
-            introductionText
-          }
           houseBanners {
             conchDesktop {
               fluid {
@@ -65,4 +58,4 @@ export const query = graphql`
   }
 `
 
-export default PreSortingPage
+export default SignUp

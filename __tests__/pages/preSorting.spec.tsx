@@ -95,9 +95,7 @@ describe("PreSorting page", () => {
         ],
       },
     }
-    const { getByTestId } = render(
-      <PreSortingPage data={mockData} location={{ origin: "/" }} />
-    )
+    const { getByTestId } = render(<PreSortingPage data={mockData} />)
 
     expect(getByTestId("preSortingDescription").textContent).toBe(
       mockData.allContentfulSortingQuiz.edges[0].node.introductionText
