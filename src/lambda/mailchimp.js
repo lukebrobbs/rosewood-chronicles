@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
         password: process.env.MAILCHIMP_API_TOKEN,
       },
       data: {
-        status: subscribed ? "subscribed" : "unsubscribed",
+        status: subscribed ? "subscribed" : "pending",
         email_address: email,
       },
     })
