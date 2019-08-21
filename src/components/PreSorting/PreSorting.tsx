@@ -17,7 +17,8 @@ const PreSorting = (props: IPreSortingProps) => {
     fetch(
       `${props.origin}/.netlify/functions/mailchimp?email=${email}&subscribed=${subscribed}`
     )
-      .then(() => {
+      .then(data => {
+        console.log({ data })
         navigate("/sortingQuiz")
       })
       .catch(err => {
