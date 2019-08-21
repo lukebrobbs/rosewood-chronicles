@@ -18,6 +18,7 @@
     "gatsby-source-contentful": "^2.1.17",
     "gatsby-source-filesystem": "^2.1.8",
     "gatsby-transformer-sharp": "^2.2.5",
+    "netlify-lambda": "^1.6.2",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -59,13 +60,16 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "prod": "npm run build; npm run build:serve",
     "format": "prettier --write src/**/*.{js,jsx, ts, tsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",
     "test:cover": "jest --coverage",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "start:lambda": "netlify-lambda serve ./src/lambda",
+    "build:lambda": "netlify-lambda build ./src/lambda"
   },
   "repository": {
     "type": "git",
