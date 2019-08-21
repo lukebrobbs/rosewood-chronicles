@@ -3,6 +3,8 @@ const axios = require("axios")
 exports.handler = async (event, context) => {
   try {
     const { email, subscribed } = event.queryStringParameters
+    const status = subscribed === "true" ? "subscribed" : "pending"
+    console.log({ subscribed, status, email })
 
     await axios({
       method: "post",
@@ -12,7 +14,7 @@ exports.handler = async (event, context) => {
         password: process.env.MAILCHIMP_API_TOKEN,
       },
       data: {
-        status: subscribed ? "subscribed" : "pending",
+        status,
         email_address: email,
       },
     })
