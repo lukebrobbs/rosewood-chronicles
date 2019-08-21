@@ -60,7 +60,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "prod": "npm run build; npm run build:serve",
+    "prod": "npm run build; npm run build:lambda",
     "format": "prettier --write src/**/*.{js,jsx, ts, tsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
