@@ -2,11 +2,11 @@ import React from "react"
 
 interface IStudent {
   name: string
-  description: string
-  nickname: string
-  occupation: string
-  hair: string
-  extraInfo: string
+  birthday: string
+  favouriteThings: { favouriteThings: string }
+  leastFavouriteThings: { leastFavouriteThings: string }
+  inTheirBag: { inTheirBag: string }
+  quote: { quote: string }
 }
 
 interface IProps {
@@ -16,27 +16,29 @@ interface IProps {
 
 const StudentDescription = (props: IProps) => {
   const {
-    description,
-    extraInfo,
-    hair,
+    birthday,
+    favouriteThings,
+    leastFavouriteThings,
     name,
-    nickname,
-    occupation,
+    inTheirBag,
+    quote,
   } = props.student
   return (
     <div className="student__house__student__description">
       <div
         className={`student__house__student__header ${props.house.toLowerCase()}`}
       >
-        <h3>{name}</h3>
+        <h4>{name}</h4>
         <div className="student__house__student__insignia__wrapper" />
       </div>
       <div className="student__house__student__body">
-        <p>{description}</p>
-        <p>NICKNAME: {nickname}</p>
-        <p>OCCUPATION: {occupation}</p>
-        <p>HAIR: {hair}</p>
-        <p>EXTRA INFO: {extraInfo}</p>
+        <p>BIRTHDAY: {birthday}</p>
+        <p>FAVOURITE THINGS: {favouriteThings.favouriteThings}</p>
+        <p>
+          LEAST FAVOURITE THINGS: {leastFavouriteThings.leastFavouriteThings}
+        </p>
+        <p>IN THEIR BAG: {inTheirBag.inTheirBag}</p>
+        <p>QUOTE: {quote.quote}</p>
       </div>
     </div>
   )

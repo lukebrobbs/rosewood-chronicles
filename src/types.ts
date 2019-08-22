@@ -30,10 +30,10 @@ interface IHouseDetails {
 }
 
 interface IStudentDescription {
-  description: IDescription
-  extraInfo: IExtraInfo
-  hair: string
   name: string
-  nickname: string
-  occupation: string
+  birthday: string
+  favouriteThings: { favouriteThings: string }
+  leastFavouriteThings: { leastFavouriteThings: string }
+  inTheirBag: { inTheirBag: string }
+  quote: { quote: string }
 }

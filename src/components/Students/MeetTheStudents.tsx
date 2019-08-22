@@ -39,12 +39,12 @@ const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
         <Description
           house={house}
           student={{
-            description: currentlySelectedStudent.description.description,
-            extraInfo: currentlySelectedStudent.extraInfo.extraInfo,
-            hair: currentlySelectedStudent.hair,
+            birthday: currentlySelectedStudent.birthday,
+            favouriteThings: currentlySelectedStudent.favouriteThings,
+            leastFavouriteThings: currentlySelectedStudent.leastFavouriteThings,
+            inTheirBag: currentlySelectedStudent.inTheirBag,
             name: currentlySelectedStudent.name,
-            nickname: currentlySelectedStudent.nickname,
-            occupation: currentlySelectedStudent.occupation,
+            quote: currentlySelectedStudent.quote,
           }}
         />
         <div />

@@ -46,16 +46,20 @@ exports.createPages = ({ graphql, actions }) => {
                   }
                 }
                 studentDescriptions {
-                  description {
-                    description
-                  }
-                  extraInfo {
-                    extraInfo
-                  }
-                  hair
                   name
-                  nickname
-                  occupation
+                  birthday(formatString: "MMMM Do")
+                  favouriteThings {
+                    favouriteThings
+                  }
+                  leastFavouriteThings {
+                    leastFavouriteThings
+                  }
+                  inTheirBag {
+                    inTheirBag
+                  }
+                  quote {
+                    quote
+                  }
                 }
                 studentsImage {
                   fluid {
