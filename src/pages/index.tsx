@@ -21,6 +21,7 @@ const IndexPage = ({ data }) => {
       Events.scrollEvent.remove("end")
     }
   }, [])
+
   return (
     <>
       <SEO title="Home" />

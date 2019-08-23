@@ -3,6 +3,7 @@
   flex-direction: column;
   text-align: center;
   padding: 5rem 0;
+  height: 100vh;
 }
 
 .students__header {
@@ -124,4 +125,8 @@ $break-large: 769px;
 
 .stratus {
   background-color: #ebb708;
+}
+
+.students__image__wrapper {
+  width: 80%;
 }
