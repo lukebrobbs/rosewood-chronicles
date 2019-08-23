@@ -7,7 +7,6 @@
 
 import PropTypes from "prop-types"
 import React from "react"
-import Nav from "../Nav"
 import "./layout.scss"
 
 interface IProps {
@@ -16,7 +15,6 @@ interface IProps {
 
 export const Layout = (props: IProps) => (
   <>
-    <Nav />
     <div className="background__image" />
     <div className={`layout__wrapper`}>
       <main>{props.children}</main>

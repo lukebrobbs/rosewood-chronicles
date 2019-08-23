@@ -41,8 +41,8 @@ const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
           student={{
             birthday: currentlySelectedStudent.birthday,
             favouriteThings: currentlySelectedStudent.favouriteThings,
-            leastFavouriteThings: currentlySelectedStudent.leastFavouriteThings,
             inTheirBag: currentlySelectedStudent.inTheirBag,
+            leastFavouriteThings: currentlySelectedStudent.leastFavouriteThings,
             name: currentlySelectedStudent.name,
             quote: currentlySelectedStudent.quote,
           }}
