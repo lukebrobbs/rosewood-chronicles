@@ -1,6 +1,6 @@
 import React from "react"
+import { IAction, IAnswer } from "../../types"
 import Answer from "./Answer"
-import { IAction, IAnswer } from "./types"
 
 interface IAnswersProps {
   answers: [IAnswer, IAnswer, IAnswer]

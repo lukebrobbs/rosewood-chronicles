@@ -1,12 +1,12 @@
 import { Field, Formik } from "formik"
 import { navigate } from "gatsby"
-import React from "react"
+import React, { FunctionComponent } from "react"
 import Form from "react-bootstrap/Form"
 import FormControl from "react-bootstrap/FormControl"
 import { boolean, object, string } from "yup"
+import { IEmailCaptureProps, IHandleSubmit } from "../../types"
 import BannerImages from "./BannerImages"
 import PreSortingText from "./PreSortingText"
-import { IEmailCaptureProps, IHandleSubmit } from "./types"
 
 const SignupSchema = object().shape({
   email: string()
@@ -15,7 +15,7 @@ const SignupSchema = object().shape({
   subscribed: boolean(),
 })
 
-const EmailCapture = (props: IEmailCaptureProps) => {
+const EmailCapture: FunctionComponent<IEmailCaptureProps> = props => {
   const initialValues = {
     email: "",
     subscribed: false,
@@ -23,11 +23,11 @@ const EmailCapture = (props: IEmailCaptureProps) => {
 
   const addUserToMailchimp = async (formValues: IHandleSubmit) => {
     fetch(
-      `${props.origin}/.netlify/functions/mailchimp?email=${formValues.email}&subscribed=${formValues.subscribed}`
+      `${window.location.hostname}/.netlify/functions/mailchimp?email=${formValues.email}&subscribed=${formValues.subscribed}`
     )
       .then((data: Response) => {
         console.log(data.body)
-        navigate("/sortingQuiz")
+        props.setActivePage("SORTING_QUIZ")
       })
       .catch(err => {
         console.log(err)

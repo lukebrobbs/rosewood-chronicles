@@ -1,10 +1,10 @@
 import Img from "gatsby-image"
 import React, { useReducer } from "react"
+import { IAction, ISortingQuizProps, IState } from "../../types"
 import BannerImages from "../PreSorting/BannerImages"
 import QuestionNumber from "./QuestionNumber"
 import Quiz from "./Quiz"
 import "./sortingQuiz.scss"
-import { IAction, ISortingQuizProps, IState } from "./types"
 
 const initialState: IState = {
   currentSelection: "",

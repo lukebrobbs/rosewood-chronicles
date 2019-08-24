@@ -1,6 +1,5 @@
 import React from "react"
-import { House } from "../../utils/sharedTypes"
-import { IAction } from "./types"
+import { IAction, House } from "../../types"
 
 interface IAnswerProps {
   id: string

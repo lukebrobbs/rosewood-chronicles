@@ -1,6 +1,6 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent } from "react"
-import { IBannerImagesProps, IFluid } from "./types"
+import { IBannerImagesProps, IFluid } from "../../types"
 
 const BannerImages: FunctionComponent<IBannerImagesProps> = props => {
   const {

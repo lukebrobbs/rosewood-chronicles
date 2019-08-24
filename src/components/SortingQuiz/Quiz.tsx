@@ -1,9 +1,9 @@
 import { navigate } from "gatsby"
 import React from "react"
 import Card from "react-bootstrap/Card"
+import { IQuizProps } from "../../types"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
-import { IQuizProps } from "./types"
 
 const Quiz = (props: IQuizProps) => {
   const shouldNextButtonRender =
@@ -17,7 +17,7 @@ const Quiz = (props: IQuizProps) => {
   return (
     <div className="sortingQuiz__wrapper">
       {props.questions.map(
-        (question, index) =>
+        (question, index: number) =>
           props.questionIndex === index && (
             <Card
               border="light"

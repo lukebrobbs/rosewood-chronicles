@@ -27,6 +27,18 @@ export const query = graphql`
           introductionText {
             introductionText
           }
+          questions {
+            question
+            id
+            ivyAnswer
+            conchAnswer
+            stratusAnswer
+          }
+          studentImage {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
           houseBanners {
             conchDesktop {
               fluid {

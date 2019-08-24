@@ -10,12 +10,10 @@ import { navigate, StaticQuery, useStaticQuery } from "gatsby"
 import { FluidObject } from "gatsby-image"
 import React from "react"
 import { questionMocks } from "../../../__mocks__/questionMocks"
-import { IBanners } from "../../../src/components/PreSorting/types"
 import SortingQuiz, {
   sortingQuizReducer,
 } from "../../../src/components/SortingQuiz/SortingQuiz"
-import { IAction, IState } from "../../../src/components/SortingQuiz/types"
-import { House } from "../../../src/utils/sharedTypes"
+import { House, IAction, IBanners, IState } from "../../../src/types"
 
 afterEach(cleanup)
 

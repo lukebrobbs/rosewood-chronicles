@@ -1,11 +1,14 @@
+import { RouteComponentProps } from "@reach/router"
 import { Link } from "gatsby"
-import React from "react"
+import React, { FunctionComponent } from "react"
 import BannerImages from "./BannerImages"
 import "./preSorting.scss"
 import PreSortingText from "./PreSortingText"
 import { IPreSortingProps } from "./types"
 
-const PreSorting = (props: IPreSortingProps) => {
+const PreSorting: FunctionComponent<
+  IPreSortingProps & RouteComponentProps
+> = props => {
   return (
     <>
       <div className="preSorting__wrapper">
@@ -16,9 +19,12 @@ const PreSorting = (props: IPreSortingProps) => {
               {props.text}
             </p>
           </PreSortingText>
-          <Link to="/signUp" className="preSorting__signUp__button">
+          <button
+            onClick={() => props.setActivePage("SIGN_UP")}
+            className="preSorting__signUp__button"
+          >
             SIGN UP
-          </Link>
+          </button>
         </div>
       </div>
     </>

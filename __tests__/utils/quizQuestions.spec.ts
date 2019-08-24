@@ -1,8 +1,8 @@
+import { House } from "../../src/types"
 import {
   calculateHouse,
   formatQuizQuestions,
 } from "../../src/utils/quizQuestions"
-import { House } from "../../src/utils/sharedTypes"
 
 describe("Quiz questions", () => {
   let mockGraphQLReturn: any
@@ -37,7 +37,7 @@ describe("Quiz questions", () => {
         .conchAnswer
 
     const expected = returnValue[0].answers.filter(
-      x => x.text === expectedConchText
+      (x: any) => x.text === expectedConchText
     )
 
     expect(expected[0].house).toBe("CONCH")
@@ -50,7 +50,7 @@ describe("Quiz questions", () => {
         .ivyAnswer
 
     const expected = returnValue[0].answers.filter(
-      x => x.text === expectedIvyText
+      (x: any) => x.text === expectedIvyText
     )
 
     expect(expected[0].house).toBe("IVY")
@@ -63,7 +63,7 @@ describe("Quiz questions", () => {
         .stratusAnswer
 
     const expected = returnValue[0].answers.filter(
-      x => x.text === expectedStratusText
+      (x: any) => x.text === expectedStratusText
     )
 
     expect(expected[0].house).toBe("STRATUS")

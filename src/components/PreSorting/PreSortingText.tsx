@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react"
+import { IPreSortingTextProps } from "../../types"
 import "./preSorting.scss"
-import { IPreSortingTextProps } from "./types"
 
 const PreSortingText: FunctionComponent<IPreSortingTextProps> = props => {
   return (

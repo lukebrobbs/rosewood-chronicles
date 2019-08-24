@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Luke Brobbin <luke@lukebrobb.in>",
   "dependencies": {
+    "@types/reach__router": "^1.2.4",
     "bootstrap": "^4.3.1",
     "formik": "^1.5.8",
     "gatsby": "^2.13.50",
