@@ -1,28 +1,39 @@
-import React from "react"
-import { Element } from "react-scroll"
+import React, { useRef } from "react"
+import { Element } from "./Scroll"
 import PreSorting from "./PreSorting/PreSorting"
-import Students from "./Students/Students"
 import Shop from "./Shop/Shop"
+import Students from "./Students/Students"
 
 const NonHomePages = (props: any) => {
+  const currentEl = useRef(null)
   const {
     allContentfulSortingQuiz: { edges },
   } = props.data
   return (
-    <>
-      <Element name="preSorting" className="element">
+    <div id="nonHomeContainer">
+      <Element name="pre-sorting">
         <PreSorting
           text={edges[0].node.introductionText.introductionText}
           banners={edges[0].node.houseBanners}
         />
       </Element>
-      <Element name="students" className="element">
+      <Element name="students">
         <Students />
       </Element>
-      <Element name="shop" className="element">
+      <Element name="shop">
         <Shop />
+        <button
+          onClick={() =>
+            currentEl.current.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            })
+          }
+        >
+          PRE SORTING
+        </button>
       </Element>
-    </>
+    </div>
   )
 }
 

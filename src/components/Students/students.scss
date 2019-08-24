@@ -1,9 +1,16 @@
 .students__wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
   padding: 5rem 0;
   height: 100vh;
+  @media screen and (max-width: 768px) {
+    padding-top: 10rem;
+  }
+  @media screen and (max-width: 400px) {
+    height: auto;
+  }
 }
 
 .students__header {
@@ -24,7 +31,7 @@
 
 $break-large: 769px;
 
-.students__Image__wrapper {
+.students__Images__wrapper {
   align-items: center;
   margin: 3em auto 1em auto;
   display: grid;
@@ -35,6 +42,14 @@ $break-large: 769px;
   @media screen and (max-width: $break-large) {
     margin: 1em 1em 1em 0;
   }
+  @media screen and (max-width: 768px) {
+    margin-top: 5rem;
+  }
+}
+
+.students__image__wrapper {
+  width: 50%;
+  justify-self: center;
 }
 
 .studets__house__wrapper {

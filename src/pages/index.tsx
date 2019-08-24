@@ -1,37 +1,20 @@
 import { graphql } from "gatsby"
-import React, { useEffect } from "react"
-import { Element, Events, scrollSpy } from "react-scroll"
+import React from "react"
 import Home from "../components/Home/Home"
 import Nav from "../components/Nav"
-import SEO from "../components/seo"
 import { NonHomePages } from "../components/NonHomePages"
+import { Element } from "../components/Scroll"
+import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  useEffect(() => {
-    Events.scrollEvent.register("begin", (to, element) => {
-      console.log("begin", to, element)
-    })
-    Events.scrollEvent.register("end", (to, element) => {
-      console.log("end", to, element)
-    })
-    scrollSpy.update()
-
-    return () => {
-      Events.scrollEvent.remove("begin")
-      Events.scrollEvent.remove("end")
-    }
-  }, [])
-
   return (
     <>
       <SEO title="Home" />
-      <Element name="titlePage" className="element">
-        <Home data={data} />
+      <Element name="title-page">
+        <Home />
       </Element>
-      <Element name="nonHome" className="element">
-        <Nav />
-        <NonHomePages data={data} />
-      </Element>
+      <Nav />
+      <NonHomePages data={data} />
     </>
   )
 }

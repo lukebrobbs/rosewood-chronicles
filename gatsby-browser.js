@@ -1,11 +1,11 @@
 const React = require("react")
-
+const { ParallaxProvider } = require("react-scroll-parallax")
 const { Helmet } = require("react-helmet")
 const { Layout } = require("./src/components/layout/layout")
 
 exports.wrapRootElement = ({ element }) => {
   return (
-    <>
+    <ParallaxProvider>
       <Helmet>
         <link
           rel="stylesheet"
@@ -15,7 +15,7 @@ exports.wrapRootElement = ({ element }) => {
         />
       </Helmet>
       {element}
-    </>
+    </ParallaxProvider>
   )
 }
 

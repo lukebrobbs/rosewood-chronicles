@@ -12,7 +12,7 @@ const Students = () => {
       <SEO title="Students" />
       <div className="students__wrapper">
         <h1 className="students__header">Meet The Students</h1>
-        <div className="students__Image__wrapper">
+        <div className="students__Images__wrapper">
           <div className="students__image__wrapper">
             <Link to="/students/conch" className="students__insignia">
               <Conch />
