@@ -51,6 +51,22 @@ export interface IPreSortingTextProps {
 }
 export interface IPreSortingPageProps {
   data: IEdges
+  houseDescriptions: {
+    edges: ISortedHouseEdge[]
+  }
+}
+
+export interface ISortedHouseProps {
+  data: ISortedHouseEdge
+}
+
+interface ISortedHouseEdge {
+  node: {
+    description: IDescription
+    desktopInsignia: IFluid
+    mobileInsignia: IFluid
+    house: string
+  }
 }
 
 export interface IEmailCaptureProps {

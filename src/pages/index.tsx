@@ -111,16 +111,30 @@ export const query = graphql`
           }
           studentsImage {
             fluid {
-              aspectRatio
-              base64
-              sizes
-              src
-              srcSet
-              srcSetWebp
-              srcWebp
-              tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
+        }
+      }
+    }
+    allContentfulHouseDescription {
+      edges {
+        node {
+          description {
+            description
+          }
+          desktopInsignia {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          mobileInsignia {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          id
+          house
         }
       }
     }

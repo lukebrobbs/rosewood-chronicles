@@ -1,18 +1,15 @@
 import React, { FunctionComponent, useState } from "react"
 import { ActiveSortingPage, IPreSortingPageProps } from "../types"
 import { formatQuizQuestions } from "../utils/quizQuestions"
-import Conch from "./Conch"
-import Ivy from "./Ivy"
+
 import EmailCapture from "./PreSorting/EmailCapture"
 import PreSorting from "./PreSorting/PreSorting"
 import SortingQuiz from "./SortingQuiz/SortingQuiz"
-import Stratus from "./Stratus"
+import { SortedHouse } from "./SortedHouse"
 
 export const SortingRoutes: FunctionComponent<IPreSortingPageProps> = props => {
   const [activePage, setActivePage] = useState<ActiveSortingPage>("PRE_SORTING")
-
   const { edges } = props.data
-
   return (
     <div className="main__page__wrapper">
       {activePage === "PRE_SORTING" && (
@@ -36,9 +33,15 @@ export const SortingRoutes: FunctionComponent<IPreSortingPageProps> = props => {
           setActivePage={setActivePage}
         />
       )}
-      {activePage === "conch" && <Conch />}
-      {activePage === "ivy" && <Ivy />}
-      {activePage === "stratus" && <Stratus />}
+      {props.houseDescriptions.edges.map(house => {
+        return (
+          <div key={`${house.node.house}-sortedHouse`}>
+            {activePage === house.node.house.toLowerCase() && (
+              <SortedHouse data={house} />
+            )}
+          </div>
+        )
+      })}
     </div>
   )
 }

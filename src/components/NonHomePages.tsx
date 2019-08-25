@@ -8,7 +8,10 @@ const NonHomePages = (props: any) => {
   return (
     <div id="nonHomeContainer">
       <Element name="pre-sorting">
-        <SortingRoutes data={props.data.allContentfulSortingQuiz} />
+        <SortingRoutes
+          data={props.data.allContentfulSortingQuiz}
+          houseDescriptions={props.data.allContentfulHouseDescription}
+        />
       </Element>
       <Element name="students">
         <StudentsRoutes data={props.data.allContentfulMeetTheStudents} />

@@ -716,3 +716,27 @@ pre tt:after {
   display: flex;
   align-items: center;
 }
+
+.sortedHouse__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  text-align: center;
+}
+
+.sortedHouse__header {
+  color: #9e8838;
+  font-family: Garamond;
+  margin: 0.3em 0;
+}
+
+.sortedHouse__paragraph {
+  font-family: Garamond;
+  color: #3c1116;
+  font-weight: 550;
+}
+
+.sortedHouse__banner__wrapper {
+  width: 60%;
+  align-self: center;
+  margin: auto;
+}
