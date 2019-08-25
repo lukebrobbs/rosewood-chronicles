@@ -1,8 +1,10 @@
 import { FluidObject } from "gatsby-image"
+import { string } from "yup"
+import StudentDescription from "./components/Students/StudentDescription"
 
 export interface IMeetTheStudentsProps {
   pageContext: {
-    house: House
+    house: House | string
     houseDetails: IHouseDetails
     studentDescriptions: IStudentDescription[]
     studentsImage: IFluid
@@ -13,7 +15,11 @@ export interface IFluid {
   fluid: FluidObject
 }
 
-export type ActiveSortingPage = "PRE_SORTING" | "SIGN_UP" | "SORTING_QUIZ"
+export type ActiveSortingPage =
+  | "PRE_SORTING"
+  | "SIGN_UP"
+  | "SORTING_QUIZ"
+  | House
 
 export interface IAnswer {
   text: string
@@ -32,6 +38,7 @@ export interface ISortingQuizProps {
     fluid: FluidObject
   }
   banners: IBanners
+  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
 export interface IPreSortingProps {
@@ -44,7 +51,7 @@ export interface IPreSortingTextProps {
 }
 export interface IPreSortingPageProps {
   data: {
-    allContentfulSortingQuiz: IEdges
+    edges: IEdges
   }
 }
 
@@ -90,6 +97,7 @@ export interface IQuizProps {
   quizAnswers: Array<House | string>
   currentSelection: House | string
   dispatch: React.Dispatch<IAction>
+  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
 export interface IAction {
@@ -101,6 +109,33 @@ export interface IState {
   questionIndex: number
   quizAnswers: Array<House | string>
   currentSelection: House | string
+}
+
+export interface IStudentsProps {
+  setActiveStudentsPage: React.Dispatch<
+    React.SetStateAction<House | "STUDENTS">
+  >
+}
+
+export interface IFormatQuestions {
+  edges: IEdges
+}
+
+export interface IStudentsRoutesProps {
+  data: {
+    edges: Array<{
+      node: {
+        house: string
+        houseDetails: {
+          description: IDescription
+          desktopInsignia: IFluid
+          mobileInsignia: IFluid
+        }
+        studentsImage: IFluid
+        studentDescriptions: IStudentDescription[]
+      }
+    }>
+  }
 }
 
 export type House = "conch" | "ivy" | "stratus" | "CONCH" | "IVY" | "STRATUS"
@@ -128,7 +163,7 @@ interface IStudentDescription {
   quote: { quote: string }
 }
 
-interface IEdges {
+export interface IEdges {
   edges: Array<{
     node: {
       introductionText: { introductionText: string }

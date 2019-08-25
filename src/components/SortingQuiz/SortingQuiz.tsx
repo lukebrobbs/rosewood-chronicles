@@ -1,5 +1,5 @@
 import Img from "gatsby-image"
-import React, { useReducer } from "react"
+import React, { useReducer, FunctionComponent } from "react"
 import { IAction, ISortingQuizProps, IState } from "../../types"
 import BannerImages from "../PreSorting/BannerImages"
 import QuestionNumber from "./QuestionNumber"
@@ -35,7 +35,7 @@ export const sortingQuizReducer = (state: IState, action: IAction): IState => {
   }
 }
 
-const SortingQuiz = (props: ISortingQuizProps) => {
+const SortingQuiz: FunctionComponent<ISortingQuizProps> = props => {
   const [state, dispatch] = useReducer(sortingQuizReducer, initialState)
 
   return (
@@ -47,7 +47,12 @@ const SortingQuiz = (props: ISortingQuizProps) => {
           currentQuestion={state.questionIndex + 1}
         />
       </div>
-      <Quiz questions={props.questions} {...state} dispatch={dispatch} />
+      <Quiz
+        questions={props.questions}
+        {...state}
+        dispatch={dispatch}
+        setActivePage={props.setActivePage}
+      />
       <div className="sortingQuiz__saskia">
         <Img fluid={props.image.fluid} />
       </div>

@@ -1,17 +1,16 @@
-import { navigate } from "gatsby"
-import React from "react"
+import React, { FunctionComponent } from "react"
 import Card from "react-bootstrap/Card"
 import { IQuizProps } from "../../types"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
 
-const Quiz = (props: IQuizProps) => {
+const Quiz: FunctionComponent<IQuizProps> = props => {
   const shouldNextButtonRender =
     props.questionIndex < props.questions.length - 1
 
   const handleSubmit = async () => {
     const sortedHouse = calculateHouse(props.quizAnswers)
-    navigate(`/${sortedHouse}`)
+    props.setActivePage(sortedHouse)
   }
 
   return (

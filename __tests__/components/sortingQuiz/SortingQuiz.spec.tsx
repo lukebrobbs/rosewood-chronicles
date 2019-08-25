@@ -6,7 +6,7 @@ import {
   render,
   wait,
 } from "@testing-library/react"
-import { navigate, StaticQuery, useStaticQuery } from "gatsby"
+import { StaticQuery, useStaticQuery } from "gatsby"
 import { FluidObject } from "gatsby-image"
 import React from "react"
 import { questionMocks } from "../../../__mocks__/questionMocks"
@@ -144,6 +144,7 @@ describe("Sorting Quiz", () => {
         questions={questionMocks}
         image={mockImage}
         banners={mockBanners}
+        setActivePage={() => {}}
       />
     )
     expect(getAllByTestId("sortingQuizQuestion").length).toBe(1)
@@ -154,6 +155,7 @@ describe("Sorting Quiz", () => {
         questions={questionMocks}
         image={mockImage}
         banners={mockBanners}
+        setActivePage={() => {}}
       />
     )
     expect(getByTestId("sortingQuizNextButton")).toBeInTheDocument()
@@ -166,6 +168,7 @@ describe("Sorting Quiz", () => {
         questions={questionMocks}
         image={mockImage}
         banners={mockBanners}
+        setActivePage={() => {}}
       />
     )
 
@@ -175,14 +178,14 @@ describe("Sorting Quiz", () => {
   })
 
   describe("quiz submission", () => {
-    it("Should navigate the user to the appropriate house page", async () => {
-      // @ts-ignore
-      navigate = jest.fn()
+    it("Should call setActive page with the correct house", async () => {
+      const mockSetActivePage = jest.fn()
       const { getByTestId } = render(
         <SortingQuiz
           questions={questionMocks}
           image={mockImage}
           banners={mockBanners}
+          setActivePage={mockSetActivePage}
         />
       )
       navigateToNextQuestion(getByTestId)
@@ -191,8 +194,7 @@ describe("Sorting Quiz", () => {
       )
       fireEvent.click(getByTestId("sortingQuizSubmitButton"))
       await wait(() => {}, { timeout: 1 })
-      // @ts-ignore
-      expect(navigate.mock.calls[0][0]).toBe("/stratus")
+      expect(mockSetActivePage.mock.calls[0][0]).toBe("stratus")
     })
   })
 })

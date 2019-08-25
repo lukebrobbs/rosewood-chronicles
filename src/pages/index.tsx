@@ -74,6 +74,56 @@ export const query = graphql`
         }
       }
     }
+    allContentfulMeetTheStudents {
+      edges {
+        node {
+          house
+          houseDetails {
+            description {
+              description
+            }
+            desktopInsignia {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            mobileInsignia {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+          }
+          studentDescriptions {
+            name
+            birthday(formatString: "MMMM Do")
+            favouriteThings {
+              favouriteThings
+            }
+            leastFavouriteThings {
+              leastFavouriteThings
+            }
+            inTheirBag {
+              inTheirBag
+            }
+            quote {
+              quote
+            }
+          }
+          studentsImage {
+            fluid {
+              aspectRatio
+              base64
+              sizes
+              src
+              srcSet
+              srcSetWebp
+              srcWebp
+              tracedSVG
+            }
+          }
+        }
+      }
+    }
   }
 `
 

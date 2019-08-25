@@ -1,53 +1,24 @@
-import { FluidObject } from "gatsby-image"
-import { House, IAnswer, IBanners, IQuestion } from "../types"
+import { House, IAnswer, IEdges, IQuestion } from "../types"
 
-interface IEdges {
-  node: {
-    studentImage: {
-      fluid: FluidObject
-    }
-    questions: Array<{
-      id: string
-      question: string
-      conchAnswer: string
-      ivyAnswer: string
-      stratusAnswer: string
-    }>
-    houseBanners: IBanners
-  }
-}
-
-interface IContentfulQuizQuestions {
-  edges: IEdges[]
-}
-
-export interface IRawQuestionData {
-  allContentfulSortingQuiz: IContentfulQuizQuestions
-}
-
-export const formatQuizQuestions = (
-  questions: IRawQuestionData
-): IQuestion[] => {
+export const formatQuizQuestions = (questions: IEdges): IQuestion[] => {
   const shuffle = (
     array: [IAnswer, IAnswer, IAnswer]
   ): [IAnswer, IAnswer, IAnswer] => {
     return array.sort(() => Math.random() - 0.5)
   }
-  return questions.allContentfulSortingQuiz.edges[0].node.questions.map(
-    edge => {
-      const { id, conchAnswer, stratusAnswer, ivyAnswer, question } = edge
-      const answers = shuffle([
-        { text: conchAnswer, house: "CONCH" },
-        { text: stratusAnswer, house: "STRATUS" },
-        { text: ivyAnswer, house: "IVY" },
-      ])
-      return {
-        answers,
-        id,
-        question,
-      }
+  return questions.edges[0].node.questions.map(edge => {
+    const { id, conchAnswer, stratusAnswer, ivyAnswer, question } = edge
+    const answers = shuffle([
+      { text: conchAnswer, house: "CONCH" },
+      { text: stratusAnswer, house: "STRATUS" },
+      { text: ivyAnswer, house: "IVY" },
+    ])
+    return {
+      answers,
+      id,
+      question,
     }
-  )
+  })
 }
 
 export const calculateHouse = (

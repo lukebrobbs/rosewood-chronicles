@@ -9,23 +9,21 @@ describe("Quiz questions", () => {
 
   beforeAll(() => {
     mockGraphQLReturn = {
-      allContentfulSortingQuiz: {
-        edges: [
-          {
-            node: {
-              questions: [
-                {
-                  conchAnswer: "Honesty, dependability, and confidence",
-                  id: "87d84857-5987-5164-9c1f-8300c5c4c750",
-                  ivyAnswer: "Originality, bravery, and passion",
-                  question: "What do you value above all else?",
-                  stratusAnswer: "Wisdom, creativity, and freedom",
-                },
-              ],
-            },
+      edges: [
+        {
+          node: {
+            questions: [
+              {
+                conchAnswer: "Honesty, dependability, and confidence",
+                id: "87d84857-5987-5164-9c1f-8300c5c4c750",
+                ivyAnswer: "Originality, bravery, and passion",
+                question: "What do you value above all else?",
+                stratusAnswer: "Wisdom, creativity, and freedom",
+              },
+            ],
           },
-        ],
-      },
+        },
+      ],
     }
   })
 
@@ -33,8 +31,7 @@ describe("Quiz questions", () => {
     const returnValue = formatQuizQuestions(mockGraphQLReturn)
 
     const expectedConchText =
-      mockGraphQLReturn.allContentfulSortingQuiz.edges[0].node.questions[0]
-        .conchAnswer
+      mockGraphQLReturn.edges[0].node.questions[0].conchAnswer
 
     const expected = returnValue[0].answers.filter(
       (x: any) => x.text === expectedConchText
@@ -46,8 +43,7 @@ describe("Quiz questions", () => {
     const returnValue = formatQuizQuestions(mockGraphQLReturn)
 
     const expectedIvyText =
-      mockGraphQLReturn.allContentfulSortingQuiz.edges[0].node.questions[0]
-        .ivyAnswer
+      mockGraphQLReturn.edges[0].node.questions[0].ivyAnswer
 
     const expected = returnValue[0].answers.filter(
       (x: any) => x.text === expectedIvyText
@@ -59,8 +55,7 @@ describe("Quiz questions", () => {
     const returnValue = formatQuizQuestions(mockGraphQLReturn)
 
     const expectedStratusText =
-      mockGraphQLReturn.allContentfulSortingQuiz.edges[0].node.questions[0]
-        .stratusAnswer
+      mockGraphQLReturn.edges[0].node.questions[0].stratusAnswer
 
     const expected = returnValue[0].answers.filter(
       (x: any) => x.text === expectedStratusText

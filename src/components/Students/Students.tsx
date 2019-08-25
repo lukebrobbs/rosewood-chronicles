@@ -1,12 +1,12 @@
-import { Link } from "gatsby"
-import React from "react"
+import React, { FunctionComponent } from "react"
+import { IStudentsProps } from "../../types"
 import Conch from "../images/Conch"
 import Ivy from "../images/Ivy"
 import Stratus from "../images/Stratus"
 import SEO from "../seo"
 import "./students.scss"
 
-const Students = () => {
+const Students: FunctionComponent<IStudentsProps> = props => {
   return (
     <>
       <SEO title="Students" />
@@ -14,19 +14,28 @@ const Students = () => {
         <h1 className="students__header">Meet The Students</h1>
         <div className="students__Images__wrapper">
           <div className="students__image__wrapper">
-            <Link to="/students/conch" className="students__insignia">
+            <button
+              onClick={() => props.setActiveStudentsPage("CONCH")}
+              className="students__insignia"
+            >
               <Conch />
-            </Link>
+            </button>
           </div>
           <div className="students__image__wrapper">
-            <Link to="/students/ivy" className="students__insignia">
+            <button
+              onClick={() => props.setActiveStudentsPage("IVY")}
+              className="students__insignia"
+            >
               <Ivy />
-            </Link>
+            </button>
           </div>
           <div className="students__image__wrapper">
-            <Link to="/students/stratus" className="students__insignia">
+            <button
+              onClick={() => props.setActiveStudentsPage("STRATUS")}
+              className="students__insignia"
+            >
               <Stratus />
-            </Link>
+            </button>
           </div>
         </div>
       </div>
