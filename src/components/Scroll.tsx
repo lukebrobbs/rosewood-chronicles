@@ -17,7 +17,7 @@ export const Link: FunctionComponent<
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
-        block: props.block || "center",
+        block: props.block || "nearest",
       })
     }
   }

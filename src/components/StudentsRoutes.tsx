@@ -8,17 +8,16 @@ export const StudentsRoutes: FunctionComponent<
 > = props => {
   const [activePage, setActivePage] = useState<House | "STUDENTS">("STUDENTS")
   return (
-    <>
+    <div className="main__page__wrapper centered">
       {activePage === "STUDENTS" && (
         <Students setActiveStudentsPage={setActivePage} />
       )}
       {props.data.edges.map(house => {
         const { houseDetails, studentsImage, studentDescriptions } = house.node
         return (
-          <>
+          <div key={house.node.house}>
             {activePage === house.node.house.toUpperCase() && (
               <MeetTheStudents
-                key={house.node.house}
                 pageContext={{
                   house: house.node.house,
                   houseDetails,
@@ -27,9 +26,9 @@ export const StudentsRoutes: FunctionComponent<
                 }}
               />
             )}
-          </>
+          </div>
         )
       })}
-    </>
+    </div>
   )
 }

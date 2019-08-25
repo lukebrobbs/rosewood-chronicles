@@ -50,9 +50,7 @@ export interface IPreSortingTextProps {
   header: string
 }
 export interface IPreSortingPageProps {
-  data: {
-    edges: IEdges
-  }
+  data: IEdges
 }
 
 export interface IEmailCaptureProps {

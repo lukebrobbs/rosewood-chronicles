@@ -27,12 +27,19 @@ const NavComponent = () => {
             <Nav.Link
               to="pre-sorting"
               as={Link}
+              block="start"
               className="mr-auto"
               eventKey="1"
             >
               SORTING QUIZ
             </Nav.Link>
-            <Nav.Link to="students" as={Link} className="mr-auto" eventKey="2">
+            <Nav.Link
+              to="students"
+              as={Link}
+              className="mr-auto"
+              eventKey="2"
+              block="start"
+            >
               STUDENTS
             </Nav.Link>
             <Nav.Link to="shop" as={Link} className="mr-auto" eventKey="3">

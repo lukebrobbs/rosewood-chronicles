@@ -14,7 +14,7 @@ export const SortingRoutes: FunctionComponent<IPreSortingPageProps> = props => {
   const { edges } = props.data
 
   return (
-    <>
+    <div className="main__page__wrapper">
       {activePage === "PRE_SORTING" && (
         <PreSorting
           text={edges[0].node.introductionText.introductionText}
@@ -39,6 +39,6 @@ export const SortingRoutes: FunctionComponent<IPreSortingPageProps> = props => {
       {activePage === "conch" && <Conch />}
       {activePage === "ivy" && <Ivy />}
       {activePage === "stratus" && <Stratus />}
-    </>
+    </div>
   )
 }
