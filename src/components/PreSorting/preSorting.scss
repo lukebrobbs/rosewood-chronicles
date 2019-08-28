@@ -1,6 +1,7 @@
 .preSorting__wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  margin: 0 2em;
+  grid-template-columns: 1fr 1.5fr 1fr;
   @media only screen and (max-width: 1200px) {
     display: block;
   }
@@ -8,8 +9,6 @@
 
 .preSorting__info {
   justify-self: center;
-  margin-top: 8em;
-  width: 70%;
   display: flex;
   flex-direction: column;
   @media only screen and (max-width: 1200px) {
@@ -18,17 +17,58 @@
   }
 }
 
+.preSorting__images__left {
+  position: relative;
+  width: 100%;
+  margin-left: 1em;
+  margin-top: 1em;
+  align-self: center;
+  .left {
+    position: absolute;
+    width: 40%;
+    left: 45%;
+    z-index: 2;
+  }
+  .right {
+    z-index: 1;
+    width: 50%;
+    margin-left: 1em;
+  }
+  @media only screen and (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.preSorting__images__right {
+  position: relative;
+  width: 100%;
+  margin-right: 2em;
+  margin-top: 1em;
+  align-self: center;
+  .left {
+    position: absolute;
+    width: 55%;
+    left: 45%;
+  }
+  .right {
+    z-index: 100;
+    width: 70%;
+    margin-right: 2em;
+  }
+  @media only screen and (max-width: 1200px) {
+    display: none;
+  }
+}
+
 .preSorting__intro {
-  display: table;
-  background-color: #f8eaed;
-  border-radius: 0.5rem;
+  text-align: center;
+  width: 100%;
   height: auto;
 }
 
 .preSorting__header {
   text-transform: uppercase;
-  background-color: #f69ab9;
-  color: #f8eaed;
+  color: #9e8838;
   margin-bottom: 0;
   padding: 0.4em 0.7em;
   border-radius: 0.5rem 0.5rem 0 0;
@@ -40,10 +80,10 @@
 
 .preSorting__text {
   font-family: Garamond;
-  color: #9e8838;
+  color: #3c1116;
   padding: 0.5em 0.8em;
   margin-bottom: 0;
-  font-size: 1.45em;
+  font-size: 1em;
   @media only screen and (max-width: 1000px) {
     font-size: 1.1em;
     padding: 0.5em;
@@ -52,9 +92,13 @@
 
 .banner__wrapper {
   display: grid;
+  align-self: center;
   grid-template-columns: repeat(3, 1fr);
-  width: 100%;
+  width: 70%;
   z-index: 0;
+  @media only screen and (max-width: 1200px) {
+    width: 100%;
+  }
 }
 
 .banner__img {
@@ -92,7 +136,7 @@
 
 .preSorting__signUp__button {
   @extend .button;
-  margin: 1.5em 0;
+  margin: 1em 0;
   &:hover {
     text-decoration: none;
     color: #f8eaed;

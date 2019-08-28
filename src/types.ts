@@ -42,6 +42,11 @@ export interface ISortingQuizProps {
 }
 
 export interface IPreSortingProps {
+  header: string
+  images: Array<{
+    title: string
+    fluid: FluidObject
+  }>
   text: string
   banners: IBanners
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
@@ -180,7 +185,12 @@ interface IStudentDescription {
 export interface IEdges {
   edges: Array<{
     node: {
+      introductionHeader: string
       introductionText: { introductionText: string }
+      introductionStudentImages: Array<{
+        title: string
+        fluid: FluidObject
+      }>
       houseBanners: IBanners
       studentImage: {
         fluid: FluidObject

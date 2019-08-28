@@ -1,7 +1,7 @@
-import { Link } from "./Scroll"
 import React from "react"
 import { Nav, Navbar } from "react-bootstrap"
 import Image from "./images/RosewoodLogo"
+import { Link } from "./Scroll"
 
 const NavComponent = () => {
   return (

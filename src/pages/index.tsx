@@ -24,6 +24,7 @@ export const query = graphql`
     allContentfulSortingQuiz(limit: 1) {
       edges {
         node {
+          introductionHeader
           introductionText {
             introductionText
           }
@@ -33,6 +34,12 @@ export const query = graphql`
             ivyAnswer
             conchAnswer
             stratusAnswer
+          }
+          introductionStudentImages {
+            title
+            fluid {
+              ...GatsbyContentfulFluid
+            }
           }
           studentImage {
             fluid {
