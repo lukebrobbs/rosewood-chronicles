@@ -33,7 +33,7 @@ const NavComponent = () => {
             >
               SORTING QUIZ
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               to="students"
               as={Link}
               className="mr-auto"
@@ -41,7 +41,7 @@ const NavComponent = () => {
               block="start"
             >
               STUDENTS
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link to="shop" as={Link} className="mr-auto" eventKey="3">
               SHOP
             </Nav.Link>

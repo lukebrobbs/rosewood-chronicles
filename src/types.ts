@@ -11,6 +11,25 @@ export interface IMeetTheStudentsProps {
   }
 }
 
+export interface IShopProps {
+  pageData: {
+    edges: Array<{
+      node: {
+        header: string
+        shopButtonLink: string
+        books: IBook[]
+      }
+    }>
+  }
+}
+
+interface IBook {
+  bookName: string
+  bookImage: IFluid
+  reflectionImage: IFluid
+  link: string
+}
+
 export interface IFluid {
   fluid: FluidObject
 }

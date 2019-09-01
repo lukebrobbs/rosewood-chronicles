@@ -2,12 +2,41 @@
 
 .shop__wrapper {
   text-align: center;
+  margin-top: 4em;
   height: calc(100vh - 50px - 2em);
+}
+.shop__books__wrapper {
+  width: 50%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  @media only screen and (max-width: 1024px) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-y: hidden;
+    // height: 50vw;
+    max-height: 100vh;
+  }
+}
+
+.shop__book {
+  @media only screen and (max-width: 1024px) {
+    width: 60%;
+    min-width: 60%;
+    margin: 0 0.5em;
+  }
 }
 
 .shop__header {
   font-family: Garamond;
   color: #9e8838;
+  @media only screen and (max-width: 1024px) {
+    font-size: 2em;
+    margin: 1em auto;
+    width: 50%;
+  }
 }
 
 .shop__link {

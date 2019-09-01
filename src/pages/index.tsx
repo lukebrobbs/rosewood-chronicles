@@ -81,6 +81,28 @@ export const query = graphql`
         }
       }
     }
+    allContentfulShop {
+      edges {
+        node {
+          header
+          shopButtonLink
+          books {
+            bookName
+            link
+            reflectionImage {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+            bookImage {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+          }
+        }
+      }
+    }
     allContentfulMeetTheStudents {
       edges {
         node {

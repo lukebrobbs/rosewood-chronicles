@@ -13,11 +13,8 @@ const NonHomePages = (props: any) => {
           houseDescriptions={props.data.allContentfulHouseDescription}
         />
       </Element>
-      <Element name="students">
-        <StudentsRoutes data={props.data.allContentfulMeetTheStudents} />
-      </Element>
       <Element name="shop">
-        <Shop />
+        <Shop pageData={props.data.allContentfulShop} />
       </Element>
     </div>
   )

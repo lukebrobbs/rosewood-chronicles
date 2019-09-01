@@ -1,9 +1,9 @@
 .home__wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
   background: url("../../images/D_Title_LgRoses.png") no-repeat center center
     fixed;
   background-size: cover;
@@ -11,4 +11,22 @@
 
 .home__image__wrapper {
   width: 50%;
+  @media only screen and (max-width: 1200px) {
+    width: 90%;
+  }
+}
+
+.home__navButton__wrapper {
+  display: flex;
+  justify-content: center;
+  .preSorting__signUp__button {
+    color: #f8eaed !important;
+    margin: 1em 1em;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+  }
 }
