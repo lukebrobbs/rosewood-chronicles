@@ -1,12 +1,77 @@
 .home__wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url("../../images/D_Title_LgRoses.png") no-repeat center center
-    fixed;
-  background-size: cover;
+  overflow: hidden;
+  // background: url("../../images/D_Title_LgRoses.png") no-repeat center center
+  //   fixed;
+  // background-size: cover;
+}
+
+.home__RosesTopLeft {
+  position: fixed;
+  z-index: 10000;
+  top: -80px;
+  left: -3%;
+  width: 15%;
+  pointer-events: none;
+  @media only screen and (max-width: 1200px) {
+    top: 60px;
+    left: -1%;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 20%;
+  }
+}
+
+.home__RosesTopRight {
+  position: fixed;
+  z-index: 10000;
+  top: -80px;
+  right: -3%;
+  width: 15%;
+  pointer-events: none;
+  @media only screen and (max-width: 1200px) {
+    top: 60px;
+    right: -1%;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 20%;
+  }
+}
+
+.home__RosesBottomRight {
+  position: fixed;
+  z-index: 10000;
+  bottom: -50px;
+  right: -2%;
+  width: 15%;
+  pointer-events: none;
+  @media only screen and (max-width: 768px) {
+    bottom: -25px;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 30%;
+  }
+}
+
+.home__RosesBottomLeft {
+  position: fixed;
+  z-index: 10000;
+  bottom: -50px;
+  left: -2%;
+  width: 15%;
+  pointer-events: none;
+  @media only screen and (max-width: 768px) {
+    bottom: -25px;
+    width: 20%;
+  }
+  @media only screen and (max-width: 400px) {
+    width: 30%;
+  }
 }
 
 .home__image__wrapper {

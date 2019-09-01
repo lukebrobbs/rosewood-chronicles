@@ -1,6 +1,7 @@
 import React from "react"
 import { Parallax } from "react-scroll-parallax"
 import TitleLogo from "../images/TitleLogo"
+
 import { Element, Link } from "../Scroll"
 import "./home.scss"
 

@@ -670,6 +670,14 @@ pre tt:after {
   z-index: 2 !important;
 }
 
+.navbar-collapse {
+  margin-right: 7em !important;
+  @media only screen and (max-width: 1200px) {
+    margin-top: 1em !important;
+    margin-right: 0 !important;
+  }
+}
+
 #navbar {
   background-color: #f8eaed !important;
 }
@@ -688,9 +696,9 @@ pre tt:after {
 }
 
 .background__image {
-  background: url("../../images/D_Site_SmRoses.png") no-repeat center center
-    fixed;
-  background-size: cover;
+  // background: url("../../images/D_Site_SmRoses.png") no-repeat center center
+  //   fixed;
+  // background-size: cover;
   position: absolute;
   pointer-events: none;
   left: 0;

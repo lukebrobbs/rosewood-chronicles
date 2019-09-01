@@ -19,30 +19,21 @@ const NavComponent = () => {
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          className="navbar-toggler navbar-toggler-right ml-auto"
+          className="navbar-toggler navbar-toggler-right ml-auto mr-3"
         />
 
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto mr-5">
+          <Nav className="ml-auto">
             <Nav.Link
               to="pre-sorting"
               as={Link}
               block="start"
-              className="mr-auto"
-              eventKey="1"
+              className="mx-auto"
+              eventKey={1}
             >
               SORTING QUIZ
             </Nav.Link>
-            {/* <Nav.Link
-              to="students"
-              as={Link}
-              className="mr-auto"
-              eventKey="2"
-              block="start"
-            >
-              STUDENTS
-            </Nav.Link> */}
-            <Nav.Link to="shop" as={Link} className="mr-auto" eventKey="3">
+            <Nav.Link to="shop" as={Link} className="mx-auto" eventKey={2}>
               SHOP
             </Nav.Link>
           </Nav>
