@@ -37,7 +37,7 @@ export const YearbookLandingPage: FunctionComponent<
         <div
           className="yearbookLanding__nextImage"
           role="button"
-          onClick={() => props.setActiveStudentsPage("IVY")}
+          onClick={() => props.setActiveStudentsPage()}
         >
           <Img fluid={nextImage.fluid} />
         </div>

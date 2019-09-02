@@ -9,6 +9,7 @@ export interface IMeetTheStudentsProps {
     studentDescriptions: IStudentDescription[]
     studentsImage: IFluid
   }
+  setActiveStudentsPage: React.Dispatch<IStudentsRoutesAction>
 }
 
 export interface IShopProps {
@@ -96,9 +97,7 @@ interface ISortedHouseEdge {
 
 export interface IYearbookLandingPageProps {
   data: IYearbookEdges
-  setActiveStudentsPage: React.Dispatch<
-    React.SetStateAction<House | "STUDENTS" | "YEARBOOK">
-  >
+  setActiveStudentsPage: CallableFunction
 }
 
 interface IYearbookEdges {
@@ -138,6 +137,14 @@ export interface IBanners {
 export interface IHandleSubmit {
   email: string
   subscribed: boolean
+}
+
+export interface IStudentsRoutesState {
+  currentPage: House | "YEARBOOK"
+  pagesIndex: number
+}
+export interface IStudentsRoutesAction {
+  type: "HANDLE_NEXT" | "HANDLE_BACK"
 }
 
 export interface IStudentsImageProps {
