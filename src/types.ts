@@ -94,6 +94,25 @@ interface ISortedHouseEdge {
   }
 }
 
+export interface IYearbookLandingPageProps {
+  data: IYearbookEdges
+  setActiveStudentsPage: React.Dispatch<
+    React.SetStateAction<House | "STUDENTS" | "YEARBOOK">
+  >
+}
+
+interface IYearbookEdges {
+  edges: Array<{
+    node: {
+      header: string
+      description: IDescription
+      studentImages: IFluid[]
+      yearbookImage: IFluid
+      nextImage: IFluid
+    }
+  }>
+}
+
 export interface IEmailCaptureProps {
   banners: IBanners
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
@@ -155,7 +174,7 @@ export interface IState {
 
 export interface IStudentsProps {
   setActiveStudentsPage: React.Dispatch<
-    React.SetStateAction<House | "STUDENTS">
+    React.SetStateAction<House | "STUDENTS" | "YEARBOOK">
   >
 }
 
@@ -165,18 +184,21 @@ export interface IFormatQuestions {
 
 export interface IStudentsRoutesProps {
   data: {
-    edges: Array<{
-      node: {
-        house: string
-        houseDetails: {
-          description: IDescription
-          desktopInsignia: IFluid
-          mobileInsignia: IFluid
+    allContentfulYearbookLandingPage: IYearbookEdges
+    allContentfulMeetTheStudents: {
+      edges: Array<{
+        node: {
+          house: string
+          houseDetails: {
+            description: IDescription
+            desktopInsignia: IFluid
+            mobileInsignia: IFluid
+          }
+          studentsImage: IFluid
+          studentDescriptions: IStudentDescription[]
         }
-        studentsImage: IFluid
-        studentDescriptions: IStudentDescription[]
-      }
-    }>
+      }>
+    }
   }
 }
 

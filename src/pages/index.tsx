@@ -180,6 +180,31 @@ export const query = graphql`
         }
       }
     }
+    allContentfulYearbookLandingPage(limit: 1) {
+      edges {
+        node {
+          header
+          description {
+            description
+          }
+          studentImages {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          nextImage {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          yearbookImage {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+      }
+    }
   }
 `
 

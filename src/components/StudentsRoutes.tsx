@@ -1,18 +1,27 @@
-import React, { useState, FunctionComponent } from "react"
+import React, { FunctionComponent, useState } from "react"
 import { House, IStudentsRoutesProps } from "../types"
-import Students from "./Students/Students"
 import MeetTheStudents from "./Students/MeetTheStudents"
+import Students from "./Students/Students"
+import { YearbookLandingPage } from "./YearbookLandingPage"
 
 export const StudentsRoutes: FunctionComponent<
   IStudentsRoutesProps
 > = props => {
-  const [activePage, setActivePage] = useState<House | "STUDENTS">("STUDENTS")
+  const [activePage, setActivePage] = useState<House | "STUDENTS" | "YEARBOOK">(
+    "YEARBOOK"
+  )
   return (
-    <div className="main__page__wrapper centered">
+    <div className="main__page__wrapper ">
+      {activePage === "YEARBOOK" && (
+        <YearbookLandingPage
+          data={props.data.allContentfulYearbookLandingPage}
+          setActiveStudentsPage={setActivePage}
+        />
+      )}
       {activePage === "STUDENTS" && (
         <Students setActiveStudentsPage={setActivePage} />
       )}
-      {props.data.edges.map(house => {
+      {props.data.allContentfulMeetTheStudents.edges.map(house => {
         const { houseDetails, studentsImage, studentDescriptions } = house.node
         return (
           <div key={house.node.house}>
