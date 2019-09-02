@@ -1,13 +1,16 @@
 import Img from "gatsby-image"
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, useEffect } from "react"
 import { IShopProps } from "../../types"
 import "./shop.scss"
 
 const Shop: FunctionComponent<IShopProps> = props => {
+  useEffect(() => {
+    document.getElementById("booksWrapper").scrollTo(120, 0)
+  }, [])
   return (
     <div className="shop__wrapper">
       <h1 className="shop__header">{props.pageData.edges[0].node.header}</h1>
-      <div className="shop__books__wrapper">
+      <div className="shop__books__wrapper" id="booksWrapper">
         {props.pageData.edges[0].node.books.map(book => {
           return (
             <a
