@@ -14,10 +14,19 @@ export const Link: FunctionComponent<
 > = props => {
   const handleClick = () => {
     const element = document.getElementsByName(props.to)[0]
+    const navHeight = document.getElementById("responsive-navbar-nav")
+      .offsetHeight
+    const top =
+      navHeight > 100
+        ? element.offsetTop -
+          document.getElementById("navbar").offsetHeight +
+          navHeight
+        : element.offsetTop - document.getElementById("navbar").offsetHeight
     if (element) {
-      element.scrollIntoView({
+      window.scrollTo({
         behavior: "smooth",
-        block: props.block || "nearest",
+        left: 0,
+        top,
       })
     }
   }

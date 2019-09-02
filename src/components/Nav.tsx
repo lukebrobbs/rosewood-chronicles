@@ -14,7 +14,12 @@ const NavComponent = () => {
         collapseOnSelect={true}
         sticky="top"
       >
-        <Navbar.Brand to="title-page" className="navbar__brand" as={Link}>
+        <Navbar.Brand
+          to="title-page"
+          className="navbar__brand"
+          as={Link}
+          id="rosewood-logo"
+        >
           <Image />
         </Navbar.Brand>
         <Navbar.Toggle
@@ -36,11 +41,14 @@ const NavComponent = () => {
             <Nav.Link to="shop" as={Link} className="mx-auto" eventKey={2}>
               HOME
             </Nav.Link>
+            <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={3}>
+              YEARBOOK
+            </Nav.Link>
             <Nav.Link
               href="https://www.shopify.com"
               target="_blank"
               className="mx-auto"
-              eventKey={3}
+              eventKey={4}
               as="a"
             >
               MERCHANDISE
@@ -49,7 +57,7 @@ const NavComponent = () => {
               href="https://www.penguin.co.uk/series/roschron/the-rosewood-chronicles.html"
               target="_blank"
               className="mx-auto"
-              eventKey={3}
+              eventKey={5}
               as="a"
             >
               BOOKS
