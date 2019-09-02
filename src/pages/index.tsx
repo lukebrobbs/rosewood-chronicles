@@ -170,6 +170,11 @@ export const query = graphql`
               ...GatsbyContentfulFluid
             }
           }
+          studentImages {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
           id
           house
         }

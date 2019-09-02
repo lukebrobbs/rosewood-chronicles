@@ -3,11 +3,13 @@ import React, { FunctionComponent } from "react"
 import { ISortedHouseProps } from "../types"
 
 export const SortedHouse: FunctionComponent<ISortedHouseProps> = props => {
+  console.log(props)
   const {
     house,
     description,
     desktopInsignia,
     mobileInsignia,
+    studentImages,
   } = props.data.node
   const sources = [
     mobileInsignia.fluid,
@@ -18,8 +20,7 @@ export const SortedHouse: FunctionComponent<ISortedHouseProps> = props => {
   ]
   return (
     <div className="sortedHouse__wrapper">
-      <div />
-      <div>
+      <div className="sortedHouse__content">
         <h1 className="sortedHouse__header">Congratulations!</h1>
         <div className="sortedHouse__banner__wrapper">
           <Img fluid={sources} alt={`${house} insignia`} />
@@ -31,7 +32,19 @@ export const SortedHouse: FunctionComponent<ISortedHouseProps> = props => {
           {description.description}
         </p>
       </div>
-      <div />
+      <div className="sortedHouse__studentImages__wrapper">
+        {studentImages.map((studentImage, index) => {
+          const side = index === 0 ? "left" : "right"
+          return (
+            <div
+              className={`sortedHouse__studentImage__wrapper ${side}`}
+              key={`sortedStudentImage${index}`}
+            >
+              <Img fluid={studentImage.fluid} />
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

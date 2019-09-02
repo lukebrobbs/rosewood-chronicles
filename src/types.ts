@@ -90,6 +90,7 @@ interface ISortedHouseEdge {
     desktopInsignia: IFluid
     mobileInsignia: IFluid
     house: string
+    studentImages: IFluid[]
   }
 }
 
