@@ -19,11 +19,11 @@ const NavComponent = () => {
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          className="navbar-toggler navbar-toggler-right ml-auto mr-3"
+          className="custom-toggler navbar-toggler navbar-toggler-right ml-auto mr-3"
         />
 
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav className="ml-auto ">
             <Nav.Link
               to="pre-sorting"
               as={Link}
