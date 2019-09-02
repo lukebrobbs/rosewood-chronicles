@@ -42,11 +42,7 @@ export const query = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          studentImage {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
+
           houseBanners {
             conchDesktop {
               fluid {

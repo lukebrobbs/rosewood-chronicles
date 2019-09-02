@@ -12,7 +12,7 @@ const Quiz = ({ data }) => {
       <SortingQuiz
         banners={edges[0].node.houseBanners}
         questions={formatQuizQuestions(data.allContentfulSortingQuiz)}
-        image={edges[0].node.studentImage}
+        images={edges[0].node.studentImages}
       />
     </>
   )
@@ -40,7 +40,7 @@ export const query = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          studentImage {
+          studentImages {
             fluid {
               ...GatsbyContentfulFluid
             }

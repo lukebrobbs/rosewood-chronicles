@@ -142,7 +142,7 @@ describe("Sorting Quiz", () => {
     const { getAllByTestId } = render(
       <SortingQuiz
         questions={questionMocks}
-        image={mockImage}
+        images={[mockImage]}
         banners={mockBanners}
       />
     )
@@ -152,7 +152,7 @@ describe("Sorting Quiz", () => {
     const { getByTestId, queryByTestId } = render(
       <SortingQuiz
         questions={questionMocks}
-        image={mockImage}
+        images={[mockImage]}
         banners={mockBanners}
       />
     )
@@ -164,7 +164,7 @@ describe("Sorting Quiz", () => {
     const { getByTestId, queryByTestId } = render(
       <SortingQuiz
         questions={questionMocks}
-        image={mockImage}
+        images={[mockImage]}
         banners={mockBanners}
       />
     )
@@ -181,7 +181,7 @@ describe("Sorting Quiz", () => {
       const { getByTestId } = render(
         <SortingQuiz
           questions={questionMocks}
-          image={mockImage}
+          images={[mockImage]}
           banners={mockBanners}
         />
       )
@@ -210,6 +210,7 @@ describe("reducer", () => {
     it("Should increment the current index, and add current selection to quizAnswers array", () => {
       const mockState: IState = {
         currentSelection: "IVY",
+        imageIndex: 0,
         questionIndex: 0,
         quizAnswers: [],
       }
@@ -217,6 +218,7 @@ describe("reducer", () => {
 
       const expected = {
         currentSelection: "",
+        imageIndex: 0,
         questionIndex: 1,
         quizAnswers: ["IVY"],
       }
@@ -225,6 +227,7 @@ describe("reducer", () => {
     it("Should set currentSection to the next answer if it exists", () => {
       const mockState: IState = {
         currentSelection: "IVY",
+        imageIndex: 0,
         questionIndex: 0,
         quizAnswers: ["", "CONCH"],
       }
@@ -239,6 +242,7 @@ describe("reducer", () => {
     it("If no action value is passed in, should return the state passed in", () => {
       const mockState: IState = {
         currentSelection: "STRATUS",
+        imageIndex: 0,
         questionIndex: 0,
         quizAnswers: ["CONCH"],
       }
@@ -251,6 +255,7 @@ describe("reducer", () => {
     it("Should throw an error", () => {
       const mockState: IState = {
         currentSelection: "STRATUS",
+        imageIndex: 0,
         questionIndex: 0,
         quizAnswers: ["CONCH"],
       }

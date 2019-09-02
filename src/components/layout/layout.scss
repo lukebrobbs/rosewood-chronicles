@@ -627,7 +627,15 @@ pre tt:after {
   z-index: 2;
   margin: 0 auto;
   max-width: 960;
+
   padding-top: 0;
+}
+
+.app__wrapper {
+  @media only screen and (min-width: 1100px) {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 .radio-tertiary {

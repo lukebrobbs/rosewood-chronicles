@@ -15,13 +15,13 @@ interface IProps {
 }
 
 export const Layout = (props: IProps) => (
-  <>
+  <div className="app__wrapper">
     <Nav />
     <div className="background__image" />
     <div className={`layout__wrapper`}>
       <main>{props.children}</main>
     </div>
-  </>
+  </div>
 )
 
 Layout.propTypes = {

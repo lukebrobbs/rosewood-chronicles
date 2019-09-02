@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Rosewood Chronicles`,
-    description: `Fan site for the Rosewood Chronicles books.`,
+    description: `Welcome to The Rosewood Chronicles`,
     author: `@LukeBrobbin`,
   },
   plugins: [

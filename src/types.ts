@@ -53,9 +53,9 @@ export interface IQuestion {
 
 export interface ISortingQuizProps {
   questions: IQuestion[]
-  image: {
+  images: Array<{
     fluid: FluidObject
-  }
+  }>
   banners: IBanners
 }
 
@@ -137,15 +137,18 @@ export interface IQuizProps {
   quizAnswers: Array<House | string>
   currentSelection: House | string
   dispatch: React.Dispatch<IAction>
+  max: number
 }
 
 export interface IAction {
   type: "HANDLE_NEXT" | "HANDLE_BACK" | "ADD_CURRENT_SELECTION"
   value?: House | string
+  max?: number
 }
 
 export interface IState {
   questionIndex: number
+  imageIndex: number
   quizAnswers: Array<House | string>
   currentSelection: House | string
 }

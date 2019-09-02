@@ -43,7 +43,9 @@ const Quiz: FunctionComponent<IQuizProps> = props => {
                   <button
                     data-testid="sortingQuizNextButton"
                     className="button"
-                    onClick={() => props.dispatch({ type: "HANDLE_NEXT" })}
+                    onClick={() =>
+                      props.dispatch({ type: "HANDLE_NEXT", max: props.max })
+                    }
                   >
                     NEXT
                   </button>
