@@ -47,12 +47,7 @@ const SortingQuiz: FunctionComponent<ISortingQuizProps> = props => {
           currentQuestion={state.questionIndex + 1}
         />
       </div>
-      <Quiz
-        questions={props.questions}
-        {...state}
-        dispatch={dispatch}
-        setActivePage={props.setActivePage}
-      />
+      <Quiz questions={props.questions} {...state} dispatch={dispatch} />
       <div className="sortingQuiz__saskia">
         <Img fluid={props.image.fluid} />
       </div>

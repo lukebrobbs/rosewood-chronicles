@@ -27,7 +27,7 @@ const EmailCapture: FunctionComponent<IEmailCaptureProps> = props => {
     )
       .then((data: Response) => {
         console.log(data.body)
-        props.setActivePage("SORTING_QUIZ")
+        navigate("/sorting-quiz/quiz")
       })
       .catch(err => {
         console.log(err)

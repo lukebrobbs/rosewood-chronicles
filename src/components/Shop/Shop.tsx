@@ -27,7 +27,14 @@ const Shop: FunctionComponent<IShopProps> = props => {
         href={props.pageData.edges[0].node.shopButtonLink}
         target="__blank"
       >
-        SHOP NOW
+        ROSEWOOD MERCHANDISE
+      </a>
+      <a
+        className="shop__link button"
+        href="https://www.penguin.co.uk/series/roschron/the-rosewood-chronicles.html"
+        target="__blank"
+      >
+        ROSEWOOD BOOKS
       </a>
     </div>
   )

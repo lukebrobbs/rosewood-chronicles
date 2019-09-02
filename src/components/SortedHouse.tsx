@@ -3,12 +3,7 @@ import Img from "gatsby-image"
 import { ISortedHouseProps } from "../types"
 
 export const SortedHouse: FunctionComponent<ISortedHouseProps> = props => {
-  const {
-    house,
-    description,
-    desktopInsignia,
-    mobileInsignia,
-  } = props.data.node
+  const { house, description, desktopInsignia, mobileInsignia } = props.data
   const sources = [
     mobileInsignia.fluid,
     {

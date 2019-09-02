@@ -57,7 +57,6 @@ export interface ISortingQuizProps {
     fluid: FluidObject
   }
   banners: IBanners
-  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
 export interface IPreSortingProps {
@@ -68,7 +67,6 @@ export interface IPreSortingProps {
   }>
   text: string
   banners: IBanners
-  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 export interface IPreSortingTextProps {
   header: string
@@ -81,7 +79,12 @@ export interface IPreSortingPageProps {
 }
 
 export interface ISortedHouseProps {
-  data: ISortedHouseEdge
+  data: {
+    description: IDescription
+    desktopInsignia: IFluid
+    mobileInsignia: IFluid
+    house: string
+  }
 }
 
 interface ISortedHouseEdge {
@@ -95,7 +98,6 @@ interface ISortedHouseEdge {
 
 export interface IEmailCaptureProps {
   banners: IBanners
-  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
 export interface IBannerImagesProps {
@@ -135,7 +137,6 @@ export interface IQuizProps {
   quizAnswers: Array<House | string>
   currentSelection: House | string
   dispatch: React.Dispatch<IAction>
-  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
 export interface IAction {

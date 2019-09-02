@@ -1,4 +1,5 @@
 import { RouteComponentProps } from "@reach/router"
+import { navigate } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { IPreSortingProps } from "../../types"
 import BannerImages from "./BannerImages"
@@ -19,7 +20,7 @@ const PreSorting: FunctionComponent<
             </p>
           </PreSortingText>
           <button
-            onClick={() => props.setActivePage("SIGN_UP")}
+            onClick={() => navigate("/sorting-quiz/sign-up")}
             className="preSorting__signUp__button"
           >
             SIGN UP

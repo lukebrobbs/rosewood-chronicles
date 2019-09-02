@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card"
 import { IQuizProps } from "../../types"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
+import { navigate } from "gatsby"
 
 const Quiz: FunctionComponent<IQuizProps> = props => {
   const shouldNextButtonRender =
@@ -10,7 +11,7 @@ const Quiz: FunctionComponent<IQuizProps> = props => {
 
   const handleSubmit = async () => {
     const sortedHouse = calculateHouse(props.quizAnswers)
-    props.setActivePage(sortedHouse)
+    navigate(`/sorting-quiz/${sortedHouse}`)
   }
 
   return (
