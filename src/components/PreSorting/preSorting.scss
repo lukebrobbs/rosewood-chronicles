@@ -88,6 +88,9 @@
   &:hover {
     background-color: #f180a5;
   }
+  @media only screen and (max-width: 768px) {
+    font-size: 1em !important;
+  }
 }
 
 .preSorting__signUp__button {

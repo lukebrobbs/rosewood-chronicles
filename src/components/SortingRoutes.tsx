@@ -30,7 +30,7 @@ export const SortingRoutes: FunctionComponent<IPreSortingPageProps> = props => {
         <SortingQuiz
           banners={edges[0].node.houseBanners}
           questions={formatQuizQuestions(props.data)}
-          image={edges[0].node.studentImage}
+          images={edges[0].node.studentImages}
           setActivePage={setActivePage}
         />
       )}

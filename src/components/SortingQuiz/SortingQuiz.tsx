@@ -8,6 +8,7 @@ import "./sortingQuiz.scss"
 
 const initialState: IState = {
   currentSelection: "",
+  imageIndex: 0,
   questionIndex: 0,
   quizAnswers: [],
 }
@@ -17,8 +18,12 @@ export const sortingQuizReducer = (state: IState, action: IAction): IState => {
   switch (action.type) {
     case "HANDLE_NEXT":
       newQuizAnswers.splice(state.questionIndex, 1, state.currentSelection)
+      const newIndex = Math.floor(
+        Math.random() * Math.floor(action.max ? action.max : 0)
+      )
       return {
         currentSelection: state.quizAnswers[state.questionIndex + 1] || "",
+        imageIndex: newIndex,
         questionIndex: state.questionIndex + 1,
         quizAnswers: newQuizAnswers,
       }
@@ -37,9 +42,13 @@ export const sortingQuizReducer = (state: IState, action: IAction): IState => {
 
 const SortingQuiz: FunctionComponent<ISortingQuizProps> = props => {
   const [state, dispatch] = useReducer(sortingQuizReducer, initialState)
-
   return (
     <div className="sortingQuiz__container">
+      <div style={{ display: "none" }}>
+        {props.images.map((image, index) => (
+          <Img fluid={image.fluid} key={`quiz-image-${index}`} />
+        ))}
+      </div>
       <div className="sortingQuiz__bannerImages">
         <BannerImages banners={props.banners} />
         <QuestionNumber
@@ -51,10 +60,11 @@ const SortingQuiz: FunctionComponent<ISortingQuizProps> = props => {
         questions={props.questions}
         {...state}
         dispatch={dispatch}
+        max={props.images.length}
         setActivePage={props.setActivePage}
       />
       <div className="sortingQuiz__saskia">
-        <Img fluid={props.image.fluid} />
+        <Img fluid={props.images[state.imageIndex].fluid} />
       </div>
     </div>
   )

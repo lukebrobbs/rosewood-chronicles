@@ -49,7 +49,7 @@ export const query = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          studentImage {
+          studentImages {
             fluid {
               ...GatsbyContentfulFluid
             }

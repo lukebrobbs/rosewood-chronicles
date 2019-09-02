@@ -53,9 +53,9 @@ export interface IQuestion {
 
 export interface ISortingQuizProps {
   questions: IQuestion[]
-  image: {
+  images: Array<{
     fluid: FluidObject
-  }
+  }>
   banners: IBanners
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
@@ -136,15 +136,18 @@ export interface IQuizProps {
   currentSelection: House | string
   dispatch: React.Dispatch<IAction>
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
+  max: number
 }
 
 export interface IAction {
   type: "HANDLE_NEXT" | "HANDLE_BACK" | "ADD_CURRENT_SELECTION"
   value?: House | string
+  max?: number
 }
 
 export interface IState {
   questionIndex: number
+  imageIndex: number
   quizAnswers: Array<House | string>
   currentSelection: House | string
 }
@@ -211,9 +214,9 @@ export interface IEdges {
         fluid: FluidObject
       }>
       houseBanners: IBanners
-      studentImage: {
+      studentImages: Array<{
         fluid: FluidObject
-      }
+      }>
       questions: Array<{
         id: string
         question: string

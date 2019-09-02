@@ -34,7 +34,25 @@ const NavComponent = () => {
               SORTING QUIZ
             </Nav.Link>
             <Nav.Link to="shop" as={Link} className="mx-auto" eventKey={2}>
-              SHOP
+              HOME
+            </Nav.Link>
+            <Nav.Link
+              href="https://www.shopify.com"
+              target="_blank"
+              className="mx-auto"
+              eventKey={3}
+              as="a"
+            >
+              MERCHANDISE
+            </Nav.Link>
+            <Nav.Link
+              href="https://www.penguin.co.uk/series/roschron/the-rosewood-chronicles.html"
+              target="_blank"
+              className="mx-auto"
+              eventKey={3}
+              as="a"
+            >
+              BOOKS
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

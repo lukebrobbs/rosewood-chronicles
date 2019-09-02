@@ -2,8 +2,8 @@
 
 .shop__wrapper {
   text-align: center;
-  margin-top: 4em;
-  height: calc(100vh - 50px - 2em);
+  margin-top: 2em;
+  height: calc(100vh - 50px - 5em);
 }
 .shop__books__wrapper {
   width: 50%;
@@ -22,8 +22,8 @@
 
 .shop__book {
   @media only screen and (max-width: 1024px) {
-    width: 60%;
-    min-width: 60%;
+    width: 50%;
+    min-width: 50%;
     margin: 0 0.5em;
   }
 }
@@ -33,17 +33,24 @@
   color: #9e8838;
   @media only screen and (max-width: 1200px) {
     font-size: 2em;
-    margin: 1em auto;
+    margin: 0em auto 1em auto;
     width: 50%;
   }
   @media only screen and (max-width: 768px) {
     width: 70%;
   }
+  @media only screen and (max-width: 400px) {
+    font-size: 1.3em;
+  }
 }
 
 .shop__link {
+  margin: 0.5em 1em;
   &:hover {
     color: #f8eaed;
     text-decoration: none;
   }
+  // @media only screen and (max-width: 1200px) {
+  //   font-size: 1em;
+  // }
 }

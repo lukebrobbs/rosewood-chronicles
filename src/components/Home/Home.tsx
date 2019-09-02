@@ -22,10 +22,10 @@ const Home = () => {
                 to="pre-sorting"
                 block="start"
               >
-                TAKE QUIZ
+                SORTING QUIZ
               </Link>
               <Link className="preSorting__signUp__button" to="shop">
-                SHOP NOW
+                HOME
               </Link>
             </div>
           </Parallax>
