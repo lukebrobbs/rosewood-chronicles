@@ -3,7 +3,6 @@ import { Element } from "./Scroll"
 import Shop from "./Shop/Shop"
 import { SortingRoutes } from "./SortingRoutes"
 import { StudentsRoutes } from "./StudentsRoutes"
-import { YearbookLandingPage } from "./YearbookLandingPage"
 
 const NonHomePages = (props: any) => {
   return (

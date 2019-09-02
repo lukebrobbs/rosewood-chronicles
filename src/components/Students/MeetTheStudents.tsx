@@ -6,6 +6,7 @@ import ForwardButton from "../images/ForwardArrow"
 import { StudentsImage } from "../StudentsImage"
 import Description from "./StudentDescription"
 import "./students.scss"
+import Swipe from "react-easy-swipe"
 
 const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
   const {
@@ -23,7 +24,10 @@ const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
   )
 
   return (
-    <div>
+    <Swipe
+      onSwipeLeft={() => props.setActiveStudentsPage({ type: "HANDLE_NEXT" })}
+      onSwipeRight={() => props.setActiveStudentsPage({ type: "HANDLE_BACK" })}
+    >
       <h1 className="students__header">Yearbook</h1>
       <div className="students__house__content__wrapper">
         <div
@@ -75,7 +79,7 @@ const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
           <ForwardButton />
         </div>
       </div>
-    </div>
+    </Swipe>
   )
 }
 
