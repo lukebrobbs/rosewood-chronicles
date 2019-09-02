@@ -1,6 +1,7 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent, useState } from "react"
 import { IMeetTheStudentsProps } from "../../types"
+import { StudentsImage } from "../StudentsImage"
 import Description from "./StudentDescription"
 import "./students.scss"
 
@@ -22,10 +23,12 @@ const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
 
   return (
     <div>
-      <h1 className="students__header">Meet The Students</h1>
+      <h1 className="students__header">Yearbook</h1>
       <div className="studets__house__wrapper">
-        <div className="students__house__insignia">
-          <Img fluid={sources} loading="eager" alt={`${house} insignia`} />
+        <div>
+          <div className="students__house__insignia">
+            <Img fluid={sources} loading="eager" alt={`${house} insignia`} />
+          </div>
           <p
             data-testid="houseDescription"
             className="student__house__description"
@@ -34,7 +37,13 @@ const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
           </p>
         </div>
         <div className="student__house__students__wrapper">
-          <Img fluid={studentsImage.fluid} alt={`${house} students`} />
+          <StudentsImage
+            students={props.pageContext.studentDescriptions}
+            setStudent={setCurrentlySelectedStudent}
+          />
+        </div>
+        <div className="student__house__currentStudent__image">
+          <Img fluid={currentlySelectedStudent.image.fluid} />
         </div>
         <Description
           house={house}

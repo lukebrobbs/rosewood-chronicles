@@ -132,6 +132,7 @@ export const query = graphql`
           }
           studentDescriptions {
             name
+            displayName
             birthday(formatString: "MMMM Do")
             favouriteThings {
               favouriteThings
@@ -144,6 +145,11 @@ export const query = graphql`
             }
             quote {
               quote
+            }
+            image {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
             }
           }
           studentsImage {

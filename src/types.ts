@@ -140,6 +140,11 @@ export interface IHandleSubmit {
   subscribed: boolean
 }
 
+export interface IStudentsImageProps {
+  students: IStudentDescription[]
+  setStudent: React.Dispatch<React.SetStateAction<IStudentDescription>>
+}
+
 export interface ISignUpProps {
   location: {
     origin: string
@@ -220,11 +225,13 @@ interface IHouseDetails {
 
 interface IStudentDescription {
   name: string
+  displayName: string
   birthday: string
   favouriteThings: { favouriteThings: string }
   leastFavouriteThings: { leastFavouriteThings: string }
   inTheirBag: { inTheirBag: string }
   quote: { quote: string }
+  image: IFluid
 }
 
 export interface IEdges {

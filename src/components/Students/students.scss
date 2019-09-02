@@ -13,7 +13,9 @@
   text-align: center;
   padding-bottom: 0.5em;
   @media screen and (max-width: 760px) {
-    display: none;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -46,27 +48,28 @@ $break-large: 769px;
   width: 100%;
   justify-self: center;
   @media screen and (max-width: 768px) {
-    width: 80%;
+    width: 90%;
   }
 }
 
 .studets__house__wrapper {
   display: grid;
+  grid-gap: 10px;
   grid-template-columns: 1fr 1fr 1fr;
   @media screen and (max-width: 1024px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 .students__house__insignia {
   width: 70%;
   justify-self: center;
+  margin: auto;
   @media screen and (max-width: 1024px) {
     margin-top: 1em;
-    width: 80%;
+    width: 50%;
   }
-  @media screen and (max-width: 768px) {
-    margin-top: 1em;
+  @media screen and (max-width: 500px) {
     width: 50%;
   }
 }
@@ -76,21 +79,32 @@ $break-large: 769px;
   color: #3c1116;
   font-weight: bold;
   text-align: center;
-  margin-top: 1.5em;
+  margin: 1.5em auto;
+  width: 80%;
   @media screen and (max-width: 1024px) {
-    display: none;
+    width: 80%;
+    font-size: 1.1em;
+  }
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    font-size: 0.8em;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 0.6em;
+    width: 80%;
+    text-align: left;
   }
 }
 
 .student__house__students__wrapper {
   padding-top: 2.5em;
   @media screen and (max-width: $break-large) {
-    width: 90%;
+    width: 100%;
     justify-self: center;
     padding-top: 1em;
   }
   @media screen and (max-width: 1024px) and (min-width: 764px) {
-    width: 60%;
+    width: 90%;
     justify-self: center;
     padding-top: 1em;
   }
@@ -102,6 +116,36 @@ $break-large: 769px;
   width: 75%;
   background-color: #f8eaed;
   justify-self: center;
+  @media screen and (max-width: 768px) {
+    font-size: 0.8em;
+  }
+  @media screen and (min-height: 800px) and (max-width: 500px) {
+    font-size: 0.6em;
+    width: 80%;
+  }
+  @media screen and (max-height: 800px) {
+    font-size: 0.5em;
+    width: 80%;
+  }
+}
+
+.student__house__student__name {
+  font-family: Garamond;
+  color: #3c1116;
+  font-weight: bold;
+  font-size: 0.6em;
+  cursor: pointer;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1em;
+  }
+}
+
+.student__house__student__name__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  align-items: center;
+  justify-items: center;
 }
 
 .student__house__student__header {
@@ -113,6 +157,11 @@ $break-large: 769px;
   justify-content: center;
   & h3 {
     margin: 0;
+  }
+  @media screen and (max-width: 768px) {
+    & h4 {
+      font-size: 1.4em;
+    }
   }
 }
 
@@ -131,6 +180,14 @@ $break-large: 769px;
   font-weight: 600;
 }
 
+.student__house__currentStudent__image {
+  width: 60%;
+  justify-self: center;
+  @media screen and (min-width: 768px) {
+    width: 40%;
+  }
+}
+
 .conch {
   background-color: #a00d2c;
 }
@@ -141,4 +198,20 @@ $break-large: 769px;
 
 .stratus {
   background-color: #ebb708;
+}
+
+.studentsImage__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+}
+
+.student__house__student__name {
+  text-align: center;
+}
+.studentImage__student {
+  text-align: center;
+}
+
+.studentsImage__image {
+  cursor: pointer;
 }

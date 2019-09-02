@@ -7,9 +7,7 @@ import { YearbookLandingPage } from "./YearbookLandingPage"
 export const StudentsRoutes: FunctionComponent<
   IStudentsRoutesProps
 > = props => {
-  const [activePage, setActivePage] = useState<House | "STUDENTS" | "YEARBOOK">(
-    "YEARBOOK"
-  )
+  const [activePage, setActivePage] = useState<House | "YEARBOOK">("YEARBOOK")
   return (
     <div className="main__page__wrapper ">
       {activePage === "YEARBOOK" && (
@@ -17,9 +15,6 @@ export const StudentsRoutes: FunctionComponent<
           data={props.data.allContentfulYearbookLandingPage}
           setActiveStudentsPage={setActivePage}
         />
-      )}
-      {activePage === "STUDENTS" && (
-        <Students setActiveStudentsPage={setActivePage} />
       )}
       {props.data.allContentfulMeetTheStudents.edges.map(house => {
         const { houseDetails, studentsImage, studentDescriptions } = house.node
