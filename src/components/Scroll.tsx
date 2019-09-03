@@ -14,14 +14,8 @@ export const Link: FunctionComponent<
 > = props => {
   const handleClick = () => {
     const element = document.getElementsByName(props.to)[0]
-    const navHeight = document.getElementById("responsive-navbar-nav")
-      .offsetHeight
     const top =
-      navHeight > 100
-        ? element.offsetTop -
-          document.getElementById("navbar").offsetHeight +
-          navHeight
-        : element.offsetTop - document.getElementById("navbar").offsetHeight
+      element.offsetTop - document.getElementById("navbar").offsetHeight
     if (element) {
       window.scrollTo({
         behavior: "smooth",
@@ -32,7 +26,13 @@ export const Link: FunctionComponent<
   }
 
   return (
-    <a {...props} onClick={handleClick}>
+    <a
+      {...props}
+      onClick={e => {
+        props.onClick(e)
+        handleClick()
+      }}
+    >
       {props.children}
     </a>
   )

@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { Nav, Navbar } from "react-bootstrap"
 import Image from "./images/RosewoodLogo"
 import { Link } from "./Scroll"
 
 const NavComponent = () => {
+  const [isExpanded, setIsExpanded] = useState(false)
   return (
     <>
       <Navbar
@@ -11,14 +12,17 @@ const NavComponent = () => {
         bg="primary"
         variant="dark"
         id="navbar"
-        collapseOnSelect={true}
+        expanded={isExpanded}
+        onSelect={() => setIsExpanded(false)}
         sticky="top"
+        onToggle={expanded => setIsExpanded(expanded)}
       >
         <Navbar.Brand
           to="title-page"
           className="navbar__brand"
           as={Link}
           id="rosewood-logo"
+          onClick={() => {}}
         >
           <Image />
         </Navbar.Brand>
@@ -38,7 +42,13 @@ const NavComponent = () => {
             >
               SORTING QUIZ
             </Nav.Link>
-            <Nav.Link to="shop" as={Link} className="mx-auto" eventKey={2}>
+            <Nav.Link
+              to="shop"
+              as={Link}
+              className="mx-auto"
+              eventKey={2}
+              onClick={() => {}}
+            >
               HOME
             </Nav.Link>
             <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={3}>
