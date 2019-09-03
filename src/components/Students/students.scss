@@ -114,24 +114,27 @@ $break-large: 769px;
 .student__house__student__description {
   position: relative;
   border-radius: 0.5em;
-  width: 75%;
+  width: 100%;
   background-color: #f8eaed;
   justify-self: center;
-  @media screen and (max-width: 768px) {
-    font-size: 0.8em;
+  @media screen and (max-width: 576px) {
+    display: none;
   }
-  @media screen and (min-height: 800px) and (max-width: 500px) {
-    font-size: 0.6em;
-    width: 90%;
-  }
-  @media screen and (max-height: 568px) and (max-width: 400px) {
-    font-size: 0.3em;
-    width: 90%;
-  }
-  @media screen and (max-height: 800px) and (min-width: 768px) {
-    font-size: 0.8em;
-    width: 80%;
-  }
+  // @media screen and (max-width: 768px) {
+  //   font-size: 0.8em;
+  // }
+  // @media screen and (min-height: 800px) and (max-width: 500px) {
+  //   font-size: 0.6em;
+  //   width: 90%;
+  // }
+  // @media screen and (max-height: 568px) and (max-width: 400px) {
+  //   font-size: 0.3em;
+  //   width: 90%;
+  // }
+  // @media screen and (max-height: 800px) and (min-width: 768px) {
+  //   font-size: 0.8em;
+  //   width: 80%;
+  // }
 }
 
 .student__house__student__name {
@@ -187,11 +190,13 @@ $break-large: 769px;
 
 .student__house__currentStudent__image {
   width: 60%;
-  justify-self: center;
-  @media screen and (min-width: 768px) {
-    width: 40%;
+  margin: auto;
+}
+.student__house__currentStudent__wrapper {
+  @media screen and (min-width: 1200px) {
+    display: none;
   }
-  @media screen and (min-width: 1025px) {
+  @media screen and (max-width: 576px) {
     display: none;
   }
 }

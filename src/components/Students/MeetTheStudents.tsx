@@ -6,6 +6,9 @@ import ForwardButton from "../images/ForwardArrow"
 import { StudentsImage } from "../StudentsImage"
 import Description from "./StudentDescription"
 import "./students.scss"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
   const {
@@ -33,40 +36,58 @@ const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
         >
           <BackButton />
         </div>
-        <div className="studets__house__wrapper">
-          <div>
-            <div className="students__house__insignia">
-              <Img fluid={sources} loading="eager" alt={`${house} insignia`} />
-            </div>
-            <p
-              data-testid="houseDescription"
-              className="student__house__description"
+        <Container>
+          <Row>
+            <Col sm={6} md={6} lg={6} xl={4}>
+              <div className="students__house__insignia">
+                <Img
+                  fluid={sources}
+                  loading="eager"
+                  alt={`${house} insignia`}
+                />
+              </div>
+              <p
+                data-testid="houseDescription"
+                className="student__house__description"
+              >
+                {houseDetails.description.description}
+              </p>
+            </Col>
+            <Col sm={6} md={6} lg={6} xl={4}>
+              <div className="student__house__students__wrapper">
+                <StudentsImage
+                  students={props.pageContext.studentDescriptions}
+                  setStudent={setCurrentlySelectedStudent}
+                />
+              </div>
+            </Col>
+            <Col
+              sm={6}
+              md={5}
+              lg={5}
+              className="student__house__currentStudent__wrapper"
             >
-              {houseDetails.description.description}
-            </p>
-          </div>
-          <div className="student__house__students__wrapper">
-            <StudentsImage
-              students={props.pageContext.studentDescriptions}
-              setStudent={setCurrentlySelectedStudent}
-            />
-          </div>
-          <div className="student__house__currentStudent__image">
-            <Img fluid={currentlySelectedStudent.image.fluid} />
-          </div>
-          <Description
-            house={house}
-            student={{
-              birthday: currentlySelectedStudent.birthday,
-              favouriteThings: currentlySelectedStudent.favouriteThings,
-              inTheirBag: currentlySelectedStudent.inTheirBag,
-              leastFavouriteThings:
-                currentlySelectedStudent.leastFavouriteThings,
-              name: currentlySelectedStudent.name,
-              quote: currentlySelectedStudent.quote,
-            }}
-          />
-        </div>
+              <div className="student__house__currentStudent__image">
+                <Img fluid={currentlySelectedStudent.image.fluid} />
+              </div>
+            </Col>
+            <Col sm={6} md={7} lg={7} xl={4}>
+              <Description
+                house={house}
+                student={{
+                  birthday: currentlySelectedStudent.birthday,
+                  favouriteThings: currentlySelectedStudent.favouriteThings,
+                  inTheirBag: currentlySelectedStudent.inTheirBag,
+                  leastFavouriteThings:
+                    currentlySelectedStudent.leastFavouriteThings,
+                  name: currentlySelectedStudent.name,
+                  quote: currentlySelectedStudent.quote,
+                }}
+              />
+            </Col>
+          </Row>
+        </Container>
+
         <div
           className="students__house__forwardButton"
           role="button"
