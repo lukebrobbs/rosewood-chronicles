@@ -664,13 +664,12 @@ pre tt:after {
 }
 
 .navbar__brand {
+  cursor: pointer;
   min-width: 200px;
-  position: absolute;
+  transform: translateX(-50%);
   left: 50%;
-  top: 40px;
-  transform: translate(-50%, -50%);
-  overflow: visible;
-  z-index: 2 !important;
+  top: 5px;
+  position: absolute;
   @media only screen and (max-width: 1200px) {
     min-width: 150px;
   }

@@ -28,11 +28,12 @@ const NavComponent = () => {
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          className="custom-toggler navbar-toggler navbar-toggler-right ml-auto mr-3"
+          className="custom-toggler navbar-toggler navbar-toggler-right  "
+          style={{ marginRight: "11%", marginLeft: "auto" }}
         />
 
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto ">
+          <Nav className="mx-auto">
             <Nav.Link
               to="pre-sorting"
               as={Link}
@@ -41,6 +42,9 @@ const NavComponent = () => {
               eventKey={1}
             >
               SORTING QUIZ
+            </Nav.Link>
+            <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={3}>
+              YEARBOOK
             </Nav.Link>
             <Nav.Link
               to="shop"
@@ -51,9 +55,8 @@ const NavComponent = () => {
             >
               HOME
             </Nav.Link>
-            <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={3}>
-              YEARBOOK
-            </Nav.Link>
+          </Nav>
+          <Nav className="mx-auto">
             <Nav.Link
               href="https://www.shopify.com"
               target="_blank"
