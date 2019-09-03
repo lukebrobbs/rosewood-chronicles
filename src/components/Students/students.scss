@@ -124,8 +124,12 @@ $break-large: 769px;
     font-size: 0.6em;
     width: 90%;
   }
-  @media screen and (max-height: 800px) {
-    font-size: 0.5em;
+  @media screen and (max-height: 568px) and (max-width: 400px) {
+    font-size: 0.3em;
+    width: 90%;
+  }
+  @media screen and (max-height: 800px) and (min-width: 768px) {
+    font-size: 0.8em;
     width: 80%;
   }
 }
