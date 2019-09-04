@@ -29,7 +29,7 @@ const EmailCapture: FunctionComponent<IEmailCaptureProps> = props => {
 
   const addUserToMailchimp = async (formValues: IHandleSubmit) => {
     fetch(
-      `/.netlify/functions/mailchimp?email=${formValues.email}&subscribed=${formValues.subscribed}&firstName=${formValues.firstName}&lastName=${formValues.lastName}`
+      `${process.env.URL}/.netlify/functions/mailchimp?email=${formValues.email}&subscribed=${formValues.subscribed}&firstName=${formValues.firstName}&lastName=${formValues.lastName}`
     )
       .then((data: Response) => {
         console.log(data.body)
