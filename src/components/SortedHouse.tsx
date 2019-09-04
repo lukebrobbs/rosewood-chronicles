@@ -3,7 +3,6 @@ import React, { FunctionComponent } from "react"
 import { ISortedHouseProps } from "../types"
 
 export const SortedHouse: FunctionComponent<ISortedHouseProps> = props => {
-  console.log(props)
   const {
     house,
     description,
