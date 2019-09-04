@@ -11,19 +11,25 @@ import PreSortingText from "./PreSortingText"
 const SignupSchema = object().shape({
   email: string()
     .email("Please enter a valid email address")
-    .required(),
+    .required("Email is required"),
+  firstName: string(),
+  isOfAge: boolean().oneOf([true], "You must be over 13"),
+  lastName: string(),
   subscribed: boolean(),
 })
 
 const EmailCapture: FunctionComponent<IEmailCaptureProps> = props => {
   const initialValues = {
     email: "",
+    firstName: "",
+    isOfAge: false,
+    lastName: "",
     subscribed: false,
   }
 
   const addUserToMailchimp = async (formValues: IHandleSubmit) => {
     fetch(
-      `${window.location.hostname}/.netlify/functions/mailchimp?email=${formValues.email}&subscribed=${formValues.subscribed}`
+      `${window.location.hostname}/.netlify/functions/mailchimp?email=${formValues.email}&subscribed=${formValues.subscribed}&firstName=${formValues.firstName}&lastName=${formValues.lastName}`
     )
       .then((data: Response) => {
         console.log(data.body)
@@ -48,12 +54,49 @@ const EmailCapture: FunctionComponent<IEmailCaptureProps> = props => {
               <Form className="preSorting__form" onSubmit={handleSubmit}>
                 <PreSortingText header="House Sorting Quiz">
                   <div className="preSorting__emailSignup__wrapper">
+                    <Form.Group controlId="formBasicFirstName">
+                      <Form.Label>First Name</Form.Label>
+                      <Field name="firstName">
+                        {({ field }) => (
+                          <Form.Control
+                            isInvalid={errors.firstName && touched.firstName}
+                            {...field}
+                          />
+                        )}
+                      </Field>
+                      {errors.firstName && touched.firstName && (
+                        <FormControl.Feedback
+                          type="invalid"
+                          style={{ display: "block" }}
+                        >
+                          {errors.firstName}
+                        </FormControl.Feedback>
+                      )}
+                    </Form.Group>
+                    <Form.Group controlId="formBasicLastName">
+                      <Form.Label>Last Name</Form.Label>
+                      <Field name="lastName">
+                        {({ field }) => (
+                          <Form.Control
+                            isInvalid={errors.lastName && touched.lastName}
+                            {...field}
+                          />
+                        )}
+                      </Field>
+                      {errors.lastName && touched.lastName && (
+                        <FormControl.Feedback
+                          type="invalid"
+                          style={{ display: "block" }}
+                        >
+                          {errors.lastName}
+                        </FormControl.Feedback>
+                      )}
+                    </Form.Group>
                     <Form.Group controlId="formBasicEmail">
-                      <Form.Label>Email address</Form.Label>
+                      <Form.Label>Email address *</Form.Label>
                       <Field name="email">
                         {({ field }) => (
                           <Form.Control
-                            placeholder="Enter email"
                             isInvalid={errors.email && touched.email}
                             {...field}
                           />
@@ -69,11 +112,30 @@ const EmailCapture: FunctionComponent<IEmailCaptureProps> = props => {
                       )}
                     </Form.Group>
                     <Form.Group controlId="formBasicCheckbox">
+                      <Field name="isOfAge">
+                        {({ field }) => (
+                          <Form.Check
+                            type="checkbox"
+                            label="I confirm I am over the age of 13 *"
+                            {...field}
+                          />
+                        )}
+                      </Field>
+                      {errors.isOfAge && touched.isOfAge && (
+                        <FormControl.Feedback
+                          type="invalid"
+                          style={{ display: "block" }}
+                        >
+                          {errors.isOfAge}
+                        </FormControl.Feedback>
+                      )}
+                    </Form.Group>
+                    <Form.Group controlId="formBasicCheckbox">
                       <Field name="subscribed">
                         {({ field }) => (
                           <Form.Check
                             type="checkbox"
-                            label="Receive exclusive content"
+                            label="Receive exclusive Rosewood content"
                             {...field}
                           />
                         )}

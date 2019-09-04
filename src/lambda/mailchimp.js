@@ -2,7 +2,12 @@ const axios = require("axios")
 
 exports.handler = async (event, context) => {
   try {
-    const { email, subscribed } = event.queryStringParameters
+    const {
+      email,
+      subscribed,
+      firstName,
+      lastName,
+    } = event.queryStringParameters
     const status = subscribed === "true" ? "subscribed" : "pending"
     console.log({ subscribed, status, email })
 
@@ -16,6 +21,10 @@ exports.handler = async (event, context) => {
       data: {
         status,
         email_address: email,
+        merge_fields: {
+          FNAME: firstName,
+          LNAME: lastName,
+        },
       },
     })
     return {

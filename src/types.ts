@@ -135,8 +135,11 @@ export interface IBanners {
 }
 
 export interface IHandleSubmit {
+  firstName: string
+  lastName: string
   email: string
   subscribed: boolean
+  isOfAge: boolean
 }
 
 export interface IStudentsRoutesState {
