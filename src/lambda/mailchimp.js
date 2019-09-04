@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
 
     await axios({
       method: "post",
-      url: "https://us3.api.mailchimp.com/3.0/lists/2eccb994d3/members",
+      url: `https://${process.env.MC_REGION}.api.mailchimp.com/3.0/lists/${propcess.env.MAILCHIMP_LIST_ID}/members`,
       auth: {
         username: "anystring",
         password: process.env.MAILCHIMP_API_TOKEN,
