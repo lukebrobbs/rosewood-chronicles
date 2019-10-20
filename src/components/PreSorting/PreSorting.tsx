@@ -19,7 +19,7 @@ const PreSorting: FunctionComponent<
             </p>
           </PreSortingText>
           <button
-            onClick={() => props.setActivePage("SIGN_UP")}
+            onClick={() => props.setActivePage("SORTING_QUIZ")}
             className="preSorting__signUp__button"
           >
             SIGN UP

@@ -20,7 +20,7 @@ export const SortingRoutes: FunctionComponent<IPreSortingPageProps> = props => {
           setActivePage={setActivePage}
         />
       )}
-      {activePage === "SIGN_UP" && (
+      {activePage === "PRE_SORTING" && (
         <EmailCapture
           banners={edges[0].node.houseBanners}
           setActivePage={setActivePage}
