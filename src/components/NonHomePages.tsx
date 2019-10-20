@@ -13,12 +13,12 @@ const NonHomePages = (props: any) => {
           houseDescriptions={props.data.allContentfulHouseDescription}
         />
       </Element>
-      <Element name="yearbook">
+      {/* <Element name="yearbook">
         <StudentsRoutes data={props.data} />
       </Element>
       <Element name="shop">
         <Shop pageData={props.data.allContentfulShop} />
-      </Element>
+      </Element> */}
     </div>
   )
 }
