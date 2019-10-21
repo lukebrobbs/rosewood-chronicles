@@ -20,12 +20,12 @@ export const SortingRoutes: FunctionComponent<IPreSortingPageProps> = props => {
           setActivePage={setActivePage}
         />
       )}
-      {activePage === "PRE_SORTING" && (
+      {/* {activePage === "PRE_SORTING" && (
         <EmailCapture
           banners={edges[0].node.houseBanners}
           setActivePage={setActivePage}
         />
-      )}
+      )} */}
       {activePage === "SORTING_QUIZ" && (
         <SortingQuiz
           banners={edges[0].node.houseBanners}
