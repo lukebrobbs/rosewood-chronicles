@@ -1,16 +1,17 @@
-import { House } from "../../src/types"
+import { House, Edges } from "../../src/types"
 import {
   calculateHouse,
   formatQuizQuestions,
 } from "../../src/utils/quizQuestions"
 
 describe("Quiz questions", () => {
-  let mockGraphQLReturn: any
+  let mockGraphQLReturn: Edges
 
   beforeAll(() => {
     mockGraphQLReturn = {
       edges: [
         {
+          //@ts-ignore
           node: {
             questions: [
               {

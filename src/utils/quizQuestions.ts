@@ -1,9 +1,9 @@
-import { House, Answer, Edges, Question } from "../types"
+import { House, AnswerInterface, Edges, Question } from "../types"
 
 export const formatQuizQuestions = (questions: Edges): Question[] => {
   const shuffle = (
-    array: [Answer, Answer, Answer]
-  ): [Answer, Answer, Answer] => {
+    array: [AnswerInterface, AnswerInterface, AnswerInterface]
+  ): [AnswerInterface, AnswerInterface, AnswerInterface] => {
     return array.sort(() => Math.random() - 0.5)
   }
   return questions.edges[0].node.questions.map(edge => {
