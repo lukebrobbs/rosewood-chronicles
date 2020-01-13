@@ -1,8 +1,8 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent } from "react"
-import { IStudentsImageProps } from "../types"
+import { StudentsImageProps } from "../types"
 
-export const StudentsImage: FunctionComponent<IStudentsImageProps> = props => {
+export const StudentsImage: FunctionComponent<StudentsImageProps> = props => {
   return (
     <div className="studentsImage__wrapper">
       {props.students.map(student => {

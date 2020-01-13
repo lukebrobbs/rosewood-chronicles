@@ -1,8 +1,8 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent } from "react"
-import { IBannerImagesProps, IFluid } from "../../types"
+import { BannerImagesProps, Fluid } from "../../types"
 
-const BannerImages: FunctionComponent<IBannerImagesProps> = props => {
+const BannerImages: FunctionComponent<BannerImagesProps> = props => {
   const {
     conchMobile,
     conchDesktop,
@@ -11,7 +11,7 @@ const BannerImages: FunctionComponent<IBannerImagesProps> = props => {
     stratusDesktop,
     stratusMobile,
   } = props.banners
-  const createSources = (alt: string, mobile: IFluid, desktop: IFluid) => {
+  const createSources = (alt: string, mobile: Fluid, desktop: Fluid) => {
     return {
       alt,
       sources: [

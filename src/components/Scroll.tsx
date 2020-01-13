@@ -1,17 +1,16 @@
 import React, { FunctionComponent } from "react"
 
-interface ILinkProps {
+interface LinkProps {
   to: string
   block?: ScrollLogicalPosition
 }
 
-interface IElementProps {
+interface ElementProps {
   name: string
 }
 
-export const Link: FunctionComponent<
-  ILinkProps & React.HTMLAttributes<HTMLAnchorElement>
-> = props => {
+export const Link: FunctionComponent<LinkProps &
+  React.HTMLAttributes<HTMLAnchorElement>> = props => {
   const handleClick = () => {
     const element = document.getElementsByName(props.to)[0]
     const top =
@@ -38,8 +37,7 @@ export const Link: FunctionComponent<
   )
 }
 
-export const Element: FunctionComponent<
-  IElementProps & React.HTMLAttributes<HTMLDivElement>
-> = props => {
+export const Element: FunctionComponent<ElementProps &
+  React.HTMLAttributes<HTMLDivElement>> = props => {
   return <div {...props} />
 }

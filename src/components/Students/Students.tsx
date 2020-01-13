@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from "react"
-import { IStudentsProps } from "../../types"
+import { StudentsProps } from "../../types"
 import Conch from "../images/Conch"
 import Ivy from "../images/Ivy"
 import Stratus from "../images/Stratus"
 import SEO from "../seo"
 import "./students.scss"
 
-const Students: FunctionComponent<IStudentsProps> = props => {
+const Students: FunctionComponent<StudentsProps> = props => {
   return (
     <>
       <SEO title="Students" />

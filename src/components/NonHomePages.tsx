@@ -1,8 +1,6 @@
 import React from "react"
 import { Element } from "./Scroll"
-import Shop from "./Shop/Shop"
 import { SortingRoutes } from "./SortingRoutes"
-import { StudentsRoutes } from "./StudentsRoutes"
 
 const NonHomePages = (props: any) => {
   return (

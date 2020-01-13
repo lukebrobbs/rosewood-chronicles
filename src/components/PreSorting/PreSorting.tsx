@@ -1,13 +1,12 @@
 import { RouteComponentProps } from "@reach/router"
 import React, { FunctionComponent } from "react"
-import { IPreSortingProps } from "../../types"
+import { PreSortingProps } from "../../types"
 import BannerImages from "./BannerImages"
 import "./preSorting.scss"
 import PreSortingText from "./PreSortingText"
 
-const PreSorting: FunctionComponent<
-  IPreSortingProps & RouteComponentProps
-> = props => {
+const PreSorting: FunctionComponent<PreSortingProps &
+  RouteComponentProps> = props => {
   return (
     <>
       <div className="preSorting__wrapper">

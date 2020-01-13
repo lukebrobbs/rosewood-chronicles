@@ -1,22 +1,22 @@
 import React, { FunctionComponent, useReducer } from "react"
 import {
   House,
-  IStudentsRoutesAction,
-  IStudentsRoutesProps,
-  IStudentsRoutesState,
+  StudentsRoutesAction,
+  StudentsRoutesProps,
+  StudentsRoutesState,
 } from "../types"
 import MeetTheStudents from "./Students/MeetTheStudents"
 import { YearbookLandingPage } from "./YearbookLandingPage"
 
-const initialState: IStudentsRoutesState = {
+const initialState: StudentsRoutesState = {
   currentPage: "YEARBOOK",
   pagesIndex: 0,
 }
 
 const studentsRoutesReducer = (
-  state: IStudentsRoutesState,
-  action: IStudentsRoutesAction
-): IStudentsRoutesState => {
+  state: StudentsRoutesState,
+  action: StudentsRoutesAction
+): StudentsRoutesState => {
   const pages: Array<House | "YEARBOOK"> = [
     "YEARBOOK",
     "IVY",
@@ -44,9 +44,7 @@ const studentsRoutesReducer = (
   }
 }
 
-export const StudentsRoutes: FunctionComponent<
-  IStudentsRoutesProps
-> = props => {
+export const StudentsRoutes: FunctionComponent<StudentsRoutesProps> = props => {
   const [state, dispatch] = useReducer(studentsRoutesReducer, initialState)
 
   return (

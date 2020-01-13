@@ -17,18 +17,13 @@ const Home = () => {
           >
             <TitleLogo />
             <div className="home__navButton__wrapper">
-              <Link
-                className="preSorting__signUp__button"
-                to="shop"
-                onClick={() => {}}
-              >
+              <Link className="preSorting__signUp__button" to="shop">
                 HOME
               </Link>
               <Link
                 className="preSorting__signUp__button"
                 to="pre-sorting"
                 block="start"
-                onClick={() => {}}
               >
                 SORTING QUIZ
               </Link>

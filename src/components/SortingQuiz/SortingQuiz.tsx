@@ -1,19 +1,19 @@
 import Img from "gatsby-image"
 import React, { useReducer, FunctionComponent } from "react"
-import { IAction, ISortingQuizProps, IState } from "../../types"
+import { Action, SortingQuizProps, State } from "../../types"
 import BannerImages from "../PreSorting/BannerImages"
 import QuestionNumber from "./QuestionNumber"
 import Quiz from "./Quiz"
 import "./sortingQuiz.scss"
 
-const initialState: IState = {
+const initialState: State = {
   currentSelection: "",
   imageIndex: 0,
   questionIndex: 0,
   quizAnswers: [],
 }
 
-export const sortingQuizReducer = (state: IState, action: IAction): IState => {
+export const sortingQuizReducer = (state: State, action: Action): State => {
   const newQuizAnswers = [...state.quizAnswers]
   switch (action.type) {
     case "HANDLE_NEXT":
@@ -40,7 +40,7 @@ export const sortingQuizReducer = (state: IState, action: IAction): IState => {
   }
 }
 
-const SortingQuiz: FunctionComponent<ISortingQuizProps> = props => {
+const SortingQuiz: FunctionComponent<SortingQuizProps> = props => {
   const [state, dispatch] = useReducer(sortingQuizReducer, initialState)
   return (
     <div className="sortingQuiz__container">

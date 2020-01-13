@@ -34,7 +34,7 @@ describe("Quiz questions", () => {
       mockGraphQLReturn.edges[0].node.questions[0].conchAnswer
 
     const expected = returnValue[0].answers.filter(
-      (x: any) => x.text === expectedConchText
+      (x: { text: string }) => x.text === expectedConchText
     )
 
     expect(expected[0].house).toBe("CONCH")
@@ -46,7 +46,7 @@ describe("Quiz questions", () => {
       mockGraphQLReturn.edges[0].node.questions[0].ivyAnswer
 
     const expected = returnValue[0].answers.filter(
-      (x: any) => x.text === expectedIvyText
+      (x: { text: string }) => x.text === expectedIvyText
     )
 
     expect(expected[0].house).toBe("IVY")
@@ -58,7 +58,7 @@ describe("Quiz questions", () => {
       mockGraphQLReturn.edges[0].node.questions[0].stratusAnswer
 
     const expected = returnValue[0].answers.filter(
-      (x: any) => x.text === expectedStratusText
+      (x: { text: string }) => x.text === expectedStratusText
     )
 
     expect(expected[0].house).toBe("STRATUS")

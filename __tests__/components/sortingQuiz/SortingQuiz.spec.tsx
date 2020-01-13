@@ -13,12 +13,12 @@ import { questionMocks } from "../../../__mocks__/questionMocks"
 import SortingQuiz, {
   sortingQuizReducer,
 } from "../../../src/components/SortingQuiz/SortingQuiz"
-import { House, IAction, IBanners, IState } from "../../../src/types"
+import { House, Action, Banners, State } from "../../../src/types"
 
 afterEach(cleanup)
 
 describe("Sorting Quiz", () => {
-  let mockBanners: IBanners
+  let mockBanners: Banners
   let navigateToNextQuestion: CallableFunction
   let mockImage: { fluid: FluidObject }
   let mockMobileImage: { fluid: FluidObject }
@@ -144,7 +144,9 @@ describe("Sorting Quiz", () => {
         questions={questionMocks}
         images={[mockImage]}
         banners={mockBanners}
-        setActivePage={() => {}}
+        setActivePage={() => {
+          // For tests
+        }}
       />
     )
     expect(getAllByTestId("sortingQuizQuestion").length).toBe(1)
@@ -155,7 +157,9 @@ describe("Sorting Quiz", () => {
         questions={questionMocks}
         images={[mockImage]}
         banners={mockBanners}
-        setActivePage={() => {}}
+        setActivePage={() => {
+          // For tests
+        }}
       />
     )
     expect(getByTestId("sortingQuizNextButton")).toBeInTheDocument()
@@ -168,7 +172,9 @@ describe("Sorting Quiz", () => {
         questions={questionMocks}
         images={[mockImage]}
         banners={mockBanners}
-        setActivePage={() => {}}
+        setActivePage={() => {
+          // For tests
+        }}
       />
     )
 
@@ -194,7 +200,12 @@ describe("Sorting Quiz", () => {
         getByTestId(`sortingQuizAnswer-${questionMocks[1].answers[0].house}`)
       )
       fireEvent.click(getByTestId("sortingQuizSubmitButton"))
-      await wait(() => {}, { timeout: 1 })
+      await wait(
+        () => {
+          // Do nothing
+        },
+        { timeout: 1 }
+      )
       // @ts-ignore
       expect(setActivePage.mock.calls[0][0]).toBe("stratus")
     })
@@ -202,17 +213,17 @@ describe("Sorting Quiz", () => {
 })
 
 describe("reducer", () => {
-  let handleNextAction: (value?: House) => IAction
+  let handleNextAction: (value?: House) => Action
 
   beforeAll(() => {
-    handleNextAction = (value): IAction => ({
+    handleNextAction = (value): Action => ({
       type: "HANDLE_NEXT",
       value,
     })
   })
   describe("HANDLE_NEXT", () => {
     it("Should increment the current index, and add current selection to quizAnswers array", () => {
-      const mockState: IState = {
+      const mockState: State = {
         currentSelection: "IVY",
         imageIndex: 0,
         questionIndex: 0,
@@ -229,7 +240,7 @@ describe("reducer", () => {
       expect(sortingQuizReducer(mockState, mockAction)).toEqual(expected)
     })
     it("Should set currentSection to the next answer if it exists", () => {
-      const mockState: IState = {
+      const mockState: State = {
         currentSelection: "IVY",
         imageIndex: 0,
         questionIndex: 0,
@@ -244,20 +255,20 @@ describe("reducer", () => {
   })
   describe("ADD_CURRENT_SELECTION", () => {
     it("If no action value is passed in, should return the state passed in", () => {
-      const mockState: IState = {
+      const mockState: State = {
         currentSelection: "STRATUS",
         imageIndex: 0,
         questionIndex: 0,
         quizAnswers: ["CONCH"],
       }
 
-      const mockAction: IAction = { type: "ADD_CURRENT_SELECTION" }
+      const mockAction: Action = { type: "ADD_CURRENT_SELECTION" }
       expect(sortingQuizReducer(mockState, mockAction)).toEqual(mockState)
     })
   })
   describe("default", () => {
     it("Should throw an error", () => {
-      const mockState: IState = {
+      const mockState: State = {
         currentSelection: "STRATUS",
         imageIndex: 0,
         questionIndex: 0,

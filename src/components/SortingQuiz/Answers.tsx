@@ -1,14 +1,14 @@
 import React from "react"
-import { IAction, IAnswer } from "../../types"
+import { Action, AnswerInterface } from "../../types"
 import Answer from "./Answer"
 
-interface IAnswersProps {
-  answers: [IAnswer, IAnswer, IAnswer]
-  dispatch: React.Dispatch<IAction>
+interface AnswersProps {
+  answers: [AnswerInterface, AnswerInterface, AnswerInterface]
+  dispatch: React.Dispatch<Action>
   currentSelection: string
 }
 
-const Answers = (props: IAnswersProps) => {
+const Answers = (props: AnswersProps) => {
   return (
     <div
       aria-labelledby="quiz-question-label"

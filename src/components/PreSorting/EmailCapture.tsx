@@ -1,10 +1,9 @@
 import { Field, Formik } from "formik"
-import { navigate } from "gatsby"
 import React, { FunctionComponent } from "react"
 import Form from "react-bootstrap/Form"
 import FormControl from "react-bootstrap/FormControl"
 import { boolean, object, string } from "yup"
-import { IEmailCaptureProps, IHandleSubmit } from "../../types"
+import { EmailCaptureProps, HandleSubmit } from "../../types"
 import BannerImages from "./BannerImages"
 import PreSortingText from "./PreSortingText"
 
@@ -18,7 +17,7 @@ const SignupSchema = object().shape({
   subscribed: boolean(),
 })
 
-const EmailCapture: FunctionComponent<IEmailCaptureProps> = props => {
+const EmailCapture: FunctionComponent<EmailCaptureProps> = props => {
   const initialValues = {
     email: "",
     firstName: "",
@@ -27,7 +26,7 @@ const EmailCapture: FunctionComponent<IEmailCaptureProps> = props => {
     subscribed: false,
   }
 
-  const addUserToMailchimp = async (formValues: IHandleSubmit) => {
+  const addUserToMailchimp = async (formValues: HandleSubmit) => {
     fetch(
       `https://rosewood-chronicles.netlify.com/.netlify/functions/mailchimp?email=${formValues.email}&subscribed=${formValues.subscribed}&firstName=${formValues.firstName}&lastName=${formValues.lastName}`
     )

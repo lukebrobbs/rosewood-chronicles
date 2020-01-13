@@ -22,7 +22,9 @@ const NavComponent = () => {
           className="navbar__brand"
           as={Link}
           id="rosewood-logo"
-          onClick={() => {}}
+          onClick={() => {
+            // Do nothing
+          }}
         >
           <Image />
         </Navbar.Brand>
@@ -51,7 +53,9 @@ const NavComponent = () => {
               as={Link}
               className="mx-auto"
               eventKey={2}
-              onClick={() => {}}
+              onClick={() => {
+                // Do nothing
+              }}
             >
               HOME
             </Nav.Link>

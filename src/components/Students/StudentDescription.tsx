@@ -1,6 +1,6 @@
 import React from "react"
 
-interface IStudent {
+interface Student {
   name: string
   birthday: string
   favouriteThings: { favouriteThings: string }
@@ -9,12 +9,12 @@ interface IStudent {
   quote: { quote: string }
 }
 
-interface IProps {
+interface Props {
   house: "conch" | "ivy" | "stratus"
-  student: IStudent
+  student: Student
 }
 
-const StudentDescription = (props: IProps) => {
+const StudentDescription = (props: Props) => {
   const {
     birthday,
     favouriteThings,

@@ -1,8 +1,8 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent } from "react"
-import { ISortedHouseProps } from "../types"
+import { SortedHouseProps } from "../types"
 
-export const SortedHouse: FunctionComponent<ISortedHouseProps> = props => {
+export const SortedHouse: FunctionComponent<SortedHouseProps> = props => {
   const {
     house,
     description,

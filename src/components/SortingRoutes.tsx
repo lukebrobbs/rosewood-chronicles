@@ -1,12 +1,11 @@
 import React, { FunctionComponent, useState } from "react"
-import { ActiveSortingPage, IPreSortingPageProps } from "../types"
+import { ActiveSortingPage, PreSortingPageProps } from "../types"
 import { formatQuizQuestions } from "../utils/quizQuestions"
-import EmailCapture from "./PreSorting/EmailCapture"
 import PreSorting from "./PreSorting/PreSorting"
 import { SortedHouse } from "./SortedHouse"
 import SortingQuiz from "./SortingQuiz/SortingQuiz"
 
-export const SortingRoutes: FunctionComponent<IPreSortingPageProps> = props => {
+export const SortingRoutes: FunctionComponent<PreSortingPageProps> = props => {
   const [activePage, setActivePage] = useState<ActiveSortingPage>("PRE_SORTING")
   const { edges } = props.data
   return (

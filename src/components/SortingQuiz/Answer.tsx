@@ -1,15 +1,15 @@
 import React from "react"
-import { IAction, House } from "../../types"
+import { Action, House } from "../../types"
 
-interface IAnswerProps {
+interface AnswerProps {
   id: string
   text: string
-  dispatch: React.Dispatch<IAction>
+  dispatch: React.Dispatch<Action>
   value: House
   checked: boolean
 }
 
-const Answer = (props: IAnswerProps) => {
+const Answer = (props: AnswerProps) => {
   return (
     <>
       <input
@@ -19,7 +19,7 @@ const Answer = (props: IAnswerProps) => {
         aria-checked={props.checked}
         value={props.value}
         checked={props.checked}
-        onChange={(event: any) =>
+        onChange={event =>
           props.dispatch({
             type: "ADD_CURRENT_SELECTION",
             value: event.target.value,

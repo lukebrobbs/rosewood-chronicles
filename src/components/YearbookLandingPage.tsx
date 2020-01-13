@@ -1,11 +1,8 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent } from "react"
-import { IYearbookLandingPageProps } from "../types"
-import { Link } from "./Scroll"
+import { YearbookLandingPageProps } from "../types"
 
-export const YearbookLandingPage: FunctionComponent<
-  IYearbookLandingPageProps
-> = props => {
+export const YearbookLandingPage: FunctionComponent<YearbookLandingPageProps> = props => {
   const {
     description,
     header,

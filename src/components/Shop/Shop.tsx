@@ -1,9 +1,9 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent, useEffect } from "react"
-import { IShopProps } from "../../types"
+import { ShopProps } from "../../types"
 import "./shop.scss"
 
-const Shop: FunctionComponent<IShopProps> = props => {
+const Shop: FunctionComponent<ShopProps> = props => {
   useEffect(() => {
     document.getElementById("booksWrapper").scrollTo(120, 0)
   }, [])

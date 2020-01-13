@@ -1,37 +1,35 @@
 import { FluidObject } from "gatsby-image"
-import { string } from "yup"
-import StudentDescription from "./components/Students/StudentDescription"
 
-export interface IMeetTheStudentsProps {
+export interface MeetTheStudentsProps {
   pageContext: {
     house: House | string
-    houseDetails: IHouseDetails
-    studentDescriptions: IStudentDescription[]
-    studentsImage: IFluid
+    houseDetails: HouseDetails
+    studentDescriptions: StudentDescription[]
+    studentsImage: Fluid
   }
-  setActiveStudentsPage: React.Dispatch<IStudentsRoutesAction>
+  setActiveStudentsPage: React.Dispatch<StudentsRoutesAction>
 }
 
-export interface IShopProps {
+export interface ShopProps {
   pageData: {
     edges: Array<{
       node: {
         header: string
         shopButtonLink: string
-        books: IBook[]
+        books: Book[]
       }
     }>
   }
 }
 
-interface IBook {
+interface Book {
   bookName: string
-  bookImage: IFluid
-  reflectionImage: IFluid
+  bookImage: Fluid
+  reflectionImage: Fluid
   link: string
 }
 
-export interface IFluid {
+export interface Fluid {
   fluid: FluidObject
 }
 
@@ -41,100 +39,100 @@ export type ActiveSortingPage =
   | "SORTING_QUIZ"
   | House
 
-export interface IAnswer {
+export interface AnswerInterface {
   text: string
   house: House
 }
 
-export interface IQuestion {
+export interface Question {
   id: string
   question: string
-  answers: [IAnswer, IAnswer, IAnswer]
+  answers: [AnswerInterface, AnswerInterface, AnswerInterface]
 }
 
-export interface ISortingQuizProps {
-  questions: IQuestion[]
+export interface SortingQuizProps {
+  questions: Question[]
   images: Array<{
     fluid: FluidObject
   }>
-  banners: IBanners
+  banners: Banners
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
-export interface IPreSortingProps {
+export interface PreSortingProps {
   header: string
   images: Array<{
     title: string
     fluid: FluidObject
   }>
   text: string
-  banners: IBanners
+  banners: Banners
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
-export interface IPreSortingTextProps {
+export interface PreSortingTextProps {
   header: string
 }
-export interface IPreSortingPageProps {
-  data: IEdges
+export interface PreSortingPageProps {
+  data: Edges
   houseDescriptions: {
-    edges: ISortedHouseEdge[]
+    edges: SortedHouseEdge[]
   }
 }
 
-export interface ISortedHouseProps {
-  data: ISortedHouseEdge
+export interface SortedHouseProps {
+  data: SortedHouseEdge
 }
 
-interface ISortedHouseEdge {
+interface SortedHouseEdge {
   node: {
-    description: IDescription
-    desktopInsignia: IFluid
-    mobileInsignia: IFluid
+    description: Description
+    desktopInsignia: Fluid
+    mobileInsignia: Fluid
     house: string
-    studentImages: IFluid[]
+    studentImages: Fluid[]
   }
 }
 
-export interface IYearbookLandingPageProps {
-  data: IYearbookEdges
+export interface YearbookLandingPageProps {
+  data: YearbookEdges
   setActiveStudentsPage: CallableFunction
 }
 
-interface IYearbookEdges {
+interface YearbookEdges {
   edges: Array<{
     node: {
       header: string
-      description: IDescription
-      studentImages: IFluid[]
-      yearbookImage: IFluid
-      nextImage: IFluid
+      description: Description
+      studentImages: Fluid[]
+      yearbookImage: Fluid
+      nextImage: Fluid
     }
   }>
 }
 
-export interface IEmailCaptureProps {
-  banners: IBanners
+export interface EmailCaptureProps {
+  banners: Banners
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
-export interface IBannerImagesProps {
-  banners: IBanners
+export interface BannerImagesProps {
+  banners: Banners
 }
 
-export interface IFluid {
+export interface Fluid {
   fluid: FluidObject
 }
 
-export interface IBanners {
-  conchDesktop: IFluid
-  conchMobile: IFluid
-  ivyDesktop: IFluid
-  ivyMobile: IFluid
-  stratusDesktop: IFluid
-  stratusMobile: IFluid
+export interface Banners {
+  conchDesktop: Fluid
+  conchMobile: Fluid
+  ivyDesktop: Fluid
+  ivyMobile: Fluid
+  stratusDesktop: Fluid
+  stratusMobile: Fluid
 }
 
-export interface IHandleSubmit {
+export interface HandleSubmit {
   firstName: string
   lastName: string
   email: string
@@ -142,75 +140,75 @@ export interface IHandleSubmit {
   isOfAge: boolean
 }
 
-export interface IStudentsRoutesState {
+export interface StudentsRoutesState {
   currentPage: House | "YEARBOOK"
   pagesIndex: number
 }
-export interface IStudentsRoutesAction {
+export interface StudentsRoutesAction {
   type: "HANDLE_NEXT" | "HANDLE_BACK"
 }
 
-export interface IStudentsImageProps {
-  students: IStudentDescription[]
-  setStudent: React.Dispatch<React.SetStateAction<IStudentDescription>>
+export interface StudentsImageProps {
+  students: StudentDescription[]
+  setStudent: React.Dispatch<React.SetStateAction<StudentDescription>>
 }
 
-export interface ISignUpProps {
+export interface SignUpProps {
   location: {
     origin: string
   }
   data: {
-    allContentfulSortingQuiz: IEdges
+    allContentfulSortingQuiz: Edges
   }
 }
 
-export interface IQuizProps {
-  questions: IQuestion[]
+export interface QuizProps {
+  questions: Question[]
   questionIndex: number
   quizAnswers: Array<House | string>
   currentSelection: House | string
-  dispatch: React.Dispatch<IAction>
+  dispatch: React.Dispatch<Action>
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
   max: number
 }
 
-export interface IAction {
+export interface Action {
   type: "HANDLE_NEXT" | "HANDLE_BACK" | "ADD_CURRENT_SELECTION"
   value?: House | string
   max?: number
 }
 
-export interface IState {
+export interface State {
   questionIndex: number
   imageIndex: number
   quizAnswers: Array<House | string>
   currentSelection: House | string
 }
 
-export interface IStudentsProps {
+export interface StudentsProps {
   setActiveStudentsPage: React.Dispatch<
     React.SetStateAction<House | "STUDENTS" | "YEARBOOK">
   >
 }
 
-export interface IFormatQuestions {
-  edges: IEdges
+export interface FormatQuestions {
+  edges: Edges
 }
 
-export interface IStudentsRoutesProps {
+export interface StudentsRoutesProps {
   data: {
-    allContentfulYearbookLandingPage: IYearbookEdges
+    allContentfulYearbookLandingPage: YearbookEdges
     allContentfulMeetTheStudents: {
       edges: Array<{
         node: {
           house: string
           houseDetails: {
-            description: IDescription
-            desktopInsignia: IFluid
-            mobileInsignia: IFluid
+            description: Description
+            desktopInsignia: Fluid
+            mobileInsignia: Fluid
           }
-          studentsImage: IFluid
-          studentDescriptions: IStudentDescription[]
+          studentsImage: Fluid
+          studentDescriptions: StudentDescription[]
         }
       }>
     }
@@ -219,21 +217,17 @@ export interface IStudentsRoutesProps {
 
 export type House = "conch" | "ivy" | "stratus" | "CONCH" | "IVY" | "STRATUS"
 
-interface IDescription {
+interface Description {
   description: string
 }
 
-interface IExtraInfo {
-  extraInfo: string
+interface HouseDetails {
+  description: Description
+  mobileInsignia: Fluid
+  desktopInsignia: Fluid
 }
 
-interface IHouseDetails {
-  description: IDescription
-  mobileInsignia: IFluid
-  desktopInsignia: IFluid
-}
-
-interface IStudentDescription {
+interface StudentDescription {
   name: string
   displayName: string
   birthday: string
@@ -241,10 +235,10 @@ interface IStudentDescription {
   leastFavouriteThings: { leastFavouriteThings: string }
   inTheirBag: { inTheirBag: string }
   quote: { quote: string }
-  image: IFluid
+  image: Fluid
 }
 
-export interface IEdges {
+export interface Edges {
   edges: Array<{
     node: {
       introductionHeader: string
@@ -253,7 +247,7 @@ export interface IEdges {
         title: string
         fluid: FluidObject
       }>
-      houseBanners: IBanners
+      houseBanners: Banners
       studentImages: Array<{
         fluid: FluidObject
       }>

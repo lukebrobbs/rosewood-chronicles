@@ -1,6 +1,6 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent, useState } from "react"
-import { IMeetTheStudentsProps } from "../../types"
+import { MeetTheStudentsProps } from "../../types"
 import BackButton from "../images/BackArrow"
 import ForwardButton from "../images/ForwardArrow"
 import { StudentsImage } from "../StudentsImage"
@@ -10,9 +10,9 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-const MeetTheStudents: FunctionComponent<IMeetTheStudentsProps> = props => {
+const MeetTheStudents: FunctionComponent<MeetTheStudentsProps> = props => {
   const {
-    pageContext: { house, houseDetails, studentDescriptions, studentsImage },
+    pageContext: { house, houseDetails, studentDescriptions },
   } = props
   const sources = [
     houseDetails.mobileInsignia.fluid,

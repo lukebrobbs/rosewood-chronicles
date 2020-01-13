@@ -1,17 +1,17 @@
 import { House } from "../src/types"
 
-export interface IAnswer {
+export interface Answer {
   text: string
   house: House
 }
 
-export interface IQuestion {
+export interface Question {
   id: string
   question: string
-  answers: [IAnswer, IAnswer, IAnswer]
+  answers: [Answer, Answer, Answer]
 }
 
-export const questionMocks: IQuestion[] = [
+export const questionMocks: Question[] = [
   {
     answers: [
       {

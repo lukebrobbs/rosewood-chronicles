@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react"
 import Card from "react-bootstrap/Card"
-import { IQuizProps } from "../../types"
+import { QuizProps } from "../../types"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
 
-const Quiz: FunctionComponent<IQuizProps> = props => {
+const Quiz: FunctionComponent<QuizProps> = props => {
   const shouldNextButtonRender =
     props.questionIndex < props.questions.length - 1
 
