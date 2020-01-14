@@ -60,13 +60,9 @@ export interface SortingQuizProps {
 }
 
 export interface PreSortingProps {
-  // header: string
-  // images: Array<{
-  //   title: string
-  //   fluid: FluidObject
-  // }>
   text: string
   banners: Banners
+  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 export interface PreSortingTextProps {
   header: string
