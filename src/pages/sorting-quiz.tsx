@@ -37,24 +37,6 @@ export const query = graphql`
           introductionText {
             introductionText
           }
-          questions {
-            question
-            id
-            ivyAnswer
-            conchAnswer
-            stratusAnswer
-          }
-          introductionStudentImages {
-            title
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
-          studentImages {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
           houseBanners {
             conchDesktop {
               fluid {
