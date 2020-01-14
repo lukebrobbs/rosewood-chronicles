@@ -10,9 +10,9 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
+    `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-tslint`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
