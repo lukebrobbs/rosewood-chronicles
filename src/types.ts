@@ -190,7 +190,7 @@ export interface FormatQuestions {
   edges: Edges
 }
 
-export interface StudentsRoutesProps {
+export interface YearbookProps {
   data: {
     allContentfulYearbookLandingPage: YearbookEdges
     allContentfulMeetTheStudents: {

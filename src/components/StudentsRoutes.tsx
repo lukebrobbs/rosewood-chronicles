@@ -2,7 +2,7 @@ import React, { FunctionComponent, useReducer } from "react"
 import {
   House,
   StudentsRoutesAction,
-  StudentsRoutesProps,
+  YearbookProps,
   StudentsRoutesState,
 } from "../types"
 import MeetTheStudents from "./Students/MeetTheStudents"
@@ -44,7 +44,7 @@ const studentsRoutesReducer = (
   }
 }
 
-export const StudentsRoutes: FunctionComponent<StudentsRoutesProps> = props => {
+export const StudentsRoutes: FunctionComponent<YearbookProps> = props => {
   const [state, dispatch] = useReducer(studentsRoutesReducer, initialState)
 
   return (
