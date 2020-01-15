@@ -2,6 +2,7 @@ const React = require("react")
 const { ParallaxProvider } = require("react-scroll-parallax")
 const { Helmet } = require("react-helmet")
 const { Layout } = require("./src/components/layout/layout")
+const { Navigation } = require("./src/components/Nav")
 
 exports.wrapRootElement = ({ element }) => {
   return (
@@ -20,5 +21,10 @@ exports.wrapRootElement = ({ element }) => {
 }
 
 exports.wrapPageElement = ({ element, props }) => {
-  return <Layout>{element}</Layout>
+  return (
+    <Layout>
+      {props.path != "/" && <Navigation />}
+      {element}
+    </Layout>
+  )
 }

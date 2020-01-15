@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Nav, Navbar } from "react-bootstrap"
 import Image from "./images/RosewoodLogo"
-import { Link } from "./Scroll"
+import { Link } from "gatsby"
 
-const NavComponent = () => {
+export const Navigation = () => {
   const [isExpanded, setIsExpanded] = useState(false)
   return (
     <>
@@ -14,17 +14,13 @@ const NavComponent = () => {
         id="navbar"
         expanded={isExpanded}
         onSelect={() => setIsExpanded(false)}
-        sticky="top"
         onToggle={expanded => setIsExpanded(expanded)}
       >
         <Navbar.Brand
-          to="title-page"
+          to="/"
           className="navbar__brand"
           as={Link}
           id="rosewood-logo"
-          onClick={() => {
-            // Do nothing
-          }}
         >
           <Image />
         </Navbar.Brand>
@@ -37,9 +33,8 @@ const NavComponent = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
             <Nav.Link
-              to="pre-sorting"
+              to="sorting-quiz"
               as={Link}
-              block="start"
               className="mx-auto"
               eventKey={1}
             >
@@ -48,15 +43,7 @@ const NavComponent = () => {
             <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={3}>
               YEARBOOK
             </Nav.Link>
-            <Nav.Link
-              to="shop"
-              as={Link}
-              className="mx-auto"
-              eventKey={2}
-              onClick={() => {
-                // Do nothing
-              }}
-            >
+            <Nav.Link to="shop" as={Link} className="mx-auto" eventKey={2}>
               HOME
             </Nav.Link>
           </Nav>
@@ -85,4 +72,3 @@ const NavComponent = () => {
     </>
   )
 }
-export default NavComponent

@@ -5,6 +5,7 @@ import { ActiveSortingPage, Edges, ContentfulHouseDescription } from "../types"
 import SortingQuiz from "../components/SortingQuiz/SortingQuiz"
 import { formatQuizQuestions } from "../utils/quizQuestions"
 import { SortedHouse } from "../components/SortedHouse"
+import SEO from "../components/seo"
 
 interface SortingQuizProps {
   data: {
@@ -14,13 +15,13 @@ interface SortingQuizProps {
 }
 
 const SortingQuizPage: FunctionComponent<SortingQuizProps> = ({ data }) => {
-  console.log(data)
   const [activePage, setActivePage] = useState<ActiveSortingPage>("PRE_SORTING")
 
   const { node } = data.allContentfulSortingQuiz.edges[0]
 
   return (
-    <div className="main__page__wrapper">
+    <>
+      <SEO title="Sorting Quiz" />
       {activePage === "PRE_SORTING" && (
         <PreSorting
           text={node.introductionText.introductionText}
@@ -45,7 +46,7 @@ const SortingQuizPage: FunctionComponent<SortingQuizProps> = ({ data }) => {
           </div>
         )
       })}
-    </div>
+    </>
   )
 }
 
