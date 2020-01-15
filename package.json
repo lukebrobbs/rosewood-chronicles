@@ -75,9 +75,7 @@
     "test": "jest",
     "test:cover": "jest --coverage",
     "type-check": "tsc --noEmit",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "start:lambda": "netlify-lambda serve ./src/lambda",
-    "build:lambda": "netlify-lambda build ./src/lambda"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "repository": {
     "type": "git",
