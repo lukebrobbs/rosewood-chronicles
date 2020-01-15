@@ -2,8 +2,9 @@ import React from "react"
 import { Parallax } from "react-scroll-parallax"
 import TitleLogo from "../images/TitleLogo"
 
-import { Element, Link } from "../Scroll"
+import { Element } from "../Scroll"
 import "./home.scss"
+import { Link } from "gatsby"
 
 const Home = () => {
   return (
@@ -20,11 +21,7 @@ const Home = () => {
               <Link className="preSorting__signUp__button" to="shop">
                 HOME
               </Link>
-              <Link
-                className="preSorting__signUp__button"
-                to="pre-sorting"
-                block="start"
-              >
+              <Link className="preSorting__signUp__button" to="sorting-quiz">
                 SORTING QUIZ
               </Link>
             </div>

@@ -256,3 +256,7 @@ export interface Edges {
     }
   }>
 }
+
+export interface ContentfulHouseDescription {
+  edges: SortedHouseEdge[]
+}
