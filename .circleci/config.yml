@@ -5,32 +5,13 @@ orbs:
   cypress: cypress-io/cypress@1
 
 jobs:
-  install:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - run:
-          name: update-npm
-          command: "sudo npm install -g npm@latest"
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
   test:
     docker:
       - image: circleci/node:latest
 
     steps:
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package-lock.json" }}
       - checkout
+      - run: npm ci
       - run: npm run test:cover
       - codecov/upload:
           file: ./coverage/lcov.info
@@ -40,25 +21,17 @@ jobs:
     docker:
       - image: node:latest
     steps:
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package-lock.json" }}
       - checkout
+      - run: npm ci
       - run: npm run lint
 
 workflows:
   build:
     jobs:
-      - install
-      - test:
-          requires:
-            - install
-      - lint:
-          requires:
-            - install
-      - cypress/install:
-          build: "npm run build"
+      - test
+      - lint
       - cypress/run:
           requires:
             - install
-          start: "npm run serve"
+          start: npm start
+          wait-on: "http://localhost:8000"
