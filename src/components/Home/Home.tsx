@@ -21,7 +21,11 @@ const Home = () => {
               <Link className="preSorting__signUp__button" to="shop">
                 HOME
               </Link>
-              <Link className="preSorting__signUp__button" to="sorting-quiz">
+              <Link
+                className="preSorting__signUp__button"
+                to="sorting-quiz"
+                data-testid="home_sortingQuiz_link"
+              >
                 SORTING QUIZ
               </Link>
             </div>
