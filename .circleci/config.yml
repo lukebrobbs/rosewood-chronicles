@@ -30,6 +30,11 @@ workflows:
     jobs:
       - test
       - lint
+      - cypress/install:
+          # run a custom app build step
+          build: "npm run build"
       - cypress/run:
-          start: npm start
-          wait-on: "http://localhost:8000"
+          requires:
+            - cypress/install
+          start: npm run serve
+          wait-on: "http://localhost:9000"
