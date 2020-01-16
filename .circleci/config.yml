@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   codecov: codecov/codecov@1.0.4
+  cypress: cypress-io/cypress@1
 
 jobs:
   test:
@@ -29,3 +30,4 @@ workflows:
     jobs:
       - test
       - lint
+      - cypress/run
