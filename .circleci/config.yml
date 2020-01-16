@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run: npm ci
-      - run: npm run test:cover
+      - run: npm run test
       - codecov/upload:
           file: ./coverage/lcov.info
       - store_artifacts:
@@ -33,4 +33,4 @@ workflows:
       - cypress/run:
           build: "npm run build"
           start: npm run serve
-          wait-on: "http://localhost:9000"
+          wait-on: "http://localhost:8000"
