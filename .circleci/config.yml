@@ -23,8 +23,6 @@ jobs:
           paths:
             - ./node_modules
   test:
-    requires:
-      - install
     docker:
       - image: circleci/node:latest
 
@@ -36,8 +34,6 @@ jobs:
       - store_artifacts:
           path: ./coverage/lcov.info
   lint:
-    requires:
-      - install
     docker:
       - image: node:latest
     steps:
@@ -48,7 +44,11 @@ workflows:
   build:
     jobs:
       - install
-      - test
-      - lint
+      - test:
+          requires:
+            - install
+      - lint:
+          requires:
+            - install
       - cypress/run:
           start: "npm start"
