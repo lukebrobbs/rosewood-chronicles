@@ -51,4 +51,6 @@ workflows:
           requires:
             - install
       - cypress/run:
+          requires:
+            - install
           start: "npm start"
