@@ -57,6 +57,9 @@ workflows:
   build:
     jobs:
       - install
+      - build:
+          requires:
+            - install
       - test:
           requires:
             - install
