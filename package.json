@@ -72,7 +72,7 @@
     "prod": "npm run build; npm run build:lambda",
     "format": "prettier --write src/**/*.{js,jsx, ts, tsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -p 8000",
     "test": "jest",
     "test:cover": "jest --coverage",
     "type-check": "tsc --noEmit",
