@@ -1,5 +1,4 @@
 import React from "react"
-import { Parallax } from "react-scroll-parallax"
 import TitleLogo from "../images/TitleLogo"
 
 import { Element } from "../Scroll"
