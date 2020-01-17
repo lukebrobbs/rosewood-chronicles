@@ -6,14 +6,12 @@ import SEO from "../components/seo"
 const IndexPage = () => {
   return (
     <>
-      {process.env.GATSBY_VERSION_TWO && (
-        <>
-          <SEO title="Home" />
-          <Element name="title-page">
-            <Home />
-          </Element>
-        </>
-      )}
+      <>
+        <SEO title="Home" />
+        <Element name="title-page">
+          <Home />
+        </Element>
+      </>
     </>
   )
 }
