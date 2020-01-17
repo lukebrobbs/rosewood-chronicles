@@ -43,7 +43,7 @@ export const Navigation = () => {
             <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={3}>
               YEARBOOK
             </Nav.Link>
-            <Nav.Link to="shop" as={Link} className="mx-auto" eventKey={2}>
+            <Nav.Link to="/" as={Link} className="mx-auto" eventKey={2}>
               HOME
             </Nav.Link>
           </Nav>
