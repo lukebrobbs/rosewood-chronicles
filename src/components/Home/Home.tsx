@@ -11,11 +11,7 @@ const Home = () => {
     <div id="homePageContainer">
       <Element name="titlePage" className="element">
         <div className="home__wrapper">
-          <Parallax
-            className="home__image__wrapper"
-            y={[-50, 50]}
-            tagOuter="figure"
-          >
+          <div className="home__image__wrapper">
             <TitleLogo />
             <div className="home__navButton__wrapper">
               <Link className="preSorting__signUp__button" to="shop">
@@ -29,7 +25,7 @@ const Home = () => {
                 SORTING QUIZ
               </Link>
             </div>
-          </Parallax>
+          </div>
         </div>
       </Element>
     </div>

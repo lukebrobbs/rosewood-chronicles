@@ -19,11 +19,10 @@ interface Props {
 
 export const Layout = (props: Props) => (
   <>
-    <div className="background__image" />
-    <img src={RosesTopLeft} className="home__RosesTopLeft" />
-    <img src={RosesTopRight} className="home__RosesTopRight" />
-    <img src={RosesBottomLeft} className="home__RosesBottomLeft" />
-    <img src={RosesBottomRight} className="home__RosesBottomRight" />
+    <img src={RosesTopLeft} className="RosesTopLeft" />
+    <img src={RosesTopRight} className="RosesTopRight" />
+    <img src={RosesBottomLeft} className="RosesBottomLeft" />
+    <img src={RosesBottomRight} className="RosesBottomRight" />
     <div className={`layout__wrapper`}>
       <main>{props.children}</main>
     </div>

@@ -21,9 +21,12 @@ exports.wrapRootElement = ({ element }) => {
 }
 
 exports.wrapPageElement = ({ element, props }) => {
+  if (props.path === "/") {
+    return element
+  }
   return (
     <Layout>
-      {props.path != "/" && <Navigation />}
+      <Navigation />
       {element}
     </Layout>
   )
