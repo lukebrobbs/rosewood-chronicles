@@ -1,15 +1,17 @@
 import Img from "gatsby-image"
 import React, { FunctionComponent } from "react"
 import { SortedHouseProps } from "../types"
+import { graphql } from "gatsby"
 
 export const SortedHouse: FunctionComponent<SortedHouseProps> = props => {
+  console.log(props)
   const {
     house,
     description,
     desktopInsignia,
     mobileInsignia,
     studentImages,
-  } = props.data.node
+  } = props.data.contentfulHouseDescription
   const sources = [
     mobileInsignia.fluid,
     {
@@ -47,3 +49,31 @@ export const SortedHouse: FunctionComponent<SortedHouseProps> = props => {
     </div>
   )
 }
+
+export default SortedHouse
+
+export const query = graphql`
+  query($house: String!) {
+    contentfulHouseDescription(house: { eq: $house }) {
+      house
+      description {
+        description
+      }
+      desktopInsignia {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      mobileInsignia {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      studentImages {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+  }
+`

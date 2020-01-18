@@ -3,14 +3,15 @@ import Card from "react-bootstrap/Card"
 import { QuizProps } from "../../types"
 import { calculateHouse } from "../../utils/quizQuestions"
 import Answers from "./Answers"
+import { navigate } from "@reach/router"
 
 const Quiz: FunctionComponent<QuizProps> = props => {
   const shouldNextButtonRender =
     props.questionIndex < props.questions.length - 1
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const sortedHouse = calculateHouse(props.quizAnswers)
-    props.setActivePage(sortedHouse)
+    navigate(`/sorting-quiz/${sortedHouse}`)
   }
 
   return (

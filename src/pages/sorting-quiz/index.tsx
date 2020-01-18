@@ -1,11 +1,15 @@
 import React, { FunctionComponent, useState } from "react"
-import PreSorting from "../components/PreSorting/PreSorting"
+import PreSorting from "../../components/PreSorting/PreSorting"
 import { graphql } from "gatsby"
-import { ActiveSortingPage, Edges, ContentfulHouseDescription } from "../types"
-import SortingQuiz from "../components/SortingQuiz/SortingQuiz"
-import { formatQuizQuestions } from "../utils/quizQuestions"
-import { SortedHouse } from "../components/SortedHouse"
-import SEO from "../components/seo"
+import {
+  ActiveSortingPage,
+  Edges,
+  ContentfulHouseDescription,
+} from "../../types"
+import SortingQuiz from "../../components/SortingQuiz/SortingQuiz"
+import { formatQuizQuestions } from "../../utils/quizQuestions"
+import { SortedHouse } from "../../components/SortedHouse"
+import SEO from "../../components/seo"
 
 interface SortingQuizProps {
   data: {

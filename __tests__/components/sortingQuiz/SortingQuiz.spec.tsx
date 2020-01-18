@@ -4,7 +4,6 @@ import {
   Matcher,
   MatcherOptions,
   render,
-  wait,
 } from "@testing-library/react"
 import { StaticQuery, useStaticQuery } from "gatsby"
 import { FluidObject } from "gatsby-image"
@@ -181,34 +180,6 @@ describe("Sorting Quiz", () => {
     expect(queryByTestId("sortingQuizSubmitButton")).toBeNull()
     navigateToNextQuestion(getByTestId)
     expect(getByTestId("sortingQuizSubmitButton")).toBeInTheDocument()
-  })
-
-  describe("quiz submission", () => {
-    it("Should call navigate page with the correct house", async () => {
-      // @ts-ignore
-      const setActivePage = jest.fn()
-      const { getByTestId } = render(
-        <SortingQuiz
-          questions={questionMocks}
-          images={[mockImage]}
-          banners={mockBanners}
-          setActivePage={setActivePage}
-        />
-      )
-      navigateToNextQuestion(getByTestId)
-      fireEvent.click(
-        getByTestId(`sortingQuizAnswer-${questionMocks[1].answers[0].house}`)
-      )
-      fireEvent.click(getByTestId("sortingQuizSubmitButton"))
-      await wait(
-        () => {
-          // Do nothing
-        },
-        { timeout: 1 }
-      )
-      // @ts-ignore
-      expect(setActivePage.mock.calls[0][0]).toBe("stratus")
-    })
   })
 })
 

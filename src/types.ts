@@ -75,17 +75,15 @@ export interface PreSortingPageProps {
 }
 
 export interface SortedHouseProps {
-  data: SortedHouseEdge
+  data: { contentfulHouseDescription: SortedHouseEdge }
 }
 
 interface SortedHouseEdge {
-  node: {
-    description: Description
-    desktopInsignia: Fluid
-    mobileInsignia: Fluid
-    house: string
-    studentImages: Fluid[]
-  }
+  description: Description
+  desktopInsignia: Fluid
+  mobileInsignia: Fluid
+  house: string
+  studentImages: Fluid[]
 }
 
 export interface YearbookLandingPageProps {
@@ -163,7 +161,6 @@ export interface QuizProps {
   quizAnswers: Array<House | string>
   currentSelection: House | string
   dispatch: React.Dispatch<Action>
-  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
   max: number
 }
 
