@@ -13,7 +13,7 @@ const Answer = (props: AnswerProps) => {
   return (
     <>
       <input
-        data-testid={`sortingQuizAnswer-${props.value}`}
+        data-testid={props.id}
         id={props.id}
         type="radio"
         aria-checked={props.checked}

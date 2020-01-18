@@ -130,9 +130,7 @@ describe("Sorting Quiz", () => {
     navigateToNextQuestion = (
       getByTestId: (text: Matcher, options?: MatcherOptions) => HTMLElement
     ) => {
-      fireEvent.click(
-        getByTestId(`sortingQuizAnswer-${questionMocks[0].answers[0].house}`)
-      )
+      fireEvent.click(getByTestId(`answer-1`))
       fireEvent.click(getByTestId("sortingQuizNextButton"))
     }
   })
