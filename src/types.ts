@@ -156,6 +156,7 @@ export interface SignUpProps {
 }
 
 export interface QuizProps {
+  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
   questions: Question[]
   questionIndex: number
   quizAnswers: Array<House | string>
