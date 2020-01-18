@@ -18,7 +18,7 @@ export const SortedHouse: FunctionComponent<SortedHouseProps> = props => {
     },
   ]
   return (
-    <div className="sortedHouse__wrapper">
+    <div className="sortedHouse__wrapper" data-testid="sortedHousePage">
       <div className="sortedHouse__content">
         <h1 className="sortedHouse__header">Congratulations!</h1>
         <div className="sortedHouse__banner__wrapper">

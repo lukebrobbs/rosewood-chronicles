@@ -20,6 +20,7 @@ const PreSorting: FunctionComponent<PreSortingProps &
           <button
             className="preSorting__signUp__button"
             onClick={() => props.setActivePage("SORTING_QUIZ")}
+            data-testid="startTheQuiz"
           >
             START THE QUIZ
           </button>
