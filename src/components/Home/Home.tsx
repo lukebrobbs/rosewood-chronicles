@@ -13,7 +13,7 @@ const Home = () => {
           <div className="home__image__wrapper">
             <TitleLogo />
             <div className="home__navButton__wrapper">
-              <Link className="preSorting__signUp__button" to="shop">
+              <Link className="preSorting__signUp__button" to="/">
                 HOME
               </Link>
               <Link

@@ -18,9 +18,12 @@ export const sortingQuizReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "HANDLE_NEXT":
       newQuizAnswers.splice(state.questionIndex, 1, state.currentSelection)
-      const newIndex = Math.floor(
-        Math.random() * Math.floor(action.max ? action.max : 0)
-      )
+      let newIndex = 0
+
+      if (action.max && state.imageIndex < action.max) {
+        newIndex = state.imageIndex + 1
+      }
+
       return {
         currentSelection: state.quizAnswers[state.questionIndex + 1] || "",
         imageIndex: newIndex,
@@ -60,7 +63,7 @@ const SortingQuiz: FunctionComponent<SortingQuizProps> = props => {
         questions={props.questions}
         {...state}
         dispatch={dispatch}
-        max={props.images.length}
+        max={props.images.length - 1}
         setActivePage={props.setActivePage}
       />
       <div className="sortingQuiz__saskia">
