@@ -6,7 +6,7 @@ const { Navigation } = require("./src/components/Nav")
 
 exports.wrapRootElement = ({ element }) => {
   return (
-    <ParallaxProvider>
+    <>
       <Helmet>
         <link
           rel="stylesheet"
@@ -16,16 +16,13 @@ exports.wrapRootElement = ({ element }) => {
         />
       </Helmet>
       {element}
-    </ParallaxProvider>
+    </>
   )
 }
 
 exports.wrapPageElement = ({ element, props }) => {
-  if (props.path === "/") {
-    return element
-  }
   return (
-    <Layout>
+    <Layout page={props.path}>
       <Navigation />
       {element}
     </Layout>

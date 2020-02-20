@@ -1,6 +1,5 @@
 import React from "react"
 import Home from "../components/Home/Home"
-import { Element } from "../components/Scroll"
 import SEO from "../components/seo"
 import RosesTopLeft from "../images/Roses_TL.svg"
 import RosesTopRight from "../images/Roses_TR.svg"
@@ -16,9 +15,7 @@ const IndexPage = () => {
         <img src={RosesTopRight} className="home__RosesTopRight" />
         <img src={RosesBottomLeft} className="home__RosesBottomLeft" />
         <img src={RosesBottomRight} className="home__RosesBottomRight" />
-        <Element name="title-page">
-          <Home />
-        </Element>
+        <Home />
       </>
     </>
   )

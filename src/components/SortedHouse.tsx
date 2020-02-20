@@ -4,7 +4,6 @@ import { SortedHouseProps } from "../types"
 import { graphql } from "gatsby"
 
 export const SortedHouse: FunctionComponent<SortedHouseProps> = props => {
-  console.log(props)
   const {
     house,
     description,

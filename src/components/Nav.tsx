@@ -43,9 +43,6 @@ export const Navigation = () => {
             <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={3}>
               YEARBOOK
             </Nav.Link>
-            <Nav.Link to="/" as={Link} className="mx-auto" eventKey={2}>
-              HOME
-            </Nav.Link>
           </Nav>
           <Nav className="mx-auto">
             <Nav.Link
@@ -55,7 +52,7 @@ export const Navigation = () => {
               eventKey={4}
               as="a"
             >
-              MERCHANDISE
+              SHOP
             </Nav.Link>
             <Nav.Link
               href="https://www.penguin.co.uk/series/roschron/the-rosewood-chronicles.html"
