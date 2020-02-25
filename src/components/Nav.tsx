@@ -40,7 +40,7 @@ export const Navigation = () => {
             >
               SORTING QUIZ
             </Nav.Link>
-            <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={3}>
+            <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={2}>
               YEARBOOK
             </Nav.Link>
           </Nav>
