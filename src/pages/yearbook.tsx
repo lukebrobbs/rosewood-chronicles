@@ -16,7 +16,7 @@ const Yearbook: FunctionComponent<YearbookProps> = props => {
 export default Yearbook
 
 export const query = graphql`
-  query yaarbookQuery {
+  query yearbookQuery {
     allContentfulYearbookLandingPage(limit: 1) {
       edges {
         node {
