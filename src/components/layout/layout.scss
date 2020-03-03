@@ -670,9 +670,6 @@ pre tt:after {
   left: 50%;
   top: 5px;
   position: absolute;
-  @media only screen and (max-width: 1200px) {
-    min-width: 150px;
-  }
 }
 
 .navbar-collapse {
@@ -807,6 +804,26 @@ pre tt:after {
 
 .custom-toggler.navbar-toggler {
   border-color: rgb(158, 136, 56);
+}
+
+.yearbook__wrapper {
+  background-image: url("../../images/D_Yearbook_Pages.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: 0.5rem auto 0 auto;
+  min-height: 90vh;
+  width: 80vw;
+  text-align: center;
+  position: relative;
+}
+
+.yearbook__image__wrapper {
+  height: 100%;
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  top: 0;
 }
 
 .yearbookLanding__wrapper {
