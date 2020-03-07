@@ -820,13 +820,13 @@ pre tt:after {
   width: 68vw;
   text-align: center;
   position: relative;
+  display: flex;
 }
 
 .yearbook__image__wrapper {
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column;
 }
 
 .yearbook__header {
@@ -836,40 +836,35 @@ pre tt:after {
 
 .yearbook__student__wrapper {
   width: 15%;
+  position: absolute;
+
   &.saskia {
-    position: absolute;
     left: 8%;
     top: 15%;
   }
   &.raphael {
-    position: absolute;
     top: 15%;
     left: 30%;
     transform: rotate(-5deg);
   }
   &.anastacia {
-    position: absolute;
     left: 8%;
     top: 55%;
   }
   &.binah {
-    position: absolute;
     top: 55%;
     left: 30%;
   }
   &.jamie {
-    position: absolute;
     top: 10%;
     right: 35%;
   }
   &.lottie {
-    position: absolute;
     top: 10%;
     right: 5%;
     transform: rotate(-5deg);
   }
   &.ellie {
-    position: absolute;
     top: 35%;
     right: 20%;
     transform: rotate(-5deg);
