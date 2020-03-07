@@ -14,6 +14,16 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  const yearBookStudents = await graphql(`
+    query {
+      contentfulYearbookLandingPage {
+        students {
+          displayName
+        }
+      }
+    }
+  `)
+
   result.data.allContentfulHouseDescription.edges.forEach(({ node }) => {
     const { house } = node
     createPage({
@@ -24,4 +34,16 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  yearBookStudents.data.contentfulYearbookLandingPage.students.forEach(
+    student => {
+      createPage({
+        path: `/yearbook/${student.displayName.toLowerCase()}`,
+        component: path.resolve("./src/components/YearbookStudent.tsx"),
+        context: {
+          student,
+        },
+      })
+    }
+  )
 }
