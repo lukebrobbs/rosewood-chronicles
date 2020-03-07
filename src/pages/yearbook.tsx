@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { YearbookProps } from "../types"
 
 const Yearbook: FunctionComponent<YearbookProps> = ({ data }) => {
@@ -15,13 +15,14 @@ const Yearbook: FunctionComponent<YearbookProps> = ({ data }) => {
           </h1>
           {data.contentfulYearbookLandingPage.students.map(student => {
             return (
-              <div
+              <Link
+                to={`/yearbook/${student.displayName.toLowerCase()}`}
                 key={student.displayName}
                 className={`yearbook__student__wrapper ${student.displayName.toLowerCase()}`}
               >
                 <Img fluid={student.image.fluid} />
-                <p key={student.displayName}>{student.displayName}</p>
-              </div>
+                <p>{student.displayName}</p>
+              </Link>
             )
           })}
         </div>
