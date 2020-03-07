@@ -807,23 +807,73 @@ pre tt:after {
 }
 
 .yearbook__wrapper {
-  background-image: url("../../images/D_Yearbook_Pages.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background: url("../../images/D_Yearbook_Pages.png") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin: 0.5rem auto 0 auto;
   min-height: 90vh;
-  width: 80vw;
+  width: 68vw;
   text-align: center;
   position: relative;
 }
 
 .yearbook__image__wrapper {
   height: 100%;
-  width: 80%;
-  position: absolute;
-  left: 10%;
-  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.yearbook__header {
+  align-self: flex-start;
+  margin: 2rem 0 0 10%;
+}
+
+.yearbook__student__wrapper {
+  width: 15%;
+  &.saskia {
+    position: absolute;
+    left: 8%;
+    top: 15%;
+  }
+  &.raphael {
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    transform: rotate(-5deg);
+  }
+  &.anastacia {
+    position: absolute;
+    left: 8%;
+    top: 55%;
+  }
+  &.binah {
+    position: absolute;
+    top: 55%;
+    left: 30%;
+  }
+  &.jamie {
+    position: absolute;
+    top: 10%;
+    right: 35%;
+  }
+  &.lottie {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    transform: rotate(-5deg);
+  }
+  &.ellie {
+    position: absolute;
+    top: 35%;
+    right: 20%;
+    transform: rotate(-5deg);
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .yearbookLanding__wrapper {

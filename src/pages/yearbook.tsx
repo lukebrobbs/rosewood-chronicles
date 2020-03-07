@@ -1,14 +1,30 @@
 import React, { FunctionComponent } from "react"
+import Img from "gatsby-image"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import { YearbookProps } from "../types"
 
-const Yearbook: FunctionComponent<YearbookProps> = () => {
+const Yearbook: FunctionComponent<YearbookProps> = ({ data }) => {
   return (
     <>
       <SEO title="Yearbook" />
       <div className="yearbook__wrapper">
-        <div className="yearbook__image__wrapper"></div>
+        <div className="yearbook__image__wrapper">
+          <h1 className="yearbook__header">
+            {data.contentfulYearbookLandingPage.header}
+          </h1>
+          {data.contentfulYearbookLandingPage.students.map(student => {
+            return (
+              <div
+                key={student.displayName}
+                className={`yearbook__student__wrapper ${student.displayName.toLowerCase()}`}
+              >
+                <Img fluid={student.image.fluid} />
+                <p key={student.displayName}>{student.displayName}</p>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </>
   )
@@ -18,76 +34,13 @@ export default Yearbook
 
 export const query = graphql`
   query yearbookQuery {
-    allContentfulYearbookLandingPage(limit: 1) {
-      edges {
-        node {
-          header
-          description {
-            description
-          }
-          studentImages {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
-          nextImage {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
-          yearbookImage {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
-    }
-    allContentfulMeetTheStudents {
-      edges {
-        node {
-          house
-          houseDetails {
-            description {
-              description
-            }
-            desktopInsignia {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
-            }
-            mobileInsignia {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
-            }
-          }
-          studentDescriptions {
-            name
-            displayName
-            birthday(formatString: "MMMM Do")
-            favouriteThings {
-              favouriteThings
-            }
-            leastFavouriteThings {
-              leastFavouriteThings
-            }
-            inTheirBag {
-              inTheirBag
-            }
-            quote {
-              quote
-            }
-            image {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
-            }
-          }
-          studentsImage {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
+    contentfulYearbookLandingPage {
+      header
+      students {
+        displayName
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
           }
         }
       }

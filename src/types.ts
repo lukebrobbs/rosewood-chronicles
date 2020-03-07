@@ -87,20 +87,18 @@ interface SortedHouseEdge {
 }
 
 export interface YearbookLandingPageProps {
-  data: YearbookEdges
+  data: YearbookData
   setActiveStudentsPage: CallableFunction
 }
 
-interface YearbookEdges {
-  edges: Array<{
-    node: {
-      header: string
-      description: Description
-      studentImages: Fluid[]
-      yearbookImage: Fluid
-      nextImage: Fluid
-    }
-  }>
+interface YearbookData {
+  contentfulYearbookLandingPage: {
+    header: string
+    students: {
+      displayName: string
+      image: Fluid
+    }[]
+  }
 }
 
 export interface EmailCaptureProps {
@@ -189,23 +187,7 @@ export interface FormatQuestions {
 }
 
 export interface YearbookProps {
-  data: {
-    allContentfulYearbookLandingPage: YearbookEdges
-    allContentfulMeetTheStudents: {
-      edges: Array<{
-        node: {
-          house: string
-          houseDetails: {
-            description: Description
-            desktopInsignia: Fluid
-            mobileInsignia: Fluid
-          }
-          studentsImage: Fluid
-          studentDescriptions: StudentDescription[]
-        }
-      }>
-    }
-  }
+  data: YearbookData
 }
 
 export type House = "conch" | "ivy" | "stratus" | "CONCH" | "IVY" | "STRATUS"
