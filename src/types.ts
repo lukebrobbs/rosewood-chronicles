@@ -91,11 +91,6 @@ export interface YearbookLandingPageProps {
   setActiveStudentsPage: CallableFunction
 }
 
-interface YearbookStudentData {
-  displayName: string
-  image: Fluid
-}
-
 interface YearbookData {
   contentfulYearbookLandingPage: {
     header: string
@@ -108,7 +103,12 @@ interface YearbookData {
 
 export interface YearbookStudentProps {
   pageContext: {
-    student: YearbookStudentData
+    displayName: string
+    house: string
+  }
+  data: {
+    contentfulStudentDescription: StudentDescription
+    contentfulHouseDescription: HouseDetails
   }
 }
 

@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
       contentfulYearbookLandingPage {
         students {
           displayName
+          house
         }
       }
     }
@@ -41,7 +42,8 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/yearbook/${student.displayName.toLowerCase()}`,
         component: path.resolve("./src/components/YearbookStudent.tsx"),
         context: {
-          student,
+          displayName: student.displayName,
+          house: student.house.toLowerCase(),
         },
       })
     }
