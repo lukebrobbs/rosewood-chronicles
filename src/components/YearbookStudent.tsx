@@ -4,7 +4,6 @@ import SEO from "./seo"
 import { graphql } from "gatsby"
 
 export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props => {
-  console.log(props)
   return (
     <>
       <SEO title="Yearbook" />
