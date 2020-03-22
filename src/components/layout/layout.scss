@@ -809,6 +809,12 @@ pre tt:after {
   border-color: rgb(158, 136, 56);
 }
 
+.yearbook__next__button {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+}
+
 .yearbook__wrapper {
   background: url("../../images/D_Yearbook_Pages.png") no-repeat center;
   -webkit-background-size: cover;

@@ -37,13 +37,20 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   yearBookStudents.data.contentfulYearbookLandingPage.students.forEach(
-    student => {
+    (student, index) => {
       createPage({
         path: `/yearbook/${student.displayName.toLowerCase()}`,
         component: path.resolve("./src/components/YearbookStudent.tsx"),
         context: {
           displayName: student.displayName,
           house: student.house.toLowerCase(),
+          nextStudent:
+            yearBookStudents.data.contentfulYearbookLandingPage.students[
+              index + 1
+            ] &&
+            yearBookStudents.data.contentfulYearbookLandingPage.students[
+              index + 1
+            ].displayName.toLowerCase(),
         },
       })
     }

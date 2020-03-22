@@ -1,12 +1,24 @@
 import React, { FunctionComponent } from "react"
 import { YearbookStudentProps } from "../types"
 import SEO from "./seo"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
+import NextArrow from "../images/Arrow.png"
 
 export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props => {
   return (
     <>
-      <SEO title="Yearbook" />
+      <SEO
+        title={`Yearbook - ${props.data.contentfulStudentDescription.name}`}
+      />
+      {props.pageContext.nextStudent && (
+        <Link to={`/yearbook/${props.pageContext.nextStudent}`}>
+          <img
+            src={NextArrow}
+            alt="Next Student"
+            className="yearbook__next__button"
+          />
+        </Link>
+      )}
       <div className="yearbook__wrapper">
         <div className="yearbook__image__wrapper">
           <h1 className="yearbook__header">

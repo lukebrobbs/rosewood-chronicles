@@ -105,6 +105,7 @@ export interface YearbookStudentProps {
   pageContext: {
     displayName: string
     house: string
+    nextStudent: string
   }
   data: {
     contentfulStudentDescription: StudentDescription
