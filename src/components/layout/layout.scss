@@ -839,6 +839,22 @@ pre tt:after {
   display: flex;
 }
 
+.yearbook__student__image {
+  width: 70%;
+  margin-top: 1rem;
+}
+
+.yearbook__student__house__image {
+  width: 20%;
+}
+
+.yearbook__pageOne {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .yearbook__image__wrapper {
   height: 100%;
   width: 100%;
