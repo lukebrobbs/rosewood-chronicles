@@ -839,6 +839,14 @@ pre tt:after {
   display: flex;
 }
 
+.individual__yearbook__wrapper {
+  height: 100%;
+  width: 100%;
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+}
+
 .yearbook__student__image {
   width: 70%;
   margin-top: 1rem;
@@ -849,11 +857,16 @@ pre tt:after {
 }
 
 .yearbook__pageOne {
-  width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.yearbook__pageTwo {
+  padding-right: 3rem;
+  text-align: left;
+  margin-top: 10%;
 }
 .yearbook__image__wrapper {
   height: 100%;
