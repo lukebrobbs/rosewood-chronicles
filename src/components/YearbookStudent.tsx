@@ -6,28 +6,26 @@ import ForwardArrow from "./images/ForwardArrow"
 import BackArrow from "./images/BackArrow"
 
 export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props => {
-  console.log(props)
   return (
     <>
       <SEO
         title={`Yearbook - ${props.data.contentfulStudentDescription.name}`}
       />
-      {props.pageContext.prevStudent && (
-        <Link
-          to={`/yearbook/${props.pageContext.prevStudent}`}
-          className="yearbook__back__button"
-        >
-          <BackArrow />
-        </Link>
-      )}
-      {props.pageContext.nextStudent && (
-        <Link
-          to={`/yearbook/${props.pageContext.nextStudent}`}
-          className="yearbook__next__button"
-        >
-          <ForwardArrow />
-        </Link>
-      )}
+
+      <Link
+        to={`/yearbook/${props.pageContext.prevStudent || ""}`}
+        className="yearbook__back__button"
+      >
+        <BackArrow />
+      </Link>
+
+      <Link
+        to={`/yearbook/${props.pageContext.nextStudent || ""}`}
+        className="yearbook__next__button"
+      >
+        <ForwardArrow />
+      </Link>
+
       <div className="yearbook__wrapper">
         <div className="yearbook__image__wrapper">
           <h1 className="yearbook__header">
