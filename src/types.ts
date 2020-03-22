@@ -106,6 +106,7 @@ export interface YearbookStudentProps {
     displayName: string
     house: string
     nextStudent: string
+    prevStudent: string
   }
   data: {
     contentfulStudentDescription: StudentDescription

@@ -809,10 +809,20 @@ pre tt:after {
   border-color: rgb(158, 136, 56);
 }
 
+.yearbook__back__button {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 10%;
+  width: 25px;
+}
+
 .yearbook__next__button {
   position: absolute;
   top: 50%;
+  transform: translate(-50%, -50%);
   left: 90%;
+  width: 25px;
 }
 
 .yearbook__wrapper {

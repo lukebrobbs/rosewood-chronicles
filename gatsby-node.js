@@ -38,6 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   yearBookStudents.data.contentfulYearbookLandingPage.students.forEach(
     (student, index) => {
+      const { students } = yearBookStudents.data.contentfulYearbookLandingPage
       createPage({
         path: `/yearbook/${student.displayName.toLowerCase()}`,
         component: path.resolve("./src/components/YearbookStudent.tsx"),
@@ -45,12 +46,11 @@ exports.createPages = async ({ graphql, actions }) => {
           displayName: student.displayName,
           house: student.house.toLowerCase(),
           nextStudent:
-            yearBookStudents.data.contentfulYearbookLandingPage.students[
-              index + 1
-            ] &&
-            yearBookStudents.data.contentfulYearbookLandingPage.students[
-              index + 1
-            ].displayName.toLowerCase(),
+            students[index + 1] &&
+            students[index + 1].displayName.toLowerCase(),
+          prevStudent:
+            students[index - 1] &&
+            students[index - 1].displayName.toLowerCase(),
         },
       })
     }
