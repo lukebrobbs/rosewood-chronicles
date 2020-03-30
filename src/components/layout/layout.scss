@@ -851,6 +851,12 @@ pre tt:after {
   width: 70%;
   margin-top: 1rem;
 }
+.yearbook__student__roomImage {
+  width: 12vw;
+  position: absolute;
+  top: 2%;
+  right: 8%;
+}
 
 .yearbook__student__house__image {
   width: 20%;
@@ -864,9 +870,10 @@ pre tt:after {
 }
 
 .yearbook__pageTwo {
-  padding-right: 3rem;
+  padding-right: 3.5rem;
   text-align: left;
   margin-top: 10%;
+  margin-left: 1rem;
 }
 .yearbook__image__wrapper {
   height: 100%;

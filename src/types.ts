@@ -224,6 +224,7 @@ interface StudentDescription {
   inTheirBag: { inTheirBag: string }
   quote: { quote: string }
   image: Fluid
+  roomImage: Fluid
 }
 
 export interface Edges {

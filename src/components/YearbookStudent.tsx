@@ -48,6 +48,15 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
             </div>
           </div>
           <div className="yearbook__pageTwo">
+            <div className="yearbook__student__roomImage">
+              {props.data.contentfulStudentDescription.roomImage && (
+                <Img
+                  fluid={
+                    props.data.contentfulStudentDescription.roomImage.fluid
+                  }
+                />
+              )}
+            </div>
             <h2>Birthday</h2>
             <p>{props.data.contentfulStudentDescription.birthday}</p>
             <h2>Favorite Things</h2>
@@ -101,6 +110,11 @@ export const query = graphql`
         quote
       }
       image {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      roomImage {
         fluid {
           ...GatsbyContentfulFluid
         }
