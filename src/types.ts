@@ -1,34 +1,5 @@
 import { FluidObject } from "gatsby-image"
 
-export interface MeetTheStudentsProps {
-  pageContext: {
-    house: House | string
-    houseDetails: HouseDetails
-    studentDescriptions: StudentDescription[]
-    studentsImage: Fluid
-  }
-  setActiveStudentsPage: React.Dispatch<StudentsRoutesAction>
-}
-
-export interface ShopProps {
-  pageData: {
-    edges: Array<{
-      node: {
-        header: string
-        shopButtonLink: string
-        books: Book[]
-      }
-    }>
-  }
-}
-
-interface Book {
-  bookName: string
-  bookImage: Fluid
-  reflectionImage: Fluid
-  link: string
-}
-
 export interface Fluid {
   fluid: FluidObject
 }
@@ -59,48 +30,6 @@ export interface SortingQuizProps {
   setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
-export interface PreSortingProps {
-  text: string
-  banners: Banners
-  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
-}
-export interface PreSortingTextProps {
-  header: string
-}
-export interface PreSortingPageProps {
-  data: Edges
-  houseDescriptions: {
-    edges: SortedHouseEdge[]
-  }
-}
-
-export interface SortedHouseProps {
-  data: { contentfulHouseDescription: SortedHouseEdge }
-}
-
-interface SortedHouseEdge {
-  description: Description
-  desktopInsignia: Fluid
-  mobileInsignia: Fluid
-  house: string
-  studentImages: Fluid[]
-}
-
-export interface YearbookLandingPageProps {
-  data: YearbookData
-  setActiveStudentsPage: CallableFunction
-}
-
-interface YearbookData {
-  contentfulYearbookLandingPage: {
-    header: string
-    students: {
-      displayName: string
-      image: Fluid
-    }[]
-  }
-}
-
 export interface YearbookStudentProps {
   pageContext: {
     displayName: string
@@ -112,11 +41,6 @@ export interface YearbookStudentProps {
     contentfulStudentDescription: StudentDescription
     contentfulHouseDescription: HouseDetails
   }
-}
-
-export interface EmailCaptureProps {
-  banners: Banners
-  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
 }
 
 export interface BannerImagesProps {
@@ -134,36 +58,6 @@ export interface Banners {
   ivyMobile: Fluid
   stratusDesktop: Fluid
   stratusMobile: Fluid
-}
-
-export interface HandleSubmit {
-  firstName: string
-  lastName: string
-  email: string
-  subscribed: boolean
-  isOfAge: boolean
-}
-
-export interface StudentsRoutesState {
-  currentPage: House | "YEARBOOK"
-  pagesIndex: number
-}
-export interface StudentsRoutesAction {
-  type: "HANDLE_NEXT" | "HANDLE_BACK"
-}
-
-export interface StudentsImageProps {
-  students: StudentDescription[]
-  setStudent: React.Dispatch<React.SetStateAction<StudentDescription>>
-}
-
-export interface SignUpProps {
-  location: {
-    origin: string
-  }
-  data: {
-    allContentfulSortingQuiz: Edges
-  }
 }
 
 export interface QuizProps {
@@ -195,8 +89,14 @@ export interface StudentsProps {
   >
 }
 
-export interface FormatQuestions {
-  edges: Edges
+interface YearbookData {
+  contentfulYearbookLandingPage: {
+    header: string
+    students: {
+      displayName: string
+      image: Fluid
+    }[]
+  }
 }
 
 export interface YearbookProps {
@@ -249,8 +149,4 @@ export interface Edges {
       }>
     }
   }>
-}
-
-export interface ContentfulHouseDescription {
-  edges: SortedHouseEdge[]
 }
