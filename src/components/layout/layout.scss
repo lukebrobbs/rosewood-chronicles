@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'HandOfSean';
+  src: url("../../fonts/Hand_Of_Sean.ttf");
+}
 html {
   font-family: Garamond;
   src: url("../../fonts/Adobe-Garamond-Regular.otf");
@@ -809,84 +813,106 @@ pre tt:after {
   border-color: rgb(158, 136, 56);
 }
 
-.yearbook__back__button {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 10%;
-  width: 25px;
-}
-
-.yearbook__next__button {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 90%;
-  width: 25px;
-}
-
-.yearbook__wrapper {
-  background: url("../../images/D_Yearbook_Pages.png") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin: 0.5rem auto 0 auto;
-  min-height: 90vh;
-  width: 68vw;
-  text-align: center;
-  position: relative;
-  display: flex;
-}
 
 .individual__yearbook__wrapper {
   height: 100%;
   width: 100%;
   display: grid;
-
   grid-template-columns: 1fr 1fr;
 }
 
-.yearbook__student__image {
-  width: 70%;
-  margin-top: 1rem;
+%yearbook {
+  font-family: 'HandOfSean';
+  color: #37170F;
 }
-.yearbook__student__roomImage {
-  width: 12vw;
+
+%yearbook__header {
+  @extend %yearbook;
+  font-size: 2rem;
+}
+%yearbook__nav__button {
   position: absolute;
-  top: 2%;
-  right: 8%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
 }
 
-.yearbook__student__house__image {
-  width: 20%;
+.yearbook {
+  &__wrapper {
+    background: url("../../images/D_Yearbook_Pages.png") no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0.5rem auto 0 auto;
+    min-height: 90vh;
+    width: 68vw;
+    text-align: center;
+    position: relative;
+    display: flex;
+  }
+  &__next__button {
+    @extend %yearbook__nav__button;
+    left: 90%;
+  }
+  &__back__button {
+    @extend %yearbook__nav__button;
+    left: 10%;
+  }
+  &__pageOne {
+    @extend %yearbook;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__header {
+      @extend %yearbook__header;
+      align-self: flex-start;
+      margin: 2rem auto 0 auto;
+    }
+  }
+  &__pageTwo {
+    @extend %yearbook;
+    font-size: 1.2rem;
+    padding-right: 3.5rem;
+    text-align: left;
+    margin-top: 15%;
+    margin-left: 1rem;
+  }
+  &__student__image {
+    width: 70%;
+    margin-top: 1rem;
+  }
+  &__student__house__image {
+    width: 20%;
+  }
+  &__student__roomImage {
+    width: 12vw;
+    position: absolute;
+    top: 2%;
+    right: 8%;
+  }
+  &__image__wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+  &__header {
+    @extend %yearbook__header;
+    align-self: flex-start;
+    margin: 2rem 0 0 10%;
+  }
+
+  &__about__header {
+    @extend %yearbook;
+    font-size: 1.8rem;
+  }
 }
 
-.yearbook__pageOne {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.yearbook__pageTwo {
-  padding-right: 3.5rem;
-  text-align: left;
-  margin-top: 10%;
-  margin-left: 1rem;
-}
-.yearbook__image__wrapper {
-  height: 100%;
-  width: 100%;
-  display: flex;
-}
-
-.yearbook__header {
-  align-self: flex-start;
-  margin: 2rem 0 0 10%;
-}
 
 .yearbook__student__wrapper {
+  @extend %yearbook;
+  font-size: 1.8rem;
   width: 15%;
   position: absolute;
 
@@ -922,7 +948,10 @@ pre tt:after {
     transform: rotate(-5deg);
   }
   &:hover {
+    @extend %yearbook;
+
     cursor: pointer;
+    text-decoration: none;
   }
 }
 

@@ -31,7 +31,7 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
       <div className="yearbook__wrapper">
         <div className="individual__yearbook__wrapper">
           <div className="yearbook__pageOne">
-            <h1 className="yearbook__header">
+            <h1 className="yearbook__pageOne__header">
               {props.data.contentfulStudentDescription.name}
             </h1>
             <div className="yearbook__student__image">
@@ -57,27 +57,27 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
                 />
               )}
             </div>
-            <h2>Birthday</h2>
+            <h2 className="yearbook__about__header">BIRTHDAY</h2>
             <p>{props.data.contentfulStudentDescription.birthday}</p>
-            <h2>Favorite Things</h2>
+            <h2 className="yearbook__about__header">FAVORITE THINGS</h2>
             <p>
               {
                 props.data.contentfulStudentDescription.favouriteThings
                   .favouriteThings
               }
             </p>
-            <h2>Least Favorite Things</h2>
+            <h2 className="yearbook__about__header">LEAST FAVORITE THINGS</h2>
             <p>
               {
                 props.data.contentfulStudentDescription.leastFavouriteThings
                   .leastFavouriteThings
               }
             </p>
-            <h2>In Their Bag</h2>
+            <h2 className="yearbook__about__header">IN THEIR BAG</h2>
             <p>
               {props.data.contentfulStudentDescription.inTheirBag.inTheirBag}
             </p>
-            <h2>Quote</h2>
+            <h2 className="yearbook__about__header">QUOTE</h2>
             <p>{props.data.contentfulStudentDescription.quote.quote}</p>
             <Link to={`/${props.pageContext.house}`}>
               Learn more about {props.pageContext.house} house

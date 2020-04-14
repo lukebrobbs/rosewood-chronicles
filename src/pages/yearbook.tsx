@@ -25,7 +25,7 @@ const Yearbook: FunctionComponent<YearbookProps> = ({ data }) => {
                 className={`yearbook__student__wrapper ${student.displayName.toLowerCase()}`}
               >
                 <Img fluid={student.image.fluid} />
-                <p>{student.displayName}</p>
+                <p className="yearbook__student__name">{student.displayName}</p>
               </Link>
             )
           })}
