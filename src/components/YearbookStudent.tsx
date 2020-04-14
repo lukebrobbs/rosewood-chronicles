@@ -1,10 +1,10 @@
+import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 import React, { FunctionComponent } from "react"
 import { YearbookStudentProps } from "../types"
-import SEO from "./seo"
-import Img from "gatsby-image"
-import { graphql, Link } from "gatsby"
-import ForwardArrow from "./images/ForwardArrow"
 import BackArrow from "./images/BackArrow"
+import ForwardArrow from "./images/ForwardArrow"
+import SEO from "./seo"
 
 export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props => {
   console.log(props)

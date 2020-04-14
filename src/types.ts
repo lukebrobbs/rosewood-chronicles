@@ -3,6 +3,26 @@ import { FluidObject } from "gatsby-image"
 export interface Fluid {
   fluid: FluidObject
 }
+export interface SortedHouseProps {
+  data: { contentfulHouseDescription: SortedHouseEdge }
+}
+
+export interface PreSortingProps {
+  text: string
+  banners: Banners
+  setActivePage: React.Dispatch<React.SetStateAction<ActiveSortingPage>>
+}
+export interface PreSortingTextProps {
+  header: string
+}
+
+interface SortedHouseEdge {
+  description: Description
+  desktopInsignia: Fluid
+  mobileInsignia: Fluid
+  house: string
+  studentImages: Fluid[]
+}
 
 export type ActiveSortingPage =
   | "PRE_SORTING"
@@ -149,4 +169,8 @@ export interface Edges {
       }>
     }
   }>
+}
+
+export interface ContentfulHouseDescription {
+  edges: { node: SortedHouseEdge }[]
 }
