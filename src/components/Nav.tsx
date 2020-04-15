@@ -46,7 +46,7 @@ export const Navigation = () => {
           </Nav>
           <Nav className="mx-auto">
             <Nav.Link
-              href="https://www.shopify.com"
+              href="https://shop.therosewoodchronicles.co.uk/"
               target="_blank"
               className="mx-auto"
               eventKey={4}
