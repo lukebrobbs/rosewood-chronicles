@@ -1,3 +1,5 @@
+$tablet: 1200px;
+
 @font-face {
   font-family: 'HandOfSean';
   src: url("../../fonts/Hand_Of_Sean.ttf");
@@ -680,7 +682,7 @@ pre tt:after {
 }
 
 .navbar-collapse {
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: $tablet) {
     margin-top: 1em !important;
     margin-right: 0 !important;
   }
@@ -715,7 +717,7 @@ pre tt:after {
   min-height: 100%;
   overflow: hidden;
   z-index: 1021;
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: $tablet) {
     z-index: 2;
   }
 }
@@ -826,6 +828,9 @@ pre tt:after {
   @extend %yearbook;
   font-size: 2em;
   font-size: 2vw;
+  @media only screen and (max-width: $tablet) {
+    font-size: 4vw;
+  }
 }
 %yearbook__nav__button {
   position: absolute;
@@ -898,6 +903,7 @@ pre tt:after {
     @extend %yearbook__header;
     align-self: flex-start;
     margin: 2rem 0 0 10%;
+    grid-area: header;
   }
 
   &__about__header {
@@ -941,7 +947,29 @@ pre tt:after {
   }
 }
 
-
+.yearbook__image__wrapper {
+  @media only screen and (max-width: $tablet) {
+    padding: 2rem;
+    position: relative;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+      "header header header"
+      "saskia raphael anastacia"
+      "jamie ellie lottie"
+      "binah lola mickey"
+  }
+}
+@mixin student($property, $top, $val, $area) {
+  top: $top;
+  #{$property}: $val;
+  grid-area: $area;
+  @media only screen and (max-width: $tablet) {
+    top: auto;
+    #{$property}: auto
+  }
+}
 .yearbook__student__wrapper {
   @extend %yearbook;
   font-size: 1.2vw;
@@ -949,42 +977,48 @@ pre tt:after {
   position: absolute;
 
   &.saskia {
-    left: 8%;
-    top: 15%;
+    @include student(left, 15%, 8%, saskia);
   }
   &.raphael {
-    top: 15%;
-    left: 30%;
+    @include student(left, 15%, 30%, raphael);
     transform: rotate(-5deg);
   }
   &.anastacia {
-    left: 8%;
-    top: 55%;
+    @include student(left, 55%, 8%, anastacia);
   }
   &.binah {
-    top: 55%;
-    left: 30%;
+    @include student(left, 55%, 30%, binah);
   }
   &.jamie {
-    top: 10%;
-    right: 35%;
+    @include student(right, 10%, 35%, jamie);
   }
   &.lottie {
-    top: 10%;
-    right: 5%;
+    @include student(right, 10%, 5%, lottie);
     transform: rotate(-5deg);
   }
   &.ellie {
-    top: 35%;
-    right: 20%;
+    @include student(right, 35%, 20%, ellie);
     transform: rotate(-5deg);
+  }
+  &.lola {
+    @include student(right, 60%, 35%, lola);
+    transform: rotate(-5deg);
+  }
+  &.mickey {
+    @include student(right, 60%, 5%, mickey);
+
   }
   &:hover {
     @extend %yearbook;
-
     cursor: pointer;
     text-decoration: none;
   }
+  @media only screen and (max-width: $tablet) {
+    position: relative;
+    width: auto;
+    font-size: 3vw;
+  }
+
 }
 
 .RosesTopLeft {
@@ -994,7 +1028,7 @@ pre tt:after {
   left: -3%;
   width: 15%;
   pointer-events: none;
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: $tablet) {
     top: -10px;
     left: -1%;
   }
@@ -1010,7 +1044,7 @@ pre tt:after {
   right: -3%;
   width: 15%;
   pointer-events: none;
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: $tablet) {
     top: -10px;
     right: -1%;
   }
