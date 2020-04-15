@@ -1,10 +1,14 @@
 const React = require("react")
-const { ParallaxProvider } = require("react-scroll-parallax")
 const { Helmet } = require("react-helmet")
 const { Layout } = require("./src/components/layout/layout")
 const { Navigation } = require("./src/components/Nav")
+const Modal = require("react-modal")
+
+
 
 exports.wrapRootElement = ({ element }) => {
+  Modal.setAppElement("#___gatsby")
+
   return (
     <>
       <Helmet>

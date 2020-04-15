@@ -1,19 +1,20 @@
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, useState } from "react"
+import Modal from "react-modal"
 import { YearbookStudentProps } from "../types"
 import BackArrow from "./images/BackArrow"
 import ForwardArrow from "./images/ForwardArrow"
 import SEO from "./seo"
 
 export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props => {
-  console.log(props)
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <>
       <SEO
         title={`Yearbook - ${props.data.contentfulStudentDescription.name}`}
       />
-
       <Link
         to={`/yearbook/${props.pageContext.prevStudent || ""}`}
         className="yearbook__back__button"
@@ -29,6 +30,27 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
       </Link>
 
       <div className="yearbook__wrapper">
+        <Modal
+          contentLabel={`${props.data.contentfulStudentDescription.name}'s room`}
+          isOpen={modalOpen}
+          onRequestClose={() => setModalOpen(false)}
+          className="yearbook__modal"
+          overlayClassName="yearbook__modal__overlay"
+        >
+          {props.data.contentfulStudentDescription.roomImage && (
+            <div>
+              <button
+                className="yearbook__modal__closeButton"
+                onClick={() => setModalOpen(false)}
+              >
+                X
+              </button>
+              <Img
+                fluid={props.data.contentfulStudentDescription.roomImage.fluid}
+              />
+            </div>
+          )}
+        </Modal>
         <div className="individual__yearbook__wrapper">
           <div className="yearbook__pageOne">
             <h1 className="yearbook__pageOne__header">
@@ -48,15 +70,20 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
             </div>
           </div>
           <div className="yearbook__pageTwo">
-            <div className="yearbook__student__roomImage">
-              {props.data.contentfulStudentDescription.roomImage && (
-                <Img
-                  fluid={
-                    props.data.contentfulStudentDescription.roomImage.fluid
-                  }
-                />
-              )}
-            </div>
+            <button
+              className="yearbook__studentRoom__button"
+              onClick={() => setModalOpen(true)}
+            >
+              <div className="yearbook__student__roomImage">
+                {props.data.contentfulStudentDescription.roomImage && (
+                  <Img
+                    fluid={
+                      props.data.contentfulStudentDescription.roomImage.fluid
+                    }
+                  />
+                )}
+              </div>
+            </button>
             <h2 className="yearbook__about__header">BIRTHDAY</h2>
             <p>{props.data.contentfulStudentDescription.birthday}</p>
             <h2 className="yearbook__about__header">FAVORITE THINGS</h2>

@@ -903,6 +903,41 @@ pre tt:after {
     @extend %yearbook;
     font-size: 1.8rem;
   }
+  &__studentRoom__button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+  }
+  &__modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    
+  }
+  &__modal__overlay{
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+  &__modal__closeButton {
+    @extend %yearbook;
+    font-size: 2rem;
+    position: absolute;
+    left: 95%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 11;
+  }
 }
 
 
