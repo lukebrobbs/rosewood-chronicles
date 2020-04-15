@@ -4,6 +4,7 @@ import { SortedHouseProps } from "../types"
 import { graphql } from "gatsby"
 
 export const SortedHouse: FunctionComponent<SortedHouseProps> = props => {
+  const { sorted } = props.pathContext
   const {
     house,
     description,
@@ -21,13 +22,15 @@ export const SortedHouse: FunctionComponent<SortedHouseProps> = props => {
   return (
     <div className="sortedHouse__wrapper" data-testid="sortedHousePage">
       <div className="sortedHouse__content">
-        <h1 className="sortedHouse__header">Congratulations!</h1>
+        {sorted && <h1 className="sortedHouse__header">Congratulations!</h1>}
         <div className="sortedHouse__banner__wrapper">
           <Img fluid={sources} alt={`${house} insignia`} />
         </div>
-        <h1 data-testid="houseColour" className="sortedHouse__header">
-          You are in house {house}
-        </h1>
+        {sorted && (
+          <h1 data-testid="houseColour" className="sortedHouse__header">
+            You are in house {house}
+          </h1>
+        )}
         <p data-testid="houseDescription" className="sortedHouse__paragraph">
           {description.description}
         </p>

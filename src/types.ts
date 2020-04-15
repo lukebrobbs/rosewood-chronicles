@@ -5,6 +5,9 @@ export interface Fluid {
 }
 export interface SortedHouseProps {
   data: { contentfulHouseDescription: SortedHouseEdge }
+  pathContext: {
+    sorted: boolean
+  }
 }
 
 export interface PreSortingProps {

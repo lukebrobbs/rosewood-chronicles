@@ -32,6 +32,15 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("./src/components/SortedHouse.tsx"),
       context: {
         house,
+        sorted: true
+      },
+    })
+    createPage({
+      path: `/${house.toLowerCase()}`,
+      component: path.resolve("./src/components/SortedHouse.tsx"),
+      context: {
+        house,
+        sorted: false
       },
     })
   })
