@@ -817,7 +817,15 @@ pre tt:after {
   height: 100%;
   width: 100%;
   display: grid;
+  grid-template-areas: 
+      "header pageTwo"
+      "pageOne pageTwo";
   grid-template-columns: 1fr 1fr;
+  @media only screen and (max-width: $tablet) {
+    grid-template-areas: 
+    "header header"
+    "pageOne pageTwo";
+  }
 }
 
 %yearbook {
@@ -879,10 +887,15 @@ pre tt:after {
     display: flex;
     flex-direction: column;
     align-items: center;
+    grid-area: pageOne;
     &__header {
       @extend %yearbook__header;
       align-self: flex-start;
       margin: 2rem auto 0 auto;
+      grid-area: header;
+      @media only screen and (max-width: $tablet) {
+        margin: 3rem auto 0 auto;
+      }
     }
   }
   &__pageTwo {
@@ -892,6 +905,15 @@ pre tt:after {
     text-align: left;
     margin-top: 4vh;
     margin-left: 1rem;
+    grid-area: pageTwo;
+    @media only screen and (max-width: $tablet) {
+      font-size: 2vw;
+      padding-right: 1rem;
+    }
+    @media only screen and (max-width: $mobile) {
+      font-size: 2.5vw;
+      padding-right: 0.2rem;
+    }
   }
   &__student__image {
     width: 70%;
@@ -899,12 +921,10 @@ pre tt:after {
   }
   &__student__house__image {
     width: 20%;
-  }
-  &__student__roomImage {
-    width: 12vw;
-    position: absolute;
-    top: 2%;
-    right: 8%;
+    @media only screen and (max-width: $tablet) {
+      width: 70%;
+      margin-top: 2rem;
+    }
   }
   &__image__wrapper {
     height: 100%;
@@ -921,11 +941,26 @@ pre tt:after {
   &__about__header {
     @extend %yearbook;
     font-size: 1.6vw;
+    @media only screen and (max-width: $tablet) {
+      font-size: 2.5vw;
+    }
   }
   &__studentRoom__button {
+    width: 12vw;
+    position: absolute;
+    top: 2%;
+    right: 8%;
     cursor: pointer;
     border: none;
     background-color: transparent;
+    @media only screen and (max-width: $tablet) {
+      position: relative;
+      margin: 2rem 0rem 0rem 10%;
+      width: 30vw;
+    }
+    @media only screen and (max-width: $mobile) {
+      width: 40vw;
+    }
   }
   &__modal {
     position: absolute;

@@ -52,24 +52,15 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
           )}
         </Modal>
         <div className="individual__yearbook__wrapper">
+          <h1 className="yearbook__pageOne__header">
+            {props.data.contentfulStudentDescription.name}
+          </h1>
           <div className="yearbook__pageOne">
-            <h1 className="yearbook__pageOne__header">
-              {props.data.contentfulStudentDescription.name}
-            </h1>
             <div className="yearbook__student__image">
               <Img
                 fluid={props.data.contentfulStudentDescription.image.fluid}
               />
             </div>
-            <div className="yearbook__student__house__image">
-              <Img
-                fluid={
-                  props.data.contentfulHouseDescription.desktopInsignia.fluid
-                }
-              />
-            </div>
-          </div>
-          <div className="yearbook__pageTwo">
             <button
               className="yearbook__studentRoom__button"
               onClick={() => setModalOpen(true)}
@@ -84,6 +75,15 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
                 )}
               </div>
             </button>
+            <div className="yearbook__student__house__image">
+              <Img
+                fluid={
+                  props.data.contentfulHouseDescription.desktopInsignia.fluid
+                }
+              />
+            </div>
+          </div>
+          <div className="yearbook__pageTwo">
             <h2 className="yearbook__about__header">BIRTHDAY</h2>
             <p>{props.data.contentfulStudentDescription.birthday}</p>
             <h2 className="yearbook__about__header">FAVORITE THINGS</h2>
