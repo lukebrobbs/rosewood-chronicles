@@ -862,6 +862,14 @@ pre tt:after {
     text-align: center;
     position: relative;
     display: flex;
+    @media only screen and (max-width: $tablet) {
+      background: url("../../images/M_Yearbook_Pages.png") no-repeat center;
+      -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    }
     @media only screen and (max-width: $mobile) {
       width: 80vw;
       min-height: 85vh;
