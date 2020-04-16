@@ -930,7 +930,7 @@ pre tt:after {
   &__student__house__image {
     width: 20%;
     @media only screen and (max-width: $tablet) {
-      width: 70%;
+      width: 60%;
       margin-top: 2rem;
     }
   }
@@ -992,7 +992,8 @@ pre tt:after {
   }
   &__modal__closeButton {
     @extend %yearbook;
-    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.75);;
+    font-size: 2vw;
     position: absolute;
     left: 95%;
     border: none;

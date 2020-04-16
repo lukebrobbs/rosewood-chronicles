@@ -148,6 +148,7 @@ interface StudentDescription {
   quote: { quote: string }
   image: Fluid
   roomImage: Fluid
+  largeRoomImage: Fluid
 }
 
 export interface Edges {

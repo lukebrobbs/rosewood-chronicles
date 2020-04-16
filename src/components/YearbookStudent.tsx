@@ -37,7 +37,7 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
           className="yearbook__modal"
           overlayClassName="yearbook__modal__overlay"
         >
-          {props.data.contentfulStudentDescription.roomImage && (
+          {props.data.contentfulStudentDescription.largeRoomImage && (
             <div>
               <button
                 className="yearbook__modal__closeButton"
@@ -46,7 +46,9 @@ export const YearbookStudent: FunctionComponent<YearbookStudentProps> = props =>
                 X
               </button>
               <Img
-                fluid={props.data.contentfulStudentDescription.roomImage.fluid}
+                fluid={
+                  props.data.contentfulStudentDescription.largeRoomImage.fluid
+                }
               />
             </div>
           )}
@@ -142,6 +144,11 @@ export const query = graphql`
         }
       }
       roomImage {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      largeRoomImage {
         fluid {
           ...GatsbyContentfulFluid
         }
