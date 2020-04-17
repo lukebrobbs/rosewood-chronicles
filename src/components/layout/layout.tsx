@@ -19,10 +19,14 @@ export const Layout: FunctionComponent<Props> = props => {
     <>
       {props.page !== "/" && (
         <>
-          <img src={RosesTopLeft} className="RosesTopLeft" />
-          <img src={RosesTopRight} className="RosesTopRight" />
-          <img src={RosesBottomLeft} className="RosesBottomLeft" />
-          <img src={RosesBottomRight} className="RosesBottomRight" />
+          <img src={RosesTopLeft} className="RosesTopLeft" alt="roses" />
+          <img src={RosesTopRight} className="RosesTopRight" alt="roses" />
+          <img src={RosesBottomLeft} className="RosesBottomLeft" alt="roses" />
+          <img
+            src={RosesBottomRight}
+            className="RosesBottomRight"
+            alt="roses"
+          />
         </>
       )}
       <div className={`layout__wrapper`}>
