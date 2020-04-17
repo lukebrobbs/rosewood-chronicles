@@ -10,7 +10,6 @@ import RosesTopLeft from "../../images/Roses_TL.svg"
 import RosesTopRight from "../../images/Roses_TR.svg"
 import RosesBottomLeft from "../../images/Roses_BL.svg"
 import RosesBottomRight from "../../images/Roses_BR.svg"
-import "./layout.scss"
 
 interface Props {
   page: string
