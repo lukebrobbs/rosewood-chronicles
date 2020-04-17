@@ -1014,7 +1014,7 @@ pre tt:after {
       "header header header"
       "saskia raphael anastacia"
       "jamie ellie lottie"
-      "binah lola mickey"
+      "binah lola micky"
   }
   @media only screen and (max-width: $mobile) {
     padding: 1rem;
@@ -1064,8 +1064,8 @@ pre tt:after {
     @include student(right, 60%, 35%, lola);
     transform: rotate(-5deg);
   }
-  &.mickey {
-    @include student(right, 60%, 5%, mickey);
+  &.micky {
+    @include student(right, 60%, 5%, micky);
 
   }
   &:hover {
