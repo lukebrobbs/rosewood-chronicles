@@ -2,7 +2,7 @@ $mobile: 700px;
 $tablet: 1200px;
 
 @font-face {
-  font-family: 'HandOfSean';
+  font-family: "HandOfSean";
   src: url("../../fonts/Hand_Of_Sean.ttf");
 }
 html {
@@ -812,25 +812,24 @@ pre tt:after {
   border-color: rgb(158, 136, 56);
 }
 
-
 .individual__yearbook__wrapper {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-areas: 
-      "header pageTwo"
-      "pageOne pageTwo";
+  grid-template-areas:
+    "header pageTwo"
+    "pageOne pageTwo";
   grid-template-columns: 1fr 1fr;
   @media only screen and (max-width: $tablet) {
-    grid-template-areas: 
-    "header header"
-    "pageOne pageTwo";
+    grid-template-areas:
+      "header header"
+      "pageOne pageTwo";
   }
 }
 
 %yearbook {
-  font-family: 'HandOfSean';
-  color: #37170F;
+  font-family: "HandOfSean";
+  color: #37170f;
 }
 
 %yearbook__header {
@@ -846,7 +845,6 @@ pre tt:after {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 25px;
- 
 }
 
 .yearbook {
@@ -858,17 +856,19 @@ pre tt:after {
     background-size: cover;
     margin: 0.5rem auto 0 auto;
     min-height: 90vh;
-    width: 68vw;
+    width: 70vw;
     text-align: center;
     position: relative;
     display: flex;
     @media only screen and (max-width: $tablet) {
       background: url("../../images/M_Yearbook_Pages.png") no-repeat center;
       -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    @media only screen and (max-width: 800px) {
+      min-height: 100vh;
     }
     @media only screen and (max-width: $mobile) {
       width: 80vw;
@@ -879,14 +879,14 @@ pre tt:after {
     @extend %yearbook__nav__button;
     left: 90%;
     @media only screen and (max-width: $mobile) {
-      left: 95%
+      left: 95%;
     }
   }
   &__back__button {
     @extend %yearbook__nav__button;
     left: 10%;
     @media only screen and (max-width: $mobile) {
-      left: 5%
+      left: 5%;
     }
   }
   &__pageOne {
@@ -916,7 +916,6 @@ pre tt:after {
     grid-area: pageTwo;
     @media only screen and (max-width: $tablet) {
       font-size: 2vw;
-      padding-right: 1rem;
     }
     @media only screen and (max-width: $mobile) {
       font-size: 2.5vw;
@@ -931,7 +930,6 @@ pre tt:after {
     width: 20%;
     @media only screen and (max-width: $tablet) {
       width: 60%;
-      margin-top: 2rem;
     }
   }
   &__image__wrapper {
@@ -956,14 +954,15 @@ pre tt:after {
   &__studentRoom__button {
     width: 12vw;
     position: absolute;
-    top: 2%;
+    top: 3%;
     right: 8%;
     cursor: pointer;
     border: none;
     background-color: transparent;
     @media only screen and (max-width: $tablet) {
       position: relative;
-      margin: 2rem 0rem 0rem 10%;
+      margin: 0.5rem 0rem 0rem 10%;
+      top: 0%;
       width: 30vw;
     }
     @media only screen and (max-width: $mobile) {
@@ -979,9 +978,8 @@ pre tt:after {
     margin-right: -50%;
     transform: translate(-50%, -50%);
     width: 60vw;
-    
   }
-  &__modal__overlay{
+  &__modal__overlay {
     position: fixed;
     z-index: 10;
     top: 0px;
@@ -992,7 +990,7 @@ pre tt:after {
   }
   &__modal__closeButton {
     @extend %yearbook;
-    color: rgba(255, 255, 255, 0.75);;
+    color: rgba(255, 255, 255, 0.75);
     font-size: 2vw;
     position: absolute;
     left: 95%;
@@ -1008,13 +1006,14 @@ pre tt:after {
     padding: 2rem;
     position: relative;
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
       "header header header"
       "saskia raphael anastacia"
       "jamie ellie lottie"
-      "binah lola micky"
+      "percy any any"
+      "binah lola micky";
   }
   @media only screen and (max-width: $mobile) {
     padding: 1rem;
@@ -1027,27 +1026,32 @@ pre tt:after {
   grid-area: $area;
   @media only screen and (max-width: $tablet) {
     top: auto;
-    #{$property}: auto
+    #{$property}: auto;
   }
 }
 .yearbook__student__wrapper {
   @extend %yearbook;
   font-size: 1.2vw;
-  width: 15%;
+  width: 14%;
+  max-width: 160px;
   position: absolute;
 
   &.saskia {
-    @include student(left, 15%, 8%, saskia);
+    @include student(left, 10%, 5%, saskia);
   }
   &.raphael {
-    @include student(left, 15%, 30%, raphael);
+    @include student(left, 10%, 34%, raphael);
+    transform: rotate(-5deg);
+  }
+  &.percy {
+    @include student(left, 35%, 20%, percy);
     transform: rotate(-5deg);
   }
   &.anastacia {
-    @include student(left, 55%, 8%, anastacia);
+    @include student(left, 60%, 5%, anastacia);
   }
   &.binah {
-    @include student(left, 55%, 30%, binah);
+    @include student(left, 60%, 34%, binah);
   }
   &.jamie {
     @include student(right, 10%, 35%, jamie);
@@ -1066,7 +1070,6 @@ pre tt:after {
   }
   &.micky {
     @include student(right, 60%, 5%, micky);
-
   }
   &:hover {
     @extend %yearbook;
@@ -1078,7 +1081,6 @@ pre tt:after {
     width: auto;
     font-size: 3vw;
   }
-
 }
 
 .RosesTopLeft {

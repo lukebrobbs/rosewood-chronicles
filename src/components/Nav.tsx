@@ -33,14 +33,14 @@ export const Navigation = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
             <Nav.Link
-              to="sorting-quiz"
+              to="/sorting-quiz"
               as={Link}
               className="mx-auto"
               eventKey={1}
             >
               SORTING QUIZ
             </Nav.Link>
-            <Nav.Link to="yearbook" as={Link} className="mx-auto" eventKey={2}>
+            <Nav.Link to="/yearbook" as={Link} className="mx-auto" eventKey={2}>
               YEARBOOK
             </Nav.Link>
           </Nav>

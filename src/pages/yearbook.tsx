@@ -44,7 +44,7 @@ export const query = graphql`
       students {
         displayName
         image {
-          fluid {
+          fluid(maxWidth: 200) {
             ...GatsbyContentfulFluid
           }
         }
