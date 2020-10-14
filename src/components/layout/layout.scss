@@ -928,8 +928,10 @@ pre tt:after {
   }
   &__student__house__image {
     width: 20%;
+    margin-top: 1rem;
     @media only screen and (max-width: $tablet) {
       width: 60%;
+      margin-top: 0;
     }
   }
   &__image__wrapper {
@@ -1032,8 +1034,8 @@ pre tt:after {
 .yearbook__student__wrapper {
   @extend %yearbook;
   font-size: 1.2vw;
-  width: 14%;
-  max-width: 160px;
+  width: 15%;
+  max-width: 170px;
   position: absolute;
 
   &.saskia {
