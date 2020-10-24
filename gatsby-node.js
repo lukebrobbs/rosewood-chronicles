@@ -11,15 +11,19 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    }
-  `)
-
-  const yearBookStudents = await graphql(`
-    query {
       contentfulYearbookLandingPage {
         students {
           displayName
           house
+        }
+      }
+      allContentfulStory {
+        edges {
+          node {
+            title
+            id
+            slug
+          }
         }
       }
     }
@@ -32,7 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("./src/components/SortedHouse.tsx"),
       context: {
         house,
-        sorted: true
+        sorted: true,
       },
     })
     createPage({
@@ -40,14 +44,14 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("./src/components/SortedHouse.tsx"),
       context: {
         house,
-        sorted: false
+        sorted: false,
       },
     })
   })
 
-  yearBookStudents.data.contentfulYearbookLandingPage.students.forEach(
+  result.data.contentfulYearbookLandingPage.students.forEach(
     (student, index) => {
-      const { students } = yearBookStudents.data.contentfulYearbookLandingPage
+      const { students } = result.data.contentfulYearbookLandingPage
       createPage({
         path: `/yearbook/${student.displayName.toLowerCase()}`,
         component: path.resolve("./src/components/YearbookStudent.tsx"),
@@ -64,4 +68,13 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     }
   )
+  result.data.allContentfulStory.edges.forEach(({ node }) => {
+    createPage({
+      path: `/library/${node.slug}`,
+      component: path.resolve("./src/components/Story.tsx"),
+      context: {
+        slug: node.slug,
+      },
+    })
+  })
 }

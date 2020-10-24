@@ -1,13 +1,36 @@
 $mobile: 700px;
 $tablet: 1200px;
+$desktopSmall: 1024px;
+$desktop: 1440px;
+
+@mixin mobilesm {
+  @media only screen and (max-width: 320px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktopSmall {
+  @media only screen and (min-width: $desktopSmall) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop) {
+    @content;
+  }
+}
 
 @font-face {
   font-family: "HandOfSean";
   src: url("../../fonts/Hand_Of_Sean.ttf");
 }
 html {
-  font-family: Garamond;
-  src: url("../../fonts/Adobe-Garamond-Regular.otf");
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -1145,5 +1168,85 @@ pre tt:after {
   }
   @media only screen and (max-width: 400px) {
     width: 30%;
+  }
+}
+
+.library {
+  &__header {
+    color: #37170f;
+    text-align: center;
+    margin: 1em auto;
+  }
+  .books {
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      @include tablet {
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      @include desktop {
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+      .library-book {
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        padding: 1em;
+        @include tablet {
+          width: 50%;
+        }
+        @include desktopSmall() {
+          width: 30%;
+        }
+        &__title {
+          color: rgb(158, 136, 56);
+          text-align: left;
+          position: absolute;
+          margin: 0;
+          top: 15%;
+          left: 46%;
+          transform: rotateY(-45deg) rotateZ(6deg) rotateX(43deg)
+            translate(0%, 0%);
+          transform-origin: top left;
+          font-size: 1.6em;
+          @include mobilesm {
+            width: 50%;
+          }
+          @include tablet {
+            font-size: 1.8em;
+          }
+          @include desktopSmall() {
+            font-size: 1.8em;
+          }
+          @include desktop() {
+            // transform: rotateY(-45deg) rotateZ(6deg) rotateX(45deg)
+            //   translate(-110%, -100%);
+          }
+        }
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+.story {
+  &__wrapper {
+    font-size: 20px;
+    max-width: 960px;
+    padding: 40px 2em;
+    margin: 0 auto;
+    color: #37170f;
+    text-align: justify;
+    @include desktop {
+      font-size: 22px;
+    }
+    &-title {
+      text-align: center;
+      margin-bottom: 1.5em;
+    }
   }
 }
