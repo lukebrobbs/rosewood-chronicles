@@ -63,6 +63,9 @@ export const Navigation = () => {
             >
               BOOKS
             </Nav.Link>
+            <Nav.Link to="/library" as={Link} className="mx-auto" eventKey={6}>
+              LIBRARY
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
