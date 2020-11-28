@@ -8,8 +8,13 @@ $desktop: 1440px;
     @content;
   }
 }
+@mixin mobilelg {
+  @media only screen and (min-width: 425px) {
+    @content;
+  }
+}
 @mixin tablet {
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 765px) {
     @content;
   }
 }
@@ -22,6 +27,18 @@ $desktop: 1440px;
 
 @mixin desktop {
   @media only screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktopLg {
+  @media only screen and (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin tall {
+  @media only screen and (min-height: 849px) {
     @content;
   }
 }
@@ -1247,6 +1264,83 @@ pre tt:after {
     &-title {
       text-align: center;
       margin-bottom: 1.5em;
+    }
+  }
+}
+
+.scrapbook {
+  &__cover {
+    &__wrapper {
+      position: relative;
+      width: 90vw;
+      max-width: 900px;
+      margin: 2rem auto 0 auto;
+      @include tablet {
+        width: 50vh;
+      }
+      @include tall {
+        margin: 6rem auto 0 auto;
+        width: 50vh;
+      }
+      @include desktopLg {
+        max-width: 1440px;
+      }
+      .next-button {
+        position: absolute;
+        right: 45%;
+        top: calc(100% + 1rem);
+        width: 20px;
+        @include tablet {
+          top: 50%;
+          transform: translateY(-50%);
+          margin: 0;
+          right: -3rem;
+          width: 25px;
+        }
+      }
+    }
+  }
+  &__innerPages {
+    &__wrapper {
+      position: relative;
+      width: 90vw;
+      max-width: 900px;
+      margin: 2rem auto 0 auto;
+      @include tablet {
+        width: 80vw;
+      }
+      @include tall {
+        margin: 6rem auto 0 auto;
+      }
+      @include desktopLg {
+        max-width: 1200px;
+      }
+      .next-button {
+        position: absolute;
+        right: 30%;
+        top: calc(100% + 1rem - 9px);
+        width: 15px;
+
+        @include tablet {
+          top: 50%;
+          transform: translateY(-50%);
+          right: -3rem;
+          width: 25px;
+        }
+      }
+      .back-button {
+        position: absolute;
+        left: 30%;
+        top: calc(100% + 1rem);
+        width: 15px;
+
+        @include tablet {
+          left: -3rem;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 25px;
+        }
+      }
     }
   }
 }
