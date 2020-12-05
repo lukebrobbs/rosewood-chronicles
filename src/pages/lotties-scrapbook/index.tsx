@@ -1,23 +1,17 @@
 import { graphql, Link } from "gatsby"
 import React, { ReactElement } from "react"
-import Img from "gatsby-image"
-import ForwardArrow from "./../../components/images/ForwardArrow"
 import { ScrapbookQuery } from "../../types"
+import { InnerPages } from "../../components/Scrapbook/InnerPages"
 
 const ScrapbookCover = (props: ScrapbookQuery<"cover", "">): ReactElement => {
   return (
-    <div className="scrapbook__cover">
-      <div className="scrapbook__cover__wrapper">
-        <Link to={`/lotties-scrapbook/memories/1`} className="next-button">
-          <ForwardArrow />
-        </Link>
-        <Img
-          fluid={props.data.contentfulLottiesScrapbook.cover.fluid}
-          alt="Lottie's scrapbook cover"
-          imgStyle={{ objectFit: "contain" }}
-        />
-      </div>
-    </div>
+    <InnerPages
+      backLink="/lotties-scrapbook/takeshin-gakuen/4"
+      forwardLink="/lotties-scrapbook/memories/1"
+      fluid={props.data.contentfulLottiesScrapbook.cover.fluid}
+      imageAlt="Lottie's scrapbook cover"
+      singlePage
+    />
   )
 }
 

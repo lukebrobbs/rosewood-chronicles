@@ -1269,34 +1269,32 @@ pre tt:after {
 }
 
 .scrapbook {
-  &__cover {
+  &__single-page {
     &__wrapper {
       position: relative;
       width: 90vw;
-      max-width: 900px;
+      max-width: 500px;
       margin: 2rem auto 0 auto;
-      @include tablet {
-        width: 44vh;
-      }
+
       @include desktopSmall {
-        width: 50vh;
+        width: 52vh;
       }
-      @include tall {
-        margin: 6rem auto 0 auto;
-        width: 35vh;
-        @include tablet {
-          width: 37vh;
-        }
-        @include desktopSmall {
-          width: 46vh;
-        }
+
+      @include desktop {
+        width: 50vh;
       }
       @include desktopLg {
         max-width: 1440px;
       }
+      @include tall {
+        margin: 6rem auto 0 auto;
+        @include desktop {
+          width: 47vh;
+        }
+      }
       .next-button {
         position: absolute;
-        right: 45%;
+        right: 35%;
         top: calc(100% + 1rem);
         width: 20px;
         @include tablet {
@@ -1309,9 +1307,9 @@ pre tt:after {
       }
       .back-button {
         position: absolute;
-        left: 30%;
-        top: calc(100% + 1rem);
-        width: 15px;
+        left: 35%;
+        top: calc(100% + 1.7rem);
+        width: 20px;
 
         @include tablet {
           left: -3rem;
@@ -1326,19 +1324,29 @@ pre tt:after {
     &__wrapper {
       position: relative;
       width: 90vw;
-      max-width: 900px;
+      max-width: 960px;
       margin: 2rem auto 0 auto;
       @include tablet {
-        width: 80vw;
+        width: 78vw;
       }
-      @include desktopSmall {
-        width: 51vw;
+
+      @include desktop {
+        width: 53vw;
+      }
+      @include desktopLg {
+        width: 30vw;
       }
       @include tall {
         margin: 6rem auto 0 auto;
-      }
-      @include desktopLg {
-        max-width: 1200px;
+        @include desktop {
+          max-width: 1100px;
+          width: 65vw;
+        }
+        @include desktopLg {
+          max-width: 1400px;
+
+          width: 40vw;
+        }
       }
       .next-button {
         position: absolute;

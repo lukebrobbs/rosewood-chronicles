@@ -3,12 +3,13 @@ import { graphql } from "gatsby"
 import { ScrapbookQuery } from "../../../types"
 import { InnerPages } from "../../../components/Scrapbook/InnerPages"
 import { useWindowSize } from "../../../hooks/useWindowSize"
+import { TABLET } from "../../../constants/breakPoints"
 
 const TakeshinGakuen2 = (
   props: ScrapbookQuery<"page1213", "page12">
 ): ReactElement => {
   const { width } = useWindowSize()
-  if (width >= 765) {
+  if (width > TABLET) {
     return (
       <InnerPages
         backLink="/lotties-scrapbook/conch/1"
@@ -24,7 +25,7 @@ const TakeshinGakuen2 = (
       forwardLink="/lotties-scrapbook/takeshin-gakuen/3"
       fluid={props.data.contentfulLottiesScrapbookMobile.page12.fluid}
       imageAlt="Lottie's scrapbook Takeshin Gakuen page 2"
-      mobile
+      singlePage
     />
   )
 }

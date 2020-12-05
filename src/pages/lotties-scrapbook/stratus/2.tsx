@@ -3,10 +3,11 @@ import { graphql } from "gatsby"
 import { ScrapbookQuery } from "../../../types"
 import { InnerPages } from "../../../components/Scrapbook/InnerPages"
 import { useWindowSize } from "../../../hooks/useWindowSize"
+import { TABLET } from "../../../constants/breakPoints"
 
 const Stratus2 = (props: ScrapbookQuery<"page89", "page8">): ReactElement => {
   const { width } = useWindowSize()
-  if (width >= 765) {
+  if (width > TABLET) {
     return (
       <InnerPages
         backLink="/lotties-scrapbook/ivy/3"
@@ -22,7 +23,7 @@ const Stratus2 = (props: ScrapbookQuery<"page89", "page8">): ReactElement => {
       forwardLink="/lotties-scrapbook/conch/1"
       fluid={props.data.contentfulLottiesScrapbookMobile.page8.fluid}
       imageAlt="Lottie's scrapbook Stratus page 2"
-      mobile
+      singlePage
     />
   )
 }
