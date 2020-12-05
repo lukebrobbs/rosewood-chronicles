@@ -1,4 +1,4 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React, { ReactElement } from "react"
 import { ScrapbookQuery } from "../../types"
 import { InnerPages } from "../../components/Scrapbook/InnerPages"
