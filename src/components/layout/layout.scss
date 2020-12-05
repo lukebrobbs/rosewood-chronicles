@@ -1214,7 +1214,7 @@ pre tt:after {
         @include tablet {
           width: 50%;
         }
-        @include desktopSmall() {
+        @include desktopSmall {
           width: 30%;
         }
         &__title {
@@ -1234,10 +1234,10 @@ pre tt:after {
           @include tablet {
             font-size: 1.8em;
           }
-          @include desktopSmall() {
+          @include desktopSmall {
             font-size: 1.8em;
           }
-          @include desktop() {
+          @include desktop {
             // transform: rotateY(-45deg) rotateZ(6deg) rotateX(45deg)
             //   translate(-110%, -100%);
           }
@@ -1276,11 +1276,20 @@ pre tt:after {
       max-width: 900px;
       margin: 2rem auto 0 auto;
       @include tablet {
+        width: 44vh;
+      }
+      @include desktopSmall {
         width: 50vh;
       }
       @include tall {
         margin: 6rem auto 0 auto;
-        width: 50vh;
+        width: 35vh;
+        @include tablet {
+          width: 37vh;
+        }
+        @include desktopSmall {
+          width: 46vh;
+        }
       }
       @include desktopLg {
         max-width: 1440px;
@@ -1298,6 +1307,19 @@ pre tt:after {
           width: 25px;
         }
       }
+      .back-button {
+        position: absolute;
+        left: 30%;
+        top: calc(100% + 1rem);
+        width: 15px;
+
+        @include tablet {
+          left: -3rem;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 25px;
+        }
+      }
     }
   }
   &__innerPages {
@@ -1308,6 +1330,9 @@ pre tt:after {
       margin: 2rem auto 0 auto;
       @include tablet {
         width: 80vw;
+      }
+      @include desktopSmall {
+        width: 51vw;
       }
       @include tall {
         margin: 6rem auto 0 auto;

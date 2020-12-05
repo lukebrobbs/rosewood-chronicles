@@ -4,44 +4,44 @@ import { ScrapbookQuery } from "../../../types"
 import { InnerPages } from "../../../components/Scrapbook/InnerPages"
 import { useWindowSize } from "../../../hooks/useWindowSize"
 
-const TakeshinGakuen2 = (
-  props: ScrapbookQuery<"page1213", "page12">
+const TakeshinGakuen4 = (
+  props: ScrapbookQuery<"page1415", "page14">
 ): ReactElement => {
   const { width } = useWindowSize()
   if (width >= 765) {
     return (
       <InnerPages
-        backLink="/lotties-scrapbook/conch/1"
-        forwardLink="/lotties-scrapbook/takeshin-gakuen/3"
-        fluid={props.data.contentfulLottiesScrapbook.page1213.fluid}
+        backLink="/lotties-scrapbook/takeshin-gakuen/1"
+        forwardLink="/lotties-scrapbook"
+        fluid={props.data.contentfulLottiesScrapbook.page1415.fluid}
         imageAlt="Lottie's scrapbook Takeshin Gakuen page"
       />
     )
   }
   return (
     <InnerPages
-      backLink="/lotties-scrapbook/takeshin-gakuen/1"
-      forwardLink="/lotties-scrapbook/takeshin-gakuen/3"
-      fluid={props.data.contentfulLottiesScrapbookMobile.page12.fluid}
-      imageAlt="Lottie's scrapbook Takeshin Gakuen page 2"
+      backLink="/lotties-scrapbook/takeshin-gakuen/3"
+      forwardLink="/lotties-scrapbook"
+      fluid={props.data.contentfulLottiesScrapbookMobile.page14.fluid}
+      imageAlt="Lottie's scrapbook Takeshin Gakuen page 4"
       mobile
     />
   )
 }
 
-export default TakeshinGakuen2
+export default TakeshinGakuen4
 
 export const query = graphql`
-  query scrapbookTakeshinGakuenQuery2 {
+  query scrapbookTakeshinGakuenQuery4 {
     contentfulLottiesScrapbook {
-      page1213 {
+      page1415 {
         fluid {
           ...GatsbyContentfulFluid
         }
       }
     }
     contentfulLottiesScrapbookMobile {
-      page12 {
+      page14 {
         fluid {
           ...GatsbyContentfulFluid
         }

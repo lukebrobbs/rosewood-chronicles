@@ -10,6 +10,7 @@ interface InnerPagesProps {
   forwardLink: string
   fluid: FluidObject
   imageAlt: string
+  mobile?: boolean
 }
 
 export const InnerPages = ({
@@ -17,10 +18,12 @@ export const InnerPages = ({
   forwardLink,
   backLink,
   imageAlt,
+  mobile = false,
 }: InnerPagesProps): ReactElement => {
+  const wrapperClass = mobile ? "cover" : "innerPages"
   return (
-    <div className="scrapbook__innerPages">
-      <div className="scrapbook__innerPages__wrapper">
+    <div className={`scrapbook__${wrapperClass}`}>
+      <div className={`scrapbook__${wrapperClass}__wrapper`}>
         <Link to={backLink} className="back-button">
           <BackArrow />
         </Link>

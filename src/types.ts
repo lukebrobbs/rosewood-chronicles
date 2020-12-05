@@ -179,10 +179,13 @@ export interface ContentfulHouseDescription {
   edges: { node: SortedHouseEdge }[]
 }
 
-export interface ScrapbookQuery<T extends string> {
+export interface ScrapbookQuery<T extends string, U extends string> {
   data: {
     contentfulLottiesScrapbook: {
       [key in T]: Fluid
+    }
+    contentfulLottiesScrapbookMobile: {
+      [key in U]: Fluid
     }
   }
 }

@@ -4,44 +4,42 @@ import { ScrapbookQuery } from "../../../types"
 import { InnerPages } from "../../../components/Scrapbook/InnerPages"
 import { useWindowSize } from "../../../hooks/useWindowSize"
 
-const TakeshinGakuen2 = (
-  props: ScrapbookQuery<"page1213", "page12">
-): ReactElement => {
+const Ivy3 = (props: ScrapbookQuery<"page67", "page5">): ReactElement => {
   const { width } = useWindowSize()
   if (width >= 765) {
     return (
       <InnerPages
-        backLink="/lotties-scrapbook/conch/1"
-        forwardLink="/lotties-scrapbook/takeshin-gakuen/3"
-        fluid={props.data.contentfulLottiesScrapbook.page1213.fluid}
-        imageAlt="Lottie's scrapbook Takeshin Gakuen page"
+        backLink="/lotties-scrapbook/ivy/1"
+        forwardLink="/lotties-scrapbook/stratus/1"
+        fluid={props.data.contentfulLottiesScrapbook.page67.fluid}
+        imageAlt="Lottie's scrapbook Ivy page 2"
       />
     )
   }
   return (
     <InnerPages
-      backLink="/lotties-scrapbook/takeshin-gakuen/1"
-      forwardLink="/lotties-scrapbook/takeshin-gakuen/3"
-      fluid={props.data.contentfulLottiesScrapbookMobile.page12.fluid}
-      imageAlt="Lottie's scrapbook Takeshin Gakuen page 2"
+      backLink="/lotties-scrapbook/ivy/2"
+      forwardLink="/lotties-scrapbook/ivy/4"
+      fluid={props.data.contentfulLottiesScrapbookMobile.page5.fluid}
+      imageAlt="Lottie's scrapbook Ivy page 3"
       mobile
     />
   )
 }
 
-export default TakeshinGakuen2
+export default Ivy3
 
 export const query = graphql`
-  query scrapbookTakeshinGakuenQuery2 {
+  query scrapbookIvyQuery3 {
     contentfulLottiesScrapbook {
-      page1213 {
+      page67 {
         fluid {
           ...GatsbyContentfulFluid
         }
       }
     }
     contentfulLottiesScrapbookMobile {
-      page12 {
+      page5 {
         fluid {
           ...GatsbyContentfulFluid
         }
