@@ -18,7 +18,7 @@ module.exports = {
     description: `Welcome to home of The Rosewood Chronicles`,
     siteUrl: `https://www.therosewoodchronicles.co.uk`,
     author: `@LukeBrobbin`,
-    image: `/images/D_Site_Logo.png`,
+    image: `/D_Site_Logo.png`,
     twitterUsername: `@connieglynn`,
   },
   plugins: [
