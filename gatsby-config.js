@@ -15,7 +15,7 @@ module.exports = {
   siteMetadata: {
     title: `Rosewood Chronicles`,
     titleTemplate: `%s | Rosewood Chronicles`,
-    description: `Welcome to The Rosewood Chronicles`,
+    description: `Welcome to home of The Rosewood Chronicles`,
     siteUrl: `https://www.therosewoodchronicles.co.uk`,
     author: `@LukeBrobbin`,
     image: `/images/D_Site_Logo.png`,
