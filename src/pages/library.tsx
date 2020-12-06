@@ -25,7 +25,6 @@ const Library: FunctionComponent<PageProps<LibraryData>> = ({ data }) => {
               <Link to={node.slug} className="library-book__link">
                 <LibraryBook alt={node.title} />
                 <p className="library-book__title">{node.title}</p>
-                {/* <p>{node.title}</p> */}
               </Link>
             </div>
           )

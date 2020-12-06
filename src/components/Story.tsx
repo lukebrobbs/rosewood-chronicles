@@ -17,7 +17,7 @@ const Story = (props: PageProps<StoryData>) => {
   const { content, title } = props.data.contentfulStory
   return (
     <>
-      <SEO title={title} />
+      <SEO title={title} article />
       <div className="story__wrapper">
         <h1 className="story__wrapper-title">{title}</h1>
         {documentToReactComponents(content.json)}
