@@ -14,6 +14,7 @@ const Ivy4 = (props: ScrapbookQuery<"page67", "page6">): ReactElement => {
         forwardLink="/lotties-scrapbook/stratus/1"
         fluid={props.data.contentfulLottiesScrapbook.page67.fluid}
         imageAlt="Lottie's scrapbook Ivy page 2"
+        title="Lottie's scrapbook | Ivy page 2"
       />
     )
   }
@@ -23,6 +24,7 @@ const Ivy4 = (props: ScrapbookQuery<"page67", "page6">): ReactElement => {
       forwardLink="/lotties-scrapbook/stratus/1"
       fluid={props.data.contentfulLottiesScrapbookMobile.page6.fluid}
       imageAlt="Lottie's scrapbook Ivy page 4"
+      title="Lottie's scrapbook | Ivy page 4"
       singlePage
     />
   )

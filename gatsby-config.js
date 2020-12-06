@@ -14,8 +14,12 @@ if (process.env.CONTENTFUL_HOST) {
 module.exports = {
   siteMetadata: {
     title: `Rosewood Chronicles`,
+    titleTemplate: `%s | Rosewood Chronicles`,
     description: `Welcome to The Rosewood Chronicles`,
+    url: `https://www.therosewoodchronicles.co.uk`,
     author: `@LukeBrobbin`,
+    image: `/images/D_Site_Logo.png`,
+    twitterUsername: `@connieglynn`,
   },
   plugins: [
     `gatsby-plugin-sass`,

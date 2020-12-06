@@ -14,6 +14,7 @@ const Memories2 = (props: ScrapbookQuery<"page23", "page2">): ReactElement => {
         forwardLink="/lotties-scrapbook/ivy/1"
         fluid={props.data.contentfulLottiesScrapbook.page23.fluid}
         imageAlt="Lottie's scrapbook memories page"
+        title="Lottie's scrapbook | memories"
       />
     )
   }
@@ -23,6 +24,7 @@ const Memories2 = (props: ScrapbookQuery<"page23", "page2">): ReactElement => {
       forwardLink="/lotties-scrapbook/ivy/1"
       fluid={props.data.contentfulLottiesScrapbookMobile.page2.fluid}
       imageAlt="Lottie's scrapbook memories page 2"
+      title="Lottie's scrapbook | memories page 2"
       singlePage
     />
   )

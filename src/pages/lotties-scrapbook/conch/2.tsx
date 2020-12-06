@@ -14,6 +14,7 @@ const Conch2 = (props: ScrapbookQuery<"page1011", "page10">): ReactElement => {
         forwardLink="/lotties-scrapbook/takeshin-gakuen/1"
         fluid={props.data.contentfulLottiesScrapbook.page1011.fluid}
         imageAlt="Lottie's scrapbook Conch page"
+        title="Lottie's scrapbook | Conch"
       />
     )
   }
@@ -23,6 +24,7 @@ const Conch2 = (props: ScrapbookQuery<"page1011", "page10">): ReactElement => {
       forwardLink="/lotties-scrapbook/takeshin-gakuen/1"
       fluid={props.data.contentfulLottiesScrapbookMobile.page10.fluid}
       imageAlt="Lottie's scrapbook Conch page 2"
+      title="Lottie's scrapbook | Conch Page 2"
       singlePage
     />
   )

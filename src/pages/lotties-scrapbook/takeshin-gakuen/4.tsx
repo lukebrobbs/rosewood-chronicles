@@ -15,7 +15,8 @@ const TakeshinGakuen4 = (
         backLink="/lotties-scrapbook/takeshin-gakuen/1"
         forwardLink="/lotties-scrapbook"
         fluid={props.data.contentfulLottiesScrapbook.page1415.fluid}
-        imageAlt="Lottie's scrapbook Takeshin Gakuen page"
+        imageAlt="Lottie's scrapbook Takeshin Gakuen page 2"
+        title="Lottie's scrapbook | Takeshin Gakuen page 2"
       />
     )
   }
@@ -25,6 +26,7 @@ const TakeshinGakuen4 = (
       forwardLink="/lotties-scrapbook"
       fluid={props.data.contentfulLottiesScrapbookMobile.page14.fluid}
       imageAlt="Lottie's scrapbook Takeshin Gakuen page 4"
+      title="Lottie's scrapbook | Takeshin Gakuen page 4"
       singlePage
     />
   )
