@@ -25,10 +25,17 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `UA-184818636-1`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
