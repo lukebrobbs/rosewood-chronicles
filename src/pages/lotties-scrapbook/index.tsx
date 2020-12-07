@@ -22,7 +22,7 @@ export const query = graphql`
   query scrapbookCoverQuery {
     contentfulLottiesScrapbook {
       cover {
-        fluid(maxWidth: 960) {
+        fluid {
           ...GatsbyContentfulFluid
         }
       }

@@ -1272,26 +1272,18 @@ pre tt:after {
   &__single-page {
     &__wrapper {
       position: relative;
-      width: 90vw;
-      max-width: 500px;
+      width: 80vw;
       margin: 2rem auto 0 auto;
 
       @include desktopSmall {
-        width: 52vh;
+        width: 33vw;
       }
 
-      @include desktop {
-        width: 50vh;
-      }
       @include desktopLg {
-        max-width: 1440px;
+        max-width: 800px;
+        width: 33vw;
       }
-      @include tall {
-        margin: 6rem auto 0 auto;
-        @include desktop {
-          width: 49vh;
-        }
-      }
+
       .next-button {
         position: absolute;
         right: 35%;
@@ -1324,27 +1316,16 @@ pre tt:after {
     &__wrapper {
       position: relative;
       width: 90vw;
-      max-width: 960px;
       margin: 2rem auto 0 auto;
       @include tablet {
         width: 78vw;
       }
 
-      @include desktop {
-        width: 53vw;
+      @include desktopSmall {
+        width: 65vw;
       }
       @include desktopLg {
         width: 30vw;
-      }
-      @include tall {
-        margin: 6rem auto 0 auto;
-        @include desktop {
-          width: 65vw;
-        }
-        @include desktopLg {
-          max-width: 1700px;
-          width: 60vw;
-        }
       }
       .next-button {
         position: absolute;
