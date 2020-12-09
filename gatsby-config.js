@@ -15,7 +15,7 @@ module.exports = {
   siteMetadata: {
     title: `Rosewood Chronicles`,
     titleTemplate: `%s | Rosewood Chronicles`,
-    description: `Welcome to home of The Rosewood Chronicles`,
+    description: `Welcome to the official website for The Rosewood Chronicles book series. Here you can take a Rosewood Hall sorting quiz to find out your house, buy merchandise, learn more about the students, and even discover some deleted chapters and secrets. Enjoy your stay.`,
     siteUrl: `https://www.therosewoodchronicles.co.uk`,
     author: `@LukeBrobbin`,
     image: `/D_Site_Logo.png`,
