@@ -8,8 +8,13 @@ $desktop: 1440px;
     @content;
   }
 }
+@mixin mobilelg {
+  @media only screen and (min-width: 425px) {
+    @content;
+  }
+}
 @mixin tablet {
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 765px) {
     @content;
   }
 }
@@ -22,6 +27,18 @@ $desktop: 1440px;
 
 @mixin desktop {
   @media only screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin desktopLg {
+  @media only screen and (min-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin tall {
+  @media only screen and (min-height: 849px) {
     @content;
   }
 }
@@ -1197,7 +1214,7 @@ pre tt:after {
         @include tablet {
           width: 50%;
         }
-        @include desktopSmall() {
+        @include desktopSmall {
           width: 30%;
         }
         &__title {
@@ -1217,10 +1234,10 @@ pre tt:after {
           @include tablet {
             font-size: 1.8em;
           }
-          @include desktopSmall() {
+          @include desktopSmall {
             font-size: 1.8em;
           }
-          @include desktop() {
+          @include desktop {
             // transform: rotateY(-45deg) rotateZ(6deg) rotateX(45deg)
             //   translate(-110%, -100%);
           }
@@ -1247,6 +1264,94 @@ pre tt:after {
     &-title {
       text-align: center;
       margin-bottom: 1.5em;
+    }
+  }
+}
+
+.scrapbook {
+  &__single-page {
+    &__wrapper {
+      position: relative;
+      width: 80vw;
+      margin: 2rem auto 0 auto;
+
+      @include desktopSmall {
+        width: 33vw;
+      }
+
+      @include desktopLg {
+        max-width: 800px;
+        width: 33vw;
+      }
+      .next-button {
+        position: absolute;
+        right: 35%;
+        top: calc(100% + 1rem);
+        width: 20px;
+        @include tablet {
+          top: 50%;
+          transform: translateY(-50%);
+          margin: 0;
+          right: -3rem;
+          width: 25px;
+        }
+      }
+      .back-button {
+        position: absolute;
+        left: 35%;
+        top: calc(100% + 1.7rem);
+        width: 20px;
+
+        @include tablet {
+          left: -3rem;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 25px;
+        }
+      }
+    }
+  }
+  &__innerPages {
+    &__wrapper {
+      position: relative;
+      width: 90vw;
+      margin: 2rem auto 0 auto;
+      @include tablet {
+        width: 78vw;
+      }
+
+      @include desktopSmall {
+        width: 65vw;
+      }
+      @include desktopLg {
+        width: 30vw;
+      }
+      .next-button {
+        position: absolute;
+        right: 30%;
+        top: calc(100% + 1rem - 9px);
+        width: 15px;
+
+        @include tablet {
+          top: 50%;
+          transform: translateY(-50%);
+          right: -3rem;
+          width: 25px;
+        }
+      }
+      .back-button {
+        position: absolute;
+        left: 30%;
+        top: calc(100% + 1rem);
+        width: 15px;
+
+        @include tablet {
+          left: -3rem;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 25px;
+        }
+      }
     }
   }
 }

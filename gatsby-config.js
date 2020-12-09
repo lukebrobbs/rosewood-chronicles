@@ -14,17 +14,28 @@ if (process.env.CONTENTFUL_HOST) {
 module.exports = {
   siteMetadata: {
     title: `Rosewood Chronicles`,
-    description: `Welcome to The Rosewood Chronicles`,
+    titleTemplate: `%s | Rosewood Chronicles`,
+    description: `Welcome to the official website for The Rosewood Chronicles book series. Here you can take a Rosewood Hall sorting quiz to find out your house, buy merchandise, learn more about the students, and even discover some deleted chapters and secrets. Enjoy your stay.`,
+    siteUrl: `https://www.therosewoodchronicles.co.uk`,
     author: `@LukeBrobbin`,
+    image: `/D_Site_Logo.png`,
+    twitterUsername: `@connieglynn`,
   },
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
+    },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `UA-184818636-1`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
